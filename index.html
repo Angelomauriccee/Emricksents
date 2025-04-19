@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="stylesheet" href="/style.css">
+    <title>Emrickscents</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        </style>
+        <script src="https://kit.fontawesome.com/b1f6f416f9.js" crossorigin="anonymous"></script>
+        <script src="carouselScript.js" defer></script>
+
+        <style>
+         .image-item {
+  width: 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.image-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.image-wrapper .hover-img {
+  opacity: 0;
+}
+
+.image-wrapper:hover .main-img {
+  opacity: 0;
+}
+
+.image-wrapper:hover .hover-img {
+  opacity: 1;
+}
+
+.description {
+  padding: 10px;
+  text-align: center;
+}
+
+.description p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.description .price {
+    font-size: 18px;
+  font-weight: bold;
+  color: #b12704;
+}
+
+
+        </style>
+</head>
+<body>
+
+
+
+     <!-- header -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="/logo.png" alt="emrick-logo"></a>
+        </div>
+        <nav>
+            <div class="menu" id="menu">
+                <button id="close" class="hamburger-close"><i class="fa-solid fa-xmark"></i></button>
+                    <ul class="navbar">
+                        <li id="drop-down" class="drop-down list">All Brands <i class="fa-solid fa-chevron-down"></i></i></a>
+                        
+                            <div id="drop-down-list" class="brands">
+                                <ul>
+                                    <h3>A-B</h3>
+                                    <li><a href="/pages/amaroud/index.html">Amouroud</a></li>
+                                        <li><a href="/pages/amouge/index.html">Amouage</a></li>
+                                        <li><a href="/pages/armaf/index.html">Armaf</a></li>
+                                        <li><a href="/pages/Armani/index.html">Armani</a></li>
+                                        <li><a href="/pages/Azzaro/index.html">Azzaro</a></li>
+                                        <li><a href="/pages/afnan/index.html">Afnan</a></li>
+                                        <li><a href="/pages/burberry/index.html">Burberry</a></li>
+                                        <li><a href="/pages/bvlgari/index.html">Bvlgari</a></li>
+                                        <li><a href="/pages/Bentley/index.html">Bentley</a></li>
+
+                                </ul>
+
+                                <ul>
+                                    <h3>C-E</h3>
+                                    <li><a href="/pages/CK/index.html">Calvin-Klein</a></li>
+                                    <li><a href="/pages/chloe/index.html">Chloe</a></li>
+                                    <li><a href="/pages//CH/index.html">Caroline-Herrera</a></li>
+                                    <li><a href="/pages/CHANEL/index.html">chanel</a></li>
+                                    <li><a href="/pages/D&G/index.html">D&G</a></li>
+                                    <li><a href="/pages/davidoff/index.html">Davidoff</a></li>
+                                    <li><a href="/pages/elie-saab/index.html">Elie Saab</a></li>
+                                </ul>
+
+                                <ul>
+                                    <h3>F-J</h3>
+                                    <li><a href="/pages/GIV/index.html">Givenchy</a></li>
+                                    <li><a href="/pages/GUERLAIN/index.html">Guerlain</a></li>
+                                    <li><a href="/pages/GUCCI/index.html">Gucci</a></li>
+                                    <li><a href="/pages/Hugo/index.html">Hugo-Boss</a></li>
+                                </ul>
+                                <ul>
+                                    <h3>N-R</h3>
+                                    <li><a href="/pages/Paco/index.html">Rabanne</a></li>
+                                </ul>
+
+                                <ul>
+                                    <h3>R-Y</h3>
+                                    <li><a href="/pages/Ralph-Lauren/index.html">Ralph Lauren</a></li>
+                                    <li><a href="/pages/Tom Ford/index.html">Tom Ford</a></li>
+                                    <li><a href="/pages/Valentino/index.html">Valentino</a></li>
+                                    <li><a href="/pages/YSL/index.html">Yves</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="list"><a href="/pages/allproducts.html">Shop</a></li>
+                        <li class="list"><a href="/pages/New-produt/new-products.html">New Arrivals</a></li>
+                        <li class="list"><a href="/pages/contact/find-product.html">Brands Not here? - Contact Us</a></li>
+                    </ul>
+
+                    <div class="search-box">
+                        <form id="search-form">
+                          <input type="search" name="q" id="search-input" placeholder="Search..." required>
+                          <button type="submit" class="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                          </button>
+                        </form>
+                        <ul class="suggestions-list"></ul>
+                      </div>
+                      <a href="/pages/Cart/index.html" class="cart-icon">
+                          <i class="fa-solid fa-cart-shopping cart"></i>
+                          <span class="cart-badge" style="display: none;">0</span>
+                      </a>
+                    </div>
+
+            <div class="hamburger">
+                <button id="open" class="hamburger-icon"><i class="fa-solid fa-bars"></i></button>
+                
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- header -->
+
+
+
+
+
+    <main>
+        <section>
+            <div class="hero-banner carousel" data-carousel>
+                <button class="carousel-button prev" data-carousel-button="prev"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="carousel-button next" data-carousel-button="next"><i class="fa-solid fa-arrow-right"></i></button>
+                <ul data-slides>
+                    <li class="slide" data-active>
+                        <div class="bannner-img image1">
+                            <img src="/Assets/ad/TOM FORD.png" alt="Tom Ford image">
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="bannner-img image2">
+                            <img src="/Assets/ad/libre.jpg" alt="Libre ad">
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="bannner-img image3">
+                            <img src="/Assets/ad/gucci.png" alt="">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="brand-showcase">
+            <div class="showcase-container">
+                <div class="showcase-wrapper">
+                    <button id="showcase-prev" class="showcase-button bx bx-chevron-left"></button>
+                    <div class="showcase-track">
+                        <img src="/Assets/brands/giorgo.png" alt="Giorgo" class="showcase-item">
+                        <img src="/Assets/brands/chanel.jpg" alt="Brand Image" class="showcase-item">
+                        <img src="/Assets/brands/LOGO_AFNAN.png" alt="Brand Image" class="showcase-item">
+                        <img src="/Assets/brands/Gucci-Logo.wine.png" alt="Brand Image" class="showcase-item">
+                        <img src="/Assets/brands/d&g.jpg" alt="Brand Image" class="showcase-item">
+                        <img src="/Assets/brands/dior.png" alt="Brand Image" class="showcase-item">
+                        <img src="/Assets/brands/paco.jpg" alt="Paco" class="showcase-item">
+                    </div>
+                    <button id="showcase-next" class="showcase-button bx bx-chevron-right"></button>
+                </div>
+            </div>
+        </section>
+
+
+
+       
+
+
+
+        <section class="images">
+            <div class="container popular-product">
+                <div class="title">
+                    <h2>MOST POPULAR PRODUCTS</h2>
+                    <p>smell <span style="color: #e4c200;">!Famous</span></p>
+                </div>
+                <div class="slide-wrapper">
+                    <button class="prev-slide slide-button bx bx-chevron-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="image-list" id="popular-products-list">
+                        
+                        
+                    </div>
+                    <button class="next-slide slide-button bx bx-chevron-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="view-links">
+                <p>
+                    <a class="view-all popular" href="/popular-products.html">View All  <i class="fa-solid fa-chevron-right"></i></a>
+                </p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container new-product">
+                <div class="title">
+                    <h2>JUST IN</h2>
+                    <p>smell <span style="color: #e4c200;">!New</span></p>
+                </div>
+                <div class="slide-wrapper">
+                    <button class="prev-slide slide-button bx bx-chevron-left">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="image-list" id="new-products-list">
+                      
+                        
+                    </div>
+                    <button class="next-slide slide-button bx bx-chevron-right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="view-links">
+                <p>
+                    <a class="view-all new-products" href="/pages/New-produt/new-products.html">View All  <i class="fa-solid fa-chevron-right"></i></a>
+                </p>
+            </div>
+        </section>
+
+
+
+        <section>
+            <div class="perf--ad">
+                    <img src="/Assets/ad/black-flora-gucci-4k-qrduke5bampo5os9.jpg" alt="perfume ad">
+
+
+            </div>
+        </section>
+
+
+
+        <section>
+            <div class="offer-section">
+                <div class="service">
+                    <img src="/Assets/icons/fast-delivery(2).png" alt="">
+                    <div class="txt">
+                        <h4>Swift Delivery</h4>
+                        <p>Swift Delivery On All Orders</p>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Assets/icons/24-hours-support.png" alt="">
+                    <div class="txt">
+                        <h4>24/7 Online Support</h4>
+                        <p>24hrs customer service</p>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="/Assets/icons/auditor(2).png" alt="">
+                    <div class="txt">
+                        <h4>Frangrance Consultant</h4>
+                        <p>Your very own advisor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <footer>
+        <div class="footer-contents">
+            <div class="first-line">
+                <div class="about-emrickscents">
+                    <div class="logo">
+                        <img src="/logo.png" alt="">
+                    </div>
+
+                    <p class="desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit a expedita, enim quia exercitationem ipsa quos. Facere nisi temporibus quos dolorum voluptatibus, eos recusandae quod fugit pariatur, sequi at voluptas!
+                </p>
+
+                    <div class="social-media-icons">
+                        <a href="https://web.facebook.com/emrickscents"><i class="fa-brands fa-facebook social-icons"></i></a>
+
+                        <a href="https://wa.me/2349065988598">
+                            <i class="fa-brands fa-whatsapp social-icons whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/emrickscents?igsh=MWtja2oxdHNkeWp6cQ==">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                
+            </div>
+
+            <div class="second-line more">
+                <h3>More on Emrickscents</h3>
+                <ul class="footer-links">
+                    <li><a href="/index.html">Back to Home</a></li>
+                    <li><a href="/pages/New-produt/new-products.html">New Arrivals</a></li>
+                    <li><a href="/pages/contact/find-product.html">Cant find a Product?</a></li>
+                    <li><a href="https://wa.me/2349065988598">Need Personal assistance</a></li>
+                   
+                </ul>
+            </div>
+
+            <div class="contact">
+                <h3>Reach Out To Us </h3>
+                    <p class="address">
+                        OGUDU MALL, BLOCK M PLOT3, ALONG OGUDU-OJOTA ROAD, OGUDU GRA. OGUDU. LAGOS.
+                    </p>
+                    <p class="call-us">Call Us: +234-9065988598</p>
+                    <p>
+                        Email:
+                        <a href="mailto:info@emrickscents.com">info@emrickscents.com</a>
+                    </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <a href="#" class="terms">Terms / policy</a>
+
+            <div class="overlay" id="overlay"></div> <!-- Background overlay -->
+            <div class="popover" id="policy-popover">
+                <div class="popover-content">
+                    <button class="close-popover">&times;</button>
+                    <h2>Emrick’s Perfume Return & Store Credit Policy
+                    </h2>
+                    <div class="popover-text">
+                        <p> At Emrick’s Perfume, customer satisfaction is our priority. While we do not offer refunds, we provide store credit for eligible returns under specific conditions. 
+                            Kindly read our return and store credit policy carefully. 
+                            </p>
+                            <br>
+                        <p>1. Eligibility for Returns & Store Credit. Customers may request a return under the following conditions: 
+                            - Wrong Item Received: If you receive a different fragrance from what you ordered. 
+                            - Damaged Product: If the perfume bottle arrives broken or leaking.
+                            - Defective Spray Mechanism: If the nozzle or atomizer is faulty and prevents proper spraying. 
+                            Conditions for Returns:
+                            - The item must be unused, unopened, and in its original packaging for non-defective items. - The request must be made within 24 hours of purchase. 
+                            - Immediate proof (clear photos and videos) must be provided upon receiving the order from the dispatch. <br>
+                            2. Non-Returnable Items
+                            We do not accept returns or provide store credit for the following: 
+                            - Opened or used perfumes (for hygiene and authenticity reasons). 
+                            - Items purchased on sale or during promotional offers. 
+                            - Personalized or customized orders. 
+                            - Requests made after 24 hours of purchase. 
+                            - Returns due to allergic reactions, personal scent preferences, or gift-related dissatisfaction. <br>
+                            3. Return & Store Credit Process
+                            Step 1: Submit a return request via WhatsApp within 24 hours of receiving your order. Include clear photos and videos as proof. 
+                            Step 2: Our team will review your request and respond within 24 hours with further instructions. 
+                            Step 3: If approved, you will need to send the item back to our store. Upon receipt and verification, we will issue a store credit of equal value, valid for 14 working days. <br>
+                            4. Shipping Costs & Responsibility
+                            - If the return is due to our error (damaged, defective, or incorrect product), we cover the return shipping cost. 
+                            - If the return is due to customer preference or any non-qualifying reason, you are responsible for the return shipping cost. 
+                            </p>
+                            <br>
+                        <p>For any return-related inquiries, please contact us via <a style="color: black;" href="https://wa.me/2349065988598">+234-906-598-8598</a> for prompt assistance. 
+                        </p>
+                        <br><br>
+                        <p >Thank you for choosing Emrick’s Perfume !</p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="c">
+                <p><i class="fa-regular fa-copyright"></i> 2025 Emrickscents</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="/script.js"></script>
+<script src="/page-products.js"></script>
+<script src="/pages/search.js"></script>
+</html>
