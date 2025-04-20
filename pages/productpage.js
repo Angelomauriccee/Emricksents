@@ -1,7 +1,4 @@
 
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const pathArray = window.location.pathname.split("/");
     const productSlug = pathArray[pathArray.length - 1].replace(".html", "").toLowerCase();
@@ -36,16 +33,43 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById("product-type").textContent = `Type: ${product.type}` || "Fragrance";
 
                 // ✅ Fix for Image Selection
-                const image1 = product.images?.image1 || product.image || "images/placeholder.jpg";
-                const image2 = product.images?.image2 || "";
+               // === Build a dynamic image gallery ===
+const imageGalleryContainer = document.querySelector(".product-images");
+imageGalleryContainer.innerHTML = ""; // Clear if anything is already there
 
-                document.getElementById("main-image").src = image1;
-                document.getElementById("main-image").alt = product.name;
+const mainImage = document.createElement("img");
+mainImage.id = "main-image";
+mainImage.classList.add("main-image");
+mainImage.src = product.images?.image1 || product.image || "images/placeholder.jpg";
+mainImage.alt = product.name;
+imageGalleryContainer.appendChild(mainImage);
 
-                if (image2) {
-                    document.getElementById("secondary-image").src = image2;
-                    document.getElementById("secondary-image").style.display = "block";
-                }
+// Create thumbnails only if multiple images exist
+const imageValues = Object.values(product.images || {}).filter(Boolean);
+if (imageValues.length > 1) {
+    const thumbnailWrapper = document.createElement("div");
+    thumbnailWrapper.classList.add("thumbnail-wrapper");
+
+    imageValues.forEach((imgSrc, index) => {
+        const thumb = document.createElement("img");
+        thumb.src = imgSrc;
+        thumb.alt = `Thumbnail ${index + 1}`;
+        thumb.className = "thumbnail";
+        if (index === 0) thumb.classList.add("active");
+
+        thumb.addEventListener("click", () => {
+            mainImage.src = imgSrc;
+
+            document.querySelectorAll(".thumbnail").forEach(t => t.classList.remove("active"));
+            thumb.classList.add("active");
+        });
+
+        thumbnailWrapper.appendChild(thumb);
+    });
+
+    imageGalleryContainer.appendChild(thumbnailWrapper);
+}
+
 
                 // ✅ Set Breadcrumb Navigation
                 const breadcrumb = document.querySelector(".breadcrumb");
@@ -242,3 +266,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+
+
+
+// Add any additional functionality or features here if needed
