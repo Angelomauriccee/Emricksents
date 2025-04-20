@@ -644,7 +644,7 @@ footer{
     
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1080px){
     header{
         z-index: 9999999;
         position: sticky;
