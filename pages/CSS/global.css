@@ -611,7 +611,18 @@ footer{
 .cart:hover{
     background-color: #FFD700;
 }
-
+.remove-btn{
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+}
+.remove-btn:hover,
+.remove-btn:focus{
+    background-color: #b8b8b8;
+}
 
 
 
