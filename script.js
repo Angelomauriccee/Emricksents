@@ -357,3 +357,65 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+
+
+
+
+
+//BONUS SECTION
+document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.getElementById("bonus-popup");
+    const triggerSection = document.querySelector("#bonus-trigger"); // 👈 Make sure to add this ID to the section that should trigger the pop-up
+    let popupShown = false;
+  
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+  
+    function fireSideConfetti() {
+      const duration = 3 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
+  
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+  
+      const interval = setInterval(function () {
+        const timeLeft = animationEnd - Date.now();
+  
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+  
+        confetti({
+          ...defaults,
+          particleCount: 5,
+          origin: { x: 0, y: randomInRange(0.3, 0.7) }
+        });
+  
+        confetti({
+          ...defaults,
+          particleCount: 5,
+          origin: { x: 1, y: randomInRange(0.3, 0.7) }
+        });
+      }, 200);
+    }
+  
+    window.addEventListener("scroll", () => {
+      if (!popupShown && isInViewport(triggerSection)) {
+        popup.classList.remove("hidden");
+        popup.classList.add("show");
+        popupShown = true;
+        fireSideConfetti();
+  
+        setTimeout(() => {
+          popup.classList.remove("show");
+        }, 10000); // Hide after 10s
+      }
+    });
+  });
+  
