@@ -2915,7 +2915,7 @@
       },
       {
         "id": 233,
-        "name": "PR 1 Million Men Parfum 100ml",
+        "name": "Paco Rabanne 1 Million Men Parfum 100ml",
         "price": "₦150,000.00",
         "images": {
           "image1": "/Assets/Perfumes/A2/rabanne/paco1milparf.jpg",
@@ -2923,7 +2923,7 @@
         },
         "description": "Paco Rabanne 1 Million Parfum 100ml is a bold, warm, and luxurious scent with notes of leather, amber, and salty tuberose.",
         "size": "100ml",
-        "link": "/pages/Paco/product-page/P.R-1-Million-Men-Parfum-100ml.html",
+        "link": "/pages/Paco/product-page/Paco-Rabanne-1-Million-Men-Parfum-100ml.html",
         "type": "EDP",
         "status": "new",
         "statusTwo": "popular"
@@ -3208,7 +3208,7 @@
         },
         "description": "A joyful, feminine fragrance featuring pear blossom, white gardenia, jasmine, and a touch of brown sugar",
         "size": "100ml",
-        "link": "/pages/GUCCI/product-page/Gucci-Flora-Gorgeous-Gardenia-Edp-100ml.html",
+        "link": "/pages/GUCCI/product-page/Gucci-Flora-Gorgeous-Gardenia-Edp100ml.html",
         "type": "EDP",
         "status": "new",
         "statusTwo": "popular",
@@ -3224,7 +3224,7 @@
         },
         "description": "A radiant floral fragrance featuring jasmine, mandarin, and sandalwood for a luminous, feminine scent.",
         "size": "100ml",
-        "link": "/pages/GUCCI/product-page/Gucci-Flora-Gorgeous-Jasmine-Edp-100ml.html",
+        "link": "/pages/GUCCI/product-page/Gucci-Flora-Gorgeous-Jasmine-Edp100ml.html",
         "type": "EDP",
         "status": "new",
         "statusTwo": "popular",
@@ -3255,7 +3255,7 @@
         },
         "description": "Paco Rabanne 1 Million Men EDT 100ml is a bold, spicy fragrance featuring blood mandarin, cinnamon, rose, leather, and amber notes.",
         "size": "100ml",
-        "link": "/pages/Paco/product-page/plus.html",
+        "link": "/pages/Paco/product-page/Paco-Rabanne-1-Million-Men-EDT-100ML.html",
         "type": "EDT",
         "status": "new",
         "statusTwo": "popular"
