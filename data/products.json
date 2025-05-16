@@ -657,13 +657,13 @@
     {
         "id": 53,
         "name": "AMOUAGE Interlude Man EDP",
-        "price": "₦83,000.00",
+        "price": "₦280,000.00",
         "images": {
             "image1": "/Assets/Perfumes/A2/amouge/new_amouage_interlude_man_edp_100ml-1_1.jpg",
             "image2": "/Assets/Perfumes/A2/amouge/new_amouage_interlude_man_edp_100ml.jpg"
         },
         "description": "A bold and enigmatic fragrance, Interlude Man is a masterful blend of smoky, spicy, and woody notes. With rich oud, frankincense, and amber, it creates an intense yet harmonious olfactory experience, perfect for those who command attention.",
-        "size": "100ml",
+        "size": "50ml",
         "link": "/pages/amouge/product-page/AMOUAGE-Interlude-Man-EDP.html",
         "type": "EDP"
     },
@@ -722,7 +722,7 @@
     {
         "id": 58,
         "name": "AMOUAGE Lyric Man EDP",
-        "price": "₦83,000.00",
+        "price": "₦642,000.00",
         "images": {
           "image1": "/Assets/Perfumes/A2/amouge/lyric-man.jpg",
           "image2": "/Assets/Perfumes/A2/amouge/amouage-perfume-lyric-edp-for-men-100ml-1729065975837_530x_2.jpg"
