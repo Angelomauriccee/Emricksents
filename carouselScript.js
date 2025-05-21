@@ -19,7 +19,7 @@ function startAutoSlide() {
     clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(() => {
         changeSlide(1);
-    }, 2000);
+    }, 5000);
 }
 
 // Function to pause and restart auto-sliding
