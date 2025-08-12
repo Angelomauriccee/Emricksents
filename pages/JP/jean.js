@@ -39,10 +39,9 @@ filterBtn.addEventListener("click", () => {
 fetch("/data/products.json")
   .then(response => response.json())
   .then(products => {
-let amouroudProducts = products.filter(product => {
-  const name = product.name.toLowerCase();
-  return (name.includes("ch") && name.includes("212")) || name.includes("carolina");
-});
+    let amouroudProducts = products.filter(product => 
+      product.name.toLowerCase().includes("jean")
+    );
 
     const productsContainer = document.querySelector(".products-display");
     const countDisplay = document.querySelector(".headings-display p"); 

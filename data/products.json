@@ -38,7 +38,7 @@
         "size": "100ML",
         "link": "/pages/afnan/Product-page/AFNAN-Supremacy-Not-Only-Intense-EDP-100ML.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
     },
     {
@@ -1192,7 +1192,7 @@
         "size": "105ml",
         "link": "/pages/armaf/product-page/Armaf-Club-De-Nuit-Intense-Man-Edt-105ml.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
     },
@@ -1208,7 +1208,7 @@
         "size": "105ml",
         "link": "/pages/armaf/product-page/Armaf-Club-De-Nuit-Women-EDP-105ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
     },
@@ -1276,7 +1276,7 @@
         "size": "105ml",
         "link": "/pages/armaf/product-page/Armaf-Club-De-Nuit-Sillage-EDP-105ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
     },
@@ -1505,7 +1505,7 @@
         "size": "100ml",
         "link": "/pages/armaf/product-page/Armaf-Club-De-Nuit-Precieux-1-Extrait-55-EDP-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
     },
     {
@@ -1662,7 +1662,7 @@
         "size": "100ml",
         "link": "/pages/Armani/product-pages/Emporio-Armani-Stronger-With-You-Intensely-EDP-100ML.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -1677,7 +1677,7 @@
         "size": "100ml",
         "link": "/pages/Armani/product-pages/Emporio-Armani-Stronger-With-You-Absolutely-EDP-100ML.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
       },
@@ -1892,7 +1892,7 @@
       {
         "id": 156,
         "name": "BURBERRY Her EDP 100ml",
-        "price": "₦229,000.00",
+        "price": "₦230,000.00",
         "images": {
           "image1": "/Assets/Perfumes/A2/burberry/burberry-her-edp-100-ml-1.jpg",
           "image2": "/Assets/Perfumes/A2/burberry/her-box.jpg"
@@ -2029,7 +2029,7 @@
         "size": "100ml",
         "link": "/pages/bvlgari/product-page/BVLGARI-Man-In-Black-Edp.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2212,7 +2212,7 @@
         "size": "100ml",
         "link": "/pages/CK/product-page/CALVIN-KLEIN-Eternity-Ladies-EDP-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2227,7 +2227,7 @@
         "size": "100ml",
         "link": "/pages/CK/product-page/CALVIN-KLEIN-Eternity-Intense-L-EDP-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2411,7 +2411,7 @@
         "size": "125ml",
         "link": "/pages/davidoff/product-page/DAVIDOFF-Cool-Water-Men-EDT-125ml.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2595,7 +2595,7 @@
         "size": "100ml",
         "link": "/pages/D&G/product-page/DOLCE-AND-GABBANA-The-Only-One-Intense-EDP-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2662,7 +2662,7 @@
         "size": "",
         "link": "/pages/D&G//product-page/DOLCE-AND-GABBANA-Devotion-EDP.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2677,7 +2677,7 @@
         "size": "100ml",
         "link": "/pages/D&G/product-page/DOLCE-AND-GABBANA-Devotion-Pour-Homme-EDP-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2717,7 +2717,7 @@
         "size": "100ml",
         "link": "/pages/Armani/product-pages/Armani-Si-Edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2925,7 +2925,7 @@
         "size": "100ml",
         "link": "/pages/Paco/product-page/Paco-Rabanne-1-Million-Men-Parfum-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2940,7 +2940,7 @@
         "size": "125ml",
         "link": "/pages/Ralph-Lauren/product-page/Ralph-lauren-polo-oud-edp-125ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2955,7 +2955,7 @@
         "size": "100ml",
         "link": "/pages/Bentley/product-page/Bentley-Absolute-Men-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2970,7 +2970,7 @@
         "size": "100ml",
         "link": "/pages/Bentley/product-page/Bentley-for-men-intense-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -2985,7 +2985,7 @@
         "size": "100ml",
         "link": "/pages/Hugo/product-page/hugo-boss-the-scent-absolute-m-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3000,7 +3000,7 @@
         "size": "100ml",
         "link": "/pages/Hugo/product-page/hugo-boss-the-scent-her-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3015,7 +3015,7 @@
         "size": "125ml",
         "link": "/pages/Ralph-Lauren/product-page/ralph-lauren-polo-red-men-parfum-125ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3030,7 +3030,7 @@
         "size": "100ml",
         "link": "/pages/CK/product-page/CALVIN-KLEIN-Eternity-Flame-Women-Edp-100ml.HTML",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3045,7 +3045,7 @@
         "size": "100ml",
         "link": "/pages/YSL/product-page/Ysl-Korous-Men-Edt-100ml.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3060,7 +3060,7 @@
         "size": "100ml",
         "link": "/pages/CK/product-page/CALVIN-KLEIN-Eternity-Flame-Men-Edt-100ml.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3075,7 +3075,7 @@
         "size": "100ml",
         "link": "/pages/CK/product-page/CALVIN-KLEIN-Eternity-Air-Men-Edt-100ml.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3090,7 +3090,7 @@
         "size": "100ml",
         "link": "/pages/GUERLAIN/product-page/Guerlain-LHomme-ideal-Edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3105,7 +3105,7 @@
         "size": "100ml",
         "link": "/pages/GUERLAIN/product-page/Guerlain-L'Homme-ideal-L'intense-Edp100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3120,7 +3120,7 @@
         "size": "100ml",
         "link": "/pages/GUERLAIN/product-page/Guerlain-L'Homme-ideal-L'intense-Edp100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3135,7 +3135,7 @@
         "size": "90ml",
         "link": "/pages/YSL/product-page/Ysl-Libre-Le-Parfum-90ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3150,7 +3150,7 @@
         "size": "105ml",
         "link": "/pages/armaf/product-page/Armaf-Club-De-Nuit-Urban-Man-Elixir-105ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3165,7 +3165,7 @@
         "size": "100ml",
         "link": "/pages/CH/product-page/CH-212-Men-NYC-Edt-100ml.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3180,7 +3180,7 @@
         "size": "80ml",
         "link": "/pages/CH/product-page/CH-212-VIP-Rose-Ladies-Edp-80ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3195,7 +3195,7 @@
         "size": "100ml",
         "link": "/pages/CH/product-page/CH-212-VIP-Black-Men-Edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3210,7 +3210,7 @@
         "size": "100ml",
         "link": "/pages/GUCCI/product-page/Gucci-Flora-Gorgeous-Gardenia-Edp100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
       },
@@ -3226,7 +3226,7 @@
         "size": "100ml",
         "link": "/pages/GUCCI/product-page/Gucci-Flora-Gorgeous-Jasmine-Edp100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
       },
@@ -3242,7 +3242,7 @@
         "size": "100ml",
         "link": "/pages/CD/product-page/CD-Sauvage-men-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3257,7 +3257,7 @@
         "size": "100ml",
         "link": "/pages/Paco/product-page/Paco-Rabanne-1-Million-Men-EDT-100ML.html",
         "type": "EDT",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3272,7 +3272,7 @@
         "size": "100ml",
         "link": "/pages/Tom Ford/product-page/Tom-ford-noir-extreme-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
       },
@@ -3288,7 +3288,7 @@
         "size": "100ml",
         "link": "/pages/Tom Ford/product-page/Tom-ford-ombre-leather-parfum-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
       },
@@ -3304,7 +3304,7 @@
         "size": "100ml",
         "link": "/pages/Tom Ford/product-page/tom-ford-black-orchid-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular",
         "currentStatus": "popular-products"
       },
@@ -3320,7 +3320,7 @@
         "size": "100ml",
         "link": "/pages/CHANEL/product-page/chanel-coco-mademoiselle-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3335,7 +3335,7 @@
         "size": "100ml",
         "link": "/pages/CHANEL/product-page/chanel-No-5-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3350,7 +3350,7 @@
         "size": "90ml",
         "link": "/pages/Armani/product-pages/Armani-my-way-edp-90ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3365,7 +3365,7 @@
         "size": "100ml",
         "link": "/pages/CHANEL/product-page/chanel-bieu-de-chanel-pour-homme-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3380,7 +3380,7 @@
         "size": "100ml",
         "link": "/pages/GIV/product-page/giv-gentlemen-society-edp.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3395,7 +3395,7 @@
         "size": "100ml",
         "link": "/pages/GIV/product-page/giv-gentlemen-edp.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3410,7 +3410,7 @@
         "size": "100ml",
         "link": "/pages/armaf/product-page/Armaf-miss-armaf-catwalk-edp-100ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3425,7 +3425,7 @@
         "size": "80ml",
         "link": "/pages/afnan/Product-page/AFNAN-LA-Fleur-bouquet-Edp-80ml.html",
         "type": "EDP",
-        "status": "new",
+        "status": "old",
         "statusTwo": "popular"
       },
       {
@@ -3439,6 +3439,246 @@
         "description": "Valentino Uomo Born in Roma is a bold, woody-spicy scent with violet leaf, ginger, and smoked vetiver.",
         "size": "100ml",
         "link": "/pages/Valentino/product-page/valentino-uomo-born-in-roma-dor-edp-100ml.html",
+        "type": "EDP",
+        "status": "old",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 269,
+        "name": "Clive Christian 100ml",
+        "price": "₦1,250,000.00",
+        "images": {
+          "image1": "/Assets/Perfumes/new/clive-christian.jpg",
+          "image2": "/Assets/Perfumes/new/clive-carton.webp"
+        },
+        "description": "Clive Christian makes rich, long-lasting perfumes that carry a royal touch and feel instantly luxurious.",
+        "size": "100ml",
+        "link": "/pages/Clive-Christian/product-page/Clive-Christian-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 270,
+        "name": "Creed queen of silk 75ml",
+        "price": "₦690,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/creed-queen-silk.jpeg",
+          "image2": "/Assets/perfumes/new/Creed-Queen-of-Silk-75ml-For-Women-151301738.webp"
+        },
+        "description": "Creed Queen of Silk is a luxurious floral fragrance that embodies elegance and sophistication.",
+        "size": "75ml",
+        "link": "/pages/Creed/product-page/creed-queen-of-silk-75ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 271,
+        "name": "Creed Royal oud 100ml",
+        "price": "₦620,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/creed-royal-back.jpg",
+          "image2": "/Assets/perfumes/new/creed_royal_oud.jpg"
+        },
+        "description": "Creed Royal Oud is a luxurious and sophisticated fragrance that combines rich oud with a blend of spices and florals.",
+        "size": "100ml",
+        "link": "/pages/Creed/product-page/creed-royal-oud-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 272,
+        "name": "Nishane hacivat extrait de parfum 100ml",
+        "price": "₦430,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/nishane.jpg",
+          "image2": "/Assets/perfumes/new/nishane-extrait.webp"
+        },
+        "description": "Nishane Hacivat is a luxurious and sophisticated fragrance that combines rich oud with a blend of spices and florals.",
+        "size": "100ml",
+        "link": "/pages/Nishane/product-page/nishane-hacivat-extrait-de-parfum-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 273,
+        "name": "Louis Vuitton imagination Edp 100ml",
+        "price": "₦1,452,450.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/louis-vuitton-imagination-collections-LP0219_PM2_Front-view.webp",
+          "image2": "/Assets/perfumes/new/LouisVuittonImaginationEDP100ml.webp"
+        },
+        "description": "Louis Vuitton Imagination is a fresh citrus-tea scent with warm amber and spice.",
+        "size": "100ml",
+        "link": "/pages/Louis/product-page/louis-vuitton-imagination-edp-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 274,
+        "name": "Louis Vuitton ombre Nomade 100ml",
+        "price": "₦1,491,787.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/ouisVuittonOmbreNomadeEDP100ml.webp",
+          "image2": "/Assets/perfumes/new/ombre-nomade-2.webp"
+        },
+        "description": "Louis Vuitton Ombre Nomade EDP 100 ml is a rich, smoky oud scent warmed with leather, incense, raspberry, and spices.",
+        "size": "100ml",
+        "link": "/pages/Louis/product-page/Louis-Vuitton-ombre-Nomade-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 275,
+        "name": "Initio oud for greatness 90ml",
+        "price": "₦520,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/initio-front.jpg",
+          "image2": "/Assets/perfumes/new/INITIOOFG_1024x.jpg"
+        },
+        "description": "Initio’s Oud for Greatness is a bold, spicy oud wrapped in lavender’s freshness and warmed with nutmeg, saffron, patchouli, and musk.",
+        "size": "90ml",
+        "link": "/pages/Initio/product-page/initio-oud-for-greatness-90ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 276,
+        "name": "Jean Paul Gaultier divine 100ml",
+        "price": "₦215,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/jean-paul.png",
+          "image2": "/Assets/perfumes/new/jean-paul-complete.jpg"
+        },
+        "description": "Jean Paul Gaultier Divine is a sweet, salty floral with airy lily and a creamy meringue base.",
+        "size": "90ml",
+        "link": "/pages/JP/product-page/Jean-Paul-Gaultier-divine-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 277,
+        "name": "Versace pour homme oud noir 100ml",
+        "price": "₦232,500.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/versace-front.webp",
+          "image2": "/Assets/perfumes/new/versace-pour-homme.jpg"
+        },
+        "description": "Versace Pour Homme Oud Noir is a warm and spicy fragrance with notes of oud, leather, and amber.",
+        "size": "100ml",
+        "link": "/pages/Versace/product-page/versace-pour-homme-oud-noir-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 278,
+        "name": "Gucci intense oud eau de parfum 90ml",
+        "price": "₦302,500.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/GUCCI_INTENSEOUD_EDP90.jpg",
+          "image2": "/Assets/perfumes/new/gucci-back-cover.jpeg"
+        },
+        "description": "Gucci Intense Oud is a warm and spicy fragrance with notes of oud, leather, and amber.",
+        "size": "90ml",
+        "link": "/pages/GUCCI/product-page/Gucci-intense-oud-eau-de-parfum-90ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 279,
+        "name": "Armaf club de nuit maleka 105ml",
+        "price": "₦302,500.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/club-de-nuit.webp",
+          "image2": "/Assets/perfumes/new/club-de-nuit-maleka.webp"
+        },
+        "description": "Armaf Club De Nuit Maleka is a juicy lychee-fruity floral with a powdery orris heart and a warm, creamy base of praline, sandalwood, and ambroxan.",
+        "size": "105ml",
+        "link": "/pages/Armaf/product-page/Armaf-club-de-nuit-maleka-105ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 280,
+        "name": "Creed Aventus 100ml",
+        "price": "₦615,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/creed_aventus_edp_100ml_perfume_for_men.jpg",
+          "image2": "/Assets/perfumes/Creed-Aventus-EDP-100ml-For-Men-33811322.webp"
+        },
+        "description": "Creed Aventus is a fruity chypre fragrance with notes of pineapple, bergamot, and blackcurrant.",
+        "size": "100ml",
+        "link": "/pages/Creed/product-page/Creed-Aventus-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 281,
+        "name": "Carolina Herrera Bad boy cobalt 100ml",
+        "price": "₦190,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/bad-boy.webp",
+          "image2": "/Assets/perfumes/new/bad-boy-carolina.png"
+        },
+        "description": "Carolina Herrera Bad Boy Cobalt is a bold and daring fragrance with notes of bergamot, black pepper, and amber.",
+        "size": "100ml",
+        "link": "/pages/CH/product-page/Carolina-Herrera-Bad-boy-cobalt-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 282,
+        "name": "Carolina Herrera Good girl gold fantasy 80ml",
+        "price": "₦205,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/carolie-back.jpg",
+          "image2": "/Assets/perfumes/new/carolina.webp"
+        },
+        "description": "Carolina Herrera Good Girl Gold Fantasy 80 ml is a creamy floral-gourmand that kicks off with almond and coffee, blooms with jasmine and tuberose, then melts into a cozy mix of tonka bean and cocoa.",
+        "size": "80ml",
+        "link": "/pages/CH/product-page/Carolina-Herrera-Good-girl-gold-fantasy-80ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 283,
+        "name": "Versace Eros pour femme 100ml",
+        "price": "₦215,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/versace.jpg",
+          "image2": "/Assets/perfumes/new/versace-bback.jpg"
+        },
+        "description": "Versace Eros pour femme 100 ml is a floral-fruity fragrance that embodies strength and femininity.",
+        "size": "80ml",
+        "link": "/pages/Versace/product-page/Versace-Eros-pour-femme-100ml.html",
+        "type": "EDP",
+        "status": "new",
+        "statusTwo": "popular"
+      },
+      {
+        "id": 284,
+        "name": "Terre DHermes eau intense vetiver 100ml",
+        "price": "₦215,000.00",
+        "images": {
+          "image1": "/Assets/perfumes/new/terre.webp",
+          "image2": "/Assets/perfumes/new/terre-hermes.jpg"
+        },
+        "description": "Terre D'Hermés eau intense vetiver 100 ml is a woody-spicy fragrance that embodies strength and elegance.",
+        "size": "100ml",
+        "link": "/pages/Terre/product-page/Terre-DHermes-eau-intense-vetiver-100ml.html",
         "type": "EDP",
         "status": "new",
         "statusTwo": "popular"
