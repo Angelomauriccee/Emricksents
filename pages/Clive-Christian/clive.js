@@ -40,7 +40,7 @@ fetch("/data/products.json")
   .then(response => response.json())
   .then(products => {
     let amouroudProducts = products.filter(product => 
-      product.name.toLowerCase().includes("cli")
+      product.name.toLowerCase().includes("clive")
     );
 
     const productsContainer = document.querySelector(".products-display");
