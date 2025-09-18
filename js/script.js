@@ -123,7 +123,7 @@ function initAnimations() {
 // Initialize countdown timer
 function initCountdown() {
     // 🔒 Fixed launch date (example: September 20, 2025 at midnight)
-    const countdownDate = new Date("Sep 20, 2025 00:00:00").getTime();
+    const countdownDate = new Date("Sep 23, 2025 00:00:00").getTime();
 
     // Update the countdown every second
     const countdownTimer = setInterval(() => {
