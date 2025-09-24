@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { CartProvider } from './context/CartContext'
-import Navbar from './components/layout/UpdatedNavbar'
+import Navbar from './components/layout/EnhancedNavbar' // Updated to use EnhancedNavbar
 import Footer from './components/layout/UpdatedFooter'
 import ScrollToTop from './components/ui/ScrollToTop'
 import NewLoader from './components/ui/NewLoader'
 import CookieConsent from './components/ui/CookieConsent'
+
+// Import enhanced styles
+import './components/enhanced-styles.css'
 
 // Import enhanced features
 import CustomCursor from './components/features/CustomCursor'
@@ -17,7 +20,7 @@ import ScrollAnimations from './components/features/ScrollAnimations'
 
 // Pages
 import Home from './pages/Home'
-import Shop from './pages/Shop'
+import Shop from './pages/EnhancedShop' // Updated to use EnhancedShop
 import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
 import About from './pages/About'

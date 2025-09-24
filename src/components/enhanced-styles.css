@@ -1,0 +1,262 @@
+/* Enhanced Styles for Luxury Perfume Shop */
+
+/* Mega Menu Styles */
+.mega-menu {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mega-menu .container-custom {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.mega-menu h3 {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.mega-menu button {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.mega-menu button:hover {
+  transform: translateX(5px);
+}
+
+.mega-menu button::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.mega-menu button:hover::after {
+  width: 100%;
+}
+
+/* Featured Dropdown Styles */
+.featured-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 1rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.featured-menu:hover .featured-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) translateX(-50%);
+}
+
+.featured-dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featured-dropdown li {
+  padding: 0;
+}
+
+.featured-dropdown a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--color-light);
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.featured-dropdown a:hover {
+  color: var(--color-secondary);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.featured-dropdown a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.featured-dropdown a:hover::after {
+  width: calc(100% - 3rem);
+}
+
+/* Filter Styles */
+.filter-sidebar {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-group:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.filter-group h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-option:hover {
+  color: var(--color-secondary);
+}
+
+.checkmark, .radio-mark {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-right: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.checkmark {
+  border-radius: 4px;
+}
+
+.radio-mark {
+  border-radius: 50%;
+}
+
+input:checked ~ .checkmark,
+input:checked ~ .radio-mark {
+  border-color: var(--color-secondary);
+}
+
+input:checked ~ .checkmark::after,
+input:checked ~ .radio-mark::after {
+  content: '';
+  position: absolute;
+  display: block;
+}
+
+input:checked ~ .checkmark::after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-secondary);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input:checked ~ .radio-mark::after {
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+
+.option-text {
+  transition: all 0.3s ease;
+}
+
+/* Product Grid Transitions */
+.product-grid {
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Dynamic Title Styles */
+.current-selection {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, var(--color-secondary), #e2c17e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+}
+
+.current-selection::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-secondary);
+}
+
+/* Shadow Luxury */
+.shadow-luxury {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+              0 1px 3px rgba(0, 0, 0, 0.1),
+              0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease forwards;
+}
