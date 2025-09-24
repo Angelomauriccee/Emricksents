@@ -1,18 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiFilter, FiX, FiChevronDown } from 'react-icons/fi';
 import gsap from 'gsap';
 
 import { useFilter } from '../context/FilterContext';
+import { useSearch } from '../context/SearchContext';
 import SectionTitle from '../components/ui/SectionTitle';
-import ProductCard from '../components/product/ProductCard';
+import ProductCard from '../components/product/EnhancedProductCard';
 import Button from '../components/ui/Button';
 import products from '../data/products';
 
 const ReactiveShop = () => {
+  const [searchParams] = useSearchParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const { activeFilters, handleFilterChange, clearFilters } = useFilter();
+  const { handleSearchChange, handleSearchSubmit } = useSearch();
   
   const filterRef = useRef(null);
   const productsRef = useRef(null);
@@ -51,9 +55,26 @@ const ReactiveShop = () => {
     { label: 'Signature Collections', value: 'signature' }
   ];
 
+  // Check for search parameter
+  useEffect(() => {
+    const searchQuery = searchParams.get('search');
+    if (searchQuery) {
+      handleSearchChange(searchQuery);
+      handleSearchSubmit();
+    }
+  }, [searchParams, handleSearchChange, handleSearchSubmit]);
+
   // Filter and sort products
   useEffect(() => {
     let result = [...products];
+    
+    // Apply search filter from URL
+    const searchQuery = searchParams.get('search');
+    if (searchQuery) {
+      result = result.filter(product => 
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
     
     // Apply brand filter
     if (activeFilters.brand) {
@@ -108,7 +129,11 @@ const ReactiveShop = () => {
 
   // Get dynamic title based on active filters
   const getDynamicTitle = () => {
-    if (activeFilters.brand) {
+    const searchQuery = searchParams.get('search');
+    
+    if (searchQuery) {
+      return `Search Results: "${searchQuery}"`;
+    } else if (activeFilters.brand) {
       return `Showing: ${activeFilters.brand}`;
     } else if (activeFilters.collection) {
       return `Collection: ${activeFilters.collection.charAt(0).toUpperCase() + activeFilters.collection.slice(1)}`;
