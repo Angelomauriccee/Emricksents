@@ -28,32 +28,32 @@ const Home = () => {
     {
       id: 1,
       url: "https://www.instagram.com/reel/DO7xky6DF4i/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/src/assets/images/instagram-thumbnails/reel1.jpg"
+      thumbnail: "/images/instagram-thumbnails/reel1.jpg"
     },
     {
       id: 2,
       url: "https://www.instagram.com/reel/DOxhyh6jLkj/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/src/assets/images/instagram-thumbnails/reel2.jpg"
+      thumbnail: "/images/instagram-thumbnails/reel2.jpg"
     },
     {
       id: 3,
       url: "https://www.instagram.com/reel/DOs1GBdDFHQ/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/src/assets/images/instagram-thumbnails/reel3.jpg"
+      thumbnail: "/images/instagram-thumbnails/reel3.jpg"
     },
     {
       id: 4,
       url: "https://www.instagram.com/reel/DOqacooDE6u/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/src/assets/images/instagram-thumbnails/reel4.jpg"
+      thumbnail: "/images/instagram-thumbnails/reel4.jpg"
     },
     {
       id: 5,
       url: "https://www.instagram.com/reel/DOn6jQEjKYN/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/src/assets/images/instagram-thumbnails/reel5.jpg"
+      thumbnail: "/images/instagram-thumbnails/reel5.jpg"
     },
     {
       id: 6,
       url: "https://www.instagram.com/reel/DOiOs7LDBiD/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/src/assets/images/instagram-thumbnails/reel6.jpg"
+      thumbnail: "/images/instagram-thumbnails/reel6.jpg"
     }
   ];
 
@@ -326,7 +326,7 @@ We know how powerful scent can be the way a fragrance can evoke memories, enhanc
             </div>
             <div className="order-1 lg:order-2 story-image">
               <img 
-                src="/src/assets/images/our-story.jpg" 
+                src="/images/our-story.jpg" 
                 alt="Our Story" 
                 className="w-full h-full object-cover rounded-lg"
               />

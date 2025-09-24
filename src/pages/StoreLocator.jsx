@@ -24,7 +24,7 @@ const StoreLocator = () => {
     phone: '+234 906 598 8598',
     hours: 'Mon-Sat: 10:00 AM - 8:00 PM, Sun: 12:00 PM - 6:00 PM',
     coordinates: { lat: 6.577359, lng: 3.379255 }, // Specific coordinates for Ogudu Mall
-    image: '/src/assets/images/store-interior.jpg'
+    image: '/images/store-interior.jpg'
   };
 
   // GSAP animations
@@ -157,6 +157,7 @@ const StoreLocator = () => {
                 )}
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.8524543349096!2d3.3792553!3d6.5773587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d73a658782b%3A0x7a1de11d89cccc84!2sOgudu%20Mall!5e0!3m2!1sen!2sus!4v1694270284517!5m2!1sen!2sus" 
+                   referrerPolicy="no-referrer-when-downgrade"
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
@@ -206,14 +207,14 @@ const StoreLocator = () => {
               <div className="space-y-4">
                 <div className="rounded-lg overflow-hidden">
                   <img 
-                    src="/src/assets/images/store-interior.jpg" 
+                    src="/images/store-interior.jpg" 
                     alt="Store Interior" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <img 
-                    src="/src/assets/images/our-story.jpg" 
+                    src="/images/our-story.jpg" 
                     alt="Perfume Display" 
                     className="w-full h-full object-cover"
                   />

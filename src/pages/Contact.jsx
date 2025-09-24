@@ -149,6 +149,7 @@ const Contact = () => {
             {/* Updated Google Maps iframe to specifically point to Ogudu Mall */}
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.8524543349096!2d3.3792553!3d6.5773587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d73a658782b%3A0x7a1de11d89cccc84!2sOgudu%20Mall!5e0!3m2!1sen!2sus!4v1694270284517!5m2!1sen!2sus" 
+               referrerPolicy="no-referrer-when-downgrade"
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
