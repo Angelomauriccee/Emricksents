@@ -69,6 +69,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
     handleSearchSubmit();
     
     if (inputValue.trim()) {
+      // Use navigate instead of window.location to ensure proper SPA navigation
       navigate(`/shop?search=${encodeURIComponent(inputValue)}`);
       onClose();
     }
@@ -78,6 +79,19 @@ const SearchOverlay = ({ isOpen, onClose }) => {
   const onRecentSearchClick = (term) => {
     setInputValue(term);
     handleSearchChange(term);
+    
+    // Immediately navigate to search results when clicking a recent search
+    if (term.trim()) {
+      handleSearchSubmit();
+      navigate(`/shop?search=${encodeURIComponent(term)}`);
+      onClose();
+    }
+  };
+
+  // Handle product link click
+  const handleProductClick = () => {
+    // Simply close the overlay, let the Link component handle navigation
+    onClose();
   };
 
   // Format price in Naira
@@ -160,7 +174,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                       >
                         <Link 
                           to={`/product/${product.id}`}
-                          onClick={onClose}
+                          onClick={handleProductClick}
                           className="block bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                         >
                           <div className="aspect-[3/4] overflow-hidden">

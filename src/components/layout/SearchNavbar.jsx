@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
 import { useFilter } from '../../context/FilterContext';
@@ -19,6 +19,7 @@ const SearchNavbar = () => {
   const { cartCount, showNotification } = useCart();
   const { applyFilters } = useFilter();
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -91,6 +92,8 @@ const SearchNavbar = () => {
   const handleBrandSelect = (brand) => {
     applyFilters('brand', brand);
     setIsMegaMenuOpen(false);
+    // Use navigate to ensure proper SPA navigation
+    navigate('/shop');
   };
 
   // Handle collection selection
@@ -101,6 +104,8 @@ const SearchNavbar = () => {
       applyFilters('collection', collection);
     }
     setIsMegaMenuOpen(false);
+    // Use navigate to ensure proper SPA navigation
+    navigate('/shop');
   };
 
   return (
@@ -122,12 +127,13 @@ const SearchNavbar = () => {
               Home
             </Link>
             <div className="relative">
-              <button 
+              <Link 
+                to="/shop"
                 className="text-light hover:text-secondary transition-colors flex items-center"
                 onMouseEnter={() => setIsMegaMenuOpen(true)}
               >
                 Shop
-              </button>
+              </Link>
             </div>
             <Link to="/about" className="text-light hover:text-secondary transition-colors">
               About
@@ -255,19 +261,39 @@ const SearchNavbar = () => {
                 />
               </div>
               <nav className="flex flex-col space-y-6 text-center">
-                <Link to="/" className="text-2xl text-light hover:text-secondary transition-colors">
+                <Link 
+                  to="/" 
+                  className="text-2xl text-light hover:text-secondary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
                   Home
                 </Link>
-                <Link to="/shop" className="text-2xl text-light hover:text-secondary transition-colors">
+                <Link 
+                  to="/shop" 
+                  className="text-2xl text-light hover:text-secondary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
                   Shop
                 </Link>
-                <Link to="/about" className="text-2xl text-light hover:text-secondary transition-colors">
+                <Link 
+                  to="/about" 
+                  className="text-2xl text-light hover:text-secondary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
                   About
                 </Link>
-                <Link to="/store-locator" className="text-2xl text-light hover:text-secondary transition-colors">
+                <Link 
+                  to="/store-locator" 
+                  className="text-2xl text-light hover:text-secondary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
                   Store Locator
                 </Link>
-                <Link to="/contact" className="text-2xl text-light hover:text-secondary transition-colors">
+                <Link 
+                  to="/contact" 
+                  className="text-2xl text-light hover:text-secondary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
                   Contact
                 </Link>
               </nav>

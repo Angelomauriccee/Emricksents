@@ -68,6 +68,7 @@ function App() {
             <Navbar />
             <ScrollToTop />
             <main className="flex-grow">
+              {/* Use AnimatePresence for page transitions */}
               <AnimatePresence mode="wait">
                 <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<Home />} />

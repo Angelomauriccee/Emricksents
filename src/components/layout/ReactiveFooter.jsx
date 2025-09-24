@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiInstagram, FiFacebook } from 'react-icons/fi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ReactiveFooter = () => {
   const [isReturnPolicyOpen, setIsReturnPolicyOpen] = useState(false);
   const { applyFilters } = useFilter();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // GSAP animation for footer
@@ -35,11 +36,15 @@ const ReactiveFooter = () => {
   // Handle collection link click
   const handleCollectionClick = (collection) => {
     applyFilters('collection', collection);
+    // Use navigate to ensure proper SPA navigation
+    navigate('/shop');
   };
 
   // Handle new arrivals click
   const handleNewArrivalsClick = () => {
     applyFilters('isNew', true);
+    // Use navigate to ensure proper SPA navigation
+    navigate('/shop');
   };
 
   return (
@@ -112,40 +117,36 @@ const ReactiveFooter = () => {
             <h3 className="text-xl font-serif text-light mb-4">Collections</h3>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  to="/shop" 
+                <button 
                   onClick={() => handleCollectionClick('signature')}
-                  className="text-gray-400 hover:text-secondary transition-colors"
+                  className="text-gray-400 hover:text-secondary transition-colors text-left"
                 >
                   Signature Collection
-                </Link>
+                </button>
               </li>
               <li>
-                <Link 
-                  to="/shop" 
+                <button 
                   onClick={() => handleCollectionClick('limited')}
-                  className="text-gray-400 hover:text-secondary transition-colors"
+                  className="text-gray-400 hover:text-secondary transition-colors text-left"
                 >
                   Limited Edition
-                </Link>
+                </button>
               </li>
               <li>
-                <Link 
-                  to="/shop" 
+                <button 
                   onClick={() => handleCollectionClick('exclusive')}
-                  className="text-gray-400 hover:text-secondary transition-colors"
+                  className="text-gray-400 hover:text-secondary transition-colors text-left"
                 >
                   Exclusive Collection
-                </Link>
+                </button>
               </li>
               <li>
-                <Link 
-                  to="/shop" 
+                <button 
                   onClick={handleNewArrivalsClick}
-                  className="text-gray-400 hover:text-secondary transition-colors"
+                  className="text-gray-400 hover:text-secondary transition-colors text-left"
                 >
                   New
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
