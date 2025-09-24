@@ -509,7 +509,7 @@ const products = [
   },
   {
     id: 23,
-    name: "Boss hugo boss the scent absolute eau de parfum 100ml",
+    name: "hugo boss the scent absolute eau de parfum 100ml",
     category: "Unisex Collection",
     type: "Parfum",
     price: 202000,
@@ -532,7 +532,7 @@ const products = [
   },
   {
     id: 24,
-    name: "Boss hugo boss the scent for her eau de parfum 100ml",
+    name: "hugo boss the scent for her eau de parfum 100ml",
     category: "Unisex Collection",
     type: "Parfum",
     price: 220000,
