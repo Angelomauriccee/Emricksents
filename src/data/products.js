@@ -22,6 +22,7 @@ const products = [
     reviews: 0,
     inStock: true,
     featured: true,
+    collection: "signature"
   },
   {
     id: 2,
