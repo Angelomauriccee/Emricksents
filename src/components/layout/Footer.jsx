@@ -1,0 +1,175 @@
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { FiInstagram, FiFacebook, FiTwitter, FiYoutube } from 'react-icons/fi';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const Footer = () => {
+  useEffect(() => {
+    // GSAP animation for footer
+    gsap.fromTo(
+      '.footer-content',
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.footer',
+          start: 'top bottom-=100',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+  }, []);
+
+  return (
+    <footer className="footer bg-dark pt-16 pb-8">
+      <div className="container-custom footer-content">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Brand Column */}
+          <div>
+            <Link to="/">
+              <h2 className="text-2xl font-serif text-secondary mb-4">Emrickscents</h2>
+            </Link>
+            <p className="text-gray-400 mb-6">
+              Discover the art of luxury fragrance, crafted with passion and precision.
+            </p>
+            <div className="flex space-x-4">
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-secondary transition-colors"
+                aria-label="Instagram"
+              >
+                <FiInstagram size={20} />
+              </a>
+              <a 
+                href="https://facebook.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-secondary transition-colors"
+                aria-label="Facebook"
+              >
+                <FiFacebook size={20} />
+              </a>
+              <a 
+                href="https://twitter.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-secondary transition-colors"
+                aria-label="Twitter"
+              >
+                <FiTwitter size={20} />
+              </a>
+              <a 
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-secondary transition-colors"
+                aria-label="YouTube"
+              >
+                <FiYoutube size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-serif text-light mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/shop" className="text-gray-400 hover:text-secondary transition-colors">
+                  Shop All
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-gray-400 hover:text-secondary transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/store-locator" className="text-gray-400 hover:text-secondary transition-colors">
+                  Store Locator
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-400 hover:text-secondary transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Collections */}
+          <div>
+            <h3 className="text-xl font-serif text-light mb-4">Collections</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/shop?collection=signature" className="text-gray-400 hover:text-secondary transition-colors">
+                  Signature Collection
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop?collection=limited" className="text-gray-400 hover:text-secondary transition-colors">
+                  Limited Edition
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop?collection=exclusive" className="text-gray-400 hover:text-secondary transition-colors">
+                  Exclusive Collection
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop?collection=gift" className="text-gray-400 hover:text-secondary transition-colors">
+                  Gift Sets
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Store Hours */}
+          <div>
+            <h3 className="text-xl font-serif text-light mb-4">Store Hours</h3>
+            <ul className="space-y-3">
+              <li className="text-gray-400">Monday - Saturday: 10:00 AM - 8:00 PM</li>
+              <li className="text-gray-400">Sunday: 12:00 PM - 6:00 PM</li>
+              <li className="text-gray-400 mt-4">
+                <strong className="text-secondary">Location:</strong><br />
+                Ogudu Mall, Ojota<br />
+                Lagos, Nigeria
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+            &copy; {new Date().getFullYear()} Emrickscents. All rights reserved.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+            <Link to="/privacy-policy" className="hover:text-secondary transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="hover:text-secondary transition-colors">
+              Terms of Service
+            </Link>
+            <Link to="/shipping-policy" className="hover:text-secondary transition-colors">
+              Shipping Policy
+            </Link>
+            <Link to="/refund-policy" className="hover:text-secondary transition-colors">
+              Refund Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
