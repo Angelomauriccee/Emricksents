@@ -1,2 +1,2 @@
 /*
-  Content-Security-Policy: frame-src 'self' https://www.google.com https://maps.google.com https://www.google.com/maps;
+  Content-Security-Policy: default-src 'self'; frame-src 'self' https://www.google.com https://maps.google.com https://www.google.com/maps; img-src 'self' data: https:;
