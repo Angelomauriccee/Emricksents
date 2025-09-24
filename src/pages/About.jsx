@@ -14,7 +14,7 @@ const About = () => {
   const processRef = useRef(null);
 
   // Team members data
-  const teamMembers = [
+  // const teamMembers = []; // Uncomment and fill if needed
   // Values data
   const values = [
     {
@@ -122,7 +122,7 @@ const About = () => {
       }
     );
 
-    );
+  
 
     // Process animation
     gsap.fromTo(

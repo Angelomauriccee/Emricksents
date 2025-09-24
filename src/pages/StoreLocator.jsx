@@ -213,7 +213,7 @@ const StoreLocator = () => {
                 </div>
                 <div className="rounded-lg overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1615368144592-40f22d93cd3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                    src="/src/assets/images/our-story.jpg" 
                     alt="Perfume Display" 
                     className="w-full h-full object-cover"
                   />
