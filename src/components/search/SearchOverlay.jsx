@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiX, FiClock, FiTrash2 } from 'react-icons/fi';
@@ -22,6 +22,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef(null);
   const navigate = useNavigate();
+  const prevInputValueRef = useRef('');
 
   // Focus input when overlay opens
   useEffect(() => {
@@ -31,44 +32,64 @@ const SearchOverlay = ({ isOpen, onClose }) => {
     }
   }, [isOpen, searchTerm]);
 
+  // Memoize the filter function to prevent unnecessary re-renders
+  const filterProducts = useCallback((term) => {
+    if (!term.trim()) {
+      return [];
+    }
+
+    // Check if we have cached results
+    if (autoSuggestCache[term.trim()]) {
+      return autoSuggestCache[term.trim()];
+    }
+
+    // Filter products
+    return products.filter(product => 
+      product.name.toLowerCase().includes(term.toLowerCase())
+    );
+  }, [autoSuggestCache]);
+
   // Filter products based on search term
   useEffect(() => {
+    // Skip if the input value hasn't changed
+    if (prevInputValueRef.current === inputValue) {
+      return;
+    }
+    
+    prevInputValueRef.current = inputValue;
+    
     if (!inputValue.trim()) {
       setSearchResults([]);
       return;
     }
 
-    // Check if we have cached results
-    if (autoSuggestCache[inputValue.trim()]) {
-      setSearchResults(autoSuggestCache[inputValue.trim()]);
-      return;
-    }
-
-    // Filter products
-    const filtered = products.filter(product => 
-      product.name.toLowerCase().includes(inputValue.toLowerCase())
-    );
+    // Get filtered results
+    const filtered = filterProducts(inputValue);
     
     // Update search results
     setSearchResults(filtered);
     
     // Cache the results
-    cacheSearchResults(inputValue.trim(), filtered);
-  }, [inputValue, setSearchResults, autoSuggestCache, cacheSearchResults]);
+    if (filtered.length > 0) {
+      cacheSearchResults(inputValue.trim(), filtered);
+    }
+  }, [inputValue, setSearchResults, filterProducts, cacheSearchResults]);
 
   // Handle input change
   const onInputChange = (e) => {
     const value = e.target.value;
     setInputValue(value);
-    handleSearchChange(value);
+    // Don't call handleSearchChange on every keystroke
+    if (value.trim() === '' || value.length > 2) {
+      handleSearchChange(value);
+    }
   };
 
   // Handle form submission
   const onSubmit = (e) => {
     e.preventDefault();
-    handleSearchSubmit();
-    
     if (inputValue.trim()) {
+      handleSearchSubmit();
       // Use navigate instead of window.location to ensure proper SPA navigation
       navigate(`/shop?search=${encodeURIComponent(inputValue)}`);
       onClose();
@@ -77,11 +98,9 @@ const SearchOverlay = ({ isOpen, onClose }) => {
 
   // Handle recent search click
   const onRecentSearchClick = (term) => {
-    setInputValue(term);
-    handleSearchChange(term);
-    
-    // Immediately navigate to search results when clicking a recent search
     if (term.trim()) {
+      setInputValue(term);
+      handleSearchChange(term);
       handleSearchSubmit();
       navigate(`/shop?search=${encodeURIComponent(term)}`);
       onClose();

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiFilter, FiX, FiChevronDown } from 'react-icons/fi';
@@ -20,6 +20,8 @@ const ReactiveShop = () => {
   
   const filterRef = useRef(null);
   const productsRef = useRef(null);
+  const prevFiltersRef = useRef(null);
+  const prevSearchParamsRef = useRef(null);
 
   // Size options
   const sizeOptions = [
@@ -54,17 +56,26 @@ const ReactiveShop = () => {
     { label: 'Signature Collections', value: 'signature' }
   ];
 
-  // Check for search parameter
+  // Check for search parameter - only run once when search params change
   useEffect(() => {
     const searchQuery = searchParams.get('search');
+    const currentSearchParams = searchParams.toString();
+    
+    // Skip if search params haven't changed
+    if (prevSearchParamsRef.current === currentSearchParams) {
+      return;
+    }
+    
+    prevSearchParamsRef.current = currentSearchParams;
+    
     if (searchQuery) {
       handleSearchChange(searchQuery);
       handleSearchSubmit();
     }
   }, [searchParams, handleSearchChange, handleSearchSubmit]);
 
-  // Filter and sort products
-  useEffect(() => {
+  // Memoized filter function to prevent unnecessary re-renders
+  const filterAndSortProducts = useCallback(() => {
     let result = [...products];
     
     // Apply search filter from URL
@@ -120,11 +131,33 @@ const ReactiveShop = () => {
         result.sort((a, b) => (a.featured === b.featured) ? 0 : a.featured ? -1 : 1);
     }
     
-    setFilteredProducts(result);
+    return result;
   }, [activeFilters, filterProductsByCategory, searchParams]);
 
+  // Filter and sort products - only run when dependencies actually change
+  useEffect(() => {
+    const currentFilters = JSON.stringify(activeFilters);
+    const currentSearchParams = searchParams.toString();
+    
+    // Skip if nothing has changed
+    if (
+      prevFiltersRef.current === currentFilters && 
+      prevSearchParamsRef.current === currentSearchParams
+    ) {
+      return;
+    }
+    
+    // Update refs
+    prevFiltersRef.current = currentFilters;
+    prevSearchParamsRef.current = currentSearchParams;
+    
+    // Apply filters and update state
+    const filteredResults = filterAndSortProducts();
+    setFilteredProducts(filteredResults);
+  }, [activeFilters, searchParams, filterAndSortProducts]);
+
   // Get dynamic title based on active filters
-  const getDynamicTitle = () => {
+  const getDynamicTitle = useCallback(() => {
     const searchQuery = searchParams.get('search');
     
     if (searchQuery) {
@@ -138,9 +171,9 @@ const ReactiveShop = () => {
     } else {
       return "Our Collection";
     }
-  };
+  }, [activeFilters.brand, activeFilters.collection, activeFilters.isNew, searchParams]);
 
-  // GSAP animations
+  // GSAP animations - only run once on mount
   useEffect(() => {
     gsap.fromTo(
       '.filter-header',
@@ -156,8 +189,16 @@ const ReactiveShop = () => {
   }, []);
 
   // Animation for product grid when filters change
+  const prevProductsLengthRef = useRef(0);
+  
   useEffect(() => {
-    if (productsRef.current) {
+    // Only animate if the number of products has changed
+    if (
+      productsRef.current && 
+      filteredProducts.length !== prevProductsLengthRef.current
+    ) {
+      prevProductsLengthRef.current = filteredProducts.length;
+      
       gsap.fromTo(
         productsRef.current.children,
         { opacity: 0, y: 20 },
@@ -170,7 +211,7 @@ const ReactiveShop = () => {
         }
       );
     }
-  }, [filteredProducts]);
+  }, [filteredProducts.length]);
 
   return (
     <motion.div
