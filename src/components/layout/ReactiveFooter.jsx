@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiInstagram, FiFacebook, FiTwitter, FiYoutube } from 'react-icons/fi';
+import { FiInstagram, FiFacebook } from 'react-icons/fi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useFilter } from '../../context/FilterContext';
@@ -60,7 +60,7 @@ const ReactiveFooter = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/emrickscents?igsh=YzljYTk1ODg3Zg==" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-secondary transition-colors"
@@ -76,24 +76,6 @@ const ReactiveFooter = () => {
                 aria-label="Facebook"
               >
                 <FiFacebook size={20} />
-              </a>
-              <a 
-                href="https://twitter.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-secondary transition-colors"
-                aria-label="Twitter"
-              >
-                <FiTwitter size={20} />
-              </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-secondary transition-colors"
-                aria-label="YouTube"
-              >
-                <FiYoutube size={20} />
               </a>
             </div>
           </div>

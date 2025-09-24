@@ -81,6 +81,12 @@ const SearchNavbar = () => {
     { name: 'Signature Collections', value: 'signature' }
   ];
 
+  // Social media links
+  const socialLinks = [
+    { name: 'instagram', url: 'https://www.instagram.com/emrickscents?igsh=YzljYTk1ODg3Zg==' },
+    { name: 'facebook', url: 'https://facebook.com' }
+  ];
+
   // Handle brand selection
   const handleBrandSelect = (brand) => {
     applyFilters('brand', brand);
@@ -268,15 +274,15 @@ const SearchNavbar = () => {
               
               <div className="mt-auto">
                 <div className="flex justify-center space-x-6 mb-8">
-                  {['instagram', 'facebook', 'twitter'].map((social) => (
+                  {socialLinks.map((social) => (
                     <a 
-                      key={social}
-                      href={`https://${social}.com`} 
+                      key={social.name}
+                      href={social.url} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-light hover:text-secondary transition-colors"
                     >
-                      <span className="capitalize">{social}</span>
+                      <span className="capitalize">{social.name}</span>
                     </a>
                   ))}
                 </div>

@@ -15,7 +15,7 @@ const ReactiveShop = () => {
   const [searchParams] = useSearchParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const { activeFilters, handleFilterChange, clearFilters } = useFilter();
+  const { activeFilters, handleFilterChange, clearFilters, filterProductsByCategory } = useFilter();
   const { handleSearchChange, handleSearchSubmit } = useSearch();
   
   const filterRef = useRef(null);
@@ -43,8 +43,7 @@ const ReactiveShop = () => {
     { label: 'Featured', value: 'featured' },
     { label: 'Price: Low to High', value: 'price-asc' },
     { label: 'Price: High to Low', value: 'price-desc' },
-    { label: 'Newest', value: 'newest' },
-    { label: 'Best Selling', value: 'bestselling' }
+    { label: 'Newest', value: 'newest' }
   ];
 
   // Collections
@@ -76,9 +75,9 @@ const ReactiveShop = () => {
       );
     }
     
-    // Apply brand filter
+    // Apply brand filter using the enhanced filterProductsByCategory function
     if (activeFilters.brand) {
-      result = result.filter(product => product.name.startsWith(activeFilters.brand));
+      result = filterProductsByCategory(result, activeFilters.brand);
     }
     
     // Apply collection filter
@@ -117,15 +116,12 @@ const ReactiveShop = () => {
       case 'newest':
         result.sort((a, b) => (a.isNew === b.isNew) ? 0 : a.isNew ? -1 : 1);
         break;
-      case 'bestselling':
-        result.sort((a, b) => b.reviews - a.reviews);
-        break;
       default:
         result.sort((a, b) => (a.featured === b.featured) ? 0 : a.featured ? -1 : 1);
     }
     
     setFilteredProducts(result);
-  }, [activeFilters]);
+  }, [activeFilters, filterProductsByCategory, searchParams]);
 
   // Get dynamic title based on active filters
   const getDynamicTitle = () => {

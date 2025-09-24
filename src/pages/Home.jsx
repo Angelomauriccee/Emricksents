@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
-import ProductCard from '../components/product/ProductCard';
+import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -15,12 +15,11 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const heroRef = useRef(null);
   const videoRef = useRef(null);
-  const featuredRef = useRef(null);
   const collectionRef = useRef(null);
   const storyRef = useRef(null);
 
   // Featured products
-  const featuredProducts = products.filter(product => product.featured);
+  const featuredProducts = products.filter(product => product.featured).slice(0, 4);
 
   // GSAP animations
   useEffect(() => {
@@ -158,28 +157,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section ref={featuredRef} className="py-20 bg-dark">
-        <div className="container-custom">
-          <SectionTitle 
-            title="Featured Fragrances" 
-            subtitle="Discover our most coveted scents, crafted with the finest ingredients and designed to leave a lasting impression."
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button to="/shop" variant="outline">
-              View All Products
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Collection Highlight */}
       <section ref={collectionRef} className="py-20 bg-gradient-luxury">
         <div className="container-custom">
@@ -291,7 +268,7 @@ const Home = () => {
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <a 
                 key={item}
-                href="https://instagram.com" 
+                href="https://www.instagram.com/emrickscents?igsh=YzljYTk1ODg3Zg==" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block overflow-hidden group relative"

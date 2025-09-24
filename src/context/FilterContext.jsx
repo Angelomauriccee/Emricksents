@@ -94,12 +94,29 @@ export const FilterProvider = ({ children }) => {
     }
   };
 
+  // Filter products by category (matches category field or product name)
+  const filterProductsByCategory = (products, category) => {
+    if (!category) return products;
+    
+    return products.filter(product => {
+      // Check if product's category matches the selected category
+      const categoryMatch = product.category === category;
+      
+      // Check if product's name contains the category name (case-insensitive)
+      const nameMatch = product.name.toLowerCase().includes(category.toLowerCase());
+      
+      // Return true if either condition is met
+      return categoryMatch || nameMatch;
+    });
+  };
+
   // Value to be provided to consumers
   const value = {
     activeFilters,
     applyFilters,
     clearFilters,
-    handleFilterChange
+    handleFilterChange,
+    filterProductsByCategory
   };
 
   return (

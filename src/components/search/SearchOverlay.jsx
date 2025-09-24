@@ -76,7 +76,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div 
-          className="fixed inset-0 bg-dark bg-opacity-95 backdrop-blur-md z-50 flex items-center justify-center overflow-y-auto py-10"
+          className="fixed inset-0 bg-dark bg-opacity-95 backdrop-blur-md z-50 flex items-start md:items-center justify-center overflow-y-auto py-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -84,25 +84,25 @@ const SearchOverlay = ({ isOpen, onClose }) => {
         >
           <button 
             onClick={onClose}
-            className="absolute top-8 right-8 text-light hover:text-secondary transition-colors"
+            className="absolute top-4 right-4 md:top-8 md:right-8 text-light hover:text-secondary transition-colors"
             aria-label="Close search"
           >
             <FiX size={24} />
           </button>
           
-          <div className="w-full max-w-5xl px-6">
-            <div className="flex justify-center mb-8">
+          <div className="w-full max-w-5xl px-4 md:px-6 mt-12 md:mt-0">
+            <div className="flex justify-center mb-6 md:mb-8">
               <img 
                 src="/src/assets/logo.png" 
                 alt="EmerickScents Logo" 
-                className="h-16"
+                className="h-12 md:h-16"
               />
             </div>
             
-            <h2 className="text-3xl font-serif text-secondary mb-8 text-center">Search Our Collection</h2>
+            <h2 className="text-2xl md:text-3xl font-serif text-secondary mb-6 md:mb-8 text-center">Search Our Collection</h2>
             
             {/* Search Form */}
-            <form onSubmit={onSubmit} className="mb-8">
+            <form onSubmit={onSubmit} className="mb-6 md:mb-8">
               <div className="relative">
                 <input 
                   ref={inputRef}
@@ -110,7 +110,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                   value={inputValue}
                   onChange={onInputChange}
                   placeholder="Search for perfumes..." 
-                  className="w-full bg-transparent border-b-2 border-gray-600 focus:border-secondary py-4 px-4 text-xl text-light outline-none transition-colors"
+                  className="w-full bg-transparent border-b-2 border-gray-600 focus:border-secondary py-3 md:py-4 px-4 text-lg md:text-xl text-light outline-none transition-colors"
                   autoFocus
                 />
                 <button 
@@ -130,7 +130,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ duration: 0.3 }}
-                  className="mb-8"
+                  className="mb-6 md:mb-8"
                 >
                   <h3 className="text-light font-medium mb-4">
                     {searchResults.length > 0 
@@ -138,7 +138,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                       : 'No results found'}
                   </h3>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
                     {searchResults.slice(0, 8).map(product => (
                       <motion.div
                         key={product.id}
@@ -157,9 +157,9 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <div className="p-3">
-                            <h4 className="text-light text-sm font-medium line-clamp-1">{product.name}</h4>
-                            <p className="text-secondary text-sm mt-1">{formatPrice(product.price)}</p>
+                          <div className="p-2 md:p-3">
+                            <h4 className="text-light text-xs md:text-sm font-medium line-clamp-1">{product.name}</h4>
+                            <p className="text-secondary text-xs md:text-sm mt-1">{formatPrice(product.price)}</p>
                           </div>
                         </Link>
                       </motion.div>
@@ -183,7 +183,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
             
             {/* Recent Searches */}
             {recentSearches.length > 0 && inputValue.trim() === '' && (
-              <div className="mb-8">
+              <div className="mb-6 md:mb-8">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-gray-400">Recent Searches:</h3>
                   <button 
@@ -198,12 +198,12 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                   {recentSearches.map((term, index) => (
                     <div 
                       key={index}
-                      className="group flex items-center px-4 py-2 bg-dark border border-gray-700 rounded-full text-light hover:border-secondary hover:text-secondary transition-colors"
+                      className="group flex items-center px-3 md:px-4 py-1 md:py-2 bg-dark border border-gray-700 rounded-full text-light hover:border-secondary hover:text-secondary transition-colors"
                     >
-                      <FiClock size={14} className="mr-2 text-gray-500 group-hover:text-secondary transition-colors" />
+                      <FiClock size={14} className="mr-1 md:mr-2 text-gray-500 group-hover:text-secondary transition-colors" />
                       <button 
                         onClick={() => onRecentSearchClick(term)}
-                        className="mr-2"
+                        className="mr-1 md:mr-2 text-sm"
                       >
                         {term}
                       </button>
@@ -229,7 +229,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                     <button 
                       key={term}
                       onClick={() => onRecentSearchClick(term)}
-                      className="px-4 py-2 bg-dark border border-gray-700 rounded-full text-light hover:border-secondary hover:text-secondary transition-colors"
+                      className="px-3 md:px-4 py-1 md:py-2 bg-dark border border-gray-700 rounded-full text-light hover:border-secondary hover:text-secondary transition-colors text-sm"
                     >
                       {term}
                     </button>
