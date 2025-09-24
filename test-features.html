@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EmerickScents Feature Test</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #121212;
+      color: #FFFFFF;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #D4AF37;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .test-section {
+      background-color: #0A0A0A;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    h2 {
+      color: #D4AF37;
+      margin-top: 0;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary {
+      background-color: #D4AF37;
+      color: #0A0A0A;
+    }
+    
+    .btn-secondary {
+      background-color: #0A0A0A;
+      color: #FFFFFF;
+      border: 1px solid #D4AF37;
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: #D4AF37;
+      border: 1px solid #D4AF37;
+    }
+    
+    .shimmer-effect::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-100%) skewX(-15deg);
+    }
+    
+    .btn:hover .shimmer-effect::after {
+      animation: shimmer 1s forwards;
+    }
+    
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%) skewX(-15deg);
+      }
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    }
+    
+    .product-card {
+      background-color: #1A1A1A;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .product-image {
+      height: 250px;
+      background-color: #2A2A2A;
+      position: relative;
+    }
+    
+    .product-actions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background-color: rgba(10, 10, 10, 0.8);
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover .product-actions {
+      transform: translateY(0);
+    }
+    
+    .product-info {
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .product-name {
+      color: #FFFFFF;
+      margin: 0 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    .product-card:hover .product-name {
+      color: #D4AF37;
+    }
+    
+    .product-price {
+      color: #D4AF37;
+      font-weight: 500;
+    }
+    
+    .cart-icon {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #D4AF37;
+      color: #0A0A0A;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .cart-notification {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #D4AF37;
+      opacity: 0;
+    }
+    
+    .cart-notification.animate {
+      animation: pulse 1s forwards;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(2);
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+    
+    /* Loader Styles */
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #121212;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    
+    .droplet {
+      width: 48px;
+      height: 64px;
+      background: linear-gradient(to bottom, rgba(212, 175, 55, 0.8), #D4AF37);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: relative;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7));
+      transform: rotate(12deg);
+    }
+    
+    .ripple {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border: 2px solid rgba(212, 175, 55, 0.5);
+      border-radius: 50%;
+      opacity: 0;
+    }
+    
+    .ripple.animate {
+      animation: rippleEffect 1.5s forwards;
+    }
+    
+    @keyframes rippleEffect {
+      0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(3);
+        opacity: 0;
+      }
+    }
+    
+    .smoke {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+    
+    .smoke.show {
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+    
+    .smoke-particle {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(128, 128, 128, 0.2) 0%, transparent 70%);
+    }
+    
+    .intro-text {
+      font-family: 'Playfair Display', serif;
+      color: #D4AF37;
+      font-size: 2.5rem;
+      text-align: center;
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(20px);
+    }
+    
+    .intro-text.show {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+      transition: all 2s ease;
+    }
+    
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+    
+    .particles.show {
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: #D4AF37;
+      border-radius: 50%;
+      opacity: 0;
+    }
+    
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      color: #D4AF37;
+      font-size: 3rem;
+      text-align: center;
+      opacity: 0;
+      filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7));
+    }
+    
+    .brand-name.show {
+      opacity: 1;
+      transition: opacity 2s ease;
+    }
+    
+    .brand-tagline {
+      color: #FFFFFF;
+      font-size: 1.2rem;
+      text-align: center;
+      letter-spacing: 0.2em;
+      opacity: 0;
+      margin-top: 1rem;
+    }
+    
+    .brand-tagline.show {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+    
+    .finale {
+      position: relative;
+      text-align: center;
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    
+    .finale.show {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.5s ease;
+    }
+    
+    .shimmer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: translateX(-100%) skewX(-20deg);
+    }
+    
+    .shimmer.animate {
+      animation: shimmerEffect 1.5s forwards;
+    }
+    
+    @keyframes shimmerEffect {
+      100% {
+        transform: translateX(100%) skewX(-20deg);
+      }
+    }
+  </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>EmerickScents Feature Test</h1>
+    
+    <div class="test-section">
+      <h2>1. Loader Animation Test</h2>
+      <p>Click the button below to see the loader animation:</p>
+      <button id="show-loader" class="btn btn-primary">Show Loader Animation</button>
+      
+      <div id="loader-container" class="loader-container" style="display: none;">
+        <div id="loader-phase-1" style="display: none;">
+          <div class="droplet"></div>
+          <div class="ripple"></div>
+        </div>
+        
+        <div id="loader-phase-2" class="smoke" style="display: none;">
+          <!-- Smoke particles will be added dynamically -->
+          <div class="intro-text">Every scent begins with a story...</div>
+        </div>
+        
+        <div id="loader-phase-3" style="display: none;">
+          <div class="particles"></div>
+          <div class="brand-name">
+            <span>E</span><span>m</span><span>e</span><span>r</span><span>i</span><span>c</span><span>k</span><span>S</span><span>c</span><span>e</span><span>n</span><span>t</span><span>s</span>
+          </div>
+          <div class="brand-tagline">Where Luxury Meets Memory</div>
+        </div>
+        
+        <div id="loader-phase-4" class="finale" style="display: none;">
+          <div class="shimmer"></div>
+          <h1 class="brand-name" style="font-size: 4rem; opacity: 1;">EmerickScents</h1>
+          <div class="brand-tagline" style="opacity: 1;">Where Luxury Meets Memory</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>2. Button Hover Animations</h2>
+      <p>Hover over these buttons to see the enhanced animations:</p>
+      
+      <button class="btn btn-primary">
+        Primary Button
+        <span class="shimmer-effect"></span>
+      </button>
+      
+      <button class="btn btn-secondary">
+        Secondary Button
+        <span class="shimmer-effect"></span>
+      </button>
+      
+      <button class="btn btn-outline">
+        Outline Button
+        <span class="shimmer-effect"></span>
+      </button>
+    </div>
+    
+    <div class="test-section">
+      <h2>3. Add to Cart Functionality</h2>
+      <p>Click the "Add to Cart" button on the product cards below to test the cart functionality:</p>
+      
+      <div style="display: flex; justify-content: space-between; margin-bottom: 2rem;">
+        <div class="cart-icon" style="font-size: 1.5rem;">
+          🛒
+          <span id="cart-count" class="cart-count">0</span>
+          <span id="cart-notification" class="cart-notification"></span>
+        </div>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1557053506-91d4a8256cf1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;">
+            <div class="product-actions">
+              <button class="btn btn-primary add-to-cart" data-id="1" data-name="Midnight Oud" data-price="120">
+                🛒 Add to Cart
+              </button>
+              <button class="btn btn-secondary">❤️</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Midnight Oud</h3>
+            <p class="product-price">$120.00</p>
+          </div>
+        </div>
+        
+        <!-- Product Card 2 -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;">
+            <div class="product-actions">
+              <button class="btn btn-primary add-to-cart" data-id="2" data-name="Golden Amber" data-price="95">
+                🛒 Add to Cart
+              </button>
+              <button class="btn btn-secondary">❤️</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Golden Amber</h3>
+            <p class="product-price">$95.00</p>
+          </div>
+        </div>
+        
+        <!-- Product Card 3 -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'); background-size: cover; background-position: center;">
+            <div class="product-actions">
+              <button class="btn btn-primary add-to-cart" data-id="3" data-name="Rose Elixir" data-price="135">
+                🛒 Add to Cart
+              </button>
+              <button class="btn btn-secondary">❤️</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Rose Elixir</h3>
+            <p class="product-price">$135.00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Loader Animation Test
+    document.getElementById('show-loader').addEventListener('click', function() {
+      const loaderContainer = document.getElementById('loader-container');
+      loaderContainer.style.display = 'flex';
+      
+      // Phase 1: Droplet animation
+      const phase1 = document.getElementById('loader-phase-1');
+      phase1.style.display = 'block';
+      
+      // Animate ripple
+      setTimeout(() => {
+        const ripple = document.querySelector('.ripple');
+        ripple.classList.add('animate');
+      }, 1000);
+      
+      // Phase 2: Smoke and text
+      setTimeout(() => {
+        phase1.style.display = 'none';
+        
+        const phase2 = document.getElementById('loader-phase-2');
+        phase2.style.display = 'flex';
+        
+        // Create smoke particles
+        const smoke = document.querySelector('.smoke');
+        for (let i = 0; i < 8; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'smoke-particle';
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.opacity = 0.1 + Math.random() * 0.3;
+          smoke.appendChild(particle);
+          
+          // Animate smoke particles
+          setTimeout(() => {
+            particle.style.transition = 'all 5s ease';
+            particle.style.transform = `translate(${(Math.random() - 0.5) * 100}px, ${(Math.random() - 0.5) * 100}px)`;
+            particle.style.opacity = 0;
+          }, 100);
+        }
+        
+        // Show smoke and text
+        setTimeout(() => {
+          phase2.classList.add('show');
+          document.querySelector('.intro-text').classList.add('show');
+        }, 100);
+      }, 2000);
+      
+      // Phase 3: Golden particles and brand name
+      setTimeout(() => {
+        document.getElementById('loader-phase-2').style.display = 'none';
+        
+        const phase3 = document.getElementById('loader-phase-3');
+        phase3.style.display = 'flex';
+        
+        // Create golden particles
+        const particles = document.querySelector('.particles');
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particles.appendChild(particle);
+          
+          // Animate particles
+          setTimeout(() => {
+            particle.style.transition = `all ${2 + Math.random() * 3}s ease`;
+            particle.style.opacity = 0.1 + Math.random() * 0.7;
+            particle.style.transform = `translate(${(Math.random() - 0.5) * 100}px, ${-50 - Math.random() * 100}px)`;
+          }, Math.random() * 2000);
+        }
+        
+        // Show particles
+        setTimeout(() => {
+          particles.classList.add('show');
+        }, 100);
+        
+        // Animate brand name letters
+        const letters = document.querySelectorAll('.brand-name span');
+        letters.forEach((letter, index) => {
+          setTimeout(() => {
+            letter.style.transition = 'all 0.5s ease';
+            letter.style.opacity = '1';
+          }, 500 + index * 150);
+        });
+        
+        // Show brand name
+        setTimeout(() => {
+          document.querySelector('.brand-name').classList.add('show');
+        }, 500);
+        
+        // Show tagline
+        setTimeout(() => {
+          document.querySelector('.brand-tagline').classList.add('show');
+        }, 2500);
+      }, 7000);
+      
+      // Phase 4: Finale
+      setTimeout(() => {
+        document.getElementById('loader-phase-3').style.display = 'none';
+        
+        const phase4 = document.getElementById('loader-phase-4');
+        phase4.style.display = 'flex';
+        
+        // Show finale
+        setTimeout(() => {
+          phase4.classList.add('show');
+          document.querySelector('.shimmer').classList.add('animate');
+        }, 100);
+      }, 12000);
+      
+      // Hide loader
+      setTimeout(() => {
+        loaderContainer.style.display = 'none';
+      }, 15000);
+    });
+    
+    // Add to Cart Functionality Test
+    const cartCount = document.getElementById('cart-count');
+    const cartNotification = document.getElementById('cart-notification');
+    let count = 0;
+    
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', function() {
+        // Update count
+        count++;
+        cartCount.textContent = count;
+        
+        // Show notification animation
+        cartNotification.classList.remove('animate');
+        void cartNotification.offsetWidth; // Trigger reflow
+        cartNotification.classList.add('animate');
+        
+        // Change button text temporarily
+        const originalText = this.innerHTML;
+        this.innerHTML = '✓ Added';
+        
+        setTimeout(() => {
+          this.innerHTML = originalText;
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
