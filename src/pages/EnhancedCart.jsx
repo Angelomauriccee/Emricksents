@@ -15,8 +15,7 @@ const EnhancedCart = () => {
 
   // Calculate cart totals
   const subtotal = getTotalPrice();
-  const shipping = subtotal > 0 ? 5000 : 0; // Shipping in Naira
-  const total = subtotal + shipping;
+  const total = subtotal; // Removed shipping fee
 
   // Format price in Naira
   const formatPrice = (price) => {
@@ -37,20 +36,25 @@ const EnhancedCart = () => {
   const handleWhatsAppCheckout = () => {
     if (cartItems.length === 0) return;
     
-    const itemsList = cartItems.map(item => 
-      `- ${item.product.name} (${item.quantity} x ${formatPrice(item.product.price)})`
-    ).join('\n');
+    // Create message with order details
+    let messageText = "I would like to purchase the following:\n\n";
     
-    const message = encodeURIComponent(
-      `Hello, I would like to place an order:\n\n` +
-      `${itemsList}\n\n` +
-      `Subtotal: ${formatPrice(subtotal)}\n` +
-      `Shipping: ${formatPrice(shipping)}\n` +
-      `Total: ${formatPrice(total)}\n\n` +
-      `Please provide me with payment details.`
-    );
+    // Add each product
+    cartItems.forEach(item => {
+      messageText += `- Product: ${item.name}\n`;
+      messageText += `- Price: ${formatPrice(item.price)}\n`;
+      messageText += `- Quantity: ${item.quantity}\n`;
+      messageText += `- Total: ${formatPrice(item.price * item.quantity)}\n\n`;
+    });
     
-    window.open(`https://wa.me/1234567890?text=${message}`, '_blank');
+    // Add grand total
+    messageText += `Grand Total: ${formatPrice(total)}`;
+    
+    // URL encode the message
+    const encodedMessage = encodeURIComponent(messageText);
+    
+    // Open WhatsApp with the message
+    window.open(`https://wa.me/+2349065988598?text=${encodedMessage}`, '_blank');
   };
 
   // GSAP animations
@@ -184,10 +188,6 @@ const EnhancedCart = () => {
                   <div className="flex justify-between">
                     <span className="text-gray-400">Subtotal</span>
                     <span className="text-light">{formatPrice(subtotal)}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Shipping</span>
-                    <span className="text-light">{formatPrice(shipping)}</span>
                   </div>
                   <div className="border-t border-gray-800 pt-4 flex justify-between">
                     <span className="text-light font-medium">Total</span>

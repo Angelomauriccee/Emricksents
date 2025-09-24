@@ -10,9 +10,7 @@ const CookieConsent = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [cookiePreferences, setCookiePreferences] = useState({
     essential: true, // Always required
-    functional: false,
-    analytics: false,
-    marketing: false
+    searchHistory: false
   });
 
   useEffect(() => {
@@ -52,10 +50,14 @@ const CookieConsent = () => {
       // Apply essential cookies (always enabled)
       applyEssentialCookies();
       
-      // Apply other cookie types based on preferences
-      if (cookiePreferences.functional) applyFunctionalCookies();
-      if (cookiePreferences.analytics) applyAnalyticsCookies();
-      if (cookiePreferences.marketing) applyMarketingCookies();
+      // Apply search history storage if enabled
+      if (cookiePreferences.searchHistory) {
+        applySearchHistoryCookies();
+      } else {
+        // Clear search history if disabled
+        localStorage.removeItem('recentSearches');
+        sessionStorage.removeItem('autoSuggestCache');
+      }
     }
   }, [cookiePreferences]);
 
@@ -65,22 +67,9 @@ const CookieConsent = () => {
     document.cookie = "essential_cookies=enabled; max-age=31536000; path=/; SameSite=Lax";
   };
 
-  const applyFunctionalCookies = () => {
-    // Functional cookies for remembering user preferences
-    document.cookie = "functional_cookies=enabled; max-age=31536000; path=/; SameSite=Lax";
-  };
-
-  const applyAnalyticsCookies = () => {
-    // Analytics cookies for tracking user behavior
-    document.cookie = "analytics_cookies=enabled; max-age=31536000; path=/; SameSite=Lax";
-    
-    // Simulate analytics initialization
-    window.analyticsEnabled = true;
-  };
-
-  const applyMarketingCookies = () => {
-    // Marketing cookies for personalized ads
-    document.cookie = "marketing_cookies=enabled; max-age=31536000; path=/; SameSite=Lax";
+  const applySearchHistoryCookies = () => {
+    // Enable storing recent searches and autosuggest cache
+    document.cookie = "search_history_cookies=enabled; max-age=31536000; path=/; SameSite=Lax";
   };
 
   const handleTogglePreference = (type) => {
@@ -93,9 +82,7 @@ const CookieConsent = () => {
   const handleAcceptAll = () => {
     const allEnabled = {
       essential: true,
-      functional: true,
-      analytics: true,
-      marketing: true
+      searchHistory: true
     };
     
     setCookiePreferences(allEnabled);
@@ -106,9 +93,7 @@ const CookieConsent = () => {
   const handleEssentialOnly = () => {
     const essentialOnly = {
       essential: true,
-      functional: false,
-      analytics: false,
-      marketing: false
+      searchHistory: false
     };
     
     setCookiePreferences(essentialOnly);
@@ -211,7 +196,7 @@ const CookieConsent = () => {
                     variants={childVariants}
                     className="text-gray-300 mb-4"
                   >
-                    We use cookies to elevate your browsing experience, personalize content, and analyze our traffic. Your privacy matters to us at Emrickscents.
+                    We use local storage to save your recent searches and improve your shopping experience. Your privacy matters to us at Emrickscents.
                   </motion.p>
                   
                   <motion.button
@@ -220,7 +205,7 @@ const CookieConsent = () => {
                     className="text-secondary hover:underline mb-4 inline-flex items-center"
                   >
                     <FiSettings className="mr-2" />
-                    {showDetails ? 'Hide cookie settings' : 'Customize cookie settings'}
+                    {showDetails ? 'Hide storage settings' : 'Customize storage settings'}
                   </motion.button>
                   
                   <AnimatePresence>
@@ -232,11 +217,11 @@ const CookieConsent = () => {
                         exit="exit"
                         className="mb-6 bg-gray-900 p-4 rounded-md"
                       >
-                        <h4 className="text-light font-medium mb-4">Cookie preferences:</h4>
+                        <h4 className="text-light font-medium mb-4">Storage preferences:</h4>
                         <ul className="space-y-4">
                           <li className="flex items-center justify-between">
                             <div>
-                              <p className="text-secondary font-medium">Essential Cookies</p>
+                              <p className="text-secondary font-medium">Essential Storage</p>
                               <p className="text-sm text-gray-400">Required for the website to function properly.</p>
                             </div>
                             <div className="relative">
@@ -253,61 +238,21 @@ const CookieConsent = () => {
                           
                           <li className="flex items-center justify-between">
                             <div>
-                              <p className="text-secondary font-medium">Functional Cookies</p>
-                              <p className="text-sm text-gray-400">Remember your preferences and settings.</p>
+                              <p className="text-secondary font-medium">Recent Searches & Autosuggest</p>
+                              <p className="text-sm text-gray-400">Store your recent searches and provide search suggestions.</p>
                             </div>
                             <div 
                               className="relative cursor-pointer"
-                              onClick={() => handleTogglePreference('functional')}
+                              onClick={() => handleTogglePreference('searchHistory')}
                             >
                               <input 
                                 type="checkbox" 
-                                checked={cookiePreferences.functional} 
+                                checked={cookiePreferences.searchHistory} 
                                 readOnly
                                 className="sr-only"
                               />
-                              <div className={`w-10 h-5 ${cookiePreferences.functional ? 'bg-secondary' : 'bg-gray-600'} rounded-full shadow-inner transition-colors`}></div>
-                              <div className={`dot absolute w-3 h-3 bg-white rounded-full transition ${cookiePreferences.functional ? 'left-6' : 'left-1'} top-1`}></div>
-                            </div>
-                          </li>
-                          
-                          <li className="flex items-center justify-between">
-                            <div>
-                              <p className="text-secondary font-medium">Analytics Cookies</p>
-                              <p className="text-sm text-gray-400">Help us understand how you use our website.</p>
-                            </div>
-                            <div 
-                              className="relative cursor-pointer"
-                              onClick={() => handleTogglePreference('analytics')}
-                            >
-                              <input 
-                                type="checkbox" 
-                                checked={cookiePreferences.analytics} 
-                                readOnly
-                                className="sr-only"
-                              />
-                              <div className={`w-10 h-5 ${cookiePreferences.analytics ? 'bg-secondary' : 'bg-gray-600'} rounded-full shadow-inner transition-colors`}></div>
-                              <div className={`dot absolute w-3 h-3 bg-white rounded-full transition ${cookiePreferences.analytics ? 'left-6' : 'left-1'} top-1`}></div>
-                            </div>
-                          </li>
-                          
-                          <li className="flex items-center justify-between">
-                            <div>
-                              <p className="text-secondary font-medium">Marketing Cookies</p>
-                              <p className="text-sm text-gray-400">Allow us to provide personalized content.</p>
-                            </div>
-                            <div 
-                              className="relative cursor-pointer"
-                              onClick={() => handleTogglePreference('marketing')}
-                            >
-                              <input 
-                                type="checkbox" 
-                                checked={cookiePreferences.marketing} 
-                                readOnly
-                                className="sr-only"
-                              />
-                              <div className={`w-10 h-5 ${cookiePreferences.marketing ? 'bg-secondary' : 'bg-gray-600'} rounded-full shadow-inner transition-colors`}></div>
-                              <div className={`dot absolute w-3 h-3 bg-white rounded-full transition ${cookiePreferences.marketing ? 'left-6' : 'left-1'} top-1`}></div>
+                              <div className={`w-10 h-5 ${cookiePreferences.searchHistory ? 'bg-secondary' : 'bg-gray-600'} rounded-full shadow-inner transition-colors`}></div>
+                              <div className={`dot absolute w-3 h-3 bg-white rounded-full transition ${cookiePreferences.searchHistory ? 'left-6' : 'left-1'} top-1`}></div>
                             </div>
                           </li>
                         </ul>
@@ -335,14 +280,14 @@ const CookieConsent = () => {
                       className="flex items-center justify-center"
                     >
                       <FiCheck className="mr-2" />
-                      Accept All Cookies
+                      Accept All
                     </Button>
                     
                     <Button 
                       onClick={handleEssentialOnly}
                       variant="outline"
                     >
-                      Essential Cookies Only
+                      Essential Only
                     </Button>
                   </motion.div>
                 </div>

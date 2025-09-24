@@ -26,6 +26,19 @@ export const FilterProvider = ({ children }) => {
     isNew: false
   });
 
+  // Category normalization mapping
+  const categoryNormalization = {
+    'Chanel Paris/ Bleu de Chanel': 'Chanel',
+    'Chanel Paris / Bleu de Chanel': 'Chanel',
+    'Yves Saint Laurent (YSL)': 'Yves Saint Laurent',
+    'Hugo Boss (Boss)': 'Hugo Boss'
+  };
+
+  // Normalize a category name
+  const normalizeCategory = (category) => {
+    return categoryNormalization[category] || category;
+  };
+
   // Parse URL search params on mount and location change
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -43,17 +56,23 @@ export const FilterProvider = ({ children }) => {
 
   // Apply filters without page reload
   const applyFilters = (filterType, value) => {
+    // Normalize brand value if it's a category
+    let normalizedValue = value;
+    if (filterType === 'brand') {
+      normalizedValue = normalizeCategory(value);
+    }
+
     // Update the active filters state
     setActiveFilters(prev => ({
       ...prev,
-      [filterType]: value
+      [filterType]: normalizedValue
     }));
 
     // Update URL search params without page reload
     const searchParams = new URLSearchParams(location.search);
     
-    if (value) {
-      searchParams.set(filterType, value);
+    if (normalizedValue) {
+      searchParams.set(filterType, normalizedValue);
     } else {
       searchParams.delete(filterType);
     }
@@ -98,12 +117,18 @@ export const FilterProvider = ({ children }) => {
   const filterProductsByCategory = (products, category) => {
     if (!category) return products;
     
+    // Normalize the category for comparison
+    const normalizedCategory = normalizeCategory(category);
+    
     return products.filter(product => {
-      // Check if product's category matches the selected category
-      const categoryMatch = product.category === category;
+      // Normalize the product category
+      const normalizedProductCategory = normalizeCategory(product.category);
+      
+      // Check if product's normalized category matches the selected normalized category
+      const categoryMatch = normalizedProductCategory === normalizedCategory;
       
       // Check if product's name contains the category name (case-insensitive)
-      const nameMatch = product.name.toLowerCase().includes(category.toLowerCase());
+      const nameMatch = product.name.toLowerCase().includes(normalizedCategory.toLowerCase());
       
       // Return true if either condition is met
       return categoryMatch || nameMatch;
@@ -116,7 +141,8 @@ export const FilterProvider = ({ children }) => {
     applyFilters,
     clearFilters,
     handleFilterChange,
-    filterProductsByCategory
+    filterProductsByCategory,
+    normalizeCategory
   };
 
   return (

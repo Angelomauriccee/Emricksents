@@ -1,8 +1,15 @@
-# Netlify configuration for EmerickScents Perfume Store
+# Netlify configuration for preview deployment
 
 [build]
   command = "npm run build"
   publish = "dist"
+  environment = { NODE_VERSION = "16" }
+
+[context.branch-deploy]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build"
 
 # Redirect all routes to index.html for SPA routing
 [[redirects]]

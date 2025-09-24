@@ -14,7 +14,9 @@ const SearchOverlay = ({ isOpen, onClose }) => {
     handleSearchChange, 
     handleSearchSubmit,
     removeSearchTerm,
-    clearRecentSearches
+    clearRecentSearches,
+    cacheSearchResults,
+    autoSuggestCache
   } = useSearch();
   
   const [inputValue, setInputValue] = useState('');
@@ -36,12 +38,23 @@ const SearchOverlay = ({ isOpen, onClose }) => {
       return;
     }
 
+    // Check if we have cached results
+    if (autoSuggestCache[inputValue.trim()]) {
+      setSearchResults(autoSuggestCache[inputValue.trim()]);
+      return;
+    }
+
+    // Filter products
     const filtered = products.filter(product => 
       product.name.toLowerCase().includes(inputValue.toLowerCase())
     );
     
+    // Update search results
     setSearchResults(filtered);
-  }, [inputValue, setSearchResults]);
+    
+    // Cache the results
+    cacheSearchResults(inputValue.trim(), filtered);
+  }, [inputValue, setSearchResults, autoSuggestCache, cacheSearchResults]);
 
   // Handle input change
   const onInputChange = (e) => {
@@ -215,24 +228,6 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                         <FiX size={14} />
                       </button>
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* Popular Searches */}
-            {inputValue.trim() === '' && (
-              <div>
-                <h3 className="text-gray-400 mb-4">Popular Searches:</h3>
-                <div className="flex flex-wrap gap-2">
-                  {['Woody', 'Floral', 'Limited Edition', 'Signature', 'New Arrivals'].map((term) => (
-                    <button 
-                      key={term}
-                      onClick={() => onRecentSearchClick(term)}
-                      className="px-3 md:px-4 py-1 md:py-2 bg-dark border border-gray-700 rounded-full text-light hover:border-secondary hover:text-secondary transition-colors text-sm"
-                    >
-                      {term}
-                    </button>
                   ))}
                 </div>
               </div>

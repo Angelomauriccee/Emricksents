@@ -18,12 +18,29 @@ export const SearchProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState([]);
   const [recentSearches, setRecentSearches] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [autoSuggestCache, setAutoSuggestCache] = useState({});
 
   // Load recent searches from localStorage on mount
   useEffect(() => {
     const savedSearches = localStorage.getItem('recentSearches');
     if (savedSearches) {
-      setRecentSearches(JSON.parse(savedSearches));
+      try {
+        setRecentSearches(JSON.parse(savedSearches));
+      } catch (error) {
+        console.error('Error parsing recent searches:', error);
+        setRecentSearches([]);
+      }
+    }
+
+    // Load autosuggest cache from sessionStorage
+    const savedCache = sessionStorage.getItem('autoSuggestCache');
+    if (savedCache) {
+      try {
+        setAutoSuggestCache(JSON.parse(savedCache));
+      } catch (error) {
+        console.error('Error parsing autosuggest cache:', error);
+        setAutoSuggestCache({});
+      }
     }
   }, []);
 
@@ -31,6 +48,11 @@ export const SearchProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
   }, [recentSearches]);
+
+  // Save autosuggest cache to sessionStorage when it changes
+  useEffect(() => {
+    sessionStorage.setItem('autoSuggestCache', JSON.stringify(autoSuggestCache));
+  }, [autoSuggestCache]);
 
   // Add a search term to recent searches
   const addToRecentSearches = (term) => {
@@ -63,6 +85,21 @@ export const SearchProvider = ({ children }) => {
   const handleSearchChange = (term) => {
     setSearchTerm(term);
     setIsSearching(term.trim() !== '');
+
+    // Check if we have cached results for this term
+    if (term.trim() && autoSuggestCache[term.trim()]) {
+      setSearchResults(autoSuggestCache[term.trim()]);
+    }
+  };
+
+  // Cache search results
+  const cacheSearchResults = (term, results) => {
+    if (term.trim()) {
+      setAutoSuggestCache(prev => ({
+        ...prev,
+        [term.trim()]: results
+      }));
+    }
   };
 
   // Handle search submission
@@ -70,6 +107,12 @@ export const SearchProvider = ({ children }) => {
     if (searchTerm.trim()) {
       addToRecentSearches(searchTerm);
     }
+  };
+
+  // Clear autosuggest cache
+  const clearAutoSuggestCache = () => {
+    setAutoSuggestCache({});
+    sessionStorage.removeItem('autoSuggestCache');
   };
 
   // Value to be provided to consumers
@@ -83,7 +126,10 @@ export const SearchProvider = ({ children }) => {
     handleSearchSubmit,
     addToRecentSearches,
     clearRecentSearches,
-    removeSearchTerm
+    removeSearchTerm,
+    cacheSearchResults,
+    clearAutoSuggestCache,
+    autoSuggestCache
   };
 
   return (
