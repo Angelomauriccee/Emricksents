@@ -9,8 +9,7 @@ const products = [
     originalPrice: null,
     image: "/src/assets/images/afnan-9pm-men-display.jpeg",
     images: ["/src/assets/images/afnan-9pm-men-display.jpeg", "/src/assets/images/afnan-9pm-men.jpg"],
-    description: "Afnan 9pm is a captivating fragrance that embodies sophistication and allure. This luxurious scent opens with vibrant citrus notes that gradually blend with a heart of aromatic spices and rich florals. The base notes of warm amber, vanilla, and musk create a lasting impression that's perfect for evening wear. Its elegant composition offers a perfect balance of freshness and depth, making it a versatile choice for the modern individual who appreciates refined fragrances.",
-      ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol",
+    description: "Placeholder description for Afnan 9pm eau de parfum 100ml.",
     details: {
     "topNotes": [],
     "heartNotes": [],
@@ -34,8 +33,7 @@ const products = [
     originalPrice: null,
     image: "/src/assets/images/Afnan-9pm-rebel-display.jpeg",
     images: ["/src/assets/images/Afnan-9pm-rebel-display.jpeg", "/src/assets/images/Afnan-9pm-rebel.jpg"],
-    description: "Afnan 9pm REBEL is a bold and distinctive fragrance that challenges conventions. This daring scent begins with an invigorating burst of bergamot and black pepper, leading to a complex heart of leather and smoky incense. The base notes of vetiver, patchouli, and dark amber create a rebellious signature that lingers impressively. Perfect for those who dare to stand out, this fragrance exudes confidence and charisma with every note, making it ideal for those who write their own rules.",
-      ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Cinnamal, Citral, Geraniol, Citronellol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Cinnamate, Isoeugenol",
+    description: "Placeholder description for Afnan 9pm REBEL eau de parfum 100ml.",
     details: {
     "topNotes": [],
     "heartNotes": [],
@@ -58,8 +56,7 @@ const products = [
     originalPrice: null,
     image: "/src/assets/images/afnan-la-fluer-bouquet-display.webp",
     images: ["/src/assets/images/afnan-la-fluer-bouquet-display.webp", "/src/assets/images/afnan-la-fluer-bouquet-pack.jpg", "/src/assets/images/afnan-la-fluer-bouquet.jpg"],
-    description: "Afnan La Fleur Bouquet is an exquisite floral masterpiece that celebrates the beauty of nature's most delicate blooms. This enchanting fragrance opens with sparkling notes of bergamot and lily of the valley, unfolding into a lush heart of jasmine, rose, and peony. The base notes of white musk, sandalwood, and vanilla provide a warm, creamy foundation that enhances the floral composition. Elegant and timeless, this perfume captures the essence of a fresh bouquet of flowers, making it perfect for those who appreciate classic femininity with a modern twist.",
-      ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Linalool, Limonene, Hydroxycitronellal, Geraniol, Citronellol, Alpha-Isomethyl Ionone, Benzyl Salicylate, Benzyl Benzoate, Farnesol, Benzyl Alcohol, Citral, Eugenol",
+    description: "Placeholder description for Afnan la fleur bouquet eau de parfum 100ml.",
     details: {
     "topNotes": [],
     "heartNotes": [],
@@ -105,8 +102,7 @@ const products = [
     originalPrice: null,
     image: "/src/assets/images/afnan-supremacy-not-only-intense-display.jpg",
     images: ["/src/assets/images/afnan-supremacy-not-only-intense-display.jpg", "/src/assets/images/afnan-supremacy-not-only-intense-pack.jpg"],
-    description: "Afnan Supremacy Not Only Intense is an extraordinary extrait de parfum that delivers unparalleled intensity and longevity. This potent fragrance opens with a captivating blend of citrus and spicy notes, leading to a sophisticated heart of rich florals and aromatic woods. The base notes of amber, leather, and oud create a powerful foundation that resonates for hours. With its exceptional concentration, this extrait de parfum offers a luxurious scent experience that evolves beautifully throughout the day, making it perfect for special occasions and those who appreciate truly remarkable fragrances.",
-      ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Benzyl Benzoate, Citronellol, Geraniol, Cinnamal, Benzyl Alcohol, Citral, Farnesol, Benzyl Cinnamate, Benzyl Salicylate, Alpha-Isomethyl Ionone",
+    description: "Placeholder description for Afnan supremacy not only intense extrait de parfum 100ml.",
     details: {
     "topNotes": [],
     "heartNotes": [],

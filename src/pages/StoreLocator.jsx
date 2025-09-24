@@ -24,7 +24,7 @@ const StoreLocator = () => {
     phone: '+234 906 598 8598',
     hours: 'Mon-Sat: 10:00 AM - 8:00 PM, Sun: 12:00 PM - 6:00 PM',
     coordinates: { lat: 6.577359, lng: 3.379255 }, // Specific coordinates for Ogudu Mall
-    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+    image: '/src/assets/images/store-interior.jpg'
   };
 
   // GSAP animations
@@ -206,7 +206,7 @@ const StoreLocator = () => {
               <div className="space-y-4">
                 <div className="rounded-lg overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                    src="/src/assets/images/store-interior.jpg" 
                     alt="Store Interior" 
                     className="w-full h-full object-cover"
                   />

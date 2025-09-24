@@ -11,37 +11,10 @@ gsap.registerPlugin(ScrollTrigger);
 const About = () => {
   const storyRef = useRef(null);
   const valuesRef = useRef(null);
-  const teamRef = useRef(null);
   const processRef = useRef(null);
 
   // Team members data
   const teamMembers = [
-    {
-      name: 'Emma Emrick',
-      role: 'Founder & Master Perfumer',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      bio: 'With over 15 years of experience in the fragrance industry, Emma founded Emrickscents with a vision to create luxury perfumes that tell a story and evoke emotions.'
-    },
-    {
-      name: 'Daniel Laurent',
-      role: 'Creative Director',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      bio: 'Daniel brings his background in fashion and luxury branding to Emrickscents, overseeing the creative vision and aesthetic of the brand.'
-    },
-    {
-      name: 'Sophia Chen',
-      role: 'Head of Product Development',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      bio: 'With a PhD in Chemistry and a passion for scent, Sophia leads our product development team, ensuring each fragrance meets our exacting standards.'
-    },
-    {
-      name: 'James Wilson',
-      role: 'Sustainability Director',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
-      bio: 'James ensures that our commitment to sustainability is reflected in every aspect of our business, from ingredient sourcing to packaging.'
-    }
-  ];
-
   // Values data
   const values = [
     {
@@ -149,22 +122,6 @@ const About = () => {
       }
     );
 
-    // Team animation
-    gsap.fromTo(
-      '.team-member',
-      { y: 30, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
-        duration: 0.8, 
-        ease: 'power3.out',
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: teamRef.current,
-          start: 'top bottom-=100',
-          toggleActions: 'play none none none'
-        }
-      }
     );
 
     // Process animation
@@ -234,7 +191,7 @@ const About = () => {
                 withLine={false}
               />
               <p className="text-gray-300 mb-6 leading-relaxed">
-                Founded in 2020 by master perfumer Emma Emrick, Emrickscents was born from a passion for artisanal perfumery and a desire to create fragrances that tell a story. After years of training under renowned perfumers in Grasse, France, Emma established our atelier with a vision to blend traditional craftsmanship with modern innovation.
+                Founded in 2020 by master perfumer Emrick, Emrickscents was born from a passion for artisanal perfumery and a desire to create fragrances that tell a story. After years of training under renowned perfumers in Grasse, France, Emma established our atelier with a vision to blend traditional craftsmanship with modern innovation.
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 What began as a small collection of handcrafted scents has grown into a celebrated luxury fragrance house, known for our distinctive blends and commitment to quality. Today, Emrickscents continues to push the boundaries of perfumery, creating scents that captivate the senses and evoke powerful emotions.
@@ -287,7 +244,7 @@ const About = () => {
             <p className="text-2xl md:text-3xl lg:text-4xl font-serif text-light italic mb-6 leading-relaxed">
               "Perfume is the art that makes memory speak. It is the most powerful accessory of a woman and the most important invisible part of her style."
             </p>
-            <footer className="text-secondary text-xl">— Emma Emrick</footer>
+            <footer className="text-secondary text-xl">— Emrick</footer>
           </blockquote>
         </div>
       </section>
@@ -309,38 +266,6 @@ const About = () => {
                 <span className="text-4xl font-serif text-secondary opacity-50 block mb-4">{step.number}</span>
                 <h3 className="text-xl font-serif text-light mb-3">{step.title}</h3>
                 <p className="text-gray-400">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Team Section */}
-      <section ref={teamRef} className="py-20 bg-dark">
-        <div className="container-custom">
-          <SectionTitle 
-            title="Meet Our Team" 
-            subtitle="The passionate individuals behind Emrickscents who bring our vision to life"
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div 
-                key={index}
-                className="team-member bg-gray-900 rounded-lg overflow-hidden"
-              >
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-serif text-light mb-1">{member.name}</h3>
-                  <p className="text-secondary mb-4">{member.role}</p>
-                  <p className="text-gray-400 text-sm">{member.bio}</p>
-                </div>
               </div>
             ))}
           </div>
