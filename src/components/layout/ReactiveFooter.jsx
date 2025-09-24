@@ -61,7 +61,7 @@ const ReactiveFooter = () => {
               />
             </Link>
             <p className="text-gray-400 mb-6">
-              Discover the art of luxury fragrance, crafted with passion and precision.
+              Emrickscents is a luxury perfume boutique offering a curated selection of rare, artisanal, and designer fragrances. Known for elegance and sophistication, the brand provides personalized consultations and cruelty-free, high-quality perfumes crafted with sustainably sourced ingredients. Emrickscents turns fragrance into a refined, sensory art form tailored to each individual.
             </p>
             <div className="flex space-x-4">
               <a 
@@ -155,8 +155,8 @@ const ReactiveFooter = () => {
           <div>
             <h3 className="text-xl font-serif text-light mb-4">Store Hours</h3>
             <ul className="space-y-3">
-              <li className="text-gray-400">Monday - Saturday: 10:00 AM - 8:00 PM</li>
-              <li className="text-gray-400">Sunday: 12:00 PM - 6:00 PM</li>
+              <li className="text-gray-400">Monday - Saturday: 10am - 8pm</li>
+              <li className="text-gray-400">Sunday: 2pm - 7pm</li>
               <li className="text-gray-400 mt-4">
                 <strong className="text-secondary">Location:</strong><br />
                 Ogudu Mall, Ojota<br />

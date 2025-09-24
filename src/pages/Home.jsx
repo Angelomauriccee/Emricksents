@@ -28,32 +28,32 @@ const Home = () => {
     {
       id: 1,
       url: "https://www.instagram.com/reel/DO7xky6DF4i/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "https://source.unsplash.com/random/600x600?perfume,luxury&sig=1"
+      thumbnail: "/src/assets/images/instagram-thumbnails/reel1.jpg"
     },
     {
       id: 2,
       url: "https://www.instagram.com/reel/DOxhyh6jLkj/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "https://source.unsplash.com/random/600x600?perfume,bottle&sig=2"
+      thumbnail: "/src/assets/images/instagram-thumbnails/reel2.jpg"
     },
     {
       id: 3,
       url: "https://www.instagram.com/reel/DOs1GBdDFHQ/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "https://source.unsplash.com/random/600x600?perfume,scent&sig=3"
+      thumbnail: "/src/assets/images/instagram-thumbnails/reel3.jpg"
     },
     {
       id: 4,
       url: "https://www.instagram.com/reel/DOqacooDE6u/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "https://source.unsplash.com/random/600x600?perfume,fragrance&sig=4"
+      thumbnail: "/src/assets/images/instagram-thumbnails/reel4.jpg"
     },
     {
       id: 5,
       url: "https://www.instagram.com/reel/DOn6jQEjKYN/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "https://source.unsplash.com/random/600x600?perfume,luxury&sig=5"
+      thumbnail: "/src/assets/images/instagram-thumbnails/reel5.jpg"
     },
     {
       id: 6,
       url: "https://www.instagram.com/reel/DOiOs7LDBiD/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "https://source.unsplash.com/random/600x600?perfume,bottle&sig=6"
+      thumbnail: "/src/assets/images/instagram-thumbnails/reel6.jpg"
     }
   ];
 
@@ -324,7 +324,7 @@ const Home = () => {
             </div>
             <div className="order-1 lg:order-2 story-image">
               <img 
-                src="https://images.unsplash.com/photo-1615368144592-40f22d93cd3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                src="/src/assets/images/our-story.jpg" 
                 alt="Our Story" 
                 className="w-full h-full object-cover rounded-lg"
               />

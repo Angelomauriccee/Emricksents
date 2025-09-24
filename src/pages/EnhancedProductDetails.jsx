@@ -351,25 +351,9 @@ const EnhancedProductDetails = () => {
                       <span className="w-1/3 text-gray-400">Fragrance Type</span>
                       <span>{product.type}</span>
                     </li>
-                    <li className="flex border-b border-gray-800 pb-2">
-                      <span className="w-1/3 text-gray-400">Concentration</span>
-                      <span>Eau de Parfum</span>
-                    </li>
-                    <li className="flex border-b border-gray-800 pb-2">
-                      <span className="w-1/3 text-gray-400">Longevity</span>
-                      <span>8-10 hours</span>
-                    </li>
-                    <li className="flex border-b border-gray-800 pb-2">
-                      <span className="w-1/3 text-gray-400">Sillage</span>
-                      <span>Moderate to Strong</span>
-                    </li>
-                    <li className="flex border-b border-gray-800 pb-2">
-                      <span className="w-1/3 text-gray-400">Season</span>
-                      <span>All Seasons</span>
-                    </li>
                     <li className="flex">
-                      <span className="w-1/3 text-gray-400">Made in</span>
-                      <span>France</span>
+                      <span className="w-1/3 text-gray-400"></span>
+                      <span></span>
                     </li>
                   </ul>
                 </div>
@@ -377,9 +361,7 @@ const EnhancedProductDetails = () => {
                 <div>
                   <h3 className="text-xl font-serif text-secondary mb-4">Ingredients</h3>
                   <p className="text-gray-300">
-                    Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, 
-                    Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, 
-                    Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol, Isoeugenol.
+                    {product.ingredients || "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol, Isoeugenol."}
                   </p>
                 </div>
 

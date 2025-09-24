@@ -293,8 +293,8 @@ const Contact = () => {
                     <div>
                       <h4 className="text-light font-medium mb-1">Opening Hours</h4>
                       <p className="text-gray-400">
-                        Monday - Saturday: 10:00 AM - 8:00 PM<br />
-                        Sunday: 12:00 PM - 6:00 PM
+                        Monday - Saturday: 10am - 8pm<br />
+                        Sunday: 2pm - 7pm
                       </p>
                     </div>
                   </div>
@@ -351,35 +351,35 @@ const Contact = () => {
       <section className="py-20 bg-dark">
         <div className="container-custom">
           <SectionTitle 
-            title="Frequently Asked Questions" 
+            title="Frequently Asked Questions (FAQ) – EmrickScents" 
             subtitle="Find answers to common questions about our products and services"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                question: "How long do your fragrances last?",
-                answer: "Our Eau de Parfum fragrances typically last 8-10 hours on the skin, depending on individual skin chemistry and environmental factors. Our perfume oils can last even longer, up to 12-14 hours."
+                question: "What do I do if an item is damaged?",
+                answer: "If your order arrives damaged (e.g., broken bottle or faulty spray), please contact us immediately within 24 hours with clear photos/videos. We'll review your request and assist you. For full details, kindly check our Return & Store Credit Policy."
+              },
+              {
+                question: "Can my package be delivered to an office address?",
+                answer: "Yes! Your package can be delivered to any address that suits you. Simply enter your preferred delivery address (home, office, etc.) when placing your order."
+              },
+              {
+                question: "If I return an item, will I receive my refund or exchange?",
+                answer: "We do not offer refunds, but eligible returns may receive store credit, valid for 14 working days. Please review our Return & Store Credit Policy for conditions and step-by-step instructions."
+              },
+              {
+                question: "Are all products on EmrickScents original and genuine?",
+                answer: "Absolutely! We only offer 100% genuine and original perfumes, sourced directly from trusted brands and suppliers."
+              },
+              {
+                question: "Can I sample your fragrances before purchasing a full bottle?",
+                answer: "Yes! We offer a discovery set that includes samples of our most popular fragrances — a perfect way to explore and find your signature scent before committing to a full-size bottle."
               },
               {
                 question: "Are your products cruelty-free?",
                 answer: "Yes, all Emrickscents products are cruelty-free. We do not test on animals, nor do we work with suppliers who test on animals. We are committed to ethical and sustainable practices."
-              },
-              {
-                question: "Do you offer international shipping?",
-                answer: "Yes, we ship to most countries worldwide. International shipping typically takes 5-10 business days, depending on the destination. Please note that customs fees may apply for international orders."
-              },
-              {
-                question: "Can I sample your fragrances before purchasing a full bottle?",
-                answer: "Absolutely! We offer a discovery set that includes samples of our most popular fragrances. This is a perfect way to explore our collection and find your signature scent before committing to a full-size bottle."
-              },
-              {
-                question: "What is your return policy?",
-                answer: "We accept returns within 24 hours of purchase for unopened and unused products in their original packaging. For more details, please check our Return & Store Credit Policy."
-              },
-              {
-                question: "How should I store my perfume?",
-                answer: "To maximize the lifespan of your fragrance, store it in a cool, dry place away from direct sunlight and extreme temperatures. Avoid keeping perfumes in the bathroom, as humidity can alter the scent."
               }
             ].map((faq, index) => (
               <div key={index} className="bg-gray-900 rounded-lg p-6">
