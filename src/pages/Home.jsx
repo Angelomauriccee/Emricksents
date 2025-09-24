@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiInstagram } from 'react-icons/fi';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
-import ProductCard from '../components/product/ProductCard';
+import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -18,9 +18,44 @@ const Home = () => {
   const featuredRef = useRef(null);
   const collectionRef = useRef(null);
   const storyRef = useRef(null);
+  const instagramRef = useRef(null);
 
   // Featured products
-  const featuredProducts = products.filter(product => product.featured);
+  const featuredProducts = products.filter(product => product.featured).slice(0, 4);
+
+  // Instagram reels
+  const instagramReels = [
+    {
+      id: 1,
+      url: "https://www.instagram.com/reel/DO7xky6DF4i/?igsh=YzljYTk1ODg3Zg==",
+      thumbnail: "https://source.unsplash.com/random/600x600?perfume,luxury&sig=1"
+    },
+    {
+      id: 2,
+      url: "https://www.instagram.com/reel/DOxhyh6jLkj/?igsh=YzljYTk1ODg3Zg==",
+      thumbnail: "https://source.unsplash.com/random/600x600?perfume,bottle&sig=2"
+    },
+    {
+      id: 3,
+      url: "https://www.instagram.com/reel/DOs1GBdDFHQ/?igsh=YzljYTk1ODg3Zg==",
+      thumbnail: "https://source.unsplash.com/random/600x600?perfume,scent&sig=3"
+    },
+    {
+      id: 4,
+      url: "https://www.instagram.com/reel/DOqacooDE6u/?igsh=YzljYTk1ODg3Zg==",
+      thumbnail: "https://source.unsplash.com/random/600x600?perfume,fragrance&sig=4"
+    },
+    {
+      id: 5,
+      url: "https://www.instagram.com/reel/DOn6jQEjKYN/?igsh=YzljYTk1ODg3Zg==",
+      thumbnail: "https://source.unsplash.com/random/600x600?perfume,luxury&sig=5"
+    },
+    {
+      id: 6,
+      url: "https://www.instagram.com/reel/DOiOs7LDBiD/?igsh=YzljYTk1ODg3Zg==",
+      thumbnail: "https://source.unsplash.com/random/600x600?perfume,bottle&sig=6"
+    }
+  ];
 
   // GSAP animations
   useEffect(() => {
@@ -41,6 +76,24 @@ const Home = () => {
       { y: 20, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
       '-=0.4'
+    );
+
+    // Featured products animation
+    gsap.fromTo(
+      '.featured-product',
+      { y: 30, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.8, 
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: featuredRef.current,
+          start: 'top bottom-=100',
+          toggleActions: 'play none none none'
+        }
+      }
     );
 
     // Scroll-triggered animations
@@ -86,6 +139,24 @@ const Home = () => {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: storyRef.current,
+          start: 'top bottom-=100',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+
+    // Instagram posts animation
+    gsap.fromTo(
+      '.instagram-post',
+      { y: 30, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        duration: 0.6, 
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: instagramRef.current,
           start: 'top bottom-=100',
           toggleActions: 'play none none none'
         }
@@ -167,8 +238,10 @@ const Home = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
+            {featuredProducts.map((product, index) => (
+              <div key={product.id} className="featured-product">
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
 
@@ -280,7 +353,7 @@ const Home = () => {
       </section>
 
       {/* Instagram Gallery */}
-      <section className="py-20 bg-dark">
+      <section ref={instagramRef} className="py-20 bg-dark">
         <div className="container-custom">
           <SectionTitle 
             title="Follow Our Journey" 
@@ -288,26 +361,39 @@ const Home = () => {
           />
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
+            {instagramReels.map((reel) => (
               <a 
-                key={item}
-                href="https://instagram.com" 
+                key={reel.id}
+                href={reel.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block overflow-hidden group relative"
+                className="instagram-post block overflow-hidden rounded-lg group relative"
               >
                 <img 
-                  src={`https://source.unsplash.com/random/300x300?perfume,fragrance&sig=${item}`}
-                  alt="Instagram Post" 
+                  src={reel.thumbnail}
+                  alt="Instagram Reel" 
                   className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-                  <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    @emrickscents
-                  </span>
+                  <FiInstagram 
+                    size={32} 
+                    className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+                  />
                 </div>
               </a>
             ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <a 
+              href="https://www.instagram.com/emrickscents?igsh=YzljYTk1ODg3Zg==" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-secondary hover:text-secondary-dark transition-colors"
+            >
+              <span>Follow us @emrickscents</span>
+              <FiArrowRight className="ml-2" />
+            </a>
           </div>
         </div>
       </section>
