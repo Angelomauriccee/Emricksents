@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import { FiMinus, FiPlus, FiShoppingBag, FiArrowLeft } from 'react-icons/fi';
@@ -7,17 +7,25 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import gsap from 'gsap';
 import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/css/navigation={{
+                   nextEl: ".swiper-button-next",
+                   prevEl: ".swiper-button-prev",
+                   enabled: true,
+                   disabledClass: "swiper-button-disabled"
+                 }}';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
+import '../components/swiper-custom.css';
 import ImageZoom from '../components/product/ImageZoom';
+import { slugify, findProductBySlug } from '../utils/slugify';
 
 import Button from '../components/ui/Button';
 import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
 
 const EnhancedProductDetails = () => {
-  const { id } = useParams();
+  const { id, slug } = useParams();
+  const navigate = useNavigate();
   const { addToCart, cartCount } = useCart();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -30,9 +38,29 @@ const EnhancedProductDetails = () => {
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
-  // Find product by ID
+  // Find product by ID or slug
   useEffect(() => {
-    const foundProduct = products.find(p => p.id === parseInt(id));
+    let foundProduct;
+    
+    if (slug) {
+      // Find by slug
+      foundProduct = findProductBySlug(products, slug);
+      
+      // If not found by slug, try finding by ID as fallback
+      if (!foundProduct && !isNaN(parseInt(slug))) {
+        foundProduct = products.find(p => p.id === parseInt(slug));
+      }
+    } else if (id) {
+      // Find by ID (for backward compatibility)
+      foundProduct = products.find(p => p.id === parseInt(id));
+      
+      // Redirect to slug URL if found by ID
+      if (foundProduct) {
+        navigate(`/p/${slugify(foundProduct.name)}`, { replace: true });
+        return;
+      }
+    }
+    
     if (foundProduct) {
       setProduct(foundProduct);
       
@@ -41,6 +69,11 @@ const EnhancedProductDetails = () => {
         .filter(p => p.id !== foundProduct.id && (p.category === foundProduct.category || p.type === foundProduct.type))
         .slice(0, 4);
       setRelatedProducts(related);
+    } else {
+      // If product not found, redirect to shop page
+      console.error("Product not found");
+      // Uncomment the line below to redirect to shop page if product not found
+      // navigate('/shop');
     }
     
     // Reset quantity and active tab when product changes
@@ -49,7 +82,7 @@ const EnhancedProductDetails = () => {
     
     // Scroll to top when product changes
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [id, slug, navigate]);
 
   // GSAP animations
   useEffect(() => {
@@ -130,9 +163,14 @@ const EnhancedProductDetails = () => {
             <Swiper
               modules={[Navigation, Pagination, Thumbs]}
               thumbs={{ swiper: thumbsSwiper }}
-              navigation
+              navigation={{
+                   nextEl: ".swiper-button-next",
+                   prevEl: ".swiper-button-prev",
+                   enabled: true,
+                   disabledClass: "swiper-button-disabled"
+                 }}
               pagination={{ clickable: true }}
-              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900"
+              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
             >
               {product.images.map((image, index) => (
                 <SwiperSlide key={index}>
@@ -142,6 +180,7 @@ const EnhancedProductDetails = () => {
                   />
                 </SwiperSlide>
               ))}
+                 <div className="swiper-button-next"></div>\n                 <div className="swiper-button-prev"></div>
             </Swiper>
             
             <Swiper
@@ -162,6 +201,7 @@ const EnhancedProductDetails = () => {
                   />
                 </SwiperSlide>
               ))}
+                 <div className="swiper-button-next"></div>\n                 <div className="swiper-button-prev"></div>
             </Swiper>
           </div>
 
