@@ -196,8 +196,6 @@ const EnhancedProductDetails = () => {
                     />
                   </SwiperSlide>
                 ))}
-                <div className="swiper-button-next"></div>
-                <div className="swiper-button-prev"></div>
               </Swiper>
             )}
           </div>
