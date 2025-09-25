@@ -1,0 +1,58 @@
+/* Custom Swiper Styles */
+
+/* Navigation Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #d4af37 !important; /* Gold color for arrows */
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 18px !important;
+  font-weight: bold;
+  opacity: 1 !important;
+  visibility: visible !important;
+  content: '' !important;
+}
+
+.swiper-button-next:after {
+  content: '→' !important;
+}
+
+.swiper-button-prev:after {
+  content: '←' !important;
+}
+
+/* Pagination Bullets */
+.swiper-pagination-bullet {
+  background-color: #d4af37 !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Thumbs Swiper */
+.thumbs-swiper {
+  margin-top: 10px;
+}
+
+.thumbs-swiper .swiper-slide {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.thumbs-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid #d4af37;
+}
