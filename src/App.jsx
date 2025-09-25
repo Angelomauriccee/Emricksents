@@ -57,7 +57,7 @@ function App() {
     <CartProvider>
       <FilterProvider>
         <SearchProvider>
-          <div className="min-h-screen flex flex-col relative overflow-x-hidden" style={{ overflowX: 'hidden' }}>
+          <div className="min-h-screen flex flex-col relative">
             {/* Enhanced features */}
             <CustomCursor />
             <NoiseOverlay />
@@ -74,7 +74,6 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<Shop />} />
                   <Route path="/product/:id" element={<ProductDetails />} />
-                  <Route path="/p/:slug" element={<ProductDetails />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
