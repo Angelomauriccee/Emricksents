@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import { FiMinus, FiPlus, FiShoppingBag, FiArrowLeft } from 'react-icons/fi';
@@ -7,17 +7,20 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import gsap from 'gsap';
 import 'swiper/css';
-import 'swiper/css/navigation';
+import 'swiper/css/navigation={{nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"}}';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
+import '../components/swiper-custom.css';
 import ImageZoom from '../components/product/ImageZoom';
 
 import Button from '../components/ui/Button';
 import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
+import { slugify, findProductBySlug } from '../utils/slugify';
 
 const EnhancedProductDetails = () => {
-  const { id } = useParams();
+  const { id, slug } = useParams();
+  const navigate = useNavigate();
   const { addToCart, cartCount } = useCart();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -30,9 +33,24 @@ const EnhancedProductDetails = () => {
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
-  // Find product by ID
+  // Find product by ID or slug
   useEffect(() => {
-    const foundProduct = products.find(p => p.id === parseInt(id));
+    let foundProduct;
+    
+    if (slug) {
+      // Find by slug
+      foundProduct = findProductBySlug(products, slug);
+    } else if (id) {
+      // Find by ID (for backward compatibility)
+      foundProduct = products.find(p => p.id === parseInt(id));
+      
+      // Redirect to slug URL if found by ID
+      if (foundProduct) {
+        navigate(`/p/${slugify(foundProduct.name)}`, { replace: true });
+        return;
+      }
+    }
+    
     if (foundProduct) {
       setProduct(foundProduct);
       
@@ -49,7 +67,7 @@ const EnhancedProductDetails = () => {
     
     // Scroll to top when product changes
     window.scrollTo(0, 0);
-  }, [id]);
+  }, [id, slug, navigate]);
 
   // GSAP animations
   useEffect(() => {
@@ -130,9 +148,9 @@ const EnhancedProductDetails = () => {
             <Swiper
               modules={[Navigation, Pagination, Thumbs]}
               thumbs={{ swiper: thumbsSwiper }}
-              navigation
+              navigation={{nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"}}
               pagination={{ clickable: true }}
-              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900"
+              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
             >
               {product.images.map((image, index) => (
                 <SwiperSlide key={index}>
