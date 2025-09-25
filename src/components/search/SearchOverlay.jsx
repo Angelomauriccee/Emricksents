@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiSearch, FiX, FiClock, FiTrash2 } from 'react-icons/fi';
 import { useSearch } from '../../context/SearchContext';
 import products from '../../data/products';
+import { slugify } from '../../utils/slugify';
 
 const SearchOverlay = ({ isOpen, onClose }) => {
   const { 
@@ -192,7 +193,7 @@ const SearchOverlay = ({ isOpen, onClose }) => {
                         transition={{ duration: 0.2 }}
                       >
                         <Link 
-                          to={`/product/${product.id}`}
+                          to={`/product/${slugify(product.name)}`}
                           onClick={handleProductClick}
                           className="block bg-gray-900 rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
                         >

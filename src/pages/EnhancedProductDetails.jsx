@@ -33,26 +33,25 @@ const EnhancedProductDetails = () => {
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
-  // Find product by ID or slug
+  // Find product by slug or ID
   useEffect(() => {
     let foundProduct;
+    const paramSlug = slug || id; // Use either slug or id from params
     
-    if (slug) {
-      // Find by slug
-      foundProduct = findProductBySlug(products, slug);
+    if (paramSlug) {
+      // First try to find by slug
+      foundProduct = findProductBySlug(products, paramSlug);
       
-      // If not found by slug, try finding by ID as fallback
-      if (!foundProduct && !isNaN(parseInt(slug))) {
-        foundProduct = products.find(p => p.id === parseInt(slug));
-      }
-    } else if (id) {
-      // Find by ID (for backward compatibility)
-      foundProduct = products.find(p => p.id === parseInt(id));
-      
-      // Redirect to slug URL if found by ID
-      if (foundProduct) {
-        navigate(`/p/${slugify(foundProduct.name)}`, { replace: true });
-        return;
+      // If not found by slug and it looks like an ID, try finding by ID as fallback
+      if (!foundProduct && !isNaN(parseInt(paramSlug))) {
+        foundProduct = products.find(p => p.id === parseInt(paramSlug));
+        
+        // If found by ID, redirect to slug URL
+        if (foundProduct) {
+          const productSlug = slugify(foundProduct.name);
+          navigate(`/product/${productSlug}`, { replace: true });
+          return;
+        }
       }
     }
     
@@ -67,8 +66,7 @@ const EnhancedProductDetails = () => {
     } else {
       // If product not found, redirect to shop page
       console.error("Product not found");
-      // Uncomment the line below to redirect to shop page if product not found
-      // navigate('/shop');
+      navigate('/shop');
     }
     
     // Reset quantity and active tab when product changes
@@ -156,41 +154,52 @@ const EnhancedProductDetails = () => {
           {/* Product Images */}
           <div ref={imageRef} className="space-y-4">
             <Swiper
-                modules={[Navigation, Pagination, Thumbs]}
-                thumbs={{ swiper: thumbsSwiper }}
-                navigation={true} // ✅ Just use `true` instead of complex config
-                pagination={{ clickable: true }}
-                className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
-              >
-                {product.images.map((image, index) => (
-                  <SwiperSlide key={index}>
-                    <ImageZoom 
-                      image={image} 
-                      alt={`${product.name} - Image ${index + 1}`} 
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            
-            <Swiper
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={4}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[Navigation, Thumbs]}
-              className="thumbs-swiper"
+              modules={[Navigation, Pagination, Thumbs]}
+              thumbs={{ swiper: thumbsSwiper }}
+              navigation={{
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+                enabled: true,
+                disabledClass: "swiper-button-disabled"
+              }}
+              pagination={{ clickable: true }}
+              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
             >
-              {product.images.map((image, index) => (
-                <SwiperSlide key={index} className="cursor-pointer rounded-md overflow-hidden">
-                  <img 
-                    src={image} 
-                    alt={`${product.name} - Thumbnail ${index + 1}`} 
-                    className="w-full h-full object-cover aspect-[3/4]" 
+              {product.images && product.images.map((image, index) => (
+                <SwiperSlide key={index}>
+                  <ImageZoom 
+                    image={image} 
+                    alt={`${product.name} - Image ${index + 1}`} 
                   />
                 </SwiperSlide>
               ))}
+              <div className="swiper-button-next"></div>
+              <div className="swiper-button-prev"></div>
             </Swiper>
+            
+            {product.images && product.images.length > 1 && (
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={4}
+                freeMode={true}
+                watchSlidesProgress={true}
+                modules={[Navigation, Thumbs]}
+                className="thumbs-swiper"
+              >
+                {product.images.map((image, index) => (
+                  <SwiperSlide key={index} className="cursor-pointer rounded-md overflow-hidden">
+                    <img 
+                      src={image} 
+                      alt={`${product.name} - Thumbnail ${index + 1}`} 
+                      className="w-full h-full object-cover aspect-[3/4]" 
+                    />
+                  </SwiperSlide>
+                ))}
+                <div className="swiper-button-next"></div>
+                <div className="swiper-button-prev"></div>
+              </Swiper>
+            )}
           </div>
 
           {/* Product Info */}
@@ -214,52 +223,56 @@ const EnhancedProductDetails = () => {
             </div>
 
             {/* Rating */}
-            <div className="flex items-center space-x-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className={`text-lg ${i < Math.floor(product.rating) ? 'text-secondary' : 'text-gray-400'}`}>
-                    ★
-                  </span>
-                ))}
+            {product.rating && (
+              <div className="flex items-center space-x-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className={`text-lg ${i < Math.floor(product.rating) ? 'text-secondary' : 'text-gray-400'}`}>
+                      ★
+                    </span>
+                  ))}
+                </div>
+                <span className="text-secondary">{product.rating}</span>
               </div>
-              <span className="text-secondary">{product.rating}</span>
-            </div>
+            )}
 
             {/* Short Description */}
             <p className="text-gray-300 leading-relaxed">
-              {product.description.split('.')[0] + '.'}
+              {product.description && product.description.split('.')[0] + '.'}
             </p>
 
             {/* Fragrance Notes */}
-            <div className="space-y-3">
-              <h3 className="text-light font-medium">Fragrance Notes:</h3>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="space-y-2">
-                  <p className="text-secondary text-sm">Top Notes</p>
-                  <ul className="text-gray-400 text-sm space-y-1">
-                    {product.details.topNotes.map((note, index) => (
-                      <li key={index}>{note}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-secondary text-sm">Heart Notes</p>
-                  <ul className="text-gray-400 text-sm space-y-1">
-                    {product.details.heartNotes.map((note, index) => (
-                      <li key={index}>{note}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-secondary text-sm">Base Notes</p>
-                  <ul className="text-gray-400 text-sm space-y-1">
-                    {product.details.baseNotes.map((note, index) => (
-                      <li key={index}>{note}</li>
-                    ))}
-                  </ul>
+            {product.details && product.details.topNotes && product.details.topNotes.length > 0 && (
+              <div className="space-y-3">
+                <h3 className="text-light font-medium">Fragrance Notes:</h3>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <p className="text-secondary text-sm">Top Notes</p>
+                    <ul className="text-gray-400 text-sm space-y-1">
+                      {product.details.topNotes.map((note, index) => (
+                        <li key={index}>{note}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-secondary text-sm">Heart Notes</p>
+                    <ul className="text-gray-400 text-sm space-y-1">
+                      {product.details.heartNotes.map((note, index) => (
+                        <li key={index}>{note}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-secondary text-sm">Base Notes</p>
+                    <ul className="text-gray-400 text-sm space-y-1">
+                      {product.details.baseNotes.map((note, index) => (
+                        <li key={index}>{note}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Size */}
             <div>

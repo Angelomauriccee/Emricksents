@@ -27,13 +27,34 @@ export const slugify = (text) => {
 export const findProductBySlug = (products, slug) => {
   if (!products || !Array.isArray(products) || !slug) return null;
   
+  // Normalize the input slug
+  const normalizedSlug = slugify(slug);
+  
   // Try exact match first
-  let product = products.find(product => slugify(product.name) === slug);
+  let product = products.find(product => slugify(product.name) === normalizedSlug);
   
   // If no exact match, try partial match
   if (!product) {
-    product = products.find(product => slugify(product.name).includes(slug) || slug.includes(slugify(product.name)));
+    product = products.find(product => {
+      const productSlug = slugify(product.name);
+      return productSlug.includes(normalizedSlug) || normalizedSlug.includes(productSlug);
+    });
+  }
+  
+  // If still no match and it looks like an ID, try finding by ID
+  if (!product && !isNaN(parseInt(slug))) {
+    product = products.find(product => product.id === parseInt(slug));
   }
   
   return product || null;
+};
+
+/**
+ * Generates a product URL using its slug
+ * @param {Object} product - The product object
+ * @returns {string} - The product URL
+ */
+export const getProductUrl = (product) => {
+  if (!product || !product.name) return '/shop';
+  return `/product/${slugify(product.name)}`;
 };

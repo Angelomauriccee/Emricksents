@@ -6,6 +6,7 @@ import gsap from 'gsap';
 
 import Button from '../components/ui/Button';
 import { useCart } from '../context/CartContext';
+import { slugify } from '../utils/slugify';
 
 const EnhancedCart = () => {
   const { cart: cartItems, updateQuantity: updateCartQuantity, removeFromCart, getTotalPrice } = useCart();
@@ -106,7 +107,7 @@ const EnhancedCart = () => {
                     {/* Product */}
                     <div className="col-span-1 md:col-span-6">
                       <div className="flex items-center space-x-4">
-                        <Link to={`/product/${item.id}`} className="block w-20 h-20 bg-gray-900 rounded-md overflow-hidden">
+                        <Link to={`/product/${slugify(item.name)}`} className="block w-20 h-20 bg-gray-900 rounded-md overflow-hidden">
                           <img 
                             src={item.image} 
                             alt={item.name} 
@@ -114,7 +115,7 @@ const EnhancedCart = () => {
                           />
                         </Link>
                         <div>
-                          <Link to={`/product/${item.id}`} className="text-light hover:text-secondary transition-colors">
+                          <Link to={`/product/${slugify(item.name)}`} className="text-light hover:text-secondary transition-colors">
                             {item.name}
                           </Link>
                           <p className="text-gray-400 text-sm mt-1">{item.size}</p>
