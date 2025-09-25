@@ -60,7 +60,7 @@ const EnhancedProductCard = ({ product }) => {
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
     >
-      <Link to={`/p/${slugify(product.name)}`} className="block">
+      <Link to={`/product/${slugify(product.name)}`} className="block">
         <div className="relative overflow-hidden rounded-lg bg-gray-900 mb-4">
           {/* Product Image */}
           <div className="aspect-[3/4] overflow-hidden">

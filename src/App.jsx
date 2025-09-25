@@ -73,7 +73,8 @@ function App() {
                 <Routes location={location} key={location.pathname}>
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<Shop />} />
-                  <Route path="/product/:id" element={<ProductDetails />} />
+                  <Route path="/product/:slug" element={<ProductDetails />} />
+                     <Route path="/p/:slug" element={<ProductDetails />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />

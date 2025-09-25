@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiShoppingBag } from 'react-icons/fi';
 import gsap from 'gsap';
 import { useCart } from '../../context/CartContext';
+import { slugify } from '../../utils/slugify';
 
 const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -45,6 +46,11 @@ const ProductCard = ({ product }) => {
     }, 1000);
   };
 
+  // Format price in Naira
+  const formatPrice = (price) => {
+    return `₦${price.toLocaleString()}`;
+  };
+
   return (
     <motion.div 
       ref={cardRef}
@@ -54,7 +60,7 @@ const ProductCard = ({ product }) => {
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
     >
-      <Link to={`/product/${product.id}`} className="block">
+      <Link to={`/product/${slugify(product.name)}`} className="block">
         <div className="relative overflow-hidden rounded-lg bg-gray-900 mb-4">
           {/* Product Image */}
           <div className="aspect-[3/4] overflow-hidden">
@@ -113,9 +119,9 @@ const ProductCard = ({ product }) => {
           <p className="text-gray-400 text-sm mb-2">{product.category}</p>
           <div className="flex justify-center items-center space-x-2">
             {product.originalPrice && (
-              <span className="text-gray-500 line-through">${product.originalPrice}</span>
+              <span className="text-gray-500 line-through">{formatPrice(product.originalPrice)}</span>
             )}
-            <span className="text-secondary font-medium">${product.price}</span>
+            <span className="text-secondary font-medium">{formatPrice(product.price)}</span>
           </div>
         </div>
       </Link>
