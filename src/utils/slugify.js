@@ -4,6 +4,8 @@
  * @returns {string} - The slugified text
  */
 export const slugify = (text) => {
+  if (!text) return '';
+  
   return text
     .toString()
     .toLowerCase()
@@ -23,5 +25,15 @@ export const slugify = (text) => {
  * @returns {Object|null} - The found product or null
  */
 export const findProductBySlug = (products, slug) => {
-  return products.find(product => slugify(product.name) === slug) || null;
+  if (!products || !Array.isArray(products) || !slug) return null;
+  
+  // Try exact match first
+  let product = products.find(product => slugify(product.name) === slug);
+  
+  // If no exact match, try partial match
+  if (!product) {
+    product = products.find(product => slugify(product.name).includes(slug) || slug.includes(slugify(product.name)));
+  }
+  
+  return product || null;
 };

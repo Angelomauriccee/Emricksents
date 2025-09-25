@@ -11,12 +11,25 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
   font-size: 18px !important;
   font-weight: bold;
+  opacity: 1 !important;
+  visibility: visible !important;
+  content: '' !important;
+}
+
+.swiper-button-next:after {
+  content: '→' !important;
+}
+
+.swiper-button-prev:after {
+  content: '←' !important;
 }
 
 /* Pagination Bullets */

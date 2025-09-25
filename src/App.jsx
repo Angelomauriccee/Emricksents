@@ -57,7 +57,7 @@ function App() {
     <CartProvider>
       <FilterProvider>
         <SearchProvider>
-          <div className="min-h-screen flex flex-col relative overflow-x-hidden">
+          <div className="min-h-screen flex flex-col relative overflow-x-hidden" style={{ overflowX: 'hidden' }}>
             {/* Enhanced features */}
             <CustomCursor />
             <NoiseOverlay />

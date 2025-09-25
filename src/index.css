@@ -11,6 +11,9 @@
   }
   
   body {
+    html {
+       @apply overflow-x-hidden;
+     }
     @apply font-sans bg-primary text-light overflow-x-hidden;
   }
   

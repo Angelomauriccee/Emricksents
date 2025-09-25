@@ -7,7 +7,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import gsap from 'gsap';
 import 'swiper/css';
-import 'swiper/css/navigation={{nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"}}';
+import 'swiper/css/navigation={{
+                   nextEl: ".swiper-button-next",
+                   prevEl: ".swiper-button-prev",
+                   enabled: true,
+                   disabledClass: "swiper-button-disabled"
+                 }}';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import '../components/swiper-custom.css';
@@ -40,6 +45,11 @@ const EnhancedProductDetails = () => {
     if (slug) {
       // Find by slug
       foundProduct = findProductBySlug(products, slug);
+      
+      // If not found by slug, try finding by ID as fallback
+      if (!foundProduct && !isNaN(parseInt(slug))) {
+        foundProduct = products.find(p => p.id === parseInt(slug));
+      }
     } else if (id) {
       // Find by ID (for backward compatibility)
       foundProduct = products.find(p => p.id === parseInt(id));
@@ -59,6 +69,11 @@ const EnhancedProductDetails = () => {
         .filter(p => p.id !== foundProduct.id && (p.category === foundProduct.category || p.type === foundProduct.type))
         .slice(0, 4);
       setRelatedProducts(related);
+    } else {
+      // If product not found, redirect to shop page
+      console.error("Product not found");
+      // Uncomment the line below to redirect to shop page if product not found
+      // navigate('/shop');
     }
     
     // Reset quantity and active tab when product changes
@@ -148,7 +163,12 @@ const EnhancedProductDetails = () => {
             <Swiper
               modules={[Navigation, Pagination, Thumbs]}
               thumbs={{ swiper: thumbsSwiper }}
-              navigation={{nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev"}}
+              navigation={{
+                   nextEl: ".swiper-button-next",
+                   prevEl: ".swiper-button-prev",
+                   enabled: true,
+                   disabledClass: "swiper-button-disabled"
+                 }}
               pagination={{ clickable: true }}
               className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
             >
@@ -160,6 +180,7 @@ const EnhancedProductDetails = () => {
                   />
                 </SwiperSlide>
               ))}
+                 <div className="swiper-button-next"></div>\n                 <div className="swiper-button-prev"></div>
             </Swiper>
             
             <Swiper
@@ -180,6 +201,7 @@ const EnhancedProductDetails = () => {
                   />
                 </SwiperSlide>
               ))}
+                 <div className="swiper-button-next"></div>\n                 <div className="swiper-button-prev"></div>
             </Swiper>
           </div>
 
