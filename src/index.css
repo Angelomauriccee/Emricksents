@@ -6,7 +6,8 @@
 @tailwind utilities;
 
 @layer base {
-  html {\n       @apply overflow-x-hidden;
+  html {
+    @apply overflow-x-hidden;
     scroll-behavior: smooth;
   }
   

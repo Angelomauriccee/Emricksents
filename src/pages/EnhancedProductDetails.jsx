@@ -7,12 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import gsap from 'gsap';
 import 'swiper/css';
-import 'swiper/css/navigation={{
-                   nextEl: ".swiper-button-next",
-                   prevEl: ".swiper-button-prev",
-                   enabled: true,
-                   disabledClass: "swiper-button-disabled"
-                 }}';
+import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import '../components/swiper-custom.css';
@@ -161,27 +156,21 @@ const EnhancedProductDetails = () => {
           {/* Product Images */}
           <div ref={imageRef} className="space-y-4">
             <Swiper
-              modules={[Navigation, Pagination, Thumbs]}
-              thumbs={{ swiper: thumbsSwiper }}
-              navigation={{
-                   nextEl: ".swiper-button-next",
-                   prevEl: ".swiper-button-prev",
-                   enabled: true,
-                   disabledClass: "swiper-button-disabled"
-                 }}
-              pagination={{ clickable: true }}
-              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
-            >
-              {product.images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <ImageZoom 
-                    image={image} 
-                    alt={`${product.name} - Image ${index + 1}`} 
-                  />
-                </SwiperSlide>
-              ))}
-                 <div className="swiper-button-next"></div>\n                 <div className="swiper-button-prev"></div>
-            </Swiper>
+                modules={[Navigation, Pagination, Thumbs]}
+                thumbs={{ swiper: thumbsSwiper }}
+                navigation={true} // ✅ Just use `true` instead of complex config
+                pagination={{ clickable: true }}
+                className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
+              >
+                {product.images.map((image, index) => (
+                  <SwiperSlide key={index}>
+                    <ImageZoom 
+                      image={image} 
+                      alt={`${product.name} - Image ${index + 1}`} 
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -201,7 +190,6 @@ const EnhancedProductDetails = () => {
                   />
                 </SwiperSlide>
               ))}
-                 <div className="swiper-button-next"></div>\n                 <div className="swiper-button-prev"></div>
             </Swiper>
           </div>
 
