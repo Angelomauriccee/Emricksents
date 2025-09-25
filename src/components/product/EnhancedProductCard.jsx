@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiShoppingBag } from 'react-icons/fi';
 import gsap from 'gsap';
 import { useCart } from '../../context/CartContext';
+import { slugify } from '../../utils/slugify';
 
 const EnhancedProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -59,10 +60,10 @@ const EnhancedProductCard = ({ product }) => {
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
     >
-      <Link to={`/product/${product.id}`} className="block">
-        <div className="relative overflow-hidden rounded-lg bg-gray-900 mb-4">
+      <Link to={`/product/${slugify(product.name)}-${product.id}`} className="block">
+        <div className="relative overflow-hidden rounded-lg bg-gray-900 mb-3">
           {/* Product Image */}
-          <div className="aspect-[3/4] overflow-hidden">
+          <div className="aspect-[4/5] overflow-hidden">
             <img 
               src={product.image} 
               alt={product.name} 
@@ -112,7 +113,7 @@ const EnhancedProductCard = ({ product }) => {
 
         {/* Product Info */}
         <div className="text-center">
-          <h3 className="text-light font-medium text-lg mb-1 transition-colors group-hover:text-secondary">
+          <h3 className="text-light font-medium text-base mb-1 transition-colors group-hover:text-secondary">
             {product.name}
           </h3>
           <p className="text-gray-400 text-sm mb-2">{product.category}</p>
