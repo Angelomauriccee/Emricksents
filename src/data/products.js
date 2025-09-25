@@ -1,4 +1,13 @@
 // Complete list of all perfumes in alphabetical order with proper image mapping
+
+// Helper to generate URL-safe slugs
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // remove special chars (keep letters, numbers, spaces, dashes)
+    .replace(/\s+/g, '-')          // spaces → dashes
+    .replace(/-+/g, '-');          // collapse multiple dashes
+
 const products = [
   {
     id: 1,
@@ -2417,6 +2426,9 @@ const products = [
     featured: true,
     collection: "exclusive"
   }
-];
+].map(product => ({
+  ...product,
+  slug: slugify(product.name)
+}));
 
 export default products;
