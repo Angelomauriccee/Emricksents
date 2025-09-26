@@ -115,7 +115,7 @@ const ProductDetails = () => {
           className="inline-flex items-center text-gray-400 hover:text-secondary transition-colors mb-8"
         >
           <FiArrowLeft className="mr-2" />
-          <span>Back to Shop</span>
+          <span>Back to All Products</span>
         </Link>
 
         {/* Product Details */}

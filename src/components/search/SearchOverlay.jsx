@@ -140,8 +140,8 @@ const SearchOverlay = ({ isOpen, onClose }) => {
           <div className="w-full max-w-5xl px-4 md:px-6 mt-12 md:mt-0">
             <div className="flex justify-center mb-6 md:mb-8">
               <img 
-                src="/src/assets/logo.png" 
-                alt="EmerickScents Logo" 
+                src="/images/logo.png" 
+                alt="EmerickScents logo" 
                 className="h-12 md:h-16"
               />
             </div>

@@ -23,8 +23,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true,
-    collection: "signature"
+    featured: false,
   },
   {
     id: 2,
@@ -49,8 +48,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true,
-    collection: "signature"
+    featured: false,
   },
   {
     id: 3,
@@ -76,7 +74,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true
+    featured: false
   },
   {
     id: 4,
@@ -101,7 +99,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol",
     collection: "limited"
   },
@@ -128,7 +126,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true
+    featured: false
   },
   {
     id: 6,
@@ -152,7 +150,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol"
   },
   {
@@ -177,7 +175,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
   },
   {
@@ -254,6 +252,7 @@ const products = [
     discount: null,
     inStock: true,
     featured: false,
+    collection: "signature",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
   },
   {
@@ -379,7 +378,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
   },
   {
@@ -576,7 +575,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
   },
   {
@@ -918,7 +917,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol"
   },
   {
@@ -944,6 +943,7 @@ const products = [
     discount: null,
     inStock: true,
     featured: false,
+    collection: "signature",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol"
   },
   {
@@ -967,7 +967,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
   },
   {
@@ -1045,12 +1045,11 @@ const products = [
     inStock: true,
     featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Eugenol, Farnesol, Citral, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Amyl Cinnamal, Coumarin",
-    collection: "signature"
   },
   {
     id: 43,
     name: "Creed queen of silk eau de parfum 75ml",
-    category: "Unisex Collection",
+    category: "Women's Collection",
     type: "Parfum",
     price: 690000,
     originalPrice: null,
@@ -1068,7 +1067,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Eugenol, Farnesol, Citral, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Amyl Cinnamal, Coumarin"
   },
   {
@@ -1143,6 +1142,7 @@ const products = [
     discount: null,
     inStock: true,
     featured: false,
+    collection: "signature",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Coumarin, Citral, Benzyl Alcohol, Benzyl Benzoate, Farnesol, Benzyl Salicylate, Eugenol, Alpha-Isomethyl Ionone"
   },
   {
@@ -1525,7 +1525,7 @@ const products = [
   {
     id: 62,
     name: "Gucci intense oud eau de parfum 90ml",
-    category: "Unisex Collection",
+    category: "Men's Collection",
     type: "Parfum",
     price: 302000,
     originalPrice: null,
@@ -1543,7 +1543,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Hydroxycitronellal"
   },
   {
@@ -1669,7 +1669,7 @@ const products = [
     isNew: true,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
   },
   {
@@ -1729,7 +1729,7 @@ const products = [
     name: "Louis Vuitton imagination eau de parfum 100ml",
     category: "Unisex Collection",
     type: "Parfum",
-    price: 1450000,
+    price: 1050000,
     originalPrice: null,
     image: "/images/louis-vuitton-imagination-display.jpeg",
     images: [
@@ -1745,7 +1745,7 @@ const products = [
     isNew: false,
     discount: null,
     inStock: true,
-    featured: false,
+    featured: true,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate",
     collection: "signature"
   },
@@ -2096,6 +2096,7 @@ const products = [
     discount: null,
     inStock: true,
     featured: false,
+    collection: "signature",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Benzoate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Cinnamal"
   },
   {
@@ -2226,7 +2227,7 @@ const products = [
   },
   {
     id: 90,
-    name: "Yves saint Laurent kouros eau de toilette 100ml",
+    name: "yves saint Laurent kouros eau de toilette 100ml",
     category: "Unisex Collection",
     type: "EDT",
     price: 180000,
@@ -2236,7 +2237,7 @@ const products = [
       "/images/yves-saint-laurent-kouros-edt-display.jpeg",
       "/images/yves-saint-laurent-kouros-edt.jpg"
     ],
-    description: "Yves saint Laurent kouros eau de toilette 100ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
+    description: "yves saint Laurent kouros eau de toilette 100ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
     details: {
       topNotes: [],
       heartNotes: [],
@@ -2251,7 +2252,7 @@ const products = [
   },
   {
     id: 91,
-    name: "Yves saint Laurent libre le parfum 90ml",
+    name: "yves saint Laurent libre le parfum 90ml",
     category: "Unisex Collection",
     type: "Parfum",
     price: 220000,
@@ -2262,7 +2263,7 @@ const products = [
       "/images/yves-saint-laurent-libre-le-parfum-pack.jpg",
       "/images/yves-saint-laurent-libre-le-parfum.jpg"
     ],
-    description: "Yves saint Laurent libre le parfum 90ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
+    description: "yves saint Laurent libre le parfum 90ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
     details: {
       topNotes: [],
       heartNotes: [],
@@ -2273,11 +2274,12 @@ const products = [
     discount: null,
     inStock: true,
     featured: false,
+    collection: "signature",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
   },
   {
     id: 92,
-    name: "Yves saint Laurent MYSLF Eau de parfum 100ml",
+    name: "yves saint Laurent MyvesF Eau de parfum 100ml",
     category: "Unisex Collection",
     type: "Parfum",
     price: 247000,
@@ -2288,7 +2290,7 @@ const products = [
       "/images/myself.jpeg",
       "/images/myself-pack.jpeg"
     ],
-    description: "Yves saint Laurent MYSLF Eau de parfum 100ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
+    description: "yves saint Laurent MyvesF Eau de parfum 100ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
     details: {
       topNotes: [ "Bergamot, Mandarin Orange"],
       heartNotes: [ "Lavender, Geranium"],
@@ -2303,7 +2305,7 @@ const products = [
   },
   {
     id: 93,
-    name: "Yves saint Laurent Y le parfum 100ml",
+    name: "yves saint Laurent Y le parfum 100ml",
     category: "Unisex Collection",
     type: "Parfum",
     price: 203000,
@@ -2313,7 +2315,7 @@ const products = [
       "/images/yves-saint-laurent-y-le-parfum-display.jpg",
       "/images/yves-saint-laurent-y-le-parfum.jpg"
     ],
-    description: "Yves saint Laurent Y le parfum 100ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
+    description: "yves saint Laurent Y le parfum 100ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
     details: {
       topNotes: [ "Bergamot, Mandarin Orange"],
       heartNotes: [ "Lavender, Geranium"],
@@ -2349,7 +2351,7 @@ const products = [
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Cardamom, Nutmeg, Elemi, Pimento, Lavender, Vanilla, Patchouli, Labdanum, Rock Rose"
   },
   {
@@ -2375,7 +2377,7 @@ const products = [
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Saffron, Bergamot, Oud, Rose, Amber, Patchouli"
   },
   {
@@ -2385,18 +2387,17 @@ const products = [
     type: "oil",
     price: 30000,
     originalPrice: null,
-    image: "/images/emrickscents-oil-display.jpg",
+    image: "/images/4.png",
     images: [
-      "/images/emrickscents-oil-display.jpg",
-      "/images/emriock-oil.jpg",
+      "/images/4.png",
+      "/images/3.png",
     ],
     description: "Emrick essential oil is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
     size: "100ml",
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
-    collection: "exclusive"
+    featured: false,
   },
   {
     id: 97,
@@ -2405,18 +2406,17 @@ const products = [
     type: "oil",
     price: 15000,
     originalPrice: null,
-    image: "/images/emrick-iio.jpg",
+    image: "/images/1.png",
     images: [
-      "/images/emrick-iio.jpg",
-      "/images/emrickscents-oil.jpg",
+      "/images/1.png",
+      "/images/2.png",
     ],
     description: "Emrick essential oil is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
     size: "50ml",
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
-    collection: "exclusive"
+    featured: false,
   },
   {
     id: 98,
@@ -2440,7 +2440,7 @@ const products = [
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Saffron, Bergamot, Oud, Rose, Amber, Patchouli"
   },
   {
@@ -2466,7 +2466,7 @@ const products = [
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Lotus, Mandarin Orange, Jasmine, Oud, Amber, Patchouli"
   },
   {
@@ -2491,7 +2491,7 @@ const products = [
     isNew: true,
     discount: null,
     inStock: true,
-    featured: true,
+    featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Lotus, Mandarin Orange, Jasmine, Oud, Amber, Patchouli"
   }
 ];

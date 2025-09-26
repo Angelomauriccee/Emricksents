@@ -132,7 +132,7 @@ const SearchNavbar = () => {
                 className="text-light hover:text-secondary transition-colors flex items-center"
                 onMouseEnter={() => setIsMegaMenuOpen(true)}
               >
-                Shop
+                All Brands
               </Link>
             </div>
             <Link to="/about" className="text-light hover:text-secondary transition-colors">
@@ -273,7 +273,7 @@ const SearchNavbar = () => {
                   className="text-2xl text-light hover:text-secondary transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  Shop
+                  All Brands 
                 </Link>
                 <Link 
                   to="/about" 

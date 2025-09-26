@@ -98,7 +98,7 @@ const Navbar = () => {
                 className="text-light hover:text-secondary transition-colors flex items-center"
                 onMouseEnter={() => setIsMegaMenuOpen(true)}
               >
-                Shop
+                All Brands
               </button>
             </div>
             <Link to="/about" className="text-light hover:text-secondary transition-colors">
@@ -208,7 +208,7 @@ const Navbar = () => {
                   Home
                 </Link>
                 <Link to="/shop" className="text-2xl text-light hover:text-secondary transition-colors">
-                  Shop
+                  All Brands <FiChevronDown className="ml-1" />
                 </Link>
                 <Link to="/about" className="text-2xl text-light hover:text-secondary transition-colors">
                   About
