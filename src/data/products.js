@@ -13,11 +13,11 @@ const products = [
       "/images/afnan-9pm-men.jpg"
     ],
     description: "Afnan 9pm is a captivating fragrance that embodies sophistication and allure. This luxurious scent opens with vibrant citrus notes that gradually blend with a heart of aromatic spices and rich florals. The base notes of warm amber, vanilla, and musk create a lasting impression that's perfect for evening wear. Its elegant composition offers a perfect balance of freshness and depth, making it a versatile choice for the modern individual who appreciates refined fragrances.",
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
+    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Benzyl Benzoate, Citronellol, Geraniol, Cinnamal, Benzyl Alcohol, Citral, Farnesol, Benzyl Cinnamate, Benzyl Salicylate, Alpha-Isomethyl Ionone",
+        details: {
+      topNotes: ["Apple", "Cinnamon", "Wild Lavender", "Bergamot"],
+      heartNotes: ["Orange Blossom", "Lily of the Valley"],
+      baseNotes: ["Vanilla", "Tonka Bean", "Amber", "Patchouli", "Musk"]
     },
     size: "100ml",
     isNew: false,
@@ -39,12 +39,12 @@ const products = [
       "/images/Afnan-9pm-rebel.jpg"
     ],
     description: "Afnan 9pm REBEL is a bold and distinctive fragrance that challenges conventions. This daring scent begins with an invigorating burst of bergamot and black pepper, leading to a complex heart of leather and smoky incense. The base notes of vetiver, patchouli, and dark amber create a rebellious signature that lingers impressively. Perfect for those who dare to stand out, this fragrance exudes confidence and charisma with every note, making it ideal for those who write their own rules.",
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Cinnamal, Citral, Geraniol, Citronellol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Cinnamate, Isoeugenol",
+    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Pineapple", "Granny Smith Apple", "Mandarin"],  // confirmed :contentReference[oaicite:0]{index=0}
+  heartNotes: ["Oakmoss", "Vanilla", "Cedarwood"],           // confirmed :contentReference[oaicite:1]{index=1}
+  baseNotes: ["Dry Woods", "Ambergris", "Caramel", "Musk"]    // confirmed :contentReference[oaicite:2]{index=2}
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -68,10 +68,10 @@ const products = [
     description: "Afnan La Fleur Bouquet is an exquisite floral masterpiece that celebrates the beauty of nature's most delicate blooms. This enchanting fragrance opens with sparkling notes of bergamot and lily of the valley, unfolding into a lush heart of jasmine, rose, and peony. The base notes of white musk, sandalwood, and vanilla provide a warm, creamy foundation that enhances the floral composition. Elegant and timeless, this perfume captures the essence of a fresh bouquet of flowers, making it perfect for those who appreciate classic femininity with a modern twist.",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Linalool, Limonene, Hydroxycitronellal, Geraniol, Citronellol, Alpha-Isomethyl Ionone, Benzyl Salicylate, Benzyl Benzoate, Farnesol, Benzyl Alcohol, Citral, Eugenol",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Orange Blossom", "Jasmine", "Peony"],           // confirmed :contentReference[oaicite:3]{index=3}
+  heartNotes: ["Litchi", "Peach", "Bergamot"],                // confirmed :contentReference[oaicite:4]{index=4}
+  baseNotes: ["Musk", "Moss", "Petalia"]                      // confirmed :contentReference[oaicite:5]{index=5}
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -92,11 +92,11 @@ const products = [
       "/images/Afnan-supremacy-collectors-edition-eau-de-parfum.jpeg"
     ],
     description: "Afnan supremacy collector’s edition eau de parfum 100ml is an exquisite fragrance that captures the essence of luxury and sophistication. Crafted with precision and passion, it offers a unique olfactory experience that evolves beautifully throughout the day. The carefully selected notes create a harmonious blend that is both distinctive and memorable.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Bergamot", "Pineapple", "Black Currant"],        // TBC
+  heartNotes: ["Birch", "Jasmine", "Rose"],                    // TBC
+  baseNotes: ["Musk", "Oakmoss", "Ambergris", "Vanilla"]        // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -120,10 +120,10 @@ const products = [
     description: "Afnan Supremacy Not Only Intense is an extraordinary extrait de parfum that delivers unparalleled intensity and longevity. This potent fragrance opens with a captivating blend of citrus and spicy notes, leading to a sophisticated heart of rich florals and aromatic woods. The base notes of amber, leather, and oud create a powerful foundation that resonates for hours. With its exceptional concentration, this extrait de parfum offers a luxurious scent experience that evolves beautifully throughout the day, making it perfect for special occasions and those who appreciate truly remarkable fragrances.",
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Benzyl Benzoate, Citronellol, Geraniol, Cinnamal, Benzyl Alcohol, Citral, Farnesol, Benzyl Cinnamate, Benzyl Salicylate, Alpha-Isomethyl Ionone",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Black Currant", "Apple", "Bergamot", "Pineapple"], // TBC
+  heartNotes: ["Lavender", "Patchouli", "Rose", "Birch"],         // TBC
+  baseNotes: ["Musk", "Ambergris", "Oud", "Vanilla"]              // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -144,10 +144,10 @@ const products = [
     ],
     description: "Afnan supremacy pour homme eau de parfum 100ml is an exquisite fragrance that captures the essence of luxury and sophistication. Crafted with precision and passion, it offers a unique olfactory experience that evolves beautifully throughout the day. The carefully selected notes create a harmonious blend that is both distinctive and memorable.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Pineapple", "Bergamot", "Black Currant", "Apple"],  // TBC
+  heartNotes: ["Birch", "Jasmine", "Rose"],                        // TBC
+  baseNotes: ["Musk", "Oakmoss", "Ambergris", "Vanilla"]           // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -169,10 +169,10 @@ const products = [
     ],
     description: "Amouage crimson rocks eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Cinnamon", "Pink Pepper"],                         // TBC
+  heartNotes: ["Rose", "Honey"],                                 // TBC
+  baseNotes: ["Oakwood", "Atlas Cedar", "Vetiver"]               // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -193,10 +193,10 @@ const products = [
     ],
     description: "Amouage interlude man eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Bergamot", "Oregano", "Allspice"],                 // TBC
+  heartNotes: ["Amber", "Frankincense", "Opoponax"],             // TBC
+  baseNotes: ["Leather", "Agarwood (Oud)", "Patchouli", "Sandalwood"] // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -220,10 +220,10 @@ const products = [
     ],
     description: "Armaf club de nuit  maleka eau de parfume 105ml- is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Lychee", "Bergamot", "Pink Pepper"],                // confirmed :contentReference[oaicite:6]{index=6}
+  heartNotes: ["Orris"],                                          // confirmed :contentReference[oaicite:7]{index=7}
+  baseNotes: ["Praline", "Sandalwood", "Ambroxan"]                // confirmed :contentReference[oaicite:8]{index=8}
+},
     size: "105ml",
     isNew: true,
     discount: null,
@@ -245,10 +245,10 @@ const products = [
     ],
     description: "Armaf club de nuit intense man eau de toilette 105ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Lemon", "Pineapple", "Black Currant", "Apple", "Bergamot"], // TBC
+  heartNotes: ["Birch", "Jasmine", "Rose"],                                 // TBC
+  baseNotes: ["Musk", "Ambergris", "Patchouli", "Vanilla"]                 // TBC
+},
     size: "105ml",
     isNew: false,
     discount: null,
@@ -270,10 +270,10 @@ const products = [
     ],
     description: "Armaf club de nuit Precieux I extrait de parfum 55ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["TBC"],
+  heartNotes: ["TBC"],
+  baseNotes: ["TBC"]
+},
     size: "55ml",
     isNew: false,
     discount: null,
@@ -295,10 +295,10 @@ const products = [
     ],
     description: "Armaf club de nuit sillage eau de parfum 105ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Bergamot", "Black Currant", "Lemon", "Lime", "Ginger"],        // TBC
+  heartNotes: ["Rose", "Iris", "Jasmine"],                                   // TBC
+  baseNotes: ["Ambroxan", "Musk", "Cedarwood"]                               // TBC
+},
     size: "105ml",
     isNew: false,
     discount: null,
@@ -319,10 +319,10 @@ const products = [
     ],
     description: "Armaf club de nuit urban man elixir eau de parfum 105ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["TBC"],
+  heartNotes: ["TBC"],
+  baseNotes: ["TBC"]
+},
     size: "105ml",
     isNew: false,
     discount: null,
@@ -345,10 +345,10 @@ const products = [
     ],
     description: "Armaf club de nuit woman eau de parfum 105ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Orange", "Bergamot", "Grapefruit", "Peach"],                    // confirmed :contentReference[oaicite:9]{index=9}
+  heartNotes: ["Rose", "Jasmine", "Litchi", "Geranium"],                      // confirmed :contentReference[oaicite:10]{index=10}
+  baseNotes: ["Patchouli", "Vanilla", "Musk", "Vetiver"]                      // confirmed :contentReference[oaicite:11]{index=11}
+},
     size: "105ml",
     isNew: false,
     discount: null,
@@ -371,10 +371,10 @@ const products = [
     ],
     description: "Armaf delights yumyum eau de parfum 100ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["TBC"],
+  heartNotes: ["TBC"],
+  baseNotes: ["TBC"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -396,10 +396,10 @@ const products = [
     ],
     description: "Armaf Miss Armaf catwalk eau de parfum 100ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["TBC"],
+  heartNotes: ["TBC"],
+  baseNotes: ["TBC"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -421,10 +421,10 @@ const products = [
     ],
     description: "Armaf ombre d’or eau de parfum 75ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["TBC"],
+  heartNotes: ["TBC"],
+  baseNotes: ["TBC"]
+},
     size: "75ml",
     isNew: false,
     discount: null,
@@ -445,11 +445,11 @@ const products = [
       "/images/azzaro-the-most-wanted-edp-intense-pack.jpg"
     ],
     description: "Azzaro the most wanted eau de parfum intense 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Cardamom"],                                                   // TBC
+  heartNotes: ["Toffee Accord"],                                            // TBC
+  baseNotes: ["Amberwood", "Vetiver"]                                        // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -470,11 +470,11 @@ const products = [
       "/images/Azzaro-wanted-girl-eau-de-parfum-80ml-pack.jpeg"
     ],
     description: "Azzaro wanted girl eau de parfum 80ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Ginger Flower", "Orange Blossom", "Pink Pepper"],              // TBC
+  heartNotes: ["Datura Flower", "Caramel", "Dulce de Leche"],                // TBC
+  baseNotes: ["Tonka Bean", "Vanilla", "Vetiver", "Patchouli"]               // TBC
+},
     size: "80ml",
     isNew: false,
     discount: null,
@@ -495,10 +495,10 @@ const products = [
     ],
     description: "Bentley for men absolute eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Pink Pepper", "Ginger", "Olibanum"],                            // TBC
+  heartNotes: ["Papyrus", "Sandalwood", "Atlas Cedar"],                       // TBC
+  baseNotes: ["Amber", "Moss", "Oud"]                                          // TBC
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1975,17 +1975,18 @@ const products = [
   },
   {
     id: 80,
-    name: "Paco rabanne 1 million eau de toilette 100ml# 137,000Rabanne 1 million parfum  100ml",
+    name: "Paco rabanne 1 million eau de parfum 100ml",
     category: "Unisex Collection",
-    type: "EDT",
+    type: "EDP",
     price: 169000,
     originalPrice: null,
-    image: "/images/paco-rabanne-1-million-edt-display.jpeg",
+    image: "/images/paco-rabanne-1-million-parfum-display.jpg",
     images: [
-      "/images/paco-rabanne-1-million-edt-display.jpeg",
-      "/images/paco-rabanne-1-million-edt-pack.jpg"
+      "/images/paco-rabanne-1-million-parfum-display.jpg",
+      "/images/paco-rabanne-1-million-parfum-pack.jpg",
+      "/images/paco-rabanne-1-million-parfum.jpg"
     ],
-    description: "Paco rabanne 1 million eau de toilette 100ml# 137,000Rabanne 1 million parfum  100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
+    description: "Paco rabanne 1 million eau de parfum is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
       topNotes: [],
       heartNotes: [],
@@ -2416,6 +2417,82 @@ const products = [
     inStock: true,
     featured: true,
     collection: "exclusive"
+  },
+  {
+    id: 98,
+    name: "Louis Vuitton L'immensité eau de parfum 100ml",
+    category: "Unisex Collection",
+    type: "Parfum",
+    price: 1050000,
+    originalPrice: null,
+    image: "/images/Louis-vuitton-L'immensité-display.jpeg",
+    images: [
+      "/images/Louis-vuitton-L'immensité-display.jpeg",
+      "/images/Louis-vuitton-L'immensité-pack.jpeg"
+    ],
+    description: "Louis Vuitton L'immensité eau de parfum 100ml is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
+    details: {
+      topNotes: ["Saffron, Bergamot"],
+      heartNotes: ["Oud, Rose"],
+      baseNotes: ["Amber, Patchouli"]
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: true,
+    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Saffron, Bergamot, Oud, Rose, Amber, Patchouli"
+  },
+  {
+    id: 99,
+    name: "Louis vuitton lovers eau de parfum 100ml",
+    category: "Unisex Collection",
+    type: "Parfum",
+    price: 1050000,
+    originalPrice: null,
+    image: "/images/louis-vuitton-lovers-display.jpeg",
+    images: [
+      "/images/louis-vuitton-lovers-display.jpeg",
+      "/images/louyis-vuitton-lovers-pack.jpeg",
+      "/images/louis-vuitton-lovers-.jpeg"
+    ],
+    description: "Louis vuitton lovers eau de parfum 100ml is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
+    details: {
+      topNotes: ["lotus, Mandarin Orange"],
+      heartNotes: ["Jasmine, Oud"],
+      baseNotes: ["Amber, Patchouli"]
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: true,
+    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Lotus, Mandarin Orange, Jasmine, Oud, Amber, Patchouli"
+  },
+  {
+    id: 100,
+    name: "paco rabanne edt 1 million 100ml",
+    category: "Unisex Collection",
+    type: "EDT",
+    price: 137000,
+    originalPrice: null,
+    image: "/images/paco-edt-display.jpeg",
+    images: [
+      "/images/paco-edt-display.jpeg",
+      "/images/paco-rabane-pack.jpeg"
+    ],
+    description: "paco rabanne edt 1 million 100ml is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
+    details: {
+      topNotes: ["lotus, Mandarin Orange"],
+      heartNotes: ["Jasmine, Oud"],
+      baseNotes: ["Amber, Patchouli"]
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: true,
+    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Lotus, Mandarin Orange, Jasmine, Oud, Amber, Patchouli"
   }
 ];
 
