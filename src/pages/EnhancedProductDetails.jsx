@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import '../components/swiper-custom.css';
-import ImageZoom from '../components/product/ImageZoom';
+import AdvancedImageZoom from '../components/product/AdvancedImageZoom';
 import { slugify, findProductBySlug } from '../utils/slugify';
 
 import Button from '../components/ui/Button';
@@ -53,78 +53,62 @@ const EnhancedProductDetails = () => {
           return;
         }
       }
-    }
-    
-    if (foundProduct) {
-      setProduct(foundProduct);
       
-      // Find related products (same category or type)
-      const related = products
-        .filter(p => p.id !== foundProduct.id && (p.category === foundProduct.category || p.type === foundProduct.type))
-        .slice(0, 4);
-      setRelatedProducts(related);
-    } else {
-      // If product not found, redirect to shop page
-      console.error("Product not found");
-      navigate('/shop');
+      if (foundProduct) {
+        setProduct(foundProduct);
+        
+        // Find related products
+        const related = products
+          .filter(p => 
+            p.id !== foundProduct.id && 
+            (p.category === foundProduct.category || p.gender === foundProduct.gender)
+          )
+          .slice(0, 4);
+        setRelatedProducts(related);
+      } else {
+        // Product not found, redirect to shop
+        navigate('/shop');
+      }
     }
-    
-    // Reset quantity and active tab when product changes
-    setQuantity(1);
-    setActiveTab('description');
-    
-    // Scroll to top when product changes
-    window.scrollTo(0, 0);
   }, [id, slug, navigate]);
 
   // GSAP animations
   useEffect(() => {
-    if (product && imageRef.current && infoRef.current) {
+    if (product && productRef.current) {
       const timeline = gsap.timeline();
       
-      timeline.fromTo(
-        imageRef.current,
-        { x: -50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
-      ).fromTo(
-        infoRef.current,
-        { x: 50, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-        '-=0.6'
-      );
+      timeline
+        .fromTo(
+          imageRef.current,
+          { x: -50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+        )
+        .fromTo(
+          infoRef.current,
+          { x: 50, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+          '-=0.6'
+        );
     }
   }, [product]);
 
-  // Format price in Naira
-  const formatPrice = (price) => {
-    return `₦${price.toLocaleString()}`;
-  };
-
-  // Handle quantity change
-  const handleQuantityChange = (amount) => {
-    const newQuantity = quantity + amount;
-    if (newQuantity >= 1 && newQuantity <= 10) {
-      setQuantity(newQuantity);
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart({ ...product, quantity });
+      setShowAddedToCart(true);
+      setTimeout(() => setShowAddedToCart(false), 3000);
     }
   };
 
-  // Handle add to cart
-  const handleAddToCart = () => {
-    if (!product) return;
-    
-    addToCart(product, quantity);
-    
-    // Show confirmation
-    setShowAddedToCart(true);
-    setTimeout(() => setShowAddedToCart(false), 3000);
-  };
+  const increaseQuantity = () => setQuantity(prev => prev + 1);
+  const decreaseQuantity = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-primary flex items-center justify-center py-32">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-secondary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-light">Loading product details...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-secondary mx-auto mb-4"></div>
+          <p className="text-light">Loading product...</p>
         </div>
       </div>
     );
@@ -137,310 +121,237 @@ const EnhancedProductDetails = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-primary py-32"
+      className="min-h-screen py-20"
     >
       <div className="container-custom">
-        {/* Back to Shop Link */}
+        {/* Back Button */}
         <Link 
           to="/shop" 
-          className="inline-flex items-center text-gray-400 hover:text-secondary transition-colors mb-8"
+          className="inline-flex items-center text-secondary hover:text-secondary/80 transition-colors mb-8"
         >
           <FiArrowLeft className="mr-2" />
-          <span>Back to All Products</span>
+          Back to Shop
         </Link>
 
         {/* Product Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
           {/* Product Images */}
-          <div ref={imageRef} className="space-y-4">
-            <Swiper
-              modules={[Navigation, Pagination, Thumbs]}
-              thumbs={{ swiper: thumbsSwiper }}
-              navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-                enabled: true,
-                disabledClass: "swiper-button-disabled"
-              }}
-              pagination={{ clickable: true }}
-              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
-            >
-              {product.images && product.images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <ImageZoom 
-                    image={image} 
-                    alt={`${product.name} - Image ${index + 1}`} 
-                  />
-                </SwiperSlide>
-              ))}
-              <div className="swiper-button-next"></div>
-              <div className="swiper-button-prev"></div>
-            </Swiper>
-            
-            {product.images && product.images.length > 1 && (
+          <div ref={imageRef}>
+            {/* Desktop: Advanced Zoom */}
+            <div className="hidden md:block">
+              <AdvancedImageZoom 
+                images={product.images || [product.image, product.packImage, product.displayImage].filter(Boolean)}
+                currentIndex={0}
+              />
+            </div>
+
+            {/* Mobile: Simple Swiper */}
+            <div className="md:hidden space-y-4">
               <Swiper
-                onSwiper={setThumbsSwiper}
-                spaceBetween={10}
-                slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[Navigation, Thumbs]}
-                className="thumbs-swiper"
+                modules={[Navigation, Pagination, Thumbs]}
+                thumbs={{ swiper: thumbsSwiper }}
+                navigation={{
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                  enabled: true,
+                  disabledClass: "swiper-button-disabled"
+                }}
+                pagination={{ clickable: true }}
+                className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
               >
-                {product.images.map((image, index) => (
-                  <SwiperSlide key={index} className="cursor-pointer rounded-md overflow-hidden">
+                {product.images && product.images.map((image, index) => (
+                  <SwiperSlide key={index}>
                     <img 
                       src={image} 
-                      alt={`${product.name} - Thumbnail ${index + 1}`} 
-                      className="w-full h-full object-cover aspect-[3/4]" 
+                      alt={`${product.name} - Image ${index + 1}`}
+                      className="w-full h-full object-cover"
                     />
                   </SwiperSlide>
                 ))}
+                <div className="swiper-button-next"></div>
+                <div className="swiper-button-prev"></div>
               </Swiper>
-            )}
+              
+              {product.images && product.images.length > 1 && (
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  spaceBetween={10}
+                  slidesPerView={4}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[Navigation, Thumbs]}
+                  className="thumbs-swiper"
+                >
+                  {product.images.map((image, index) => (
+                    <SwiperSlide key={index} className="cursor-pointer rounded-md overflow-hidden">
+                      <img 
+                        src={image} 
+                        alt={`${product.name} - Thumbnail ${index + 1}`} 
+                        className="w-full h-full object-cover aspect-[3/4]" 
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              )}
+            </div>
           </div>
 
           {/* Product Info */}
           <div ref={infoRef} className="space-y-6">
             <div>
-              <h1 className="text-3xl md:text-4xl font-serif text-light mb-2">{product.name}</h1>
-              <p className="text-gray-400">{product.category} • {product.type}</p>
+              <h1 className="text-4xl md:text-5xl font-serif text-light mb-2">
+                {product.name}
+              </h1>
+              <p className="text-gray-400">{product.brand}</p>
             </div>
 
-            {/* Price */}
-            <div className="flex items-center space-x-4">
-              <span className="text-2xl text-secondary font-medium">{formatPrice(product.price)}</span>
+            <div className="flex items-center gap-4">
+              <span className="text-3xl font-bold text-secondary">
+                ${product.price.toFixed(2)}
+              </span>
               {product.originalPrice && (
-                <span className="text-gray-500 line-through">{formatPrice(product.originalPrice)}</span>
-              )}
-              {product.discount && (
-                <span className="bg-red-500 text-white text-xs px-2 py-1 rounded">
-                  {product.discount}% OFF
+                <span className="text-xl text-gray-500 line-through">
+                  ${product.originalPrice.toFixed(2)}
                 </span>
               )}
             </div>
 
-            {/* Rating */}
-            {product.rating && (
-              <div className="flex items-center space-x-2">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className={`text-lg ${i < Math.floor(product.rating) ? 'text-secondary' : 'text-gray-400'}`}>
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <span className="text-secondary">{product.rating}</span>
-              </div>
-            )}
-
-            {/* Short Description */}
-            <p className="text-gray-300 leading-relaxed">
-              {product.description && product.description.split('.')[0] + '.'}
-            </p>
-
-            {/* Fragrance Notes */}
-            {product.details && product.details.topNotes && product.details.topNotes.length > 0 && (
-              <div className="space-y-3">
-                <h3 className="text-light font-medium">Fragrance Notes:</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="space-y-2">
-                    <p className="text-secondary text-sm">Top Notes</p>
-                    <ul className="text-gray-400 text-sm space-y-1">
-                      {product.details.topNotes.map((note, index) => (
-                        <li key={index}>{note}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-secondary text-sm">Heart Notes</p>
-                    <ul className="text-gray-400 text-sm space-y-1">
-                      {product.details.heartNotes.map((note, index) => (
-                        <li key={index}>{note}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-secondary text-sm">Base Notes</p>
-                    <ul className="text-gray-400 text-sm space-y-1">
-                      {product.details.baseNotes.map((note, index) => (
-                        <li key={index}>{note}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Size */}
-            <div>
-              <h3 className="text-light font-medium mb-2">Size:</h3>
-              <div className="flex space-x-3">
-                <button className="px-4 py-2 border-2 border-secondary text-secondary rounded-md">
-                  {product.size}
+            {/* Quantity Selector */}
+            <div className="flex items-center gap-4">
+              <span className="text-light">Quantity:</span>
+              <div className="flex items-center border border-secondary rounded-lg">
+                <button
+                  onClick={decreaseQuantity}
+                  className="p-3 hover:bg-secondary/10 transition-colors"
+                >
+                  <FiMinus className="text-secondary" />
+                </button>
+                <span className="px-6 text-light">{quantity}</span>
+                <button
+                  onClick={increaseQuantity}
+                  className="p-3 hover:bg-secondary/10 transition-colors"
+                >
+                  <FiPlus className="text-secondary" />
                 </button>
               </div>
             </div>
 
-            {/* Quantity */}
-            <div>
-              <h3 className="text-light font-medium mb-2">Quantity:</h3>
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center border border-gray-700 rounded-md">
-                  <button 
-                    onClick={() => handleQuantityChange(-1)}
-                    className="px-3 py-2 text-gray-400 hover:text-secondary transition-colors"
-                    disabled={quantity <= 1}
-                  >
-                    <FiMinus />
-                  </button>
-                  <span className="px-4 py-2 text-light">{quantity}</span>
-                  <button 
-                    onClick={() => handleQuantityChange(1)}
-                    className="px-3 py-2 text-gray-400 hover:text-secondary transition-colors"
-                    disabled={quantity >= 10}
-                  >
-                    <FiPlus />
-                  </button>
-                </div>
-                <p className="text-gray-400 text-sm">
-                  {product.inStock ? 'In Stock' : 'Out of Stock'}
-                </p>
-              </div>
-            </div>
+            {/* Add to Cart Button */}
+            <Button
+              onClick={handleAddToCart}
+              variant="primary"
+              size="lg"
+              className="w-full"
+            >
+              <FiShoppingBag className="mr-2" />
+              Add to Cart
+            </Button>
 
-            {/* Actions */}
-            <div className="flex flex-col space-y-4 pt-4">
-              <div className="relative">
-                <Button 
-                  variant="primary" 
-                  size="lg"
-                  className="w-full flex items-center justify-center"
-                  onClick={handleAddToCart}
+            {/* Added to Cart Message */}
+            {showAddedToCart && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                className="bg-secondary/10 border border-secondary text-secondary px-4 py-3 rounded-lg text-center"
+              >
+                Added to cart successfully!
+              </motion.div>
+            )}
+
+            {/* Product Details Tabs */}
+            <div className="border-t border-gray-800 pt-6">
+              <div className="flex gap-4 mb-6">
+                <button
+                  onClick={() => setActiveTab('description')}
+                  className={`pb-2 border-b-2 transition-colors ${
+                    activeTab === 'description'
+                      ? 'border-secondary text-secondary'
+                      : 'border-transparent text-gray-400 hover:text-light'
+                  }`}
                 >
-                  <FiShoppingBag className="mr-2" />
-                  <span>Add to Cart</span>
-                </Button>
-                
-                {showAddedToCart && (
-                  <div className="absolute -top-12 left-0 right-0 bg-secondary text-primary text-center py-2 rounded-md animate-pulse">
-                    Added to cart!
+                  Description
+                </button>
+                <button
+                  onClick={() => setActiveTab('notes')}
+                  className={`pb-2 border-b-2 transition-colors ${
+                    activeTab === 'notes'
+                      ? 'border-secondary text-secondary'
+                      : 'border-transparent text-gray-400 hover:text-light'
+                  }`}
+                >
+                  Notes
+                </button>
+                <button
+                  onClick={() => setActiveTab('details')}
+                  className={`pb-2 border-b-2 transition-colors ${
+                    activeTab === 'details'
+                      ? 'border-secondary text-secondary'
+                      : 'border-transparent text-gray-400 hover:text-light'
+                  }`}
+                >
+                  Details
+                </button>
+              </div>
+
+              <div className="text-gray-300">
+                {activeTab === 'description' && (
+                  <p>{product.description}</p>
+                )}
+                {activeTab === 'notes' && (
+                  <div className="space-y-4">
+                    {product.notes && (
+                      <>
+                        {product.notes.top && (
+                          <div>
+                            <h4 className="text-secondary font-semibold mb-2">Top Notes</h4>
+                            <p>{product.notes.top.join(', ')}</p>
+                          </div>
+                        )}
+                        {product.notes.middle && (
+                          <div>
+                            <h4 className="text-secondary font-semibold mb-2">Middle Notes</h4>
+                            <p>{product.notes.middle.join(', ')}</p>
+                          </div>
+                        )}
+                        {product.notes.base && (
+                          <div>
+                            <h4 className="text-secondary font-semibold mb-2">Base Notes</h4>
+                            <p>{product.notes.base.join(', ')}</p>
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+                )}
+                {activeTab === 'details' && (
+                  <div className="space-y-2">
+                    <p><span className="text-secondary">Category:</span> {product.category}</p>
+                    <p><span className="text-secondary">Gender:</span> {product.gender}</p>
+                    <p><span className="text-secondary">Size:</span> {product.size}</p>
+                    {product.concentration && (
+                      <p><span className="text-secondary">Concentration:</span> {product.concentration}</p>
+                    )}
                   </div>
                 )}
               </div>
             </div>
-
-            {/* WhatsApp Order Note */}
-            <div className="text-sm text-gray-400 pt-2">
-              <p>After adding to cart, proceed to checkout via WhatsApp</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Product Tabs - Only Description and Details */}
-        <div className="mb-16">
-          <div className="flex border-b border-gray-800 mb-8">
-            <button 
-              className={`px-6 py-3 font-medium ${
-                activeTab === 'description' 
-                  ? 'text-secondary border-b-2 border-secondary' 
-                  : 'text-gray-400 hover:text-light'
-              }`}
-              onClick={() => setActiveTab('description')}
-            >
-              Description
-            </button>
-            <button 
-              className={`px-6 py-3 font-medium ${
-                activeTab === 'details' 
-                  ? 'text-secondary border-b-2 border-secondary' 
-                  : 'text-gray-400 hover:text-light'
-              }`}
-              onClick={() => setActiveTab('details')}
-            >
-              Details
-            </button>
-          </div>
-
-          <div className="bg-dark bg-opacity-50 rounded-lg p-8">
-            {activeTab === 'description' && (
-              <div className="text-gray-300 leading-relaxed space-y-4">
-                <p>{product.description}</p>
-                <p>
-                  Experience the artistry of fine perfumery with {product.name}. Each bottle is meticulously crafted to 
-                  ensure the perfect balance of notes, creating a fragrance that evolves beautifully throughout the day.
-                </p>
-                <p>
-                  Our perfumes are created using only the highest quality ingredients, sourced from sustainable producers 
-                  around the world. We believe in ethical luxury that respects both people and planet.
-                </p>
-              </div>
-            )}
-
-            {activeTab === 'details' && (
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-serif text-secondary mb-4">Product Specifications</h3>
-                  <ul className="space-y-3 text-gray-300">
-                    <li className="flex border-b border-gray-800 pb-2">
-                      <span className="w-1/3 text-gray-400">Size</span>
-                      <span>{product.size}</span>
-                    </li>
-                    <li className="flex border-b border-gray-800 pb-2">
-                      <span className="w-1/3 text-gray-400">Fragrance Type</span>
-                      <span>{product.type}</span>
-                    </li>
-                    <li className="flex">
-                      <span className="w-1/3 text-gray-400"></span>
-                      <span></span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-serif text-secondary mb-4">Ingredients</h3>
-                  <p className="text-gray-300">
-                    {product.ingredients || "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol, Isoeugenol."}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-serif text-secondary mb-4">How to Use</h3>
-                  <p className="text-gray-300 mb-4">
-                    For best results, apply to pulse points: wrists, neck, behind ears, and inside elbows.
-                  </p>
-                  <ol className="list-decimal list-inside space-y-2 text-gray-300">
-                    <li>Ensure skin is clean and moisturized</li>
-                    <li>Hold bottle 3-6 inches away from skin</li>
-                    <li>Spray onto pulse points</li>
-                    <li>Allow fragrance to dry naturally - do not rub</li>
-                    <li>Reapply as needed throughout the day</li>
-                  </ol>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
         {/* Related Products */}
-        <div>
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-serif text-light">You May Also Like</h2>
-            <Link 
-              to="/shop" 
-              className="flex items-center text-secondary hover:text-secondary-dark transition-colors"
-            >
-              <span>View All</span>
-              <span className="ml-1">→</span>
-            </Link>
+        {relatedProducts.length > 0 && (
+          <div>
+            <h2 className="text-3xl font-serif text-light mb-8 text-center">
+              You May Also Like
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {relatedProducts.map(relatedProduct => (
+                <ProductCard key={relatedProduct.id} product={relatedProduct} />
+              ))}
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {relatedProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </motion.div>
   );
