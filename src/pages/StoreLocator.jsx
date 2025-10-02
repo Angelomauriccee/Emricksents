@@ -241,34 +241,34 @@ const StoreLocator = () => {
           </div>
         </div>
       </section>
-    {/* CTA Section */}
-      <section className="py-20 bg-dark">
-          <div className="container-custom">
-            <VideoBackground
-              videoSrc="https://cdn.pixabay.com/video/2020/04/17/36356-410742856_large.mp4"
-              posterSrc="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80"
-              overlayOpacity={0.5}
-              className="rounded-lg py-20"
-            >
-              <div className="text-center px-4">
-          <h2 className="text-3xl md:text-4xl font-serif text-light mb-6">Can't Visit Us In Person?</h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Explore our online store to shop our complete collection from anywhere in the world, or contact us for personalized recommendations.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button to="/shop" variant="primary">
-              Shop Online
-            </Button>
-            <Button to="/contact" variant="outline">
-              Contact Us
-            </Button>
-          </div>
-              </div>
-          </div>
-            </VideoBackground>
-      </section>
-    </motion.div>
-  );
-};
-
-export default StoreLocator;
+{/* CTA Section */}
+         <section className="py-20 bg-dark">
+           <div className="container-custom">
+             <VideoBackground
+               videoSrc="https://cdn.pixabay.com/video/2020/04/17/36356-410742856_large.mp4"
+               posterSrc="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80"
+               overlayOpacity={0.5}
+               className="rounded-lg py-20"
+             >
+               <div className="text-center px-4">
+                 <h2 className="text-3xl md:text-4xl font-serif text-light mb-6">Can't Visit Us In Person?</h2>
+                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                   Explore our online store to shop our complete collection from anywhere in the world, or contact us for personalized recommendations.
+                 </p>
+                 <div className="flex flex-col sm:flex-row justify-center gap-4">
+                   <Button to="/shop" variant="primary">
+                     Shop Online
+                   </Button>
+                   <Button to="/contact" variant="outline">
+                     Contact Us
+                   </Button>
+                 </div>
+               </div>
+             </VideoBackground>
+           </div>
+         </section>
+       </motion.div>
+     );
+   };
+   
+   export default StoreLocator;
