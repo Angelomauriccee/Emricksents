@@ -191,7 +191,12 @@ const Home = () => {
       >
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
+          <div 
+              className="absolute inset-0 z-10"
+              style={{
+                background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2))'
+              }}
+            ></div>
           <video 
             ref={videoRef}
             autoPlay 
@@ -208,7 +213,7 @@ const Home = () => {
         {/* Hero Content */}
         <div className="container-custom relative z-20 text-center">
           <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-light mb-6">
-            Discover Your <span className="text-secondary">Signature</span> Scent
+            Discover Your <span className="text-secondary">Scents</span>
           </h1>
           <p className="hero-subtitle text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Luxury fragrances crafted with passion and precision for the discerning individual
