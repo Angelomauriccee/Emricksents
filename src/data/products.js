@@ -2493,7 +2493,162 @@ const products = [
     inStock: true,
     featured: false,
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Lotus, Mandarin Orange, Jasmine, Oud, Amber, Patchouli"
-  }
+  },
+  {
+  id: 101,
+  name: "Lancome La Nuit Tresor 100ml",
+  category: "Women's Collection",
+  type: "EDP",
+  price: 260000,
+  originalPrice: null,
+  image: "/images/Lancome la Nuit tresor-display.jpeg",
+  images: ["/images/Lancome la Nuit tresor-display.jpeg", "/images/Lancome la Nuit tresor-pack.jpeg", "/images/Lancome la Nuit tresor.jpeg"],
+  description: "Lancome La Nuit Tresor 100ml is a luxurious, sensual fragrance for women, blending sweet, floral, and gourmand notes to create a captivating scent that embodies romance and sophistication.",
+  details: {
+    topNotes: ["Pear", "Tangerine", "Bergamot"],
+    heartNotes: ["Strawberry", "Vanilla Orchid", "Black Rose"],
+    baseNotes: ["Praline", "Caramel", "Coffee", "Licorice", "Patchouli", "Incense", "Papyrus", "Coumarin"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Pear, Tangerine, Bergamot, Strawberry, Vanilla Orchid, Black Rose, Praline, Caramel, Coffee, Licorice, Patchouli, Incense, Papyrus, Coumarin"
+},
+{
+  id: 102,
+  name: "Armani My Way Intense EDP",
+  category: "Women's Collection",
+  type: "EDP",
+  price: 225000,
+  originalPrice: null,
+  image: "/images/Armani my way intense Edp-display.jpeg",
+  images: ["/images/Armani my way intense Edp-display.jpeg", "/images/Armani my way intense Edp-2.jpeg", "/images/Armani my way intense Edp-pack.jpeg"],
+  description: "Armani My Way Intense is a modern floral fragrance that emphasizes white flowers and warm woods, designed for the woman who seeks meaningful experiences and lasting impressions.",
+  details: {
+    topNotes: ["Orange Blossom", "Bitter Orange"],
+    heartNotes: ["Indian Tuberose", "Jasmine"],
+    baseNotes: ["Vanilla", "Sandalwood"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Orange Blossom, Bitter Orange, Indian Tuberose, Jasmine, Vanilla, Sandalwood"
+},
+{
+  id: 103,
+  name: "Jean Paul Gaultier La Belle Le Parfum Intense EDP 100ml",
+  category: "Women's Collection",
+  type: "EDP",
+  price: 221000,
+  originalPrice: null,
+  image: "/images/Jean Paul Gaultier la belle le parfum intense-display.jpeg",
+  images: ["/images/Jean Paul Gaultier la belle le parfum intense-display.jpeg", "/images/Jean Paul Gaultier la belle le parfum intense-pack.jpeg", "/images/Jean Paul Gaultier la belle le parfum intense.jpeg"],
+  description: "Jean Paul Gaultier La Belle Le Parfum Intense is an alluring, gourmand fragrance that blends warm vanilla, sweet pear, and sensual tonka bean, creating an irresistibly seductive scent.",
+  details: {
+    topNotes: ["Pear"],
+    heartNotes: ["Tonka Bean"],
+    baseNotes: ["Vanilla"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Pear, Tonka Bean, Vanilla"
+},
+{
+  id: 104,
+  name: "Givenchy Gentleman EDP Boisée",
+  category: "Men's Collection",
+  type: "EDP",
+  price: 215000,
+  originalPrice: null,
+  image: "/images/Givenchy gentleman Edp Boisée-display.jpeg",
+  images: ["/images/Givenchy gentleman Edp Boisée-display.jpeg", "/images/Givenchy gentleman Edp Boisée-pack.jpeg"],
+  description: "Givenchy Gentleman EDP Boisée is a woody, spicy fragrance for men, balancing black pepper, cocoa, and iris with warm, earthy tones for a refined yet powerful scent.",
+  details: {
+    topNotes: ["Black Pepper", "Geranium", "Coriander"],
+    heartNotes: ["Cocoa", "Iris", "Cedar"],
+    baseNotes: ["Sandalwood", "Patchouli", "Woody Notes"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Black Pepper, Geranium, Coriander, Cocoa, Iris, Cedar, Sandalwood, Patchouli, Woody Notes"
+},
+{
+  id: 105,
+  name: "Armaf Club de Nuit Milestone EDP 105ml",
+  category: "Unisex Collection",
+  type: "EDP",
+  price: 78000,
+  originalPrice: null,
+  image: "/images/Armaf club de Nuit milestone Edp 105ml-display.jpeg",
+  images: ["/images/Armaf club de Nuit milestone Edp 105ml-display.jpeg", "/images/Armaf club de Nuit milestone Edp 105ml-pack.jpeg"],
+  description: "Armaf Club de Nuit Milestone is a luxurious unisex fragrance with a fresh marine opening, a heart of florals, and a refined, musky-woody dry down reminiscent of ocean breezes.",
+  details: {
+    topNotes: ["Sea Notes", "Red Fruits", "Bergamot"],
+    heartNotes: ["Violet", "Sandalwood", "White Woods"],
+    baseNotes: ["Ambroxan", "Musk", "Vetiver"]
+  },
+  size: "105ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Sea Notes, Red Fruits, Bergamot, Violet, Sandalwood, White Woods, Ambroxan, Musk, Vetiver"
+},
+{
+  id: 106,
+  name: "Armaf Hunter Intense Men EDT",
+  category: "Men's Collection",
+  type: "EDT",
+  price: 40000,
+  originalPrice: null,
+  image: "/images/Armaf hunter intense men-display.jpeg",
+  images: ["/images/Armaf hunter intense men-display.jpeg", "/images/Armaf hunter intense men-pack.jpeg", "/images/Armaf Hunter Intense.jpeg"],
+  description: "Armaf Hunter Intense is a bold, masculine fragrance with refreshing citrus top notes, a heart of spices and florals, and a strong woody-amber base for lasting impact.",
+  details: {
+    topNotes: ["Citrus", "Cardamom", "Cedar", "Rosemary"],
+    heartNotes: ["Ylang-Ylang", "Tuberose", "Orris"],
+    baseNotes: ["Cedarwood", "Vetiver", "Amber", "Labdanum"]
+  },
+  size: "100ml", 
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Citrus, Cardamom, Cedar, Rosemary, Ylang-Ylang, Tuberose, Orris, Cedarwood, Vetiver, Amber, Labdanum"
+},
+{
+  id: 107,
+  name: "Armani Acqua Di Gio Pour Homme Parfum",
+  category: "Men's Collection",
+  type: "Parfum",
+  price: 215000,
+  originalPrice: null,
+  image: "/images/Armani Acqua Di gio pour homme parfum-display.jpeg",
+  images: ["/images/Armani Acqua Di gio pour homme parfum-display.jpeg", "/images/Armani Beauty Acqua di Giò Profondo Perfume for Men _ Luxury Fresh & Intense Fragrance.jpeg", "/images/Armani Acqua Di gio pour homme parfum-3.jpeg"],
+  description: "Armani Acqua Di Gio Pour Homme Parfum is a sophisticated aquatic fragrance for men, blending fresh marine accords with aromatic herbs and woody base notes for a timeless, elegant scent.",
+  details: {
+    topNotes: ["Marine Notes", "Bergamot"],
+    heartNotes: ["Rosemary", "Clary Sage", "Geranium"],
+    baseNotes: ["Patchouli", "Olibanum"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Fragrance, Water, Marine Notes, Bergamot, Rosemary, Clary Sage, Geranium, Patchouli, Olibanum"
+}
+
 ];
 
 export default products;
