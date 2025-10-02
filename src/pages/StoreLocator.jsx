@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
+import VideoBackground from '../components/ui/VideoBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -242,7 +243,14 @@ const StoreLocator = () => {
       </section>
     {/* CTA Section */}
       <section className="py-20 bg-dark">
-        <div className="container-custom text-center">
+          <div className="container-custom">
+            <VideoBackground
+              videoSrc="https://cdn.pixabay.com/video/2020/04/17/36356-410742856_large.mp4"
+              posterSrc="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80"
+              overlayOpacity={0.5}
+              className="rounded-lg py-20"
+            >
+              <div className="text-center px-4">
           <h2 className="text-3xl md:text-4xl font-serif text-light mb-6">Can't Visit Us In Person?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Explore our online store to shop our complete collection from anywhere in the world, or contact us for personalized recommendations.
@@ -255,7 +263,9 @@ const StoreLocator = () => {
               Contact Us
             </Button>
           </div>
-        </div>
+              </div>
+          </div>
+            </VideoBackground>
       </section>
     </motion.div>
   );

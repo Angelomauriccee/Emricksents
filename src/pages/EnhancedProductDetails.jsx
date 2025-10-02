@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import '../components/swiper-custom.css';
 import ImageZoom from '../components/product/ImageZoom';
+import SimpleImageZoom from '../components/product/SimpleImageZoom';
 import { slugify, findProductBySlug } from '../utils/slugify';
 
 import Button from '../components/ui/Button';
@@ -167,7 +168,7 @@ const EnhancedProductDetails = () => {
             >
               {product.images && product.images.map((image, index) => (
                 <SwiperSlide key={index}>
-                  <ImageZoom 
+                  <SimpleImageZoom 
                     image={image} 
                     alt={`${product.name} - Image ${index + 1}`} 
                   />

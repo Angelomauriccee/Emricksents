@@ -7,7 +7,7 @@ import { SearchProvider } from './context/SearchContext'
 import Navbar from './components/layout/SearchNavbar' // Updated to use SearchNavbar
 import Footer from './components/layout/ReactiveFooter'
 import ScrollToTop from './components/ui/ScrollToTop'
-import NewLoader from './components/ui/NewLoader'
+import MinimalistLoader from './components/ui/MinimalistLoader'
 import CookieConsent from './components/ui/CookieConsent'
 
 // Import enhanced styles
@@ -50,7 +50,7 @@ function App() {
   }, []);
 
   if (isLoading) {
-    return <NewLoader isLoading={isLoading} setIsLoading={setIsLoading} />;
+    return <MinimalistLoader isLoading={isLoading} setIsLoading={setIsLoading} />;
   }
 
   return (
