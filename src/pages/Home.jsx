@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiInstagram } from 'react-icons/fi';
 import gsap from 'gsap';
@@ -9,6 +8,9 @@ import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
+
+// 👉 Import the video as a local asset (Vite will bundle & serve it)
+import heroVideo from '../assets/videos/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,22 +63,24 @@ const Home = () => {
   useEffect(() => {
     // Hero section animation
     const heroTimeline = gsap.timeline();
-    
-    heroTimeline.fromTo(
-      '.hero-title',
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.5 }
-    ).fromTo(
-      '.hero-subtitle',
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-      '-=0.6'
-    ).fromTo(
-      '.hero-button',
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
-      '-=0.4'
-    );
+    heroTimeline
+      .fromTo(
+        '.hero-title',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.5 }
+      )
+      .fromTo(
+        '.hero-subtitle',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
+        '-=0.6'
+      )
+      .fromTo(
+        '.hero-button',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+        '-=0.4'
+      );
 
     // Featured products animation
     gsap.fromTo(
@@ -174,7 +178,22 @@ const Home = () => {
         scrub: true
       }
     });
+  }, []);
 
+  // Nudge autoplay on iOS/Safari and handle errors gracefully
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+
+    const tryPlay = () => {
+      v.play?.().catch(() => {});
+    };
+
+    v.muted = true;
+    tryPlay();
+
+    v.addEventListener('loadeddata', tryPlay);
+    return () => v.removeEventListener('loadeddata', tryPlay);
   }, []);
 
   return (
@@ -191,18 +210,26 @@ const Home = () => {
       >
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
-          <video 
+          {/* The video itself */}
+          <video
             ref={videoRef}
-            autoPlay 
-            loop 
-            muted 
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
             playsInline
-            className="w-full h-full object-cover"
+            preload="metadata"
+            className="absolute inset-0 h-full w-full object-cover"
+            onError={(e) => {
+              // eslint-disable-next-line no-console
+              console.error('Hero video failed to load/play', e?.currentTarget?.error);
+            }}
           >
-            <source src="https://player.vimeo.com/external/373797931.hd.mp4?s=07c2d7d3f68f2564c7bb6cf1ff9effcf0f956a19&profile_id=175&oauth2_token_id=57447761" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+
+          {/* Dark scrim on top of video */}
+          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
         </div>
 
         {/* Hero Content */}
@@ -222,10 +249,29 @@ const Home = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40 animate-bounce">
           <div className="w-[30px] h-[50px] rounded-full border-2 border-secondary flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-secondary rounded-full animate-scroll"></div>
           </div>
+        </div>
+
+        {/* --- SVG Wave Divider (sway) --- */}
+        {/* Make sure this color matches the next section background.
+            If 'text-dark' doesn't exist in your theme, replace it with your hex, e.g. text-[#0b0b0b]. */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 w-full leading-none z-30 text-dark"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            className="block w-full h-[80px] md:h-[120px]"
+          >
+            <path
+              d="M0,0 C150,100 350,0 600,0 C850,0 1050,100 1200,0 L1200,120 L0,120 Z"
+              fill="currentColor"
+            />
+          </svg>
         </div>
       </section>
 
@@ -238,7 +284,7 @@ const Home = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map((product, index) => (
+            {featuredProducts.map((product) => (
               <div key={product.id} className="featured-product">
                 <ProductCard product={product} />
               </div>

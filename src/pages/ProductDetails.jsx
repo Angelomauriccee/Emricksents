@@ -118,47 +118,59 @@ const ProductDetails = () => {
           <span>Back to All Products</span>
         </Link>
 
-        {/* Product Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Product Images */}
-          <div ref={imageRef} className="space-y-4">
-            <Swiper
-              modules={[Navigation, Pagination, Thumbs]}
-              thumbs={{ swiper: thumbsSwiper }}
-              navigation
-              pagination={{ clickable: true }}
-              className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900"
-            >
-              {product.images.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <ImageZoom 
-                    image={image} 
-                    alt={`${product.name} - Image ${index + 1}`} 
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            
-            <Swiper
-              onSwiper={setThumbsSwiper}
-              spaceBetween={10}
-              slidesPerView={4}
-              freeMode={true}
-              watchSlidesProgress={true}
-              modules={[Navigation, Thumbs]}
-              className="thumbs-swiper"
-            >
-              {product.images.map((image, index) => (
-                <SwiperSlide key={index} className="cursor-pointer rounded-md overflow-hidden">
-                  <img 
-                    src={image} 
-                    alt={`${product.name} - Thumbnail ${index + 1}`} 
-                    className="w-full h-full object-cover aspect-[3/4]" 
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
+        {/* Product Images */}
+<div ref={imageRef} className="space-y-4">
+  <Swiper
+    modules={[Navigation, Pagination, Thumbs]}
+    thumbs={{ swiper: thumbsSwiper }}
+    navigation
+    pagination={{ clickable: true }}
+    autoHeight
+    observer
+    observeParents
+    className="rounded-lg overflow-hidden bg-gray-900 product-gallery"
+  >
+    {product.images.map((image, index) => (
+      <SwiperSlide key={index} style={{ height: 'auto' }}>
+        {/* Parent controls height */}
+        <div className="relative aspect-[3/4] w-full">
+          {/* Pin ImageZoom to fill the box; disable its own ratio */}
+          <div className="absolute inset-0">
+            <ImageZoom
+              image={image}
+              alt={`${product.name} - Image ${index + 1}`}
+              ratio="auto"
+            />
           </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+
+  {/* Thumbs */}
+  <Swiper
+    onSwiper={setThumbsSwiper}
+    spaceBetween={10}
+    slidesPerView={4}
+    freeMode
+    watchSlidesProgress
+    modules={[Navigation, Thumbs]}
+    className="thumbs-swiper"
+  >
+    {product.images.map((image, index) => (
+      <SwiperSlide key={index} style={{ height: 'auto' }}>
+        <div className="relative aspect-[3/4] w-full rounded-md overflow-hidden">
+          <img
+            src={image}
+            alt={`${product.name} - Thumbnail ${index + 1}`}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
+
 
           {/* Product Info */}
           <div ref={infoRef} className="space-y-6">

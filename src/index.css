@@ -18,6 +18,13 @@
     @apply font-serif;
   }
 }
+/* Product gallery sizing helpers */
+.product-gallery .swiper,
+.product-gallery .swiper-wrapper,
+.product-gallery .swiper-slide {
+  height: auto !important;
+}
+
 
 @layer components {
   .container-custom {
