@@ -6,6 +6,9 @@ import { AnimatePresence } from 'framer-motion';
 import { CartProvider } from './context/CartContext';
 import { FilterProvider } from './context/FilterContext';
 import { SearchProvider } from './context/SearchContext';
+// main.jsx or App.jsx
+import './styles/viewport-fixes.css';
+
 
 import Navbar from './components/layout/SearchNavbar';
 import Footer from './components/layout/ReactiveFooter';
