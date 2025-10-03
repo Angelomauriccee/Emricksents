@@ -1,58 +1,98 @@
-/* Custom Swiper Styles */
+/* ===========================
+   Swiper – Product Gallery Kit
+   =========================== */
 
-/* Navigation Arrows */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #d4af37 !important; /* Gold color for arrows */
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 40px !important;
-  height: 40px !important;
+/* --- Layout fixes so slides ALWAYS fill --- */
+.product-swiper .swiper-wrapper { height: 100%; }
+.product-swiper .swiper-slide  { height: 100%; }
+
+/* A full-size slide wrapper so absolute children can fill */
+.product-swiper .slide-fill {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Thumbs can auto-height; images fill their box */
+.thumbs-swiper { margin-top: 10px; }
+.thumbs-swiper .swiper-wrapper { height: auto; }
+.thumbs-swiper .swiper-slide  { height: auto; }
+
+.thumbs-swiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Dim non-active thumbs; highlight the active one */
+.thumbs-swiper .swiper-slide { 
+  opacity: 0.55; 
+  transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+.thumbs-swiper .swiper-slide:hover { opacity: 0.8; }
+.thumbs-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+  transform: translateY(-2px);
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* --- Navigation Arrows (scoped to product gallery) --- */
+.product-swiper .swiper-button-next,
+.product-swiper .swiper-button-prev {
+  color: #d4af37 !important;                 /* icon color */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  width: 42px !important;
+  height: 42px !important;
   border-radius: 50%;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   opacity: 1 !important;
   visibility: visible !important;
+  z-index: 5;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
+/* Arrow glyphs (replace default) */
+.product-swiper .swiper-button-next:after,
+.product-swiper .swiper-button-prev:after {
   font-size: 18px !important;
-  font-weight: bold;
-  opacity: 1 !important;
-  visibility: visible !important;
-  content: '' !important;
+  font-weight: 700;
+  line-height: 1;
 }
 
-.swiper-button-next:after {
-  content: '→' !important;
+.product-swiper .swiper-button-next:after { content: '→'; }
+.product-swiper .swiper-button-prev:after { content: '←'; }
+
+/* Hover / active / disabled states */
+.product-swiper .swiper-button-next:hover,
+.product-swiper .swiper-button-prev:hover {
+  background: rgba(0, 0, 0, 0.65);
+  transform: scale(1.03);
 }
 
-.swiper-button-prev:after {
-  content: '←' !important;
+.product-swiper .swiper-button-disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed;
 }
 
-/* Pagination Bullets */
-.swiper-pagination-bullet {
+/* Optional: nudge arrows slightly inward on small screens */
+@media (max-width: 640px) {
+  .product-swiper .swiper-button-prev { left: 8px; }
+  .product-swiper .swiper-button-next { right: 8px; }
+}
+
+/* --- Pagination Bullets (scoped) --- */
+.product-swiper .swiper-pagination-bullet {
   background-color: #d4af37 !important;
-  opacity: 0.5;
+  opacity: 0.45;
 }
-
-.swiper-pagination-bullet-active {
+.product-swiper .swiper-pagination-bullet-active {
   opacity: 1;
-}
-
-/* Thumbs Swiper */
-.thumbs-swiper {
-  margin-top: 10px;
-}
-
-.thumbs-swiper .swiper-slide {
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
-
-.thumbs-swiper .swiper-slide-thumb-active {
-  opacity: 1;
-  border: 2px solid #d4af37;
+  transform: scale(1.1);
 }

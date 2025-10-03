@@ -6,48 +6,45 @@ import { FiMinus, FiPlus, FiShoppingBag, FiArrowLeft } from 'react-icons/fi';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs } from 'swiper/modules';
 import gsap from 'gsap';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import '../components/swiper-custom.css';
-import ImageZoom from '../components/product/ImageZoom';
-import SimpleImageZoom from '../components/product/SimpleImageZoom';
-import { slugify, findProductBySlug } from '../utils/slugify';
 
+import SimpleImageZoom from '../components/product/SimpleImageZoom';
 import Button from '../components/ui/Button';
 import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
+import { slugify, findProductBySlug } from '../utils/slugify';
 
 const EnhancedProductDetails = () => {
   const { id, slug } = useParams();
   const navigate = useNavigate();
-  const { addToCart, cartCount } = useCart();
+  const { addToCart } = useCart();
+
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [showAddedToCart, setShowAddedToCart] = useState(false);
-  
+
   const productRef = useRef(null);
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
-  // Find product by slug or ID
+  // Resolve product (slug preferred, fallback to numeric id)
   useEffect(() => {
     let foundProduct;
-    const paramSlug = slug || id; // Use either slug or id from params
-    
+    const paramSlug = slug || id;
+
     if (paramSlug) {
-      // First try to find by slug
       foundProduct = findProductBySlug(products, paramSlug);
-      
-      // If not found by slug and it looks like an ID, try finding by ID as fallback
+
       if (!foundProduct && !isNaN(parseInt(paramSlug))) {
-        foundProduct = products.find(p => p.id === parseInt(paramSlug));
-        
-        // If found by ID, redirect to slug URL
+        foundProduct = products.find((p) => p.id === parseInt(paramSlug));
         if (foundProduct) {
           const productSlug = slugify(foundProduct.name);
           navigate(`/product/${productSlug}`, { replace: true });
@@ -55,35 +52,33 @@ const EnhancedProductDetails = () => {
         }
       }
     }
-    
+
     if (foundProduct) {
       setProduct(foundProduct);
-      
-      // Find related products (same category or type)
+
       const related = products
-        .filter(p => p.id !== foundProduct.id && (p.category === foundProduct.category || p.type === foundProduct.type))
+        .filter(
+          (p) =>
+            p.id !== foundProduct.id &&
+            (p.category === foundProduct.category || p.type === foundProduct.type)
+        )
         .slice(0, 4);
       setRelatedProducts(related);
     } else {
-      // If product not found, redirect to shop page
-      console.error("Product not found");
+      console.error('Product not found');
       navigate('/shop');
     }
-    
-    // Reset quantity and active tab when product changes
+
     setQuantity(1);
     setActiveTab('description');
-    
-    // Scroll to top when product changes
     window.scrollTo(0, 0);
   }, [id, slug, navigate]);
 
-  // GSAP animations
+  // GSAP entrance
   useEffect(() => {
     if (product && imageRef.current && infoRef.current) {
-      const timeline = gsap.timeline();
-      
-      timeline.fromTo(
+      const tl = gsap.timeline();
+      tl.fromTo(
         imageRef.current,
         { x: -50, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
@@ -96,26 +91,16 @@ const EnhancedProductDetails = () => {
     }
   }, [product]);
 
-  // Format price in Naira
-  const formatPrice = (price) => {
-    return `₦${price.toLocaleString()}`;
-  };
+  const formatPrice = (price) => `₦${Number(price || 0).toLocaleString()}`;
 
-  // Handle quantity change
   const handleQuantityChange = (amount) => {
-    const newQuantity = quantity + amount;
-    if (newQuantity >= 1 && newQuantity <= 10) {
-      setQuantity(newQuantity);
-    }
+    const next = quantity + amount;
+    if (next >= 1 && next <= 10) setQuantity(next);
   };
 
-  // Handle add to cart
   const handleAddToCart = () => {
     if (!product) return;
-    
     addToCart(product, quantity);
-    
-    // Show confirmation
     setShowAddedToCart(true);
     setTimeout(() => setShowAddedToCart(false), 3000);
   };
@@ -124,7 +109,7 @@ const EnhancedProductDetails = () => {
     return (
       <div className="min-h-screen bg-primary flex items-center justify-center py-32">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-secondary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-16 h-16 border-4 border-secondary border-t-transparent rounded-full animate-spin mx-auto mb-4" />
           <p className="text-light">Loading product details...</p>
         </div>
       </div>
@@ -141,9 +126,9 @@ const EnhancedProductDetails = () => {
       className="min-h-screen bg-primary py-32"
     >
       <div className="container-custom">
-        {/* Back to Shop Link */}
-        <Link 
-          to="/shop" 
+        {/* Back to Shop */}
+        <Link
+          to="/shop"
           className="inline-flex items-center text-gray-400 hover:text-secondary transition-colors mb-8"
         >
           <FiArrowLeft className="mr-2" />
@@ -152,56 +137,61 @@ const EnhancedProductDetails = () => {
 
         {/* Product Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Product Images */}
+          {/* Gallery */}
           <div ref={imageRef} className="space-y-4">
             <Swiper
               modules={[Navigation, Pagination, Thumbs]}
               thumbs={{ swiper: thumbsSwiper }}
               navigation={{
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
                 enabled: true,
-                disabledClass: "swiper-button-disabled"
+                disabledClass: 'swiper-button-disabled',
               }}
               pagination={{ clickable: true }}
+              observer
+              observeParents
               className="rounded-lg overflow-hidden aspect-[3/4] bg-gray-900 product-swiper"
             >
-              {product.images && product.images.map((image, index) => (
+              {(product.images || []).map((image, index) => (
                 <SwiperSlide key={index}>
-                  <SimpleImageZoom 
-                    image={image} 
-                    alt={`${product.name} - Image ${index + 1}`} 
-                  />
+                  <div className="slide-fill">
+                    <SimpleImageZoom image={image} alt={`${product.name} - Image ${index + 1}`} />
+                  </div>
                 </SwiperSlide>
               ))}
-              <div className="swiper-button-next"></div>
-              <div className="swiper-button-prev"></div>
+              <div className="swiper-button-next" />
+              <div className="swiper-button-prev" />
             </Swiper>
-            
-            {product.images && product.images.length > 1 && (
+
+            {(product.images || []).length > 1 && (
               <Swiper
                 onSwiper={setThumbsSwiper}
                 spaceBetween={10}
                 slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
+                freeMode
+                watchSlidesProgress
                 modules={[Navigation, Thumbs]}
+                observer
+                observeParents
                 className="thumbs-swiper"
               >
-                {product.images.map((image, index) => (
+                {(product.images || []).map((image, index) => (
                   <SwiperSlide key={index} className="cursor-pointer rounded-md overflow-hidden">
-                    <img 
-                      src={image} 
-                      alt={`${product.name} - Thumbnail ${index + 1}`} 
-                      className="w-full h-full object-cover aspect-[3/4]" 
-                    />
+                    <div className="relative aspect-[3/4] w-full">
+                      <img
+                        src={image}
+                        alt={`${product.name} - Thumbnail ${index + 1}`}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             )}
           </div>
 
-          {/* Product Info */}
+          {/* Info */}
           <div ref={infoRef} className="space-y-6">
             <div>
               <h1 className="text-3xl md:text-4xl font-serif text-light mb-2">{product.name}</h1>
@@ -222,11 +212,14 @@ const EnhancedProductDetails = () => {
             </div>
 
             {/* Rating */}
-            {product.rating && (
+            {!!product.rating && (
               <div className="flex items-center space-x-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className={`text-lg ${i < Math.floor(product.rating) ? 'text-secondary' : 'text-gray-400'}`}>
+                    <span
+                      key={i}
+                      className={`text-lg ${i < Math.floor(product.rating) ? 'text-secondary' : 'text-gray-400'}`}
+                    >
                       ★
                     </span>
                   ))}
@@ -236,37 +229,33 @@ const EnhancedProductDetails = () => {
             )}
 
             {/* Short Description */}
-            <p className="text-gray-300 leading-relaxed">
-              {product.description && product.description.split('.')[0] + '.'}
-            </p>
+            {!!product.description && (
+              <p className="text-gray-300 leading-relaxed">
+                {String(product.description).split('.')[0] + '.'}
+              </p>
+            )}
 
-            {/* Fragrance Notes */}
-            {product.details && product.details.topNotes && product.details.topNotes.length > 0 && (
+            {/* Notes */}
+            {product.details?.topNotes?.length > 0 && (
               <div className="space-y-3">
                 <h3 className="text-light font-medium">Fragrance Notes:</h3>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="space-y-2">
                     <p className="text-secondary text-sm">Top Notes</p>
                     <ul className="text-gray-400 text-sm space-y-1">
-                      {product.details.topNotes.map((note, index) => (
-                        <li key={index}>{note}</li>
-                      ))}
+                      {product.details.topNotes.map((note, i) => <li key={i}>{note}</li>)}
                     </ul>
                   </div>
                   <div className="space-y-2">
                     <p className="text-secondary text-sm">Heart Notes</p>
                     <ul className="text-gray-400 text-sm space-y-1">
-                      {product.details.heartNotes.map((note, index) => (
-                        <li key={index}>{note}</li>
-                      ))}
+                      {product.details.heartNotes?.map((note, i) => <li key={i}>{note}</li>)}
                     </ul>
                   </div>
                   <div className="space-y-2">
                     <p className="text-secondary text-sm">Base Notes</p>
                     <ul className="text-gray-400 text-sm space-y-1">
-                      {product.details.baseNotes.map((note, index) => (
-                        <li key={index}>{note}</li>
-                      ))}
+                      {product.details.baseNotes?.map((note, i) => <li key={i}>{note}</li>)}
                     </ul>
                   </div>
                 </div>
@@ -288,7 +277,7 @@ const EnhancedProductDetails = () => {
               <h3 className="text-light font-medium mb-2">Quantity:</h3>
               <div className="flex items-center space-x-4">
                 <div className="flex items-center border border-gray-700 rounded-md">
-                  <button 
+                  <button
                     onClick={() => handleQuantityChange(-1)}
                     className="px-3 py-2 text-gray-400 hover:text-secondary transition-colors"
                     disabled={quantity <= 1}
@@ -296,7 +285,7 @@ const EnhancedProductDetails = () => {
                     <FiMinus />
                   </button>
                   <span className="px-4 py-2 text-light">{quantity}</span>
-                  <button 
+                  <button
                     onClick={() => handleQuantityChange(1)}
                     className="px-3 py-2 text-gray-400 hover:text-secondary transition-colors"
                     disabled={quantity >= 10}
@@ -313,8 +302,8 @@ const EnhancedProductDetails = () => {
             {/* Actions */}
             <div className="flex flex-col space-y-4 pt-4">
               <div className="relative">
-                <Button 
-                  variant="primary" 
+                <Button
+                  variant="primary"
                   size="lg"
                   className="w-full flex items-center justify-center"
                   onClick={handleAddToCart}
@@ -322,7 +311,7 @@ const EnhancedProductDetails = () => {
                   <FiShoppingBag className="mr-2" />
                   <span>Add to Cart</span>
                 </Button>
-                
+
                 {showAddedToCart && (
                   <div className="absolute -top-12 left-0 right-0 bg-secondary text-primary text-center py-2 rounded-md animate-pulse">
                     Added to cart!
@@ -331,30 +320,30 @@ const EnhancedProductDetails = () => {
               </div>
             </div>
 
-            {/* WhatsApp Order Note */}
+            {/* WhatsApp Note */}
             <div className="text-sm text-gray-400 pt-2">
               <p>After adding to cart, proceed to checkout via WhatsApp</p>
             </div>
           </div>
         </div>
 
-        {/* Product Tabs - Only Description and Details */}
+        {/* Tabs */}
         <div className="mb-16">
           <div className="flex border-b border-gray-800 mb-8">
-            <button 
+            <button
               className={`px-6 py-3 font-medium ${
-                activeTab === 'description' 
-                  ? 'text-secondary border-b-2 border-secondary' 
+                activeTab === 'description'
+                  ? 'text-secondary border-b-2 border-secondary'
                   : 'text-gray-400 hover:text-light'
               }`}
               onClick={() => setActiveTab('description')}
             >
               Description
             </button>
-            <button 
+            <button
               className={`px-6 py-3 font-medium ${
-                activeTab === 'details' 
-                  ? 'text-secondary border-b-2 border-secondary' 
+                activeTab === 'details'
+                  ? 'text-secondary border-b-2 border-secondary'
                   : 'text-gray-400 hover:text-light'
               }`}
               onClick={() => setActiveTab('details')}
@@ -366,13 +355,13 @@ const EnhancedProductDetails = () => {
           <div className="bg-dark bg-opacity-50 rounded-lg p-8">
             {activeTab === 'description' && (
               <div className="text-gray-300 leading-relaxed space-y-4">
-                <p>{product.description}</p>
+                {!!product.description && <p>{product.description}</p>}
                 <p>
-                  Experience the artistry of fine perfumery with {product.name}. Each bottle is meticulously crafted to 
+                  Experience the artistry of fine perfumery with {product.name}. Each bottle is meticulously crafted to
                   ensure the perfect balance of notes, creating a fragrance that evolves beautifully throughout the day.
                 </p>
                 <p>
-                  Our perfumes are created using only the highest quality ingredients, sourced from sustainable producers 
+                  Our perfumes are created using only the highest quality ingredients, sourced from sustainable producers
                   around the world. We believe in ethical luxury that respects both people and planet.
                 </p>
               </div>
@@ -391,17 +380,14 @@ const EnhancedProductDetails = () => {
                       <span className="w-1/3 text-gray-400">Fragrance Type</span>
                       <span>{product.type}</span>
                     </li>
-                    <li className="flex">
-                      <span className="w-1/3 text-gray-400"></span>
-                      <span></span>
-                    </li>
                   </ul>
                 </div>
 
                 <div>
                   <h3 className="text-xl font-serif text-secondary mb-4">Ingredients</h3>
                   <p className="text-gray-300">
-                    {product.ingredients || "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol, Isoeugenol."}
+                    {product.ingredients ||
+                      'Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Eugenol, Farnesol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Cinnamyl Alcohol, Isoeugenol.'}
                   </p>
                 </div>
 
@@ -414,7 +400,7 @@ const EnhancedProductDetails = () => {
                     <li>Ensure skin is clean and moisturized</li>
                     <li>Hold bottle 3-6 inches away from skin</li>
                     <li>Spray onto pulse points</li>
-                    <li>Allow fragrance to dry naturally - do not rub</li>
+                    <li>Allow fragrance to dry naturally — do not rub</li>
                     <li>Reapply as needed throughout the day</li>
                   </ol>
                 </div>
@@ -423,22 +409,19 @@ const EnhancedProductDetails = () => {
           </div>
         </div>
 
-        {/* Related Products */}
+        {/* Related */}
         <div>
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl md:text-3xl font-serif text-light">You May Also Like</h2>
-            <Link 
-              to="/shop" 
-              className="flex items-center text-secondary hover:text-secondary-dark transition-colors"
-            >
+            <Link to="/shop" className="flex items-center text-secondary hover:text-secondary-dark transition-colors">
               <span>View All</span>
               <span className="ml-1">→</span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {relatedProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
+            {relatedProducts.map((rp) => (
+              <ProductCard key={rp.id} product={rp} />
             ))}
           </div>
         </div>

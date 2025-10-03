@@ -6,15 +6,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
-import VideoBackground from '../components/ui/VideoBackground';
+
+// ✅ import the asset so Vite bundles/serves it
+import storeLocatorVideo from '../assets/videos/store-locator.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const StoreLocator = () => {
   const [isMapLoaded, setIsMapLoaded] = useState(false);
-  
+
   const mapRef = useRef(null);
   const storeInfoRef = useRef(null);
+  const ctaVideoRef = useRef(null);
 
   // Store data - with specific coordinates for Ogudu Mall
   const store = {
@@ -24,20 +27,21 @@ const StoreLocator = () => {
     country: 'Nigeria',
     phone: '+234 906 598 8598',
     hours: 'Mon-Sat: 10:00 AM - 8:00 PM, Sun: 12:00 PM - 6:00 PM',
-    coordinates: { lat: 6.577359, lng: 3.379255 }, // Specific coordinates for Ogudu Mall
+    coordinates: { lat: 6.577359, lng: 3.379255 },
     image: '/images/store-interior.jpg'
   };
 
   // GSAP animations
   useEffect(() => {
-    // Map animation
+    if (!mapRef.current || !storeInfoRef.current) return;
+
     gsap.fromTo(
       mapRef.current,
       { opacity: 0, scale: 0.95 },
-      { 
-        opacity: 1, 
-        scale: 1, 
-        duration: 0.8, 
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: mapRef.current,
@@ -47,13 +51,12 @@ const StoreLocator = () => {
       }
     );
 
-    // Store info animation
     gsap.fromTo(
       storeInfoRef.current,
       { y: 30, opacity: 0 },
-      { 
-        y: 0, 
-        opacity: 1, 
+      {
+        y: 0,
+        opacity: 1,
         duration: 0.6,
         ease: 'power3.out',
         scrollTrigger: {
@@ -63,6 +66,18 @@ const StoreLocator = () => {
         }
       }
     );
+  }, []);
+
+  // Nudge CTA video autoplay (mobile/Safari)
+  useEffect(() => {
+    const v = ctaVideoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.playsInline = true;
+    const tryPlay = () => v.play?.().catch(() => {});
+    if (v.readyState >= 2) tryPlay();
+    v.addEventListener('loadeddata', tryPlay, { once: true });
+    return () => v.removeEventListener('loadeddata', tryPlay);
   }, []);
 
   return (
@@ -77,9 +92,9 @@ const StoreLocator = () => {
       <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
-            alt="Store Locator" 
+          <img
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80"
+            alt="Store Locator"
             className="w-full h-full object-cover"
           />
         </div>
@@ -97,25 +112,25 @@ const StoreLocator = () => {
       {/* Store Locator Section */}
       <section className="py-20 bg-dark">
         <div className="container-custom">
-          <SectionTitle 
-            title="Our Location" 
+          <SectionTitle
+            title="Our Location"
             subtitle="Visit our boutique to experience our fragrances in person"
           />
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Store Info */}
             <div ref={storeInfoRef} className="lg:col-span-1">
               <div className="bg-gray-900 rounded-lg overflow-hidden">
                 <div className="aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={store.image} 
-                    alt={store.name} 
+                  <img
+                    src={store.image}
+                    alt={store.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-serif text-light mb-4">{store.name}</h3>
-                  
+
                   <div className="flex items-start mb-4">
                     <FiMapPin className="text-secondary mt-1 mr-3" />
                     <div>
@@ -123,19 +138,19 @@ const StoreLocator = () => {
                       <p className="text-secondary text-sm mt-1">{store.country}</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start mb-4">
                     <FiPhone className="text-secondary mt-1 mr-3" />
                     <p className="text-gray-300">{store.phone}</p>
                   </div>
-                  
+
                   <div className="flex items-start mb-6">
                     <FiClock className="text-secondary mt-1 mr-3" />
                     <p className="text-gray-300">{store.hours}</p>
                   </div>
-                  
-                  <Button 
-                    variant="primary" 
+
+                  <Button
+                    variant="primary"
                     href={`https://www.google.com/maps/search/?api=1&query=Ogudu+Mall+Ojota+Lagos+Nigeria`}
                     className="w-full"
                   >
@@ -156,17 +171,17 @@ const StoreLocator = () => {
                     </div>
                   </div>
                 )}
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.8524543349096!2d3.3792553!3d6.5773587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d73a658782b%3A0x7a1de11d89cccc84!2sOgudu%20Mall!5e0!3m2!1sen!2sus!4v1694270284517!5m2!1sen!2sus" 
-                   referrerPolicy="no-referrer-when-downgrade"
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen="" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.8524543349096!2d3.3792553!3d6.5773587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d73a658782b%3A0x7a1de11d89cccc84!2sOgudu%20Mall!5e0!3m2!1sen!2sus!4v1694270284517!5m2!1sen!2sus"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
                   loading="lazy"
                   title="Emrickscents Store Location"
                   onLoad={() => setIsMapLoaded(true)}
-                  className={isMapLoaded ? "opacity-100" : "opacity-0"}
+                  className={isMapLoaded ? 'opacity-100' : 'opacity-0'}
                 ></iframe>
               </div>
             </div>
@@ -207,32 +222,32 @@ const StoreLocator = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="rounded-lg overflow-hidden">
-                  <img 
-                    src="/images/store-interior.jpg" 
-                    alt="Store Interior" 
+                  <img
+                    src="/images/store-interior.jpg"
+                    alt="Store Interior"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="rounded-lg overflow-hidden">
-                  <img 
-                    src="/images/our-story.jpg" 
-                    alt="Perfume Display" 
+                  <img
+                    src="/images/our-story.jpg"
+                    alt="Perfume Display"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
               <div className="space-y-4 mt-8">
                 <div className="rounded-lg overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                    alt="Fragrance Consultation" 
+                  <img
+                    src="https://images.unsplash.com/photo-1594035910387-fea47794261f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Fragrance Consultation"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="rounded-lg overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1592914610354-fd354ea45e48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                    alt="Luxury Packaging" 
+                  <img
+                    src="https://images.unsplash.com/photo-1592914610354-fd354ea45e48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                    alt="Luxury Packaging"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -241,34 +256,55 @@ const StoreLocator = () => {
           </div>
         </div>
       </section>
-{/* CTA Section */}
-         <section className="py-20 bg-dark">
-           <div className="container-custom">
-             <VideoBackground
-               videoSrc="https://cdn.pixabay.com/video/2020/04/17/36356-410742856_large.mp4"
-               posterSrc="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80"
-               overlayOpacity={0.5}
-               className="rounded-lg py-20"
-             >
-               <div className="text-center px-4">
-                 <h2 className="text-3xl md:text-4xl font-serif text-light mb-6">Can't Visit Us In Person?</h2>
-                 <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                   Explore our online store to shop our complete collection from anywhere in the world, or contact us for personalized recommendations.
-                 </p>
-                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                   <Button to="/shop" variant="primary">
-                     Shop Online
-                   </Button>
-                   <Button to="/contact" variant="outline">
-                     Contact Us
-                   </Button>
-                 </div>
-               </div>
-             </VideoBackground>
-           </div>
-         </section>
-       </motion.div>
-     );
-   };
-   
-   export default StoreLocator;
+
+      {/* CTA Section with inline background video (like Home) */}
+      <section className="py-20 bg-dark">
+        <div className="container-custom">
+          <div className="relative overflow-hidden rounded-lg">
+            {/* Video */}
+            <video
+              ref={ctaVideoRef}
+              className="absolute inset-0 w-full h-full object-cover"
+              src={storeLocatorVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&q=80"
+              onError={(e) => {
+                // eslint-disable-next-line no-console
+                console.debug('CTA video failed to load', e?.currentTarget?.error);
+              }}
+            >
+              <source src={storeLocatorVideo} type="video/mp4" />
+            </video>
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/50" />
+
+            {/* Content */}
+            <div className="relative z-10 text-center px-4 py-20">
+              <h2 className="text-3xl md:text-4xl font-serif text-light mb-6">
+                Can&apos;t Visit Us In Person?
+              </h2>
+              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                Explore our online store to shop our complete collection from anywhere in the world, or contact us for personalized recommendations.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Button to="/shop" variant="primary">
+                  Shop Online
+                </Button>
+                <Button to="/contact" variant="outline">
+                  Contact Us
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </motion.div>
+  );
+};
+
+export default StoreLocator;

@@ -34,21 +34,29 @@ import NotFound from './pages/NotFound';
 // Data (to collect product image URLs)
 import products from './data/products';
 
-// OPTIONAL: preload the hero video too. If you don’t want to wait for video, set PRELOAD_VIDEO=false.
+// Videos to preload (import your local assets here)
 import heroVideo from './assets/videos/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready.mp4';
+// If you add more local videos, import them and push into VIDEO_ASSETS below
+// import storeLocatorVideo from './assets/video/store-locator.mp4';
 
 const CRITICAL_IMAGES = [
   '/images/our-story.jpg',
-  // Add any other must-show images (e.g., hero poster, navbar logo variants, etc.)
+  // Add any other must-show images here
+];
+
+const VIDEO_ASSETS = [
+  heroVideo,
+  // storeLocatorVideo,
 ];
 
 const PRELOAD_VIDEO = true;
 
+// --- Preload helpers ---
 function preloadImage(url) {
   return new Promise((resolve) => {
     const img = new Image();
-    img.onload = () => resolve();
-    img.onerror = () => resolve(); // don’t block on errors
+    img.onload = () => resolve({ ok: true });
+    img.onerror = () => resolve({ ok: false });
     img.src = url;
   });
 }
@@ -56,18 +64,33 @@ function preloadImage(url) {
 function preloadVideo(url) {
   return new Promise((resolve) => {
     const v = document.createElement('video');
-    v.preload = 'metadata';
+    // Safest signal that enough buffered to start quickly
+    const onReady = () => cleanup(resolve({ ok: true }));
+    const onError = () => cleanup(resolve({ ok: false }));
+
+    const cleanup = (done) => {
+      v.removeEventListener('canplaythrough', onReady);
+      v.removeEventListener('loadeddata', onReady);
+      v.removeEventListener('error', onError);
+      done;
+    };
+
+    v.preload = 'auto';
+    v.muted = true; // helps Safari/iOS behavior
     v.src = url;
-    v.onloadeddata = () => resolve();
-    v.onerror = () => resolve(); // don’t block on errors
+
+    // whichever fires first
+    v.addEventListener('canplaythrough', onReady, { once: true });
+    v.addEventListener('loadeddata', onReady, { once: true });
+    v.addEventListener('error', onError, { once: true });
   });
 }
 
-function App() {
+export default function App() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const [hasVisited, setHasVisited] = useState(false);
-  const [progress, setProgress] = useState(0); // 0–100 for loader UI (optional)
+  const [progress, setProgress] = useState(0); // 0–100
 
   // One-time “visited” flag
   useEffect(() => {
@@ -79,77 +102,78 @@ function App() {
     }
   }, []);
 
-  // Loader gate: preload assets + enforce min/max duration
+  // Loader gate: preload assets + min/max timing
   useEffect(() => {
-    let done = false;
+    let finished = false;
 
-    const MIN_MS = hasVisited ? 1500 : 3000;
-    const MAX_MS = hasVisited ? 3000 : 5000;
+    // Feel free to tweak:
+    const MIN_MS = 2000;             // minimum time to show loader
+    const MAX_MS = 10000;            // hard cap so users are never stuck
+    const includeVideos = PRELOAD_VIDEO;
 
-    // Gather unique product image URLs
+    // Collect product images (unique)
     const productImages = [
-      ...new Set(
-        (products ?? []).flatMap((p) => p?.images || []).filter(Boolean)
-      ),
+      ...new Set((products ?? []).flatMap((p) => p?.images || []).filter(Boolean)),
     ];
 
     const imagesToLoad = [...CRITICAL_IMAGES, ...productImages];
 
-    // Progress tracking
-    const total = imagesToLoad.length + (PRELOAD_VIDEO ? 1 : 0);
-    let loaded = 0;
-
-    const track = () => {
-      loaded += 1;
-      const pct = Math.min(100, Math.round((loaded / Math.max(1, total)) * 100));
-      setProgress(pct);
-    };
-
+    // Build all preload promises
     const imagePromises = imagesToLoad.map((url) =>
-      preloadImage(url).then(track)
+      preloadImage(url).then(() => tick())
     );
 
-    const videoPromise = PRELOAD_VIDEO
-      ? preloadVideo(heroVideo).then(track)
-      : Promise.resolve();
+    const videoPromises = includeVideos
+      ? VIDEO_ASSETS.map((url) => preloadVideo(url).then(() => tick()))
+      : [];
+
+    // For progress tracking:
+    const totalCount = imagesToLoad.length + (includeVideos ? VIDEO_ASSETS.length : 0);
+    let loadedCount = 0;
+    function tick() {
+      loadedCount += 1;
+      const pct = Math.round((loadedCount / Math.max(totalCount, 1)) * 100);
+      setProgress(Math.min(100, Math.max(0, pct)));
+    }
+
+    // If there’s nothing to preload, still respect MIN_MS
+    if (totalCount === 0) setProgress(100);
 
     const minDelay = new Promise((res) => setTimeout(res, MIN_MS));
+    const allAssets = Promise.all([...imagePromises, ...videoPromises]);
 
-    // When assets + min time are ready, hide loader—unless max time already fired.
-    Promise.all([Promise.all(imagePromises), videoPromise, minDelay]).then(() => {
-      if (!done) {
-        done = true;
+    // Hard timeout to never exceed MAX_MS
+    const hardCap = new Promise((res) => setTimeout(res, MAX_MS));
+
+    // Wait for: (assets AND minDelay) OR hardCap (whichever first)
+    Promise.race([
+      Promise.all([allAssets, minDelay]),
+      hardCap,
+    ]).then(() => {
+      if (!finished) {
+        finished = true;
+        setProgress(100);
         setIsLoading(false);
       }
     });
 
-    // Cleanup in case component unmounts early
     return () => {
-      done = true;
+      finished = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasVisited]);
 
   // Optional: lock scroll while loading
   useEffect(() => {
-    if (isLoading) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = prev;
-      };
-    }
+    if (!isLoading) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = prev; };
   }, [isLoading]);
 
-  // Show the loader until the gate flips isLoading=false
+  // Show the loader until gate flips
   if (isLoading) {
-    return (
-      <MinimalistLoader
-        isLoading={isLoading}
-        setIsLoading={setIsLoading}
-        progress={progress} // your loader can read this; safe to ignore if unused
-      />
-    );
+    return <MinimalistLoader isLoading={isLoading} progress={progress} />;
   }
 
   return (
@@ -157,7 +181,6 @@ function App() {
       <FilterProvider>
         <SearchProvider>
           <div className="min-h-screen flex flex-col relative">
-            {/* Enhanced features */}
             <CustomCursor />
             <NoiseOverlay />
             <FloatingShapes />
@@ -189,5 +212,3 @@ function App() {
     </CartProvider>
   );
 }
-
-export default App;

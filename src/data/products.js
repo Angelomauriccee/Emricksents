@@ -1404,7 +1404,7 @@ const products = [
     name: "Giorgio Armani SI eau de parfum 100ml",
     category: "Men's Collection",
     type: "Parfum",
-    price: 225000,
+    price: 250000,
     originalPrice: null,
     image: "/images/Giorgio-amani-si-display.jpeg",
     images: [
@@ -2385,7 +2385,7 @@ const products = [
     name: "Emrick essential oil",
     category: "Essential oil",
     type: "oil",
-    price: 30000,
+    price: 15000,
     originalPrice: null,
     image: "/images/4.png",
     images: [
@@ -2404,7 +2404,7 @@ const products = [
     name: "Emrick essential oil",
     category: "Essential oil",
     type: "oil",
-    price: 15000,
+    price: 30000,
     originalPrice: null,
     image: "/images/1.png",
     images: [

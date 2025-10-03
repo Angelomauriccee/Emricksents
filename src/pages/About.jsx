@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
-import VideoBackground from '../components/ui/VideoBackground';
+// import VideoBackground from '../components/ui/VideoBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -253,24 +253,31 @@ EmrickScents isn’t just about selling perfumes; it’s about walking this jour
           </blockquote>
         </div>
       </section>
-        {/* Our Craftsmanship Video Section */}
-        <section className="py-20 bg-dark">
-          <div className="container-custom">
-            <VideoBackground
-              videoSrc="https://cdn.pixabay.com/video/2021/05/20/75889-552525990_large.mp4"
-              posterSrc="https://images.unsplash.com/photo-1541643600914-78b084683601?w=1920&q=80"
-              overlayOpacity={0.4}
-              className="h-96 rounded-lg mb-12"
-            >
-              <div className="h-full flex items-center justify-center">
-                <div className="text-center text-light px-4">
-                  <h2 className="text-4xl md:text-5xl font-serif mb-4">Our Craftsmanship</h2>
-                  <p className="text-xl md:text-2xl text-gray-300">Artisanal perfume creation at its finest</p>
-                </div>
-              </div>
-            </VideoBackground>
-          </div>
-        </section>
+        {/* Our Craftsmanship (image background, centered text) */}
+<section className="py-20 bg-dark">
+  <div className="container-custom">
+    <div className="relative h-96 rounded-lg overflow-hidden mb-12">
+      {/* Background image */}
+      <img
+        src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=1920&q=80"
+        alt="Craftsmanship Background"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+      {/* Centered content */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="text-center text-light px-4">
+          <h2 className="text-4xl md:text-5xl font-serif mb-4">Our Craftsmanship</h2>
+          <p className="text-xl md:text-2xl text-gray-300">
+            Artisanal perfume creation at its finest
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
       {/* Our Process Section */}

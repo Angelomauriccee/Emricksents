@@ -12,6 +12,9 @@ import products from '../data/products';
 // 👉 Import the video as a local asset (Vite will bundle & serve it)
 import heroVideo from '../assets/videos/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready.mp4';
 
+import visitVideo from '../assets/videos/WhatsApp Video 2025-10-03 at 12.17.56_9ff62370.mp4';
+
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
@@ -21,6 +24,8 @@ const Home = () => {
   const collectionRef = useRef(null);
   const storyRef = useRef(null);
   const instagramRef = useRef(null);
+  const visitVideoRef = useRef(null);
+
 
   // Featured products
   const featuredProducts = products.filter(product => product.featured).slice(0, 4);
@@ -181,20 +186,28 @@ const Home = () => {
   }, []);
 
   // Nudge autoplay on iOS/Safari and handle errors gracefully
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-
+  // Nudge autoplay on iOS/Safari and handle errors gracefully (hero + visit video)
+useEffect(() => {
+  const setup = (v) => {
+    if (!v) return () => {};
     const tryPlay = () => {
+      // some browsers need an explicit call after metadata loads
       v.play?.().catch(() => {});
     };
-
-    v.muted = true;
+    v.muted = true; // ensure muted for autoplay policies
     tryPlay();
-
     v.addEventListener('loadeddata', tryPlay);
     return () => v.removeEventListener('loadeddata', tryPlay);
-  }, []);
+  };
+
+  const cleanupHero = setup(videoRef.current);
+  const cleanupVisit = setup(visitVideoRef.current);
+  return () => {
+    cleanupHero?.();
+    cleanupVisit?.();
+  };
+}, []);
+
 
   return (
     <motion.div
@@ -381,24 +394,47 @@ We know how powerful scent can be the way a fragrance can evoke memories, enhanc
         </div>
       </section>
 
-      {/* Visit Our Store Section */}
-      <section className="py-20 bg-gradient-luxury">
-        <div className="container-custom text-center">
-          <SectionTitle 
-            title="Visit Our Store" 
-            subtitle="Experience our luxury fragrances in person at our boutique in Ogudu Mall, Ojota."
-          />
-          
-          <div className="max-w-md mx-auto">
-            <p className="text-gray-300 mb-6">
-              Our knowledgeable staff will guide you through our collections and help you discover the perfect scent that resonates with your personality.
-            </p>
-            <Button to="/store-locator" variant="primary">
-              Find Our Store
-            </Button>
-          </div>
-        </div>
-      </section>
+     {/* Visit Our Store (video background) */}
+<section className="relative py-24 overflow-hidden">
+  {/* Video background */}
+  <video
+    ref={visitVideoRef}
+    src={visitVideo}
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="metadata"
+    className="absolute inset-0 w-full h-full object-cover"
+    // optional poster to avoid a black flash before video starts:
+    // poster="/images/store-poster.jpg"
+    onError={(e) => {
+      // eslint-disable-next-line no-console
+      console.error('Visit video failed to load/play', e?.currentTarget?.error);
+    }}
+  />
+
+  {/* Dark overlay for contrast */}
+  <div className="absolute inset-0 bg-black/50" />
+
+  {/* Centered content */}
+  <div className="container-custom relative z-10 text-center">
+    <SectionTitle
+      title="Visit Our Store"
+      subtitle="Experience our luxury fragrances in person at our boutique in Ogudu Mall, Ojota."
+    />
+    <div className="max-w-md mx-auto">
+      <p className="text-gray-200 mb-6">
+        Our knowledgeable staff will guide you through our collections and help you
+        discover the perfect scent that resonates with your personality.
+      </p>
+      <Button to="/store-locator" variant="primary">
+        Find Our Store
+      </Button>
+    </div>
+  </div>
+</section>
+
 
       {/* Instagram Gallery */}
       <section ref={instagramRef} className="py-20 bg-dark">

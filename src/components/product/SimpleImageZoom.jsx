@@ -1,70 +1,117 @@
-import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef, useEffect } from 'react';
+import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 
-const SimpleImageZoom = ({ image, alt }) => {
+/**
+ * Modern, smooth zoom:
+ * - Hover to zoom with a soft spring
+ * - Smoothly follows cursor (lens-style ring)
+ * - Double-click / tap toggles zoom
+ * - Always fills the parent (use inside a size-controlled wrapper)
+ */
+const SimpleImageZoom = ({
+  image,
+  alt = '',
+  zoom = 2.4,          // desktop zoom factor
+  mobileZoom = 2.0,     // mobile zoom factor
+}) => {
+  const wrapperRef = useRef(null);
   const [isZoomed, setIsZoomed] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const imageRef = useRef(null);
+  const [isTouch, setIsTouch] = useState(false);
 
-  const handleMouseMove = (e) => {
-    if (!isZoomed || !imageRef.current) return;
+  // Pointer position as percentage of image (0–100)
+  const x = useMotionValue(50);
+  const y = useMotionValue(50);
 
-    const rect = imageRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    
-    setPosition({ x, y });
+  // Smooth follow
+  const sx = useSpring(x, { stiffness: 220, damping: 28, mass: 0.8 });
+  const sy = useSpring(y, { stiffness: 220, damping: 28, mass: 0.8 });
+
+  // Smooth scale
+  const scale = useSpring(1, { stiffness: 220, damping: 28, mass: 0.8 });
+
+  // Transform origin follows springed pointer
+  const origin = useMotionTemplate`${sx}% ${sy}%`;
+
+  useEffect(() => {
+    const onTouchStart = () => setIsTouch(true);
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    return () => window.removeEventListener('touchstart', onTouchStart);
+  }, []);
+
+  useEffect(() => {
+    scale.set(isZoomed ? (isTouch ? mobileZoom : zoom) : 1);
+  }, [isZoomed, isTouch, mobileZoom, zoom, scale]);
+
+  const updatePointer = (clientX, clientY) => {
+    if (!wrapperRef.current) return;
+    const rect = wrapperRef.current.getBoundingClientRect();
+    const px = ((clientX - rect.left) / rect.width) * 100;
+    const py = ((clientY - rect.top) / rect.height) * 100;
+    x.set(Math.max(0, Math.min(100, px)));
+    y.set(Math.max(0, Math.min(100, py)));
   };
 
-  const handleMouseEnter = () => {
+  const onMouseEnter = (e) => {
+    updatePointer(e.clientX, e.clientY);
     setIsZoomed(true);
   };
+  const onMouseMove = (e) => isZoomed && updatePointer(e.clientX, e.clientY);
+  const onMouseLeave = () => setIsZoomed(false);
+  const onDoubleClick = (e) => {
+    updatePointer(e.clientX, e.clientY);
+    setIsZoomed((z) => !z);
+  };
 
-  const handleMouseLeave = () => {
-    setIsZoomed(false);
-    setPosition({ x: 50, y: 50 });
+  const onTouchStart = (e) => {
+    const t = e.touches?.[0];
+    if (!t) return;
+    updatePointer(t.clientX, t.clientY);
+    setIsZoomed((z) => !z);
+  };
+  const onTouchMove = (e) => {
+    if (!isZoomed) return;
+    const t = e.touches?.[0];
+    if (!t) return;
+    updatePointer(t.clientX, t.clientY);
   };
 
   return (
-    <div 
-      className="relative overflow-hidden cursor-zoom-in group"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onMouseMove={handleMouseMove}
+    <div
+      ref={wrapperRef}
+      className="relative w-full h-full overflow-hidden select-none"
+      onMouseEnter={onMouseEnter}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      onDoubleClick={onDoubleClick}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
     >
+      {/* Image fills the box; zoom via transformOrigin + scale */}
       <motion.img
-        ref={imageRef}
         src={image}
         alt={alt}
-        className="w-full h-full object-cover transition-transform duration-300"
-        animate={{
-          scale: isZoomed ? 2 : 1,
-        }}
-        style={{
-          transformOrigin: `${position.x}% ${position.y}%`
-        }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
+        draggable={false}
+        className="absolute inset-0 w-full h-full object-cover will-change-transform"
+        style={{ transformOrigin: origin, scale }}
+        transition={{ type: 'spring', stiffness: 220, damping: 28, mass: 0.8 }}
       />
-      
-      {/* Zoom indicator */}
-      <motion.div
-        className="absolute top-4 right-4 bg-dark/80 text-secondary px-3 py-1 rounded-full text-xs font-light backdrop-blur-sm"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isZoomed ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        Zoomed 2x
-      </motion.div>
 
-      {/* Hover hint */}
+      {/* Lens ring */}
       <motion.div
-        className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-dark/80 text-light px-4 py-2 rounded-lg text-xs backdrop-blur-sm"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: isZoomed ? 0 : 1, y: isZoomed ? 10 : 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        Hover to zoom
-      </motion.div>
+        className="pointer-events-none absolute w-28 h-28 rounded-full border border-white/30 shadow-[0_0_0_200vmax_rgba(0,0,0,0.2)]"
+        style={{
+          left: useMotionTemplate`${sx}%`,
+          top: useMotionTemplate`${sy}%`,
+          translateX: '-50%',
+          translateY: '-50%',
+          opacity: isZoomed ? 1 : 0,
+        }}
+      />
+
+      {/* Hint / badge */}
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/55 text-white text-[11px] px-3 py-1 rounded-full backdrop-blur-sm">
+        {isTouch ? (isZoomed ? 'Drag to pan • Tap to reset' : 'Tap to zoom') : (isZoomed ? 'Double-click to reset' : 'Hover or double-click to zoom')}
+      </div>
     </div>
   );
 };
