@@ -108,7 +108,7 @@ export default function App() {
 
     // Feel free to tweak:
     const MIN_MS = 2000;             // minimum time to show loader
-    const MAX_MS = 10000;            // hard cap so users are never stuck
+    const MAX_MS = 18000;            // hard cap so users are never stuck
     const includeVideos = PRELOAD_VIDEO;
 
     // Collect product images (unique)
