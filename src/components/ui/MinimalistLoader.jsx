@@ -47,7 +47,7 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
         scale: 1.5,
         duration: 1,
         delay: i * 0.1,
-        ease: 'power2.out',
+        ease: 'easeOut',
       });
 
       gsap.to(p, {
@@ -87,7 +87,7 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
             ref={logoRef}
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'power2.out' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             className="relative z-10 mb-8"
           >
             <img

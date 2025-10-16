@@ -131,7 +131,7 @@ const products = [
   {
     id: 6,
     name: "Afnan supremacy pour homme eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 65000,
     originalPrice: null,
@@ -181,7 +181,7 @@ const products = [
   {
     id: 8,
     name: "Amouage interlude man eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 680000,
     originalPrice: null,
@@ -206,7 +206,7 @@ const products = [
   {
     id: 9,
     name: "Armaf club de nuit maleka eau de parfume 105ml-",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 72220,
     originalPrice: null,
@@ -223,7 +223,7 @@ const products = [
   baseNotes: ["Praline", "Sandalwood", "Ambroxan"]                // confirmed :contentReference[oaicite:8]{index=8}
 },
     size: "105ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -232,7 +232,7 @@ const products = [
   {
     id: 10,
     name: "Armaf club de nuit intense man eau de toilette 105ml",
-    category: "Men's Collection",
+    category: "",
     type: "EDT",
     price: 67000,
     originalPrice: null,
@@ -308,7 +308,7 @@ const products = [
   {
     id: 13,
     name: "Armaf club de nuit urban man elixir eau de parfum 105ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 68000,
     originalPrice: null,
@@ -332,7 +332,7 @@ const products = [
   {
     id: 14,
     name: "Armaf club de nuit woman eau de parfum 105ml",
-    category: "Women's Collection",
+    category: "",
     type: "Parfum",
     price: 62000,
     originalPrice: null,
@@ -459,7 +459,7 @@ const products = [
   {
     id: 19,
     name: "Azzaro wanted girl eau de parfum 80ml",
-    category: "Women's Collection",
+    category: "",
     type: "Parfum",
     price: 150000,
     originalPrice: null,
@@ -532,7 +532,7 @@ const products = [
   {
     id: 22,
     name: "Bleu de chanel paris eau de parfum pour homme 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 415000,
     originalPrice: null,
@@ -629,7 +629,7 @@ const products = [
   {
     id: 26,
     name: "Bvlgari man in black eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 225000,
     originalPrice: null,
@@ -874,7 +874,7 @@ const products = [
   {
     id: 36,
     name: "Carolina Herrera good girl gold fantasy eau de parfum 80ml",
-    category: "Women's Collection",
+    category: "",
     type: "Parfum",
     price: 205000,
     originalPrice: null,
@@ -898,7 +898,7 @@ const products = [
   {
     id: 37,
     name: "Chanel paris  coco mademoiselle eau de parfum 100ml",
-    category: "Women's Collection",
+    category: "",
     type: "Parfum",
     price: 400000,
     originalPrice: null,
@@ -1049,7 +1049,7 @@ const products = [
   {
     id: 43,
     name: "Creed queen of silk eau de parfum 75ml",
-    category: "Women's Collection",
+    category: "",
     type: "Parfum",
     price: 690000,
     originalPrice: null,
@@ -1174,7 +1174,7 @@ const products = [
   {
     id: 48,
     name: "Dolce & Gabbana devotion pour homme eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 232000,
     originalPrice: null,
@@ -1224,7 +1224,7 @@ const products = [
   {
     id: 50,
     name: "Emporio Armani stronger with you Absolutely parfum pour homme 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 205000,
     originalPrice: null,
@@ -1251,7 +1251,7 @@ const products = [
   {
     id: 51,
     name: "Emporio Armani stronger with you intensely eau de parfum pour homme 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 205000,
     originalPrice: null,
@@ -1277,7 +1277,7 @@ const products = [
   {
     id: 52,
     name: "Emporio Armani stronger with you parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 249700,
     originalPrice: null,
@@ -1303,7 +1303,7 @@ const products = [
   {
     id: 53,
     name: "Emporio Armani stronger with you tobacco eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 245700,
     originalPrice: null,
@@ -1327,7 +1327,7 @@ const products = [
   {
     id: 54,
     name: "Ferragamo intense leather eau de parfum pour homme 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 168000,
     originalPrice: null,
@@ -1351,7 +1351,7 @@ const products = [
   {
     id: 55,
     name: "Ferragamo spicy leather parfum pour homme 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 175350,
     originalPrice: null,
@@ -1377,7 +1377,7 @@ const products = [
   {
     id: 56,
     name: "Giorgio Armani my way eau de parfum 90ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 250000,
     originalPrice: null,
@@ -1402,7 +1402,7 @@ const products = [
   {
     id: 57,
     name: "Giorgio Armani SI eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 250000,
     originalPrice: null,
@@ -1428,7 +1428,7 @@ const products = [
   {
     id: 58,
     name: "Givenchy gentleman society  ambree eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 250000,
     originalPrice: null,
@@ -1453,7 +1453,7 @@ const products = [
   {
     id: 59,
     name: "Givenchy gentleman society eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 211000,
     originalPrice: null,
@@ -1525,7 +1525,7 @@ const products = [
   {
     id: 62,
     name: "Gucci intense oud eau de parfum 90ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 302000,
     originalPrice: null,
@@ -1549,7 +1549,7 @@ const products = [
   {
     id: 63,
     name: "L’homme ideal de Guerlain paris parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 271000,
     originalPrice: null,
@@ -1649,7 +1649,7 @@ const products = [
   {
     id: 67,
     name: "Jean paul Gaultier “Le male” elixir parfum 125ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 215000,
     originalPrice: null,
@@ -1666,7 +1666,7 @@ const products = [
       baseNotes: []
     },
     size: "125ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: true,
@@ -1675,7 +1675,7 @@ const products = [
   {
     id: 68,
     name: "Jean paul Gaultier “le male” le parfum 125ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 215500,
     originalPrice: null,
@@ -1802,7 +1802,7 @@ const products = [
   {
     id: 73,
     name: "L’homme ideal de Guerlain paris eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 225000,
     originalPrice: null,
@@ -1827,7 +1827,7 @@ const products = [
   {
     id: 74,
     name: "L’homme ideal l’intense de Guerlain paris eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 225000,
     originalPrice: null,
@@ -2151,7 +2151,7 @@ const products = [
   {
     id: 87,
     name: "Versace eros Najim pour homme parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 241999,
     originalPrice: null,
@@ -2177,7 +2177,7 @@ const products = [
   {
     id: 88,
     name: "Versace eros pour femme eau de parfum 100ml",
-    category: "Women's Collection",
+    category: "",
     type: "Parfum",
     price: 215000,
     originalPrice: null,
@@ -2202,7 +2202,7 @@ const products = [
   {
     id: 89,
     name: "Versace pour homme  oud noir eau de parfum 100ml",
-    category: "Men's Collection",
+    category: "",
     type: "Parfum",
     price: 232000,
     originalPrice: null,
@@ -2322,7 +2322,7 @@ const products = [
       baseNotes: [ "Cedarwood, Amber"]
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2348,7 +2348,7 @@ const products = [
       baseNotes: ["Vanilla, Patchouli, Labdanum, Rock Rose"]
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2374,7 +2374,7 @@ const products = [
       baseNotes: ["Amber, Patchouli"]
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2394,7 +2394,7 @@ const products = [
     ],
     description: "Emrick essential oil is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2413,7 +2413,7 @@ const products = [
     ],
     description: "Emrick essential oil is a bold and captivating fragrance that embodies the essence of luxury and sophistication. This unisex parfum opens with a rich blend of spices and floral notes, leading to a heart of oud and amber. The base notes are warm and inviting, creating a sensual trail that lingers on the skin.",
     size: "50ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2437,7 +2437,7 @@ const products = [
       baseNotes: ["Amber, Patchouli"]
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2463,7 +2463,7 @@ const products = [
       baseNotes: ["Amber, Patchouli"]
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2488,7 +2488,7 @@ const products = [
       baseNotes: ["Amber, Patchouli"]
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -2497,10 +2497,10 @@ const products = [
   {
   id: 101,
   name: "Lancome La Nuit Tresor 100ml",
-  category: "Women's Collection",
+  category: "",
   type: "EDP",
-  price: 260000,
-  originalPrice: null,
+  price: 258000,
+  originalPrice: 260000,
   image: "/images/Lancome la Nuit tresor-display.jpeg",
   images: ["/images/Lancome la Nuit tresor-display.jpeg", "/images/Lancome la Nuit tresor-pack.jpeg", "/images/Lancome la Nuit tresor.jpeg"],
   description: "Lancome La Nuit Tresor 100ml is a luxurious, sensual fragrance for women, blending sweet, floral, and gourmand notes to create a captivating scent that embodies romance and sophistication.",
@@ -2510,7 +2510,7 @@ const products = [
     baseNotes: ["Praline", "Caramel", "Coffee", "Licorice", "Patchouli", "Incense", "Papyrus", "Coumarin"]
   },
   size: "100ml",
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
@@ -2519,7 +2519,7 @@ const products = [
 {
   id: 102,
   name: "Armani My Way Intense EDP",
-  category: "Women's Collection",
+  category: "",
   type: "EDP",
   price: 225000,
   originalPrice: null,
@@ -2532,7 +2532,7 @@ const products = [
     baseNotes: ["Vanilla", "Sandalwood"]
   },
   size: "100ml",
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
@@ -2541,10 +2541,10 @@ const products = [
 {
   id: 103,
   name: "Jean Paul Gaultier La Belle Le Parfum Intense EDP 100ml",
-  category: "Women's Collection",
+  category: "",
   type: "EDP",
-  price: 221000,
-  originalPrice: null,
+  price: 219500,
+  originalPrice: 221000,
   image: "/images/Jean Paul Gaultier la belle le parfum intense-display.jpeg",
   images: ["/images/Jean Paul Gaultier la belle le parfum intense-display.jpeg", "/images/Jean Paul Gaultier la belle le parfum intense-pack.jpeg", "/images/Jean Paul Gaultier la belle le parfum intense.jpeg"],
   description: "Jean Paul Gaultier La Belle Le Parfum Intense is an alluring, gourmand fragrance that blends warm vanilla, sweet pear, and sensual tonka bean, creating an irresistibly seductive scent.",
@@ -2554,7 +2554,7 @@ const products = [
     baseNotes: ["Vanilla"]
   },
   size: "100ml",
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
@@ -2563,7 +2563,7 @@ const products = [
 {
   id: 104,
   name: "Givenchy Gentleman EDP Boisée",
-  category: "Men's Collection",
+  category: "",
   type: "EDP",
   price: 215000,
   originalPrice: null,
@@ -2576,7 +2576,7 @@ const products = [
     baseNotes: ["Sandalwood", "Patchouli", "Woody Notes"]
   },
   size: "100ml",
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
@@ -2598,7 +2598,7 @@ const products = [
     baseNotes: ["Ambroxan", "Musk", "Vetiver"]
   },
   size: "105ml",
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
@@ -2607,7 +2607,7 @@ const products = [
 {
   id: 106,
   name: "Armaf Hunter Intense Men EDT",
-  category: "Men's Collection",
+  category: "",
   type: "EDT",
   price: 40000,
   originalPrice: null,
@@ -2620,7 +2620,7 @@ const products = [
     baseNotes: ["Cedarwood", "Vetiver", "Amber", "Labdanum"]
   },
   size: "100ml", 
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
@@ -2629,7 +2629,7 @@ const products = [
 {
   id: 107,
   name: "Armani Acqua Di Gio Pour Homme Parfum",
-  category: "Men's Collection",
+  category: "",
   type: "Parfum",
   price: 215000,
   originalPrice: null,
@@ -2642,12 +2642,189 @@ const products = [
     baseNotes: ["Patchouli", "Olibanum"]
   },
   size: "100ml",
-  isNew: true,
+  isNew: false,
   discount: null,
   inStock: true,
   featured: false,
   ingredients: "Alcohol Denat., Fragrance, Water, Marine Notes, Bergamot, Rosemary, Clary Sage, Geranium, Patchouli, Olibanum"
+},
+{
+  id: 108,
+  name: "Gucci guilty parfum pour homme 90ml",
+  category: "",
+  type: "Parfum",
+  price: 222500,
+  originalPrice: null,
+  image: "/public/images/october/Gucci guilty pour homme 🔝.jpeg",
+  images: ["/public/images/october/gucci-guilty.jpeg", "/public/images/october/Gucci guilty pour homme 🔝.jpeg", "/public/images/october/Gucci Men's Accessories.jpeg"],
+  description: "Gucci Guilty Parfum Pour Homme reimagines the original with a richer, wood-aromatic amber signature. Bright juniper and citrus open into orange blossom and a hint of nutmeg, settling into patchouli and dry woods for a confident, modern warmth.",
+  details: {
+    topNotes: ["Juniper", "Lemon", "Lavender"],
+    heartNotes: ["Orange Blossom", "Nutmeg"],
+    baseNotes: ["Patchouli", "Dry Woods"]
+  },
+  size: "90ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 109,
+  name: "Franck Olivier tribal 100ml",
+  category: "",
+  type: "Parfum",
+  price: 85000,
+  originalPrice: null,
+  image: "/public/images/october/frank-oliver-tribal.avif",
+  images: ["/public/images/october/frank-oliver-tribal.avif", "/public/images/october/frank-oliver-ribal-pack.jpg", "/public/images/october/frank-oliver-tribal.main.jpg"],
+  description: "Tribal by Franck Olivier is a warm, inviting amber-woody scent. Sparkling citrus lifts a floral heart with hints of patchouli and violet, drying down to soft sandalwood, musk, amber and vanilla.",
+  details: {
+    topNotes: ["Bergamot", "Mandarin"],
+    heartNotes: ["Jasmine", "Rose", "Violet", "Patchouli"],
+    baseNotes: ["Sandalwood", "Musk", "Amber", "Vanilla"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 110,
+  name: "Frank Olivier parisan oud 100ml",
+  category: "",
+  type: "Parfum",
+  price: 68000,
+  originalPrice: null,
+  image: "/public/images/october/frank-oliver-parisan-oud.png",
+  images: ["/public/images/october/frank-oliver-parisan-oud.png", "/public/images/october/frank-oliver-parisan-oud-pack.png", "/public/images/october/frank-oliver-parisan-oud-main.jpg"],
+  description: "Parisian Oud by Franck Olivier blends juicy fruits and florals over an elegant oud-amber base. Bright raspberry and citrus lead to rose, jasmine and violet, wrapped in creamy vanilla, musk and oud.",
+  details: {
+    topNotes: ["Raspberry", "Lemon", "Orange"],
+    heartNotes: ["Rose", "Jasmine", "Violet", "Patchouli"],
+    baseNotes: ["Oud", "Amber", "Vanilla", "Musk"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 111,
+  name: "Issey miyake Nuit D'issey parfum 125ml",
+  category: "",
+  type: "Parfum",
+  price: 118800,
+  originalPrice: null,
+  image: "/public/images/october/Issey Miyake Nuit d'Issey Eau de Toilette Nat_ Spray  75 ml.jpeg",
+  images: ["/public/images/october/Issey Miyake Nuit d'Issey Eau de Toilette Nat_ Spray  75 ml.jpeg", "/public/images/october/Issey Miyake, Parfum, Nuit d'Issey (Eau de Parfum, 125 ml).jpeg"],
+  description: "Nuit d’Issey Parfum deepens the nocturnal, woody-spicy signature with darker, smoother intensity. Sparkling citrus spices lead into leathery woods and incense over a sensual ambered base.",
+  details: {
+    topNotes: ["Grapefruit", "Bergamot", "Black Pepper"],
+    heartNotes: ["Leather", "Woods", "Incense"],
+    baseNotes: ["Patchouli", "Tonka Bean", "Amber"]
+  },
+  size: "125ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 112,
+  name: "Issey miyake leau D'issey pour homme noir ambre edp 100ml",
+  category: "",
+  type: "Parfum",
+  price: 225000,
+  originalPrice: null,
+  image: "/public/images/october/issey-miyake-pour-homme-noir.jpeg",
+  images: ["/public/images/october/issey-miyake-pour-homme-noir.jpeg", "/public/images/october/issey-miyake-pour-homme-noir-pack.jpeg"],
+  description: "L’Eau d’Issey Pour Homme Noir Ambre is an oriental-amber take on the classic: a luxurious blend of warm spices over leather and amber, softened by woods and vanilla.",
+  details: {
+    topNotes: ["Saffron", "Cinnamon", "Nutmeg", "Coriander"],
+    heartNotes: ["Leather", "Amber", "Papyrus"],
+    baseNotes: ["Sandalwood", "Cedarwood", "Patchouli", "Vanilla"]
+  },
+  size: "125ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 113,
+  name: "L'eau D'issey pour homme intense edt 125ml",
+  category: "",
+  type: "Parfum",
+  price: 169999,
+  originalPrice: null,
+  image: "/public/images/october/Intense - Issey Miyake.jpeg",
+  images: ["/public/images/october/L'eau De Issey Intense Eau De Toilette Spray 4_2 Oz.jpeg", "/public/images/october/Intense - Issey Miyake.jpeg"],
+  description: "L’Eau d’Issey Pour Homme Intense amplifies the fresh-spicy DNA with vivid citrus and spices over a resinous, incense-amber base.",
+  details: {
+    topNotes: ["Yuzu", "Bergamot", "Sweet Orange"],
+    heartNotes: ["Cinnamon", "Nutmeg", "Cardamom", "Lotus"],
+    baseNotes: ["Incense", "Amber", "Benzoin", "Sandalwood"]
+  },
+  size: "125ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 114,
+  name: "Christian Dior oud ispahan 100ml",
+  category: "",
+  type: "Parfum",
+  price: 682500,
+  originalPrice: null,
+  image: "/public/images/october/christian-dior-display.jpeg",
+  images: ["/public/images/october/christian-dior-display.jpeg", "/public/images/october/christian-dior.jpeg.jpeg", "/public/images/october/christian-diorrrr.jpeg", "/public/images/october/Christian Dior Unisex Fragrance £40_00.jpeg"],
+  description: "Oud Ispahan from Dior’s La Collection Privée is a sumptuous rose-oud composition where smoky labdanum and incense meet velvety rose and woods for a deep, opulent trail.",
+  details: {
+    topNotes: ["Labdanum"],
+    heartNotes: ["Damask Rose", "Patchouli"],
+    baseNotes: ["Oud", "Sandalwood", "Cedar", "Incense"]
+  },
+  size: "125ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
+},
+{
+  id: 115,
+  name: "Frank Olivier oud vanille 100ml",
+  category: "",
+  type: "Parfum",
+  price: 45000,
+  originalPrice: null,
+  image: "/public/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg",
+  images: ["/public/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg", "/public/images/october/Franck Olivier Oud Vanille Eau De Parfum 100 Ml For Men Free Delivery.jpeg"],
+  description: "Oud Vanille by Franck Olivier is a cozy, gourmand-leaning oud. Juicy fruits and florals melt into a creamy vanilla-amber-musk base touched with warm spices and soft incense.",
+  details: {
+    topNotes: ["Caramel", "Raspberry", "Orange"],
+    heartNotes: ["Rose", "Jasmine", "Violet", "Patchouli"],
+    baseNotes: ["Vanilla", "Musk", "Amber", "Spices", "Incense"]
+  },
+  size: "100ml",
+  isNew: true,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water)."
 }
+
 
 ];
 

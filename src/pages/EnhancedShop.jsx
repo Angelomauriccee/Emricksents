@@ -179,7 +179,7 @@ const EnhancedShop = () => {
           y: 0, 
           duration: 0.5, 
           stagger: 0.05,
-          ease: 'power2.out'
+          ease: 'easeOut'
         }
       );
     }

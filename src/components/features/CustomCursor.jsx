@@ -59,7 +59,7 @@ const CustomCursor = () => {
         backgroundColor: 'rgba(212, 175, 55, 0.1)',
         borderColor: 'rgba(212, 175, 55, 0.8)',
         duration: 0.3,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
     };
 
@@ -70,7 +70,7 @@ const CustomCursor = () => {
         backgroundColor: 'transparent',
         borderColor: 'rgba(212, 175, 55, 0.5)',
         duration: 0.3,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
     };
 
@@ -79,7 +79,7 @@ const CustomCursor = () => {
       gsap.to(cursor, {
         scale: 0.8,
         duration: 0.1,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
     };
 
@@ -87,7 +87,7 @@ const CustomCursor = () => {
       gsap.to(cursor, {
         scale: 1,
         duration: 0.1,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
     };
 

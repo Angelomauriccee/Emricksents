@@ -48,14 +48,14 @@ const ScrollAnimations = () => {
         x: xPercent * 10,
         y: yPercent * 10,
         duration: 1,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
 
       gsap.to('.hero-subtitle', {
         x: xPercent * 5,
         y: yPercent * 5,
         duration: 1,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
 
       // Parallax for cards and elements
@@ -63,7 +63,7 @@ const ScrollAnimations = () => {
         x: xPercent * 5,
         y: yPercent * 5,
         duration: 1,
-        ease: 'power2.out'
+        ease: 'easeOut'
       });
     };
 
@@ -108,7 +108,7 @@ const ScrollAnimations = () => {
         gsap.to(element, {
           scale: 1.05,
           duration: 0.3,
-          ease: 'power2.out'
+          ease: 'easeOut'
         });
       });
 
@@ -116,7 +116,7 @@ const ScrollAnimations = () => {
         gsap.to(element, {
           scale: 1,
           duration: 0.3,
-          ease: 'power2.out'
+          ease: 'easeOut'
         });
       });
     });
@@ -127,7 +127,7 @@ const ScrollAnimations = () => {
         gsap.to(icon, {
           y: -5,
           duration: 0.3,
-          ease: 'power2.out'
+          ease: 'easeOut'
         });
       });
 
@@ -135,7 +135,7 @@ const ScrollAnimations = () => {
         gsap.to(icon, {
           y: 0,
           duration: 0.3,
-          ease: 'power2.out'
+          ease: 'easeOut'
         });
       });
     });
