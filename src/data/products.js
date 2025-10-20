@@ -2851,8 +2851,8 @@ const products = [
   type: "Parfum",
   price: 45000,
   originalPrice: null,
-  image: "/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg",
-  images: ["/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg", "/public/images/october/Franck Olivier Oud Vanille Eau De Parfum 100 Ml For Men Free Delivery.jpeg"],
+  image: "/images/october/franck-oliver-vanilla-display.jpeg",
+  images: ["/images/october/franck-oliver-vanilla-display.jpeg", "/public/images/october/Franck Olivier Oud Vanille Eau De Parfum 100 Ml For Men Free Delivery.jpeg"],
   description: "Oud Vanille by Franck Olivier is a cozy, gourmand-leaning oud. Juicy fruits and florals melt into a creamy vanilla-amber-musk base touched with warm spices and soft incense.",
   details: {
     topNotes: ["Caramel", "Raspberry", "Orange"],
