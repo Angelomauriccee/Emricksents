@@ -77,7 +77,6 @@ const SearchNavbar = () => {
   // Collections
   const collections = [
     { name: 'All Collections', value: 'all' },
-    { name: 'Exclusive', value: 'exclusive' },
     { name: 'Limited Edition', value: 'limited' },
     { name: 'Signature Collections', value: 'signature' }
   ];

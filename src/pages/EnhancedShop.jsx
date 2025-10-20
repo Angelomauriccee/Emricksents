@@ -53,7 +53,6 @@ const EnhancedShop = () => {
   // Collections
   const collections = [
     { label: 'All Collections', value: '' },
-    { label: 'Exclusive', value: 'exclusive' },
     { label: 'Limited Edition', value: 'limited' },
     { label: 'Featured', value: 'featured' }
   ];

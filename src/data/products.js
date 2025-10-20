@@ -3,7 +3,7 @@ const products = [
   {
     id: 1,
     name: "Afnan 9pm eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 60000,
     originalPrice: null,
@@ -28,7 +28,7 @@ const products = [
   {
     id: 2,
     name: "Afnan 9pm REBEL eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 60000,
     originalPrice: null,
@@ -53,7 +53,7 @@ const products = [
   {
     id: 3,
     name: "Afnan la fleur bouquet eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 92000,
     originalPrice: null,
@@ -79,7 +79,7 @@ const products = [
   {
     id: 4,
     name: "Afnan supremacy collector’s edition eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 105000,
     originalPrice: null,
@@ -106,7 +106,7 @@ const products = [
   {
     id: 5,
     name: "Afnan supremacy not only intense extrait de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Extrait",
     price: 87000,
     originalPrice: null,
@@ -156,7 +156,7 @@ const products = [
   {
     id: 7,
     name: "Amouage crimson rocks eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 596000,
     originalPrice: null,
@@ -256,34 +256,59 @@ const products = [
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
   },
   {
-    id: 11,
-    name: "Armaf club de nuit Precieux I extrait de parfum 55ml",
-    category: "Unisex Collection",
-    type: "Extrait",
-    price: 125000,
-    originalPrice: null,
-    image: "/images/Armaf-precieux-i-club-de-nuit-extrait-display.jpeg",
-    images: [
-      "/images/Armaf-precieux-i-club-de-nuit-extrait-pack.jpeg",
-      "/images/Armaf-precieux-i-club-de-nuit-extrait-display.jpeg"
+  id: 11,
+  name: "Armaf club de nuit Precieux I extrait de parfum 55ml",
+  category: "",
+  type: "Extrait",
+  price: 125000,
+  originalPrice: null,
+  image: "/images/Armaf-precieux-i-club-de-nuit-extrait-display.jpeg",
+  images: [
+    "/images/Armaf-precieux-i-club-de-nuit-extrait-pack.jpeg",
+    "/images/Armaf-precieux-i-club-de-nuit-extrait-display.jpeg"
+  ],
+  description:
+    "A warm, modern chypre-amber extrait that fuses sparkling fruits and spice with mossy woods and a plush ambery base. Précieux I opens with citrus, pineapple and caramel over peppered brightness, softens into anise, florals and oakmoss, then dries down to amber, leather, vanilla and musks for a long-lasting, luxurious trail.",
+  details: {
+    topNotes: [
+      "Bergamot",
+      "Lemon",
+      "Pink Pepper",
+      "Black Pepper",
+      "Pineapple",
+      "Pear",
+      "Caramel"
     ],
-    description: "Armaf club de nuit Precieux I extrait de parfum 55ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
-    details: {
-  topNotes: ["TBC"],
-  heartNotes: ["TBC"],
-  baseNotes: ["TBC"]
-},
-    size: "55ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+    heartNotes: [
+      "Anise",
+      "Lily of the Valley",
+      "Jasmine",
+      "White Woods",
+      "Oakmoss"
+    ],
+    baseNotes: [
+      "Amber",
+      "Cedarwood",
+      "Leather",
+      "Patchouli",
+      "White Musk",
+      "Vanilla",
+      "Ambroxan"
+    ]
   },
+  size: "55ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients:
+    "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Farnesol, Alpha-Isomethyl Ionone"
+}
+,
   {
     id: 12,
     name: "Armaf club de nuit sillage eau de parfum 105ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 75000,
     originalPrice: null,
@@ -306,29 +331,47 @@ const products = [
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
   },
   {
-    id: 13,
-    name: "Armaf club de nuit urban man elixir eau de parfum 105ml",
-    category: "",
-    type: "Parfum",
-    price: 68000,
-    originalPrice: null,
-    image: "/images/armaf-club-de-nuit-urban-man-display.jpeg",
-    images: [
-      "/images/armaf-club-de-nuit-urban-man-display.jpeg"
+  id: 13,
+  name: "Armaf club de nuit urban man elixir eau de parfum 105ml",
+  category: "",
+  type: "Parfum",
+  price: 68000,
+  originalPrice: null,
+  image: "/images/armaf-club-de-nuit-urban-man-display.jpeg",
+  images: [
+    "/images/armaf-club-de-nuit-urban-man-display.jpeg"
+  ],
+  description:
+    "A sleek, modern aromatic-amber built for all-day wear. Urban Man Elixir opens with bright citrus and crackling pink pepper over cool lavender, moves into an elegant woody-aromatic heart, and settles into a confident trail of ambroxan, musk and warm resins.",
+  details: {
+    topNotes: [
+      "Bergamot",
+      "Grapefruit",
+      "Lavender",
+      "Pink Pepper"
     ],
-    description: "Armaf club de nuit urban man elixir eau de parfum 105ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
-    details: {
-  topNotes: ["TBC"],
-  heartNotes: ["TBC"],
-  baseNotes: ["TBC"]
-},
-    size: "105ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+    heartNotes: [
+      "Geranium",
+      "Elemi",
+      "Cedarwood",
+      "Vetiver"
+    ],
+    baseNotes: [
+      "Ambroxan",
+      "Patchouli",
+      "Labdanum (Amber)",
+      "Musk"
+    ]
   },
+  size: "105ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients:
+    "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Coumarin, Geraniol, Eugenol, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+}
+,
   {
     id: 14,
     name: "Armaf club de nuit woman eau de parfum 105ml",
@@ -356,85 +399,85 @@ const products = [
     ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
   },
   {
-    id: 15,
-    name: "Armaf delights yumyum eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 80999,
-    originalPrice: null,
-    image: "/images/Afnan-yum-yum-de-parfum-display.jpg",
-    images: [
-      "/images/Afnan-yum-yum-de-parfum-display.jpg",
-      "/images/Afnan-yum-yum-de-parfum-pack.jpg",
-      "/images/Afnan-yum-yum-de-parfum.jpg"
-    ],
-    description: "Armaf delights yumyum eau de parfum 100ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
-    details: {
-  topNotes: ["TBC"],
-  heartNotes: ["TBC"],
-  baseNotes: ["TBC"]
-},
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+  id: 15,
+  name: "Afnan Yum Yum eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 80999,
+  originalPrice: null,
+  image: "/images/Afnan-yum-yum-de-parfum-display.jpg",
+  images: [
+    "/images/Afnan-yum-yum-de-parfum-display.jpg",
+    "/images/Afnan-yum-yum-de-parfum-pack.jpg",
+    "/images/Afnan-yum-yum-de-parfum.jpg"
+  ],
+  description: "A playful, modern gourmand with juicy citrus and peach wrapped in almond, coconut and creamy vanilla. A soft amber-musk base keeps it cozy and long-lasting without turning too sweet.",
+  details: {
+    topNotes: ["Orange", "Lemon", "Peach"],
+    heartNotes: ["Almond", "Coconut", "Jasmine"],
+    baseNotes: ["Musk", "Amber", "Vanilla"]
   },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Citral, Eugenol, Geraniol, Citronellol, Alpha-Isomethyl Ionone, Hydroxycitronellal, Cinnamal"
+},
   {
-    id: 16,
-    name: "Armaf Miss Armaf catwalk eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 60000,
-    originalPrice: null,
-    image: "/images/Armaf-Miss-Armaf-catwalk-eau-de-parfum-display.jpeg",
-    images: [
-      "/images/Armaf-Miss-Armaf-catwalk-eau-de-parfum-display.jpeg",
-      "/images/Armaf-Miss-Armaf-catwalk-eau-de-parfum-pack.jpeg"
-    ],
-    description: "Armaf Miss Armaf catwalk eau de parfum 100ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
-    details: {
-  topNotes: ["TBC"],
-  heartNotes: ["TBC"],
-  baseNotes: ["TBC"]
-},
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+  id: 16,
+  name: "Miss Armaf Catwalk eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 60000,
+  originalPrice: null,
+  image: "/images/Armaf-Miss-Armaf-catwalk-eau-de-parfum-display.jpeg",
+  images: [
+    "/images/Armaf-Miss-Armaf-catwalk-eau-de-parfum-display.jpeg",
+    "/images/Armaf-Miss-Armaf-catwalk-eau-de-parfum-pack.jpeg"
+  ],
+  description: "Catwalk opens bright and feminine with citrus and mandarin before blooming into a soft floral heart of jasmine, lily and peach. A smooth base of vanilla, musk and sandalwood adds warmth and elegant trail.",
+  details: {
+    topNotes: ["Citrus", "Mandarin Orange"],
+    heartNotes: ["Jasmine", "Lily", "Peach"],
+    baseNotes: ["Vanilla", "Musk", "Sandalwood"]
   },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Geraniol, Citronellol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone, Coumarin, Hydroxycitronellal"
+},
   {
-    id: 17,
-    name: "Armaf ombre d’or eau de parfum 75ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 75000,
-    originalPrice: null,
-    image: "/images/Armaf-ombredor-edp-display.webp",
-    images: [
-      "/images/Armaf-ombredor-edp-display.webp",
-      "/images/Armaf-ombredor-edp-pack.jpg"
-    ],
-    description: "Armaf ombre d’or eau de parfum 75ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
-    details: {
-  topNotes: ["TBC"],
-  heartNotes: ["TBC"],
-  baseNotes: ["TBC"]
-},
-    size: "75ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+  id: 17,
+  name: "Armaf Ombre d’or eau de parfum 75ml",
+  category: "",
+  type: "Parfum",
+  price: 75000,
+  originalPrice: null,
+  image: "/images/Armaf-ombredor-edp-display.webp",
+  images: [
+    "/images/Armaf-ombredor-edp-display.webp",
+    "/images/Armaf-ombredor-edp-pack.jpg"
+  ],
+  description: "A warm amber-floral: sparkling bergamot dusted with cinnamon leads to a plush rose-patchouli heart, settling into a comforting base of amber, vanilla and musk.",
+  details: {
+    topNotes: ["Bergamot", "Cinnamon"],
+    heartNotes: ["Rose", "Patchouli"],
+    baseNotes: ["Amber", "Vanilla", "Musk"]
   },
+  size: "75ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Cinnamal, Eugenol, Coumarin, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Citral, Geraniol, Citronellol, Alpha-Isomethyl Ionone"
+},
   {
     id: 18,
     name: "Azzaro the most wanted eau de parfum intense 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 180000,
     originalPrice: null,
@@ -484,7 +527,7 @@ const products = [
   {
     id: 20,
     name: "Bentley for men absolute eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 70000,
     originalPrice: null,
@@ -508,7 +551,7 @@ const products = [
   {
     id: 21,
     name: "Bentley for men intense eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 70000,
     originalPrice: null,
@@ -517,11 +560,11 @@ const products = [
       "/images/bentley-for-men-intense-edp-display.jpeg"
     ],
     description: "Bentley for men intense eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Black Pepper", "Bergamot", "Bay Leaf"],
+  heartNotes: ["Rum", "Cinnamon", "Clary Sage", "Geranium"],
+  baseNotes: ["Leather", "Benzoin", "Cedarwood", "Patchouli", "Incense"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -541,11 +584,11 @@ const products = [
       "/images/bleu-de-chanel-paris-eau-de-parfum-pour-homme-display.jpeg"
     ],
     description: "Bleu de chanel paris eau de parfum pour homme 100ml is an iconic fragrance that represents timeless elegance and luxury. Created with the finest ingredients and unparalleled craftsmanship, it embodies the essence of the legendary fashion house. The sophisticated composition unfolds beautifully on the skin, revealing complex layers that tell a story of refinement and style.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Grapefruit", "Lemon", "Mint", "Pink Pepper"],
+  heartNotes: ["Ginger", "Nutmeg", "Jasmine"],
+  baseNotes: ["Incense", "Vetiver", "Cedarwood", "Sandalwood", "Labdanum", "Patchouli"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -557,7 +600,7 @@ const products = [
   {
     id: 23,
     name: "hugo boss the scent absolute eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 202000,
     originalPrice: null,
@@ -567,10 +610,10 @@ const products = [
     ],
     description: "hugo boss the scent absolute eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Ginger"],
+  heartNotes: ["Maninka Fruit"],
+  baseNotes: ["Mondia Root", "Woods"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -581,7 +624,7 @@ const products = [
   {
     id: 24,
     name: "hugo boss the scent for her eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 220000,
     originalPrice: null,
@@ -590,11 +633,11 @@ const products = [
       "/images/hugo-boss-the-scent-for-her-display.jpeg"
     ],
     description: "hugo boss the scent for her eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Peach", "Freesia"],
+  heartNotes: ["Osmanthus"],
+  baseNotes: ["Cacao", "Musk"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -605,7 +648,7 @@ const products = [
   {
     id: 25,
     name: "Burberry Her eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 230000,
     originalPrice: null,
@@ -615,10 +658,10 @@ const products = [
     ],
     description: "Burberry Her eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Strawberry", "Raspberry", "Blackberry", "Sour Cherry", "Black Currant", "Mandarin", "Lemon"],
+  heartNotes: ["Violet", "Jasmine"],
+  baseNotes: ["Cashmeran", "Musk", "Vanilla", "Amber", "Woody Notes"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -639,11 +682,11 @@ const products = [
       "/images/Bvlgari-man-in-black-pack.jpeg"
     ],
     description: "Bvlgari man in black eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Rum", "Warm Spices", "Tobacco"],
+  heartNotes: ["Leather", "Iris", "Tuberose"],
+  baseNotes: ["Tonka Bean", "Benzoin", "Guaiac Wood"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -654,7 +697,7 @@ const products = [
   {
     id: 27,
     name: "Calvin klein Eternity for men AIR eau de toilette 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDT",
     price: 144000,
     originalPrice: null,
@@ -663,11 +706,11 @@ const products = [
       "/images/calvin-klein-eternity-for-men-air-display.jpeg"
     ],
     description: "Calvin klein Eternity for men AIR eau de toilette 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Mandarin Orange", "Juniper Berries", "Ozonic Notes"],
+  heartNotes: ["Lavender", "Green Apple", "Sea Notes"],
+  baseNotes: ["Patchouli", "Ambergris Accord", "Woody Notes"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -678,7 +721,7 @@ const products = [
   {
     id: 28,
     name: "Calvin klein Eternity for men flame eau de toilette 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDT",
     price: 143000,
     originalPrice: null,
@@ -688,10 +731,10 @@ const products = [
     ],
     description: "Calvin klein Eternity for men flame eau de toilette 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Pineapple"],
+  heartNotes: ["Rosemary"],
+  baseNotes: ["Labdanum", "Leather", "Amber"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -702,7 +745,7 @@ const products = [
   {
     id: 29,
     name: "Calvin klein Eternity for women eau de parfum  100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 167000,
     originalPrice: null,
@@ -713,10 +756,10 @@ const products = [
     ],
     description: "Calvin klein Eternity for women eau de parfum  100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Freesia", "Mandarin Orange", "Sage"],
+  heartNotes: ["Lily", "Jasmine", "Rose", "Violet", "Carnation", "Lily of the Valley", "Narcissus", "Marigold"],
+  baseNotes: ["Sandalwood", "Amber", "Musk", "Patchouli", "Heliotrope"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -727,7 +770,7 @@ const products = [
   {
     id: 30,
     name: "Calvin klein Eternity for women eau de parfum intense 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 176000,
     originalPrice: null,
@@ -738,10 +781,10 @@ const products = [
     ],
     description: "Calvin klein Eternity for women eau de parfum intense 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Bergamot", "Grapefruit", "Freesia"],
+  heartNotes: ["Rose", "Osmanthus"],
+  baseNotes: ["Sandalwood", "Musk", "Cashmeran"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -752,7 +795,7 @@ const products = [
   {
     id: 31,
     name: "Calvin klein Eternity for women flame eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 160000,
     originalPrice: null,
@@ -763,11 +806,11 @@ const products = [
       "/images/Calvin-klein-Eternity-for-women-flame.jpeg"
     ],
     description: "Calvin klein Eternity for women flame eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Mandarin Orange"],
+  heartNotes: ["Sweet Pea"],
+  baseNotes: ["Labdanum", "Amber", "Woody Notes"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -778,7 +821,7 @@ const products = [
   {
     id: 32,
     name: "Carolina Herrera 212 men nyc eau de toilette 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDT",
     price: 115000,
     originalPrice: null,
@@ -787,11 +830,11 @@ const products = [
       "/images/carolina-herrera-212-men-nyc-edt-display.jpeg"
     ],
     description: "Carolina Herrera 212 men nyc eau de toilette 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Bergamot", "Grapefruit", "Green Notes", "Lavender"],
+  heartNotes: ["Ginger", "Violet", "Gardenia"],
+  baseNotes: ["Sandalwood", "Incense", "Vetiver", "Labdanum", "Musk"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -802,7 +845,7 @@ const products = [
   {
     id: 33,
     name: "Carolina Herrera 212 vip black nyc eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 167000,
     originalPrice: null,
@@ -811,11 +854,11 @@ const products = [
       "/images/carolina-herrera-212-vip-black-nycdisplay.jpeg"
     ],
     description: "Carolina Herrera 212 vip black nyc eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Absinthe", "Anise", "Fennel"],
+  heartNotes: ["Lavender"],
+  baseNotes: ["Black Vanilla Husk", "Musk"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -826,7 +869,7 @@ const products = [
   {
     id: 34,
     name: "Carolina Herrera 212 vip rose eau cde parfum 80ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 172000,
     originalPrice: null,
@@ -835,11 +878,11 @@ const products = [
       "/images/carolina-herrera-212-vip-rose-edp-display.jpeg"
     ],
     description: "Carolina Herrera 212 vip rose eau cde parfum 80ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  details: {
+  topNotes: ["Rosé Champagne Accord", "Pink Pepper"],
+  heartNotes: ["Peach Blossom", "Rose"],
+  baseNotes: ["White Musk", "Woody Notes", "Amber"]
+},
     size: "80ml",
     isNew: false,
     discount: null,
@@ -850,7 +893,7 @@ const products = [
   {
     id: 35,
     name: "Carolina Herrera bad boy cobalt eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 190000,
     originalPrice: null,
@@ -859,11 +902,11 @@ const products = [
       "/images/carolina-herrera-bad-boy-cobalt-edp-display.jpeg"
     ],
     description: "Carolina Herrera bad boy cobalt eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Pink Pepper", "Lavender"],
+  heartNotes: ["Plum", "Geranium"],
+  baseNotes: ["Mineral/Truffle Accord", "Vetiver", "Cedarwood"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -884,10 +927,10 @@ const products = [
     ],
     description: "Carolina Herrera good girl gold fantasy eau de parfum 80ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Almond", "Bergamot", "Lemon", "Coffee"],
+  heartNotes: ["Jasmine Sambac", "Tuberose", "Orange Blossom", "Rose"],
+  baseNotes: ["Tonka Bean", "Cacao", "Vanilla", "Sandalwood", "Cashmeran", "Cedar"]
+},
     size: "80ml",
     isNew: false,
     discount: null,
@@ -908,11 +951,11 @@ const products = [
       "/images/Chanel-paris-coco-mademoiselle-pack.jpeg"
     ],
     description: "Chanel paris  coco mademoiselle eau de parfum 100ml is an iconic fragrance that represents timeless elegance and luxury. Created with the finest ingredients and unparalleled craftsmanship, it embodies the essence of the legendary fashion house. The sophisticated composition unfolds beautifully on the skin, revealing complex layers that tell a story of refinement and style.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Orange", "Bergamot", "Grapefruit"],
+  heartNotes: ["Rose", "Jasmine", "Lychee"],
+  baseNotes: ["Patchouli", "Vetiver", "Vanilla", "White Musk", "Tonka Bean"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -923,7 +966,7 @@ const products = [
   {
     id: 38,
     name: "Chanel paris N’0 5 Eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 400000,
     originalPrice: null,
@@ -934,10 +977,10 @@ const products = [
     ],
     description: "Chanel paris N’0 5 Eau de parfum 100ml is an iconic fragrance that represents timeless elegance and luxury. Created with the finest ingredients and unparalleled craftsmanship, it embodies the essence of the legendary fashion house. The sophisticated composition unfolds beautifully on the skin, revealing complex layers that tell a story of refinement and style.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Aldehydes", "Bergamot", "Lemon", "Neroli", "Ylang-Ylang"],
+  heartNotes: ["Jasmine", "Rose", "Iris", "Lily of the Valley"],
+  baseNotes: ["Sandalwood", "Vetiver", "Vanilla", "Amber", "Musk", "Patchouli"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -949,7 +992,7 @@ const products = [
   {
     id: 39,
     name: "Clive Christian 1872 original collector perfume spray 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDP",
     price: 1250000,
     originalPrice: null,
@@ -958,11 +1001,11 @@ const products = [
       "/images/clive-christian-1872-original-collector-perfume-spray-display.jpeg"
     ],
     description: "Clive Christian 1872 original collector perfume spray 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Bergamot", "Grapefruit", "Lime"],
+  heartNotes: ["Clary Sage", "Cyclamen", "Black Pepper", "Tagetes"],
+  baseNotes: ["Cedarwood", "Sandalwood", "Patchouli", "Incense", "Musk"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -973,7 +1016,7 @@ const products = [
   {
     id: 40,
     name: "Creed aventus cologne eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 602500,
     originalPrice: null,
@@ -984,11 +1027,11 @@ const products = [
       "/images/Creed-aventus-cologne-edp.jpg"
     ],
     description: "Creed aventus cologne eau de parfum 100ml is an exceptional fragrance that exemplifies the house commitment to quality and artisanal craftsmanship. Created using traditional techniques and the finest natural ingredients, it offers a luxurious olfactory experience. The sophisticated blend of notes creates a distinctive signature that evolves beautifully throughout the day, revealing new facets with each passing hour.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Mandarin Orange", "Pink Pepper", "Ginger"],
+  heartNotes: ["Vetiver", "Patchouli", "Sandalwood"],
+  baseNotes: ["Styrax", "Birch", "Musk", "Tonka Bean"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -999,7 +1042,7 @@ const products = [
   {
     id: 41,
     name: "Creed aventus eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 615000,
     originalPrice: null,
@@ -1010,10 +1053,10 @@ const products = [
     ],
     description: "Creed aventus eau de parfum 100ml is an exceptional fragrance that exemplifies the house commitment to quality and artisanal craftsmanship. Created using traditional techniques and the finest natural ingredients, it offers a luxurious olfactory experience. The sophisticated blend of notes creates a distinctive signature that evolves beautifully throughout the day, revealing new facets with each passing hour.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Pineapple", "Black Currant", "Bergamot", "Apple"],
+  heartNotes: ["Birch", "Patchouli", "Jasmine", "Rose"],
+  baseNotes: ["Oakmoss", "Ambergris Accord", "Vanilla", "Musk"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1025,7 +1068,7 @@ const products = [
   {
     id: 42,
     name: "Creed green irish tweed eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 605000,
     originalPrice: null,
@@ -1035,10 +1078,10 @@ const products = [
     ],
     description: "Creed green irish tweed eau de parfum 100ml is an exceptional fragrance that exemplifies the house commitment to quality and artisanal craftsmanship. Created using traditional techniques and the finest natural ingredients, it offers a luxurious olfactory experience. The sophisticated blend of notes creates a distinctive signature that evolves beautifully throughout the day, revealing new facets with each passing hour.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Lemon Verbena", "Peppermint"],
+  heartNotes: ["Violet Leaf", "Iris"],
+  baseNotes: ["Sandalwood", "Ambergris Accord"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1059,10 +1102,10 @@ const products = [
     ],
     description: "Creed queen of silk eau de parfum 75ml is an exceptional fragrance that exemplifies the house commitment to quality and artisanal craftsmanship. Created using traditional techniques and the finest natural ingredients, it offers a luxurious olfactory experience. The sophisticated blend of notes creates a distinctive signature that evolves beautifully throughout the day, revealing new facets with each passing hour.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Osmanthus", "Saffron", "Magnolia"],
+  heartNotes: ["Rose", "Tuberose", "Patchouli"],
+  baseNotes: ["Vanilla", "Cedarwood", "Ambroxan", "Musk"]
+},
     size: "75ml",
     isNew: false,
     discount: null,
@@ -1073,7 +1116,7 @@ const products = [
   {
     id: 44,
     name: "Creed royal oud eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 620000,
     originalPrice: null,
@@ -1082,11 +1125,11 @@ const products = [
       "/images/creed-royal-oud-edp-display.jpeg"
     ],
     description: "Creed royal oud eau de parfum 100ml is an exceptional fragrance that exemplifies the house commitment to quality and artisanal craftsmanship. Created using traditional techniques and the finest natural ingredients, it offers a luxurious olfactory experience. The sophisticated blend of notes creates a distinctive signature that evolves beautifully throughout the day, revealing new facets with each passing hour.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Pink Pepper", "Lemon", "Bergamot"],
+  heartNotes: ["Cedarwood", "Angelica Root", "Galbanum"],
+  baseNotes: ["Oud", "Sandalwood", "Musk"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1098,7 +1141,7 @@ const products = [
   {
     id: 45,
     name: "Davidoff cool water eau de toilette 125ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDT",
     price: 107000,
     originalPrice: null,
@@ -1108,10 +1151,10 @@ const products = [
     ],
     description: "Davidoff cool water eau de toilette 125ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Sea Notes", "Mint", "Green Notes", "Lavender", "Coriander", "Rosemary"],
+  heartNotes: ["Geranium", "Neroli", "Jasmine", "Sandalwood"],
+  baseNotes: ["Cedarwood", "Musk", "Amber", "Oakmoss", "Tobacco"]
+},
     size: "125ml",
     isNew: false,
     discount: null,
@@ -1122,7 +1165,7 @@ const products = [
   {
     id: 46,
     name: "Dior sauvage eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 289000,
     originalPrice: null,
@@ -1133,10 +1176,10 @@ const products = [
     ],
     description: "Dior sauvage eau de parfum 100ml is a magnificent fragrance that embodies the elegance and sophistication of the legendary fashion house. Created with exceptional ingredients and unparalleled craftsmanship, it offers a luxurious olfactory journey. The harmonious composition unfolds beautifully on the skin, revealing complex layers that tell a story of French refinement and timeless style.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Calabrian Bergamot"],
+  heartNotes: ["Sichuan Pepper", "Star Anise", "Nutmeg", "Lavender"],
+  baseNotes: ["Ambroxan", "Vanilla", "Cedarwood"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1148,7 +1191,7 @@ const products = [
   {
     id: 47,
     name: "Dolce & Gabbana devotion eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 195000,
     originalPrice: null,
@@ -1159,11 +1202,11 @@ const products = [
       "/images/Dolce-&-Gabbana-devotion-pack.jpeg"
     ],
     description: "Dolce & Gabbana devotion eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  details: {
+  topNotes: ["Candied Citrus"],
+  heartNotes: ["Orange Blossom"],
+  baseNotes: ["Vanilla", "Sandalwood", "Amber"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1185,10 +1228,10 @@ const products = [
     ],
     description: "Dolce & Gabbana devotion pour homme eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+  topNotes: ["Italian Lemon", "Bergamot"],
+  heartNotes: ["Orange Blossom", "Clary Sage"],
+  baseNotes: ["Cedarwood", "Vetiver", "Vanilla", "Patchouli"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1199,7 +1242,7 @@ const products = [
   {
     id: 49,
     name: "Dolce & Gabbana the only one eau de parfum intense 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 245000,
     originalPrice: null,
@@ -1209,11 +1252,11 @@ const products = [
       "/images/Dolce-&-Gabbana-the-only-one-pack.webp"
     ],
     description: "Dolce & Gabbana the only one eau de parfum intense 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Neroli", "Green Apple", "Italian Mandarin"],
+  heartNotes: ["Jasmine", "Coconut"],
+  baseNotes: ["Vanilla", "Cashmere Wood", "Cedarwood"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1235,11 +1278,11 @@ const products = [
       "/images/Emporio-armani-absolutely-stronger-with-you.jpg"
     ],
     description: "Emporio Armani stronger with you Absolutely parfum pour homme 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+   details: {
+  topNotes: ["Rum Accord", "Bergamot", "Elemi"],
+  heartNotes: ["Lavender", "Davana"],
+  baseNotes: ["Roasted Chestnut", "Vanilla", "Cedarwood", "Patchouli"]
+},
     size: "100ml",
     isNew: false,
     discount: null,
@@ -1249,986 +1292,985 @@ const products = [
     collection: "signature"
   },
   {
-    id: 51,
-    name: "Emporio Armani stronger with you intensely eau de parfum pour homme 100ml",
-    category: "",
-    type: "Parfum",
-    price: 205000,
-    originalPrice: null,
-    image: "/images/Emporio-armani-Intensely-stronger-with-you-display.jpeg",
-    images: [
-      "/images/Emporio-armani-Intensely-stronger-with-you-display.jpeg",
-      "/images/emporio armani stronger with you intensely-pack.webp"
-    ],
-    description: "Emporio Armani stronger with you intensely eau de parfum pour homme 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate",
-    collection: "signature"
+  id: 51,
+  name: "Emporio Armani stronger with you intensely eau de parfum pour homme 100ml",
+  category: "",
+  type: "Parfum",
+  price: 205000,
+  originalPrice: null,
+  image: "/images/Emporio-armani-Intensely-stronger-with-you-display.jpeg",
+  images: [
+    "/images/Emporio-armani-Intensely-stronger-with-you-display.jpeg",
+    "/images/emporio armani stronger with you intensely-pack.webp"
+  ],
+  description: "Intense, warm and addictive. Pink pepper and juniper brighten a rich heart of toffee, cinnamon and aromatic lavender, melting into a sensual base of tonka, vanilla, amber woods and soft suede.",
+  details: {
+    topNotes: ["Pink Pepper", "Juniper", "Violet"],
+    heartNotes: ["Toffee", "Cinnamon", "Lavender", "Clary Sage"],
+    baseNotes: ["Tonka Bean", "Vanilla", "Amber Woods", "Suede"]
   },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Eugenol, Alpha-Isomethyl Ionone",
+  collection: "signature"
+},
+{
+  id: 52,
+  name: "Emporio Armani stronger with you parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 249700,
+  originalPrice: null,
+  image: "/images/Emporio-Armani-stronger-with-you-parfum-100ml-display.jpeg",
+  images: [
+    "/images/Emporio-Armani-stronger-with-you-parfum-100ml-pack.jpeg",
+    "/images/Emporio-Armani-stronger-with-you-parfum-100ml.jpeg",
+    "/images/Emporio-Armani-stronger-with-you-parfum-100ml-display.jpeg"
+  ],
+  description: "Deeper and more sophisticated than the original. A smooth rum accord and sparkling bergamot open to elegant lavender with a hint of iris, drying down to roasted chestnut, vanilla and dark woods.",
+  details: {
+    topNotes: ["Rum Accord", "Bergamot", "Elemi"],
+    heartNotes: ["Lavender", "Iris", "Geranium"],
+    baseNotes: ["Roasted Chestnut", "Vanilla", "Cedarwood", "Patchouli"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Eugenol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 53,
+  name: "Emporio Armani stronger with you tobacco eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 245700,
+  originalPrice: null,
+  image: "/images/emporio-armani-stronger-with-you-tobacco-display.jpeg",
+  images: [
+    "/images/emporio-armani-stronger-with-you-tobacco-display.jpeg"
+  ],
+  description: "A cozy tobacco-gourmand signature. Spiced citrus and aromatic herbs lead into a warm pipe-tobacco heart wrapped with cocoa and tonka, finishing in vanilla, amber woods and soft leather.",
+  details: {
+    topNotes: ["Bergamot", "Cardamom", "Sage"],
+    heartNotes: ["Tobacco Accord", "Cocoa", "Lavender"],
+    baseNotes: ["Tonka Bean", "Vanilla", "Amber Woods", "Leather"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Eugenol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 54,
+  name: "Ferragamo intense leather eau de parfum pour homme 100ml",
+  category: "",
+  type: "Parfum",
+  price: 168000,
+  originalPrice: null,
+  image: "/images/ferragamo-intense-leather-eau-de-parfum-pour-homme-display.jpeg",
+  images: [
+    "/images/ferragamo-intense-leather-eau-de-parfum-pour-homme-display.jpeg"
+  ],
+  description: "Refined leather with Italian flair. Spicy citrus opens to an elegant heart of apple, orris and muguet, on a polished base of supple leather, oakmoss and musk.",
+  details: {
+    topNotes: ["Mandarin Orange", "Pink Pepper", "Clary Sage"],
+    heartNotes: ["Annurca Apple", "Orris", "Lily of the Valley"],
+    baseNotes: ["Leather Accord", "Oakmoss", "Musk"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Coumarin, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 55,
+  name: "Ferragamo spicy leather parfum pour homme 100ml",
+  category: "",
+  type: "Parfum",
+  price: 175350,
+  originalPrice: null,
+  image: "/images/ferragamo-spicy-leather-parfum-pour-homme-display.jpeg",
+  images: [
+    "/images/ferragamo-spicy-leather-parfum-pour-homme-display.jpeg",
+    "/images/ferragamo-spicy-leather-parfum-pour-homme-pack.jpg",
+    "/images/ferragamo-spicy-leather-parfum-pour-homme.jpg"
+  ],
+  description: "A bolder, spicier take on leather. Bright bergamot sparks saffron and black pepper over an aromatic heart, resting on textured leather, patchouli and dry woods.",
+  details: {
+    topNotes: ["Bergamot", "Saffron", "Black Pepper"],
+    heartNotes: ["Lavender", "Nutmeg", "Geranium"],
+    baseNotes: ["Leather Accord", "Patchouli", "Cedarwood", "Vetiver"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Eugenol"
+},
+{
+  id: 56,
+  name: "Giorgio Armani my way eau de parfum 90ml",
+  category: "",
+  type: "Parfum",
+  price: 250000,
+  originalPrice: null,
+  image: "/images/Giorgio-armani-my-way-display.webp",
+  images: [
+    "/images/Giorgio-armani-my-way-display.webp",
+    "/images/Giorgio-armani-my-way-pack.jpeg"
+  ],
+  description: "Radiant white florals with a creamy trail. Sparkling bergamot and orange blossom lead to lush tuberose and jasmine, wrapped in a comforting base of vanilla, cedarwood and musk.",
+  details: {
+    topNotes: ["Bergamot", "Orange Blossom"],
+    heartNotes: ["Tuberose", "Jasmine"],
+    baseNotes: ["Vanilla", "Cedarwood", "White Musk"]
+  },
+  size: "90ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Coumarin, Citral, Citronellol, Geraniol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 57,
+  name: "Giorgio Armani SI eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 250000,
+  originalPrice: null,
+  image: "/images/Giorgio-amani-si-display.jpeg",
+  images: [
+    "/images/Giorgio-amani-si-display.jpeg",
+    "/images/Giorgio-amani-si-pack.jpg"
+  ],
+  description: "Modern chypre with velvety depth. Juicy blackcurrant nectar opens to rose and freesia, settling into a sensual base of patchouli, vanilla and soft musks.",
+  details: {
+    topNotes: ["Blackcurrant Nectar"],
+    heartNotes: ["Rose", "Freesia", "Jasmine"],
+    baseNotes: ["Patchouli", "Vanilla", "Ambroxan", "Woody Notes", "Musk"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Coumarin, Citral, Benzyl Alcohol, Benzyl Salicylate, Benzyl Benzoate, Alpha-Isomethyl Ionone",
+  collection: "signature"
+},
+{
+  id: 58,
+  name: "Givenchy gentleman society  ambree eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 250000,
+  originalPrice: null,
+  image: "/images/Givenchy-gentleman-society-ambree-display.jpeg",
+  images: [
+    "/images/Givenchy-gentleman-society-ambree-display.jpeg",
+    "/images/Givenchy-gentleman-society-ambree-pack.jpeg"
+  ],
+  description: "A richer, ambered interpretation of Gentleman Society. Zesty spice lifts narcissus over the line’s signature double vetiver, wrapped in glowing amber woods, vanilla and benzoin.",
+  details: {
+    topNotes: ["Bergamot", "Ginger", "Cardamom"],
+    heartNotes: ["Narcissus Absolute", "Vetiver (Haiti & Madagascar)"],
+    baseNotes: ["Amber Woods", "Vanilla", "Benzoin", "Sandalwood"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Coumarin, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 59,
+  name: "Givenchy gentleman society eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 211000,
+  originalPrice: null,
+  image: "/images/givenchy-gentleman-society-display.jpeg",
+  images: [
+    "/images/givenchy-gentleman-society-display.jpeg"
+  ],
+  description: "Elegant and modern. Aromatic sage and cardamom open to a luminous narcissus absolute wrapped around a distinctive double-vetiver signature, finishing in creamy woods and vanilla.",
+  details: {
+    topNotes: ["Clary Sage", "Cardamom"],
+    heartNotes: ["Narcissus Absolute", "Vetiver (Haiti & Madagascar)"],
+    baseNotes: ["Sandalwood", "Cedarwood", "Vanilla", "Ambroxan"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Coumarin, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 60,
+  name: "Gucci flora gorgeous gardenia eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 238000,
+  originalPrice: null,
+  image: "/images/gucci-flora-gorgeous-gardenia-display.jpeg",
+  images: [
+    "/images/gucci-flora-gorgeous-gardenia-display.jpeg"
+  ],
+  description: "Joyful and luminous. Juicy pear blossom and red berries sparkle into a creamy floral heart of gardenia and jasmine, sweetened by a signature brown-sugar accord over patchouli.",
+  details: {
+    topNotes: ["Pear Blossom", "Red Berries", "Italian Mandarin"],
+    heartNotes: ["Gardenia", "Jasmine Absolute", "Frangipani"],
+    baseNotes: ["Brown Sugar Accord", "Patchouli"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Hydroxycitronellal"
+},
+{
+  id: 61,
+  name: "Gucci flora gorgeous jasmine eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 245000,
+  originalPrice: null,
+  image: "/images/gucci-flora-gorgeous-jasmine-display.jpeg",
+  images: [
+    "/images/gucci-flora-gorgeous-jasmine-display.jpeg"
+  ],
+  description: "Silky, radiant jasmine wrapped in soft woods. Sparkling citrus opens to a bouquet of jasmine grandiflorum and sambac with magnolia, resting on sandalwood, benzoin and a hint of patchouli.",
+  details: {
+    topNotes: ["Mandarin", "Bergamot", "Black Pepper"],
+    heartNotes: ["Jasmine Grandiflorum", "Jasmine Sambac", "Magnolia"],
+    baseNotes: ["Sandalwood", "Benzoin", "Patchouli"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Citronellol, Geraniol, Coumarin, Citral, Benzyl Benzoate, Benzyl Alcohol, Hydroxycitronellal"
+},
+{
+  id: 62,
+  name: "Gucci intense oud eau de parfum 90ml",
+  category: "",
+  type: "Parfum",
+  price: 302000,
+  originalPrice: null,
+  image: "/images/gucci-intense-oud-display.jpeg",
+  images: [
+    "/images/gucci-intense-oud-display.jpeg"
+  ],
+  description: "Dark, resinous and opulent. Incense and smoky woods usher in a luxurious heart of oud, amber and leather with olibanum, settling into a long-lasting ambery-woody trail.",
+  details: {
+    topNotes: ["Incense", "Woody Notes"],
+    heartNotes: ["Agarwood (Oud)", "Amber", "Leather", "Olibanum"],
+    baseNotes: ["Oud Accord", "Amber Woods", "Musk"]
+  },
+  size: "90ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: true,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citral, Citronellol, Geraniol, Benzyl Benzoate, Benzyl Alcohol, Hydroxycitronellal, Alpha-Isomethyl Ionone"
+},
+{
+  id: 63,
+  name: "L’homme ideal de Guerlain paris parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 271000,
+  originalPrice: null,
+  image: "/images/L’homme-ideal-de-Guerlain-paris-parfum-pack.webp",
+  images: [
+    "/images/L’homme-ideal-de-Guerlain-paris-parfum-pack.webp",
+    "/images/L’homme-ideal-de-Guerlain-paris-parfum-pack.jpeg"
+  ],
+  description: "Seductively dark almond wrapped in leather. Spiced almond and citrus lead to smoky rose and incense, drying to a plush base of leather, tonka, sandalwood and patchouli.",
+  details: {
+    topNotes: ["Almond", "Spices", "Citrus"],
+    heartNotes: ["Bulgarian Rose", "Incense", "Tonka Bean"],
+    baseNotes: ["Leather Accord", "Sandalwood", "Patchouli", "Vanilla"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone, Eugenol"
+},
+{
+  id: 64,
+  name: "Hermes Terre D’HERMES  Eau intense vetiver 100ml",
+  category: "",
+  type: "EDP",
+  price: 215000,
+  originalPrice: null,
+  image: "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver-display.png",
+  images: [
+    "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver-display.png",
+    "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver-pack.jpg",
+    "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver.jpeg"
+  ],
+  description: "A brighter, woodier take on Terre. Grapefruit and bergamot sparkle over peppered aromatics, anchored by radiant vetiver with hints of patchouli and incense-like resins.",
+  details: {
+    topNotes: ["Grapefruit", "Bergamot", "Lemon"],
+    heartNotes: ["Sichuan Pepper", "Geranium"],
+    baseNotes: ["Vetiver", "Patchouli", "Olibanum", "Amberwood"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol"
+},
+{
+  id: 65,
+  name: "Initio oud for greatness eau de parfum 90ml",
+  category: "",
+  type: "Parfum",
+  price: 542000,
+  originalPrice: null,
+  image: "/images/initio-oud-for-greatness-display.jpeg",
+  images: [
+    "/images/initio-oud-for-greatness-display.jpeg"
+  ],
+  description: "Commanding and hypnotic. Saffron, lavender and nutmeg illuminate a powerful natural oud note, wrapped in earthy patchouli and musks for a striking, long-lasting trail.",
+  details: {
+    topNotes: ["Saffron", "Lavender", "Nutmeg"],
+    heartNotes: ["Natural Oud"],
+    baseNotes: ["Patchouli", "Musk"]
+  },
+  size: "90ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citral, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 66,
+  name: "Jean paul Gaultier divine eau de parfume 100ml",
+  category: "",
+  type: "Parfum",
+  price: 215000,
+  originalPrice: null,
+  image: "/images/jean-paul-gaultier-divine-edp-display.jpeg",
+  images: [
+    "/images/jean-paul-gaultier-divine-edp-display.jpeg",
+    "/images/jean-paul-gaultier-divine-edp.jpg"
+  ],
+  description: "Sunlit florals with a gourmand glow. Sparkling marine-citrus facets introduce a luminous bouquet of lily and jasmine, set on a delicate meringue accord with musk and soft woods.",
+  details: {
+    topNotes: ["Marine Accord", "Bergamot", "Red Berries"],
+    heartNotes: ["Lily", "Jasmine", "Ylang-Ylang"],
+    baseNotes: ["Meringue Accord", "Musk", "Sandalwood"]
+  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Citral, Citronellol, Geraniol, Coumarin, Alpha-Isomethyl Ionone"
+},
+{
+  id: 67,
+  name: "Jean paul Gaultier “Le male” elixir parfum 125ml",
+  category: "",
+  type: "Parfum",
+  price: 215000,
+  originalPrice: null,
+  image: "/images/jean-paul-gaultier-le-male-elixir-le-parfum-display.jpeg",
+  images: [
+    "/images/jean-paul-gaultier-le-male-elixir-le-parfum-display.jpeg",
+    "/images/jean-paul-gaultier-le-male-elixir-le-parfum.jpg",
+    "/images/jean-paul-gaultier-le-male-elixir-le-parfum-pack.jpg"
+  ],
+  description: "A richer, more sensual Le Male. Aromatic lavender infused with resinous benzoin and tonka reveals a dense base of vanilla, honeyed warmth and a whisper of tobacco.",
+  details: {
+    topNotes: ["Lavender"],
+    heartNotes: ["Benzoin", "Tonka Bean"],
+    baseNotes: ["Vanilla", "Honey Accord", "Tobacco", "Amber Woods"]
+  },
+  size: "125ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: true,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Citral, Citronellol, Geraniol, Eugenol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 68,
+  name: "Jean paul Gaultier “le male” le parfum 125ml",
+  category: "",
+  type: "Parfum",
+  price: 215500,
+  originalPrice: null,
+  image: "/images/jean-paul-gaultier-le-male-le-parfum-display.jpeg",
+  images: [
+    "/images/jean-paul-gaultier-le-male-le-parfum-display.jpeg",
+    "/images/jean-paul-gaultier-le-male-le-parfum-pack.jpeg",
+    "/images/jean-paul-gaultier-le-male-le-parfum.jpg"
+  ],
+  description: "Darkly elegant. Cardamom spice over a suave heart of lavender and iris, resting on creamy vanilla and oriental woods for a commanding, long-lasting trail.",
+  details: {
+    topNotes: ["Cardamom"],
+    heartNotes: ["Lavender", "Iris"],
+    baseNotes: ["Vanilla", "Oriental Woods", "Amber"]
+  },
+  size: "125ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Citral, Citronellol, Geraniol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 69,
+  name: "Armaf club de nuit untold eau de parfum 105ml",
+  category: "",
+  type: "Parfum",
+  price: 71000,
+  originalPrice: null,
+  image: "/images/armaf-club-de-nuit-untold-display.webp",
+  images: [
+    "/images/armaf-club-de-nuit-untold-display.webp",
+    "/images/armaf-club-de-nuit-untold-pack.jpg",
+    "/images/armaf-club-de-nuit-untold.jpg"
+  ],
+  description: "Airy amber-wood radiance in the style of a modern icon. Saffron and jasmine shimmer into glowing amberwood and ambergris facets, set on resinous fir and clean cedar.",
+  details: {
+    topNotes: ["Saffron", "Jasmine"],
+    heartNotes: ["Amberwood", "Ambergris Accord"],
+    baseNotes: ["Fir Resin", "Cedarwood"]
+  },
+  size: "105ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Alpha-Isomethyl Ionone, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Coumarin"
+},
   {
-    id: 52,
-    name: "Emporio Armani stronger with you parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 249700,
-    originalPrice: null,
-    image: "/images/Emporio-Armani-stronger-with-you-parfum-100ml-display.jpeg",
-    images: [
-      "/images/Emporio-Armani-stronger-with-you-parfum-100ml-pack.jpeg",
-      "/images/Emporio-Armani-stronger-with-you-parfum-100ml.jpeg",
-      "/images/Emporio-Armani-stronger-with-you-parfum-100ml-display.jpeg"
-    ],
-    description: "Emporio Armani stronger with you parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  id: 70,
+  name: "Louis Vuitton imagination eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 1050000,
+  originalPrice: null,
+  image: "/images/louis-vuitton-imagination-display.jpeg",
+  images: [
+    "/images/louis-vuitton-imagination-display.jpeg"
+  ],
+  description: "Effortlessly luminous and modern. Sparkling citrus and neroli glide into airy black tea and ginger, diffusing over ambroxan, incense and smooth woods for a clean, long-lasting trail.",
+  details: {
+    topNotes: ["Citron", "Calabrian Bergamot", "Neroli"],
+    heartNotes: ["Ceylon Black Tea", "Ginger", "Orange Blossom"],
+    baseNotes: ["Ambroxan", "Incense (Olibanum)", "Guaiac Wood", "Musk"]
   },
-  {
-    id: 53,
-    name: "Emporio Armani stronger with you tobacco eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 245700,
-    originalPrice: null,
-    image: "/images/emporio-armani-stronger-with-you-tobacco-display.jpeg",
-    images: [
-      "/images/emporio-armani-stronger-with-you-tobacco-display.jpeg"
-    ],
-    description: "Emporio Armani stronger with you tobacco eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: true,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone, Coumarin",
+  collection: "signature"
+},
+{
+  id: 71,
+  name: "Louis Vuitton les sables roses eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 1350000,
+  originalPrice: null,
+  image: "/images/louis-vuitton-les-sables-roses-display.jpg",
+  images: [
+    "/images/louis-vuitton-les-sables-roses-display.jpg"
+  ],
+  description: "A majestic rose-oud dialogue. Spiced facets lift a sumptuous rose heart, deepened by smoky oud, amber and musk for a glowing desert-dusk aura.",
+  details: {
+    topNotes: ["Saffron", "Black Pepper"],
+    heartNotes: ["Rose Absolute", "Rose Essence"],
+    baseNotes: ["Agarwood (Oud)", "Amber", "Musk"]
   },
-  {
-    id: 54,
-    name: "Ferragamo intense leather eau de parfum pour homme 100ml",
-    category: "",
-    type: "Parfum",
-    price: 168000,
-    originalPrice: null,
-    image: "/images/ferragamo-intense-leather-eau-de-parfum-pour-homme-display.jpeg",
-    images: [
-      "/images/ferragamo-intense-leather-eau-de-parfum-pour-homme-display.jpeg"
-    ],
-    description: "Ferragamo intense leather eau de parfum pour homme 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Citronellol, Geraniol, Limonene, Linalool, Benzyl Alcohol, Benzyl Benzoate, Benzyl Salicylate, Citral, Eugenol"
+},
+{
+  id: 72,
+  name: "Louis Vuitton ombre nomade eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 1380000,
+  originalPrice: null,
+  image: "/images/louis-vuitton-ombre-nomade-display.jpeg",
+  images: [
+    "/images/louis-vuitton-ombre-nomade-display.jpeg"
+  ],
+  description: "Dark and smoldering. Raspberry-tinged smoke and rose swirl around powerful oud, melting into benzoin and amberwood for an intensely lingering trail.",
+  details: {
+    topNotes: ["Raspberry", "Incense"],
+    heartNotes: ["Rose", "Agarwood (Oud)"],
+    baseNotes: ["Benzoin", "Amberwood", "Birch Tar", "Musk"]
   },
-  {
-    id: 55,
-    name: "Ferragamo spicy leather parfum pour homme 100ml",
-    category: "",
-    type: "Parfum",
-    price: 175350,
-    originalPrice: null,
-    image: "/images/ferragamo-spicy-leather-parfum-pour-homme-display.jpeg",
-    images: [
-      "/images/ferragamo-spicy-leather-parfum-pour-homme-display.jpeg",
-      "/images/ferragamo-spicy-leather-parfum-pour-homme-pack.jpg",
-      "/images/ferragamo-spicy-leather-parfum-pour-homme.jpg"
-    ],
-    description: "Ferragamo spicy leather parfum pour homme 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Eugenol"
+},
+{
+  id: 73,
+  name: "L’homme ideal de Guerlain paris eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 225000,
+  originalPrice: null,
+  image: "/images/L’homme-ideal-de-Guerlain-paris-eau-de-parfum-display.jpeg",
+  images: [
+    "/images/L’homme-ideal-de-Guerlain-paris-eau-de-parfum-pack.jpeg",
+    "/images/L’homme-ideal-de-Guerlain-paris-eau-de-parfum.jpeg"
+  ],
+  description: "Gourmand-woody charm. Spiced citrus and signature almond lead to smoky rose and vanilla, settling on suave tonka, sandalwood and a hint of leather.",
+  details: {
+    topNotes: ["Almond", "Bergamot", "Spices"],
+    heartNotes: ["Bulgarian Rose", "Incense", "Vanilla"],
+    baseNotes: ["Tonka Bean", "Sandalwood", "Leather Accord"]
   },
-  {
-    id: 56,
-    name: "Giorgio Armani my way eau de parfum 90ml",
-    category: "",
-    type: "Parfum",
-    price: 250000,
-    originalPrice: null,
-    image: "/images/Giorgio-armani-my-way-display.webp",
-    images: [
-      "/images/Giorgio-armani-my-way-display.webp",
-      "/images/Giorgio-armani-my-way-pack.jpeg"
-    ],
-    description: "Giorgio Armani my way eau de parfum 90ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "90ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone, Eugenol"
+},
+{
+  id: 74,
+  name: "L’homme ideal l’intense de Guerlain paris eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 225000,
+  originalPrice: null,
+  image: "/images/L’homme-ideal-intense-de-Guerlain-paris-eau-de-parfum-display.webp",
+  images: [
+    "/images/L’homme-ideal-intense-de-Guerlain-paris-eau-de-parfum-display.webp",
+    "/images/L’homme-ideal-intense-de-Guerlain-paris-eau-de-parfum-pack.avif"
+  ],
+  description: "Darker, smokier, irresistibly intense. Chili and cardamom spice up a heart of leather and rose over resins, with a drydown of patchouli, sandalwood and tonka.",
+  details: {
+    topNotes: ["Chili Pepper", "Cardamom", "Bergamot"],
+    heartNotes: ["Leather Accord", "Bulgarian Rose", "Labdanum"],
+    baseNotes: ["Patchouli", "Sandalwood", "Tonka Bean", "Smoky Notes"]
   },
-  {
-    id: 57,
-    name: "Giorgio Armani SI eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 250000,
-    originalPrice: null,
-    image: "/images/Giorgio-amani-si-display.jpeg",
-    images: [
-      "/images/Giorgio-amani-si-display.jpeg",
-      "/images/Giorgio-amani-si-pack.jpg"
-    ],
-    description: "Giorgio Armani SI eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate",
-    collection: "signature"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Eugenol"
+},
+{
+  id: 75,
+  name: "Montale paris black aoud eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 140000,
+  originalPrice: null,
+  image: "/images/montale-paris-black-aoud-edp-display.jpeg",
+  images: [
+    "/images/montale-paris-black-aoud-edp-display.jpeg",
+    "/images/montale-paris-black-aoud-edp-pack.jpg",
+    "/images/montale-paris-black-aoud-edp.jpg"
+  ],
+  description: "Iconic rose-oud contrast. Velvety rose rests on deep Cambodian oud and earthy patchouli with labdanum and musk for a bold, enveloping signature.",
+  details: {
+    topNotes: ["Rose", "Mandarin"],
+    heartNotes: ["Cambodian Oud", "Patchouli"],
+    baseNotes: ["Labdanum", "Musk", "Amber"]
   },
-  {
-    id: 58,
-    name: "Givenchy gentleman society  ambree eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 250000,
-    originalPrice: null,
-    image: "/images/Givenchy-gentleman-society-ambree-display.jpeg",
-    images: [
-      "/images/Givenchy-gentleman-society-ambree-display.jpeg",
-      "/images/Givenchy-gentleman-society-ambree-pack.jpeg"
-    ],
-    description: "Givenchy gentleman society  ambree eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Citronellol, Geraniol, Limonene, Linalool, Benzyl Alcohol, Benzyl Benzoate, Benzyl Salicylate, Cinnamal, Eugenol"
+},
+{
+  id: 76,
+  name: "Montale paris boise fruite eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 145000,
+  originalPrice: null,
+  image: "/images/montale-paris-boise-fruite-display.jpeg",
+  images: [
+    "/images/montale-paris-boise-fruite-display.jpeg",
+    "/images/montale-paris-boise-fruite-pack.jpg"
+  ],
+  description: "Crisp fruits on clean woods. Bright citrus and blackcurrant over leafy greens and vetiver, drying into smooth sandalwood, cedar and musk.",
+  details: {
+    topNotes: ["Bergamot", "Kumquat", "Blackcurrant"],
+    heartNotes: ["Fig Leaf", "Vetiver"],
+    baseNotes: ["Sandalwood", "Cedarwood", "White Musk"]
   },
-  {
-    id: 59,
-    name: "Givenchy gentleman society eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 211000,
-    originalPrice: null,
-    image: "/images/givenchy-gentleman-society-display.jpeg",
-    images: [
-      "/images/givenchy-gentleman-society-display.jpeg"
-    ],
-    description: "Givenchy gentleman society eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol"
+},
+{
+  id: 77,
+  name: "Montale paris fantastic oud eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 145000,
+  originalPrice: null,
+  image: "/images/montale-paris-fantastic-oud-display.jpg",
+  images: [
+    "/images/montale-paris-fantastic-oud-display.jpg"
+  ],
+  description: "A flamboyant, spicy oud. Saffron and pepper ignite a rich rose-oud heart, finished with leather, patchouli, sandalwood and warm amber.",
+  details: {
+    topNotes: ["Saffron", "Black Pepper"],
+    heartNotes: ["Rose", "Agarwood (Oud)"],
+    baseNotes: ["Leather", "Patchouli", "Sandalwood", "Amber"]
   },
-  {
-    id: 60,
-    name: "Gucci flora gorgeous gardenia eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 238000,
-    originalPrice: null,
-    image: "/images/gucci-flora-gorgeous-gardenia-display.jpeg",
-    images: [
-      "/images/gucci-flora-gorgeous-gardenia-display.jpeg"
-    ],
-    description: "Gucci flora gorgeous gardenia eau de parfum 100ml is an extraordinary fragrance that captures the essence of Italian luxury and contemporary style. Created with exceptional ingredients and innovative techniques, it offers a distinctive olfactory experience that is both sophisticated and modern. The carefully crafted composition unfolds beautifully on the skin, revealing complex layers that embody the creative vision of the iconic fashion house.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Hydroxycitronellal"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Cinnamal, Eugenol"
+},
+{
+  id: 78,
+  name: "Montale paris intense café eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 145000,
+  originalPrice: null,
+  image: "/images/Montale-paris-intense-cafe.jpg",
+  images: [
+    "/images/Montale-paris-intense-cafe.jpg"
+  ],
+  description: "Addictive rose-coffee gourmand. A soft floral opening melts into creamy coffee and rose, swirled with vanilla, amber and silky musk.",
+  details: {
+    topNotes: ["Floral Accord"],
+    heartNotes: ["Rose", "Coffee Accord"],
+    baseNotes: ["Vanilla", "Amber", "White Musk"]
   },
-  {
-    id: 61,
-    name: "Gucci flora gorgeous jasmine eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 245000,
-    originalPrice: null,
-    image: "/images/gucci-flora-gorgeous-jasmine-display.jpeg",
-    images: [
-      "/images/gucci-flora-gorgeous-jasmine-display.jpeg"
-    ],
-    description: "Gucci flora gorgeous jasmine eau de parfum 100ml is an extraordinary fragrance that captures the essence of Italian luxury and contemporary style. Created with exceptional ingredients and innovative techniques, it offers a distinctive olfactory experience that is both sophisticated and modern. The carefully crafted composition unfolds beautifully on the skin, revealing complex layers that embody the creative vision of the iconic fashion house.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Hydroxycitronellal"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Coumarin, Limonene, Linalool, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Citronellol, Geraniol, Vanillin"
+},
+{
+  id: 79,
+  name: "Nishane hacivat extrait de parfum 100ml",
+  category: "",
+  type: "Extrait",
+  price: 430000,
+  originalPrice: null,
+  image: "/images/nishane-hacivat-extrait-de-parfum-display.jpeg",
+  images: [
+    "/images/nishane-hacivat-extrait-de-parfum-display.jpeg",
+    "/images/nishane-hacivat-extrait-de-parfum-pack.jpg"
+  ],
+  description: "Radiant woody-chypre. Juicy pineapple and grapefruit sparkle over jasmine and cedar, grounded by oakmoss and a refined ambergris-like aura.",
+  details: {
+    topNotes: ["Pineapple", "Grapefruit", "Bergamot"],
+    heartNotes: ["Jasmine", "Cedarwood", "Patchouli"],
+    baseNotes: ["Oakmoss", "Woody Notes", "Ambergris Accord"]
   },
-  {
-    id: 62,
-    name: "Gucci intense oud eau de parfum 90ml",
-    category: "",
-    type: "Parfum",
-    price: 302000,
-    originalPrice: null,
-    image: "/images/gucci-intense-oud-display.jpeg",
-    images: [
-      "/images/gucci-intense-oud-display.jpeg"
-    ],
-    description: "Gucci intense oud eau de parfum 90ml is an extraordinary fragrance that captures the essence of Italian luxury and contemporary style. Created with exceptional ingredients and innovative techniques, it offers a distinctive olfactory experience that is both sophisticated and modern. The carefully crafted composition unfolds beautifully on the skin, revealing complex layers that embody the creative vision of the iconic fashion house.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "90ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: true,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Benzyl Salicylate, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Hydroxycitronellal"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Evernia prunastri (Oakmoss) Extract, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 80,
+  name: "Paco rabanne 1 million eau de parfum 100ml",
+  category: "",
+  type: "EDP",
+  price: 169000,
+  originalPrice: null,
+  image: "/images/paco-rabanne-1-million-parfum-display.jpg",
+  images: [
+    "/images/paco-rabanne-1-million-parfum-display.jpg",
+    "/images/paco-rabanne-1-million-parfum-pack.jpg",
+    "/images/paco-rabanne-1-million-parfum.jpg"
+  ],
+  description: "Opulent solar-leather. Salty sun-kissed florals and tuberose glow over creamy leather, amber and pine nuances for a rich, statement signature.",
+  details: {
+    topNotes: ["Solar Accord", "Salt", "Grapefruit Zest"],
+    heartNotes: ["Tuberose", "Monoi Accord"],
+    baseNotes: ["Leather", "Amber", "Pine Accord", "Woody Notes"]
   },
-  {
-    id: 63,
-    name: "L’homme ideal de Guerlain paris parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 271000,
-    originalPrice: null,
-    image: "/images/L’homme-ideal-de-Guerlain-paris-parfum-pack.webp",
-    images: [
-      "/images/L’homme-ideal-de-Guerlain-paris-parfum-pack.webp",
-      "/images/L’homme-ideal-de-Guerlain-paris-parfum-pack.jpeg"
-    ],
-    description: "L’homme ideal de Guerlain paris parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Citral, Citronellol, Geraniol"
+},
+{
+  id: 81,
+  name: "Polo ralph lauren oud eau de parfum 125ml",
+  category: "",
+  type: "Parfum",
+  price: 202000,
+  originalPrice: null,
+  image: "/images/ralph-lauren-polo-oud-display.jpeg",
+  images: [
+    "/images/ralph-lauren-polo-oud-display.jpeg",
+    "/images/ralph-lauren-polo-oud.jpg"
+  ],
+  description: "Smoked woods with refined spice. Pepper and cinnamon open onto a core of oud and cypriol, resting on guaiac wood, myrrh and amber.",
+  details: {
+    topNotes: ["Black Pepper", "Cinnamon"],
+    heartNotes: ["Agarwood (Oud)", "Cypriol (Nagarmotha)"],
+    baseNotes: ["Guaiac Wood", "Myrrh", "Amber"]
   },
-  {
-    id: 64,
-    name: "Hermes Terre D’HERMES  Eau intense vetiver 100ml",
-    category: "Unisex Collection",
-    type: "EDP",
-    price: 215000,
-    originalPrice: null,
-    image: "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver-display.png",
-    images: [
-      "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver-display.png",
-      "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver-pack.jpg",
-      "/images/Hermes-Terre-DHERMES- Eau-intense-vetiver.jpeg"
-    ],
-    description: "Hermes Terre D’HERMES  Eau intense vetiver 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "125ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Cinnamal, Eugenol, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Citral"
+},
+{
+  id: 82,
+  name: "Polo ralph lauren red parfum 125ml",
+  category: "",
+  type: "Parfum",
+  price: 202000,
+  originalPrice: null,
+  image: "/images/ralph-lauren-red-polo-display.jpeg",
+  images: [
+    "/images/ralph-lauren-red-polo-display.jpeg",
+    "/images/ralph-lauren-red-polo.jpg"
+  ],
+  description: "Vibrant aromatic-woody energy. Zesty blood orange and ginger kick into a clean heart of lavandin and clary sage, finished with cedar, amber and musks.",
+  details: {
+    topNotes: ["Blood Orange", "Ginger", "Pink Pepper"],
+    heartNotes: ["Lavandin", "Clary Sage"],
+    baseNotes: ["Cedarwood", "Amber", "Musk"]
   },
-  {
-    id: 65,
-    name: "Initio oud for greatness eau de parfum 90ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 542000,
-    originalPrice: null,
-    image: "/images/initio-oud-for-greatness-display.jpeg",
-    images: [
-      "/images/initio-oud-for-greatness-display.jpeg"
-    ],
-    description: "Initio oud for greatness eau de parfum 90ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "90ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "125ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol"
+},
+{
+  id: 83,
+  name: "Tom ford café rose eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 368000,
+  originalPrice: null,
+  image: "/images/Tom-ford-café-rose-display.jpeg",
+  images: [
+    "/images/Tom-ford-café-rose-display.jpeg",
+    "/images/Tom-ford-café-rose-edp-pack.jpeg"
+  ],
+  description: "Seductive rose steeped in dark accords. Saffron and pepper introduce lush rose over roasted coffee, shaded by incense, patchouli, sandalwood and amber.",
+  details: {
+    topNotes: ["Saffron", "Black Pepper"],
+    heartNotes: ["Turkish Rose", "Bulgarian Rose", "Coffee Accord"],
+    baseNotes: ["Incense", "Patchouli", "Sandalwood", "Amber"]
   },
-  {
-    id: 66,
-    name: "Jean paul Gaultier divine eau de parfume 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 215000,
-    originalPrice: null,
-    image: "/images/jean-paul-gaultier-divine-edp-display.jpeg",
-    images: [
-      "/images/jean-paul-gaultier-divine-edp-display.jpeg",
-      "/images/jean-paul-gaultier-divine-edp.jpg"
-    ],
-    description: "Jean paul Gaultier divine eau de parfume 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Citronellol, Geraniol, Limonene, Linalool, Eugenol, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol, Cinnamal, Coumarin"
+},
+{
+  id: 84,
+  name: "Tom ford noir extreme eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 340000,
+  originalPrice: null,
+  image: "/images/tom-ford-noir-extreme-edp-display.jpeg",
+  images: [
+    "/images/tom-ford-noir-extreme-edp-display.jpeg"
+  ],
+  description: "Opulent oriental-gourmand. Cardamom, nutmeg and saffron lead to the signature kulfi accord with rose and orange blossom, drying down in vanilla, amber and sandalwood.",
+  details: {
+    topNotes: ["Cardamom", "Nutmeg", "Saffron", "Mandarin"],
+    heartNotes: ["Kulfi Accord", "Rose", "Orange Blossom", "Jasmine"],
+    baseNotes: ["Vanilla", "Amber", "Sandalwood"]
   },
-  {
-    id: 67,
-    name: "Jean paul Gaultier “Le male” elixir parfum 125ml",
-    category: "",
-    type: "Parfum",
-    price: 215000,
-    originalPrice: null,
-    image: "/images/jean-paul-gaultier-le-male-elixir-le-parfum-display.jpeg",
-    images: [
-      "/images/jean-paul-gaultier-le-male-elixir-le-parfum-display.jpeg",
-      "/images/jean-paul-gaultier-le-male-elixir-le-parfum.jpg",
-      "/images/jean-paul-gaultier-le-male-elixir-le-parfum-pack.jpg"
-    ],
-    description: "Jean paul Gaultier “Le male” elixir parfum 125ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "125ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: true,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  collection: "signature",
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Benzoate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Alcohol, Farnesol, Cinnamal"
+},
+{
+  id: 85,
+  name: "Tom ford ombre leather parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 340000,
+  originalPrice: null,
+  image: "/images/tom-ford-ombre-leather-parfum-display.jpeg",
+  images: [
+    "/images/tom-ford-ombre-leather-parfum-display.jpeg"
+  ],
+  description: "Inky leather, polished and addictive. Cool violet leaf and orris nuance a heart of jasmine sambac atop supple black leather with patchouli and amber woods.",
+  details: {
+    topNotes: ["Violet Leaf"],
+    heartNotes: ["Jasmine Sambac", "Orris"],
+    baseNotes: ["Black Leather Accord", "Patchouli", "Amber Woods", "Moss"]
   },
-  {
-    id: 68,
-    name: "Jean paul Gaultier “le male” le parfum 125ml",
-    category: "",
-    type: "Parfum",
-    price: 215500,
-    originalPrice: null,
-    image: "/images/jean-paul-gaultier-le-male-le-parfum-display.jpeg",
-    images: [
-      "/images/jean-paul-gaultier-le-male-le-parfum-display.jpeg",
-      "/images/jean-paul-gaultier-le-male-le-parfum-pack.jpeg",
-      "/images/jean-paul-gaultier-le-male-le-parfum.jpg"
-    ],
-    description: "Jean paul Gaultier “le male” le parfum 125ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "125ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Alpha-Isomethyl Ionone, Benzyl Benzoate, Benzyl Salicylate, Benzyl Alcohol, Citral"
+},
+{
+  id: 86,
+  name: "Valentino uomo  born in roma coral fantasy eau de toilette 100ml",
+  category: "",
+  type: "EDT",
+  price: 200000,
+  originalPrice: null,
+  image: "/images/Valentino-uomo-born-in-roma-coral-fantasy-eau-de-toilette-100ml-display.jpeg",
+  images: [
+    "/images/Valentino-uomo-born-in-roma-coral-fantasy-eau-de-toilette-100ml-display.jpeg",
+    "/images/Valentino-uomo-born-in-roma-coral-fantasy-eau-de-toilette-100ml-pack..jpeg"
+  ],
+  description: "Vivid and playful. Juicy red apple and bergamot pop over aromatic clary sage and geranium, grounded by tobacco, patchouli and warm woods.",
+  details: {
+    topNotes: ["Red Apple", "Bergamot", "Cardamom"],
+    heartNotes: ["Clary Sage", "Geranium"],
+    baseNotes: ["Tobacco Accord", "Patchouli", "Cedarwood"]
   },
-  {
-    id: 69,
-    name: "Armaf club de nuit untold eau de parfum 105ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 71000,
-    originalPrice: null,
-    image: "/images/armaf-club-de-nuit-untold-display.webp",
-    images: [
-      "/images/armaf-club-de-nuit-untold-display.webp",
-      "/images/armaf-club-de-nuit-untold-pack.jpg",
-      "/images/armaf-club-de-nuit-untold.jpg"
-    ],
-    description: "Armaf club de nuit untold eau de parfum 105ml is a distinguished fragrance that embodies contemporary elegance with its sophisticated composition. The masterful blend of notes creates a captivating aura that makes a lasting impression. Perfect for the modern individual who appreciates quality craftsmanship in their fragrances.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "105ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Alpha-Isomethyl Ionone"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citral, Citronellol, Geraniol, Coumarin, Benzyl Salicylate, Benzyl Benzoate, Benzyl Alcohol"
+},
+{
+  id: 87,
+  name: "Versace eros Najim pour homme parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 241999,
+  originalPrice: null,
+  image: "/images/Versace -eros-Najim-pour-homme-parfum-display.jpg",
+  images: [
+    "/images/Versace -eros-Najim-pour-homme-parfum-display.jpg",
+    "/images/Versace -eros-Najim-pour-homme-parfum-pack.jpeg",
+    "/images/Versace -eros-Najim-pour-homme-parfum.webp"
+  ],
+  description: "Bold aromatic-amber power. Mint and lemon over crisp apple lead to clary sage and geranium, finishing in cedar, sandalwood, vanilla and tonka with an ambery glow.",
+  details: {
+    topNotes: ["Mint", "Lemon", "Green Apple"],
+    heartNotes: ["Clary Sage", "Geranium"],
+    baseNotes: ["Cedarwood", "Sandalwood", "Vanilla", "Tonka Bean", "Amber"]
   },
-  {
-    id: 70,
-    name: "Louis Vuitton imagination eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 1050000,
-    originalPrice: null,
-    image: "/images/louis-vuitton-imagination-display.jpeg",
-    images: [
-      "/images/louis-vuitton-imagination-display.jpeg"
-    ],
-    description: "Louis Vuitton imagination eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: true,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate",
-    collection: "signature"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Citral, Benzyl Benzoate, Benzyl Alcohol, Alpha-Isomethyl Ionone"
+},
+{
+  id: 88,
+  name: "Versace eros pour femme eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 215000,
+  originalPrice: null,
+  image: "/images/versace-eros-pour-femme-edp-display.jpeg",
+  images: [
+    "/images/versace-eros-pour-femme-edp-display.jpeg",
+    "/images/versace-eros-pour-femme-edp-pack.jpg"
+  ],
+  description: "Radiant floral-woody. Sicilian lemon, bergamot and pomegranate sparkle into a lush bouquet of jasmine and peony, set on musk, sandalwood and ambroxan.",
+  details: {
+    topNotes: ["Sicilian Lemon", "Bergamot", "Pomegranate"],
+    heartNotes: ["Jasmine Sambac", "Jasmine", "Peony"],
+    baseNotes: ["Musk", "Sandalwood", "Ambroxan", "Woody Notes"]
   },
-  {
-    id: 71,
-    name: "Louis Vuitton les sables roses eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 1350000,
-    originalPrice: null,
-    image: "/images/louis-vuitton-les-sables-roses-display.jpg",
-    images: [
-      "/images/louis-vuitton-les-sables-roses-display.jpg"
-    ],
-    description: "Louis Vuitton les sables roses eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate",
-    collection: "signature"
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Geraniol, Benzyl Salicylate, Benzyl Alcohol, Benzyl Benzoate, Citral, Alpha-Isomethyl Ionone"
+},
+{
+  id: 89,
+  name: "Versace pour homme  oud noir eau de parfum 100ml",
+  category: "",
+  type: "Parfum",
+  price: 232000,
+  originalPrice: null,
+  image: "/images/Versace-pour-homme-oud-noir-display.jpeg",
+  images: [
+    "/images/Versace-pour-homme-oud-noir-display.jpeg",
+    "/images/Versace-pour-homme-oud-noir-pack.jpeg",
+    "/images/Versace-pour-homme-oud-noir.jpg"
+  ],
+  description: "Smoldering citrus-spice over luxurious oud. Bitter orange and neroli with black pepper lead to cardamom, saffron and olibanum, on a base of agarwood, patchouli and leather.",
+  details: {
+    topNotes: ["Bitter Orange", "Neroli", "Black Pepper"],
+    heartNotes: ["Cardamom", "Saffron", "Olibanum"],
+    baseNotes: ["Agarwood (Oud)", "Patchouli", "Leather"]
   },
-  {
-    id: 72,
-    name: "Louis Vuitton ombre nomade eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 1380000,
-    originalPrice: null,
-    image: "/images/louis-vuitton-ombre-nomade-display.jpeg",
-    images: [
-      "/images/louis-vuitton-ombre-nomade-display.jpeg"
-    ],
-    description: "Louis Vuitton ombre nomade eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate",
-    collection: "signature"
-  },
-  {
-    id: 73,
-    name: "L’homme ideal de Guerlain paris eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 225000,
-    originalPrice: null,
-    image: "/images/L’homme-ideal-de-Guerlain-paris-eau-de-parfum-display.jpeg",
-    images: [
-      "/images/L’homme-ideal-de-Guerlain-paris-eau-de-parfum-pack.jpeg",
-      "/images/L’homme-ideal-de-Guerlain-paris-eau-de-parfum.jpeg"
-    ],
-    description: "L’homme ideal de Guerlain paris eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 74,
-    name: "L’homme ideal l’intense de Guerlain paris eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 225000,
-    originalPrice: null,
-    image: "/images/L’homme-ideal-intense-de-Guerlain-paris-eau-de-parfum-display.webp",
-    images: [
-      "/images/L’homme-ideal-intense-de-Guerlain-paris-eau-de-parfum-display.webp",
-      "/images/L’homme-ideal-intense-de-Guerlain-paris-eau-de-parfum-pack.avif"
-    ],
-    description: "L’homme ideal l’intense de Guerlain paris eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 75,
-    name: "Montale paris black aoud eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 140000,
-    originalPrice: null,
-    image: "/images/montale-paris-black-aoud-edp-display.jpeg",
-    images: [
-      "/images/montale-paris-black-aoud-edp-display.jpeg",
-      "/images/montale-paris-black-aoud-edp-pack.jpg",
-      "/images/montale-paris-black-aoud-edp.jpg"
-    ],
-    description: "Montale paris black aoud eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 76,
-    name: "Montale paris boise fruite eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 145000,
-    originalPrice: null,
-    image: "/images/montale-paris-boise-fruite-display.jpeg",
-    images: [
-      "/images/montale-paris-boise-fruite-display.jpeg",
-      "/images/montale-paris-boise-fruite-pack.jpg"
-    ],
-    description: "Montale paris boise fruite eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 77,
-    name: "Montale paris fantastic oud eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 145000,
-    originalPrice: null,
-    image: "/images/montale-paris-fantastic-oud-display.jpg",
-    images: [
-      "/images/montale-paris-fantastic-oud-display.jpg"
-    ],
-    description: "Montale paris fantastic oud eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 78,
-    name: "Montale paris intense café eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 145000,
-    originalPrice: null,
-    image: "/images/Montale-paris-intense-cafe.jpg",
-    images: [
-      "/images/Montale-paris-intense-cafe.jpg"
-    ],
-    description: "Montale paris intense café eau de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 79,
-    name: "Nishane hacivat extrait de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Extrait",
-    price: 430000,
-    originalPrice: null,
-    image: "/images/nishane-hacivat-extrait-de-parfum-display.jpeg",
-    images: [
-      "/images/nishane-hacivat-extrait-de-parfum-display.jpeg",
-      "/images/nishane-hacivat-extrait-de-parfum-pack.jpg"
-    ],
-    description: "Nishane hacivat extrait de parfum 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 80,
-    name: "Paco rabanne 1 million eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "EDP",
-    price: 169000,
-    originalPrice: null,
-    image: "/images/paco-rabanne-1-million-parfum-display.jpg",
-    images: [
-      "/images/paco-rabanne-1-million-parfum-display.jpg",
-      "/images/paco-rabanne-1-million-parfum-pack.jpg",
-      "/images/paco-rabanne-1-million-parfum.jpg"
-    ],
-    description: "Paco rabanne 1 million eau de parfum is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 81,
-    name: "Polo ralph lauren oud eau de parfum 125ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 202000,
-    originalPrice: null,
-    image: "/images/ralph-lauren-polo-oud-display.jpeg",
-    images: [
-      "/images/ralph-lauren-polo-oud-display.jpeg",
-      "/images/ralph-lauren-polo-oud.jpg"
-    ],
-    description: "Polo ralph lauren oud eau de parfum 125ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "125ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 82,
-    name: "Polo ralph lauren red parfum 125ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 202000,
-    originalPrice: null,
-    image: "/images/ralph-lauren-red-polo-display.jpeg",
-    images: [
-      "/images/ralph-lauren-red-polo-display.jpeg",
-      "/images/ralph-lauren-red-polo.jpg"
-    ],
-    description: "Polo ralph lauren red parfum 125ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "125ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 83,
-    name: "Tom ford café rose eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 368000,
-    originalPrice: null,
-    image: "/images/Tom-ford-café-rose-display.jpeg",
-    images: [
-      "/images/Tom-ford-café-rose-display.jpeg",
-      "/images/Tom-ford-café-rose-edp-pack.jpeg"
-    ],
-    description: "Tom ford café rose eau de parfum 100ml is an extraordinary fragrance that exemplifies the designer bold vision and commitment to luxury. Created with the finest ingredients and uncompromising attention to detail, it offers a sophisticated olfactory experience that is both distinctive and memorable. The complex composition unfolds beautifully on the skin, revealing layers of depth and character that make a powerful statement of style and refinement.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Benzoate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Cinnamal"
-  },
-  {
-    id: 84,
-    name: "Tom ford noir extreme eau de parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 340000,
-    originalPrice: null,
-    image: "/images/tom-ford-noir-extreme-edp-display.jpeg",
-    images: [
-      "/images/tom-ford-noir-extreme-edp-display.jpeg"
-    ],
-    description: "Tom ford noir extreme eau de parfum 100ml is an extraordinary fragrance that exemplifies the designer bold vision and commitment to luxury. Created with the finest ingredients and uncompromising attention to detail, it offers a sophisticated olfactory experience that is both distinctive and memorable. The complex composition unfolds beautifully on the skin, revealing layers of depth and character that make a powerful statement of style and refinement.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    collection: "signature",
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Benzoate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Cinnamal"
-  },
-  {
-    id: 85,
-    name: "Tom ford ombre leather parfum 100ml",
-    category: "Unisex Collection",
-    type: "Parfum",
-    price: 340000,
-    originalPrice: null,
-    image: "/images/tom-ford-ombre-leather-parfum-display.jpeg",
-    images: [
-      "/images/tom-ford-ombre-leather-parfum-display.jpeg"
-    ],
-    description: "Tom ford ombre leather parfum 100ml is an extraordinary fragrance that exemplifies the designer bold vision and commitment to luxury. Created with the finest ingredients and uncompromising attention to detail, it offers a sophisticated olfactory experience that is both distinctive and memorable. The complex composition unfolds beautifully on the skin, revealing layers of depth and character that make a powerful statement of style and refinement.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Benzyl Benzoate, Citronellol, Geraniol, Eugenol, Citral, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Cinnamal"
-  },
-  {
-    id: 86,
-    name: "Valentino uomo  born in roma coral fantasy eau de toilette 100ml",
-    category: "Unisex Collection",
-    type: "EDT",
-    price: 200000,
-    originalPrice: null,
-    image: "/images/Valentino-uomo-born-in-roma-coral-fantasy-eau-de-toilette-100ml-display.jpeg",
-    images: [
-      "/images/Valentino-uomo-born-in-roma-coral-fantasy-eau-de-toilette-100ml-display.jpeg",
-      "/images/Valentino-uomo-born-in-roma-coral-fantasy-eau-de-toilette-100ml-pack..jpeg"
-    ],
-    description: "Valentino uomo  born in roma coral fantasy eau de toilette 100ml is an exquisite fragrance that represents the pinnacle of perfumery artistry. Crafted with the finest ingredients and exceptional attention to detail, it offers a sophisticated olfactory journey that evolves beautifully on the skin. The harmonious blend of notes creates a distinctive signature that makes a lasting impression, perfect for those who appreciate refined luxury and quality craftsmanship.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate"
-  },
-  {
-    id: 87,
-    name: "Versace eros Najim pour homme parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 241999,
-    originalPrice: null,
-    image: "/images/Versace -eros-Najim-pour-homme-parfum-display.jpg",
-    images: [
-      "/images/Versace -eros-Najim-pour-homme-parfum-display.jpg",
-      "/images/Versace -eros-Najim-pour-homme-parfum-pack.jpeg",
-      "/images/Versace -eros-Najim-pour-homme-parfum.webp"
-    ],
-    description: "Versace eros Najim pour homme parfum 100ml is a magnificent fragrance that embodies the glamour and opulence of the iconic Italian fashion house. Created with exceptional ingredients and masterful craftsmanship, it offers a luxurious olfactory experience that is both bold and sophisticated. The distinctive composition unfolds beautifully on the skin, revealing complex layers that capture the essence of Mediterranean luxury and contemporary style.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Alpha-Isomethyl Ionone"
-  },
-  {
-    id: 88,
-    name: "Versace eros pour femme eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 215000,
-    originalPrice: null,
-    image: "/images/versace-eros-pour-femme-edp-display.jpeg",
-    images: [
-      "/images/versace-eros-pour-femme-edp-display.jpeg",
-      "/images/versace-eros-pour-femme-edp-pack.jpg"
-    ],
-    description: "Versace eros pour femme eau de parfum 100ml is a magnificent fragrance that embodies the glamour and opulence of the iconic Italian fashion house. Created with exceptional ingredients and masterful craftsmanship, it offers a luxurious olfactory experience that is both bold and sophisticated. The distinctive composition unfolds beautifully on the skin, revealing complex layers that capture the essence of Mediterranean luxury and contemporary style.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Alpha-Isomethyl Ionone"
-  },
-  {
-    id: 89,
-    name: "Versace pour homme  oud noir eau de parfum 100ml",
-    category: "",
-    type: "Parfum",
-    price: 232000,
-    originalPrice: null,
-    image: "/images/Versace-pour-homme-oud-noir-display.jpeg",
-    images: [
-      "/images/Versace-pour-homme-oud-noir-display.jpeg",
-      "/images/Versace-pour-homme-oud-noir-pack.jpeg",
-      "/images/Versace-pour-homme-oud-noir.jpg"
-    ],
-    description: "Versace pour homme  oud noir eau de parfum 100ml is a magnificent fragrance that embodies the glamour and opulence of the iconic Italian fashion house. Created with exceptional ingredients and masterful craftsmanship, it offers a luxurious olfactory experience that is both bold and sophisticated. The distinctive composition unfolds beautifully on the skin, revealing complex layers that capture the essence of Mediterranean luxury and contemporary style.",
-    details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
-    size: "100ml",
-    isNew: false,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Citronellol, Geraniol, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Farnesol, Benzyl Salicylate, Alpha-Isomethyl Ionone"
-  },
+  size: "100ml",
+  isNew: false,
+  discount: null,
+  inStock: true,
+  featured: false,
+  ingredients: "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Cinnamal, Eugenol, Citral, Benzyl Benzoate, Benzyl Alcohol, Benzyl Salicylate, Alpha-Isomethyl Ionone"
+}
+,
   {
     id: 90,
     name: "yves saint Laurent kouros eau de toilette 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDT",
     price: 180000,
     originalPrice: null,
@@ -2253,7 +2295,7 @@ const products = [
   {
     id: 91,
     name: "yves saint Laurent libre le parfum 90ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 220000,
     originalPrice: null,
@@ -2265,10 +2307,10 @@ const products = [
     ],
     description: "yves saint Laurent libre le parfum 90ml is a captivating fragrance that embodies the brand legacy of Parisian elegance and bold creativity. Created with exceptional ingredients and innovative techniques, it offers a sophisticated olfactory journey that is both distinctive and refined. The masterful composition unfolds beautifully on the skin, revealing complex layers that reflect the house commitment to luxury and avant-garde style.",
     details: {
-      topNotes: [],
-      heartNotes: [],
-      baseNotes: []
-    },
+    topNotes: ["Ginger", "Saffron", "Mandarin Orange", "Bergamot"],
+    heartNotes: ["Orange Blossom", "Lavender"],
+    baseNotes: ["Bourbon Vanilla", "Honey Accord", "Tonka Bean", "Vetiver"]
+  },
     size: "90ml",
     isNew: false,
     discount: null,
@@ -2280,7 +2322,7 @@ const products = [
   {
     id: 92,
     name: "yves saint Laurent MyvesF Eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 247000,
     originalPrice: null,
@@ -2306,7 +2348,7 @@ const products = [
   {
     id: 93,
     name: "yves saint Laurent Y le parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 203000,
     originalPrice: null,
@@ -2331,7 +2373,7 @@ const products = [
   {
     id: 94,
     name: " Afnan 9pm Elixir",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 75000,
     originalPrice: null,
@@ -2357,7 +2399,7 @@ const products = [
   {
     id: 95,
     name: "Armaf Club de nuit oud parfum",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 130000,
     originalPrice: null,
@@ -2421,7 +2463,7 @@ const products = [
   {
     id: 98,
     name: "Louis Vuitton L'immensité eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 1050000,
     originalPrice: null,
@@ -2446,7 +2488,7 @@ const products = [
   {
     id: 99,
     name: "Louis vuitton lovers eau de parfum 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "Parfum",
     price: 1050000,
     originalPrice: null,
@@ -2472,7 +2514,7 @@ const products = [
   {
     id: 100,
     name: "paco rabanne edt 1 million 100ml",
-    category: "Unisex Collection",
+    category: "",
     type: "EDT",
     price: 137000,
     originalPrice: null,
@@ -2585,7 +2627,7 @@ const products = [
 {
   id: 105,
   name: "Armaf Club de Nuit Milestone EDP 105ml",
-  category: "Unisex Collection",
+  category: "",
   type: "EDP",
   price: 78000,
   originalPrice: null,
@@ -2655,8 +2697,8 @@ const products = [
   type: "Parfum",
   price: 222500,
   originalPrice: null,
-  image: "/public/images/october/Gucci guilty pour homme 🔝.jpeg",
-  images: ["/public/images/october/gucci-guilty.jpeg", "/public/images/october/Gucci guilty pour homme 🔝.jpeg", "/public/images/october/Gucci Men's Accessories.jpeg"],
+  image: "/images/october/Gucci guilty pour homme 🔝.jpeg",
+  images: ["/images/october/gucci-guilty.jpeg", "/public/images/october/Gucci guilty pour homme 🔝.jpeg", "/public/images/october/Gucci Men's Accessories.jpeg"],
   description: "Gucci Guilty Parfum Pour Homme reimagines the original with a richer, wood-aromatic amber signature. Bright juniper and citrus open into orange blossom and a hint of nutmeg, settling into patchouli and dry woods for a confident, modern warmth.",
   details: {
     topNotes: ["Juniper", "Lemon", "Lavender"],
@@ -2677,8 +2719,8 @@ const products = [
   type: "Parfum",
   price: 85000,
   originalPrice: null,
-  image: "/public/images/october/frank-oliver-tribal.avif",
-  images: ["/public/images/october/frank-oliver-tribal.avif", "/public/images/october/frank-oliver-ribal-pack.jpg", "/public/images/october/frank-oliver-tribal.main.jpg"],
+  image: "/images/october/frank-oliver-tribal.avif",
+  images: ["/images/october/frank-oliver-tribal.avif", "/public/images/october/frank-oliver-ribal-pack.jpg", "/public/images/october/frank-oliver-tribal.main.jpg"],
   description: "Tribal by Franck Olivier is a warm, inviting amber-woody scent. Sparkling citrus lifts a floral heart with hints of patchouli and violet, drying down to soft sandalwood, musk, amber and vanilla.",
   details: {
     topNotes: ["Bergamot", "Mandarin"],
@@ -2699,8 +2741,8 @@ const products = [
   type: "Parfum",
   price: 68000,
   originalPrice: null,
-  image: "/public/images/october/frank-oliver-parisan-oud.png",
-  images: ["/public/images/october/frank-oliver-parisan-oud.png", "/public/images/october/frank-oliver-parisan-oud-pack.png", "/public/images/october/frank-oliver-parisan-oud-main.jpg"],
+  image: "/images/october/frank-oliver-parisan-oud.png",
+  images: ["/images/october/frank-oliver-parisan-oud.png", "/public/images/october/frank-oliver-parisan-oud-pack.png", "/public/images/october/frank-oliver-parisan-oud-main.jpg"],
   description: "Parisian Oud by Franck Olivier blends juicy fruits and florals over an elegant oud-amber base. Bright raspberry and citrus lead to rose, jasmine and violet, wrapped in creamy vanilla, musk and oud.",
   details: {
     topNotes: ["Raspberry", "Lemon", "Orange"],
@@ -2721,8 +2763,8 @@ const products = [
   type: "Parfum",
   price: 118800,
   originalPrice: null,
-  image: "/public/images/october/Issey Miyake Nuit d'Issey Eau de Toilette Nat_ Spray  75 ml.jpeg",
-  images: ["/public/images/october/Issey Miyake Nuit d'Issey Eau de Toilette Nat_ Spray  75 ml.jpeg", "/public/images/october/Issey Miyake, Parfum, Nuit d'Issey (Eau de Parfum, 125 ml).jpeg"],
+  image: "/images/october/Issey Miyake Nuit d'Issey Eau de Toilette Nat_ Spray  75 ml.jpeg",
+  images: ["/images/october/Issey Miyake Nuit d'Issey Eau de Toilette Nat_ Spray  75 ml.jpeg", "/public/images/october/Issey Miyake, Parfum, Nuit d'Issey (Eau de Parfum, 125 ml).jpeg"],
   description: "Nuit d’Issey Parfum deepens the nocturnal, woody-spicy signature with darker, smoother intensity. Sparkling citrus spices lead into leathery woods and incense over a sensual ambered base.",
   details: {
     topNotes: ["Grapefruit", "Bergamot", "Black Pepper"],
@@ -2743,8 +2785,8 @@ const products = [
   type: "Parfum",
   price: 225000,
   originalPrice: null,
-  image: "/public/images/october/issey-miyake-pour-homme-noir.jpeg",
-  images: ["/public/images/october/issey-miyake-pour-homme-noir.jpeg", "/public/images/october/issey-miyake-pour-homme-noir-pack.jpeg"],
+  image: "/images/october/issey-miyake-pour-homme-noir.jpeg",
+  images: ["/images/october/issey-miyake-pour-homme-noir.jpeg", "/public/images/october/issey-miyake-pour-homme-noir-pack.jpeg"],
   description: "L’Eau d’Issey Pour Homme Noir Ambre is an oriental-amber take on the classic: a luxurious blend of warm spices over leather and amber, softened by woods and vanilla.",
   details: {
     topNotes: ["Saffron", "Cinnamon", "Nutmeg", "Coriander"],
@@ -2765,8 +2807,8 @@ const products = [
   type: "Parfum",
   price: 169999,
   originalPrice: null,
-  image: "/public/images/october/Intense - Issey Miyake.jpeg",
-  images: ["/public/images/october/L'eau De Issey Intense Eau De Toilette Spray 4_2 Oz.jpeg", "/public/images/october/Intense - Issey Miyake.jpeg"],
+  image: "/images/october/Intense - Issey Miyake.jpeg",
+  images: ["/images/october/L'eau De Issey Intense Eau De Toilette Spray 4_2 Oz.jpeg", "/public/images/october/Intense - Issey Miyake.jpeg"],
   description: "L’Eau d’Issey Pour Homme Intense amplifies the fresh-spicy DNA with vivid citrus and spices over a resinous, incense-amber base.",
   details: {
     topNotes: ["Yuzu", "Bergamot", "Sweet Orange"],
@@ -2787,8 +2829,8 @@ const products = [
   type: "Parfum",
   price: 682500,
   originalPrice: null,
-  image: "/public/images/october/christian-dior-display.jpeg",
-  images: ["/public/images/october/christian-dior-display.jpeg", "/public/images/october/christian-dior.jpeg.jpeg", "/public/images/october/christian-diorrrr.jpeg", "/public/images/october/Christian Dior Unisex Fragrance £40_00.jpeg"],
+  image: "/images/october/christian-dior-display.jpeg",
+  images: ["/images/october/christian-dior-display.jpeg", "/public/images/october/christian-dior.jpeg.jpeg", "/public/images/october/christian-diorrrr.jpeg", "/public/images/october/Christian Dior Unisex Fragrance £40_00.jpeg"],
   description: "Oud Ispahan from Dior’s La Collection Privée is a sumptuous rose-oud composition where smoky labdanum and incense meet velvety rose and woods for a deep, opulent trail.",
   details: {
     topNotes: ["Labdanum"],
@@ -2804,13 +2846,13 @@ const products = [
 },
 {
   id: 115,
-  name: "Frank Olivier oud vanille 100ml",
+  name: "Franck Olivier oud vanille 100ml",
   category: "",
   type: "Parfum",
   price: 45000,
   originalPrice: null,
-  image: "/public/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg",
-  images: ["/public/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg", "/public/images/october/Franck Olivier Oud Vanille Eau De Parfum 100 Ml For Men Free Delivery.jpeg"],
+  image: "/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg",
+  images: ["/images/october/Oud Vanille _0599775441_#maykayfragrance #perfumecombo #perfumegh #perfumegram #maykay #maykayenterprise.jpeg", "/public/images/october/Franck Olivier Oud Vanille Eau De Parfum 100 Ml For Men Free Delivery.jpeg"],
   description: "Oud Vanille by Franck Olivier is a cozy, gourmand-leaning oud. Juicy fruits and florals melt into a creamy vanilla-amber-musk base touched with warm spices and soft incense.",
   details: {
     topNotes: ["Caramel", "Raspberry", "Orange"],

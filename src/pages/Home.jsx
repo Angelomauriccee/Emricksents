@@ -8,6 +8,8 @@ import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
+import { FiRefreshCw, FiHeadphones, FiShield, FiMessageCircle } from 'react-icons/fi';
+
 
 // 👉 Import the video as a local asset (Vite will bundle & serve it)
 import heroVideo from '../assets/videos/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready.mp4';
@@ -29,6 +31,9 @@ const Home = () => {
 
   // Featured products
   const featuredProducts = products.filter(product => product.featured).slice(0, 4);
+  // New arrivals products
+const newProducts = products.filter(p => p.isNew).slice(0, 8);
+
 
   // Instagram reels
   const instagramReels = [
@@ -312,6 +317,34 @@ useEffect(() => {
         </div>
       </section>
 
+
+      {/* New Arrivals Section */}
+{newProducts.length > 0 && (
+  <section className="py-20 bg-dark/95">
+    <div className="container-custom">
+      <SectionTitle
+        title="New Arrivals"
+        subtitle="Fresh releases we’ve just unboxed — discover what’s new in store."
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {newProducts.map((product) => (
+          <div key={product.id} className="featured-product">
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <Button to="/shop?sort=new" variant="outline">
+          Browse All New Arrivals
+        </Button>
+      </div>
+    </div>
+  </section>
+)}
+
+
       {/* Collection Highlight */}
       <section ref={collectionRef} className="py-20 bg-gradient-luxury">
         <div className="container-custom">
@@ -434,6 +467,53 @@ We know how powerful scent can be the way a fragrance can evoke memories, enhanc
     </div>
   </div>
 </section>
+
+
+{/* Store Benefits */}
+<section className="relative my-20 md:my-24 lg:my-28 py-20 md:py-24 bg-dark">
+
+  <div className="container-custom">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="flex items-start space-x-4 p-6 rounded-xl bg-black/40 border border-gray-800">
+        <div className="shrink-0">
+          <FiRefreshCw className="text-secondary" size={28} />
+        </div>
+        <div>
+          <h3 className="text-light font-medium mb-1">Satisfied or Refunded</h3>
+          <p className="text-gray-400 text-sm">
+            Easy returns & store credit if it’s not a match. Shop with confidence.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-start space-x-4 p-6 rounded-xl bg-black/40 border border-gray-800">
+        <div className="shrink-0">
+          <FiHeadphones className="text-secondary" size={28} />
+        </div>
+        <div>
+          <h3 className="text-light font-medium mb-1">Top-Notch Support</h3>
+          <p className="text-gray-400 text-sm">
+            Fragrance guidance from real humans, quick, friendly, and expert.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-start space-x-4 p-6 rounded-xl bg-black/40 border border-gray-800">
+        <div className="shrink-0 flex">
+          <FiShield className="text-secondary" size={28} />
+          <FiMessageCircle className="text-secondary ml-2" size={24} />
+        </div>
+        <div>
+          <h3 className="text-light font-medium mb-1">Secure Payments via WhatsApp</h3>
+          <p className="text-gray-400 text-sm">
+            Confirm your order and pay securely through WhatsApp checkout.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
       {/* Instagram Gallery */}

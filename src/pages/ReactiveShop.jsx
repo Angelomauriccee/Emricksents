@@ -51,7 +51,6 @@ const ReactiveShop = () => {
   // Collections
   const collections = [
     { label: 'All Collections', value: '' },
-    { label: 'Exclusive', value: 'exclusive' },
     { label: 'Limited Edition', value: 'limited' },
     { label: 'Signature Collections', value: 'signature' }
   ];

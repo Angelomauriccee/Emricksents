@@ -134,14 +134,6 @@ const ReactiveFooter = () => {
               </li>
               <li>
                 <button 
-                  onClick={() => handleCollectionClick('exclusive')}
-                  className="text-gray-400 hover:text-secondary transition-colors text-left"
-                >
-                  Exclusive Collection
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={handleNewArrivalsClick}
                   className="text-gray-400 hover:text-secondary transition-colors text-left"
                 >
