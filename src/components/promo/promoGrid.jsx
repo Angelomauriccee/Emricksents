@@ -4,23 +4,23 @@ import PromoCard from "./promoCard";
 const PromoGrid = () => {
   // replace these Cloudinary URLs with yours
   const diorImgs = [
-    "/src/assets/perfumes-ads/dior-min.png",
-    "/src/assets/perfumes-ads/dior-2.png",
-    "/src/assets/perfumes-ads/dior-4.png",
-    "/src/assets/perfumes-ads/dior-test.png"
+    "/images/perfumes-ads/dior-min.png",
+    "/images/perfumes-ads/dior-2.png",
+    "/images/perfumes-ads/dior-4.png",
+    "/images/perfumes-ads/dior-test.png"
   ];
 
   const amouageImgs = [
-    "/src/assets/perfumes-ads/interlude-1.png",
-    "/src/assets/perfumes-ads/interlude.png",
-    "/src/assets/perfumes-ads/interlude-2.png",
+    "/images/perfumes-ads/interlude-1.png",
+    "/images/perfumes-ads/interlude.png",
+    "/images/perfumes-ads/interlude-2.png",
   ];
 
   const lvImgs = [
-    "/src/assets/perfumes-ads/yves-min.png",
-    "/src/assets/perfumes-ads/yves-lst.png",
-    "/src/assets/perfumes-ads/yves1.png",
-    "/src/assets/perfumes-ads/yves.png",
+    "/images/perfumes-ads/yves-min.png",
+    "/images/perfumes-ads/yves-lst.png",
+    "/images/perfumes-ads/yves1.png",
+    "/images/perfumes-ads/yves.png",
   ];
 
   return (
