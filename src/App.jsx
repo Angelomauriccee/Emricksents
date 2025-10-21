@@ -38,12 +38,12 @@ import NotFound from './pages/NotFound';
 import products from './data/products';
 
 // Videos to preload (import your local assets here)
-import heroVideo from './assets/videos/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready.mp4';
+const heroVideo = 'https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4';
 // If you add more local videos, import them and push into VIDEO_ASSETS below
 // import storeLocatorVideo from './assets/video/store-locator.mp4';
 
 const CRITICAL_IMAGES = [
-  '/images/our-story.jpg',
+  'https://res.cloudinary.com/drtmoxle9/video/upload/v1761010055/store-locator_cqwekj.mp4',
   // Add any other must-show images here
 ];
 

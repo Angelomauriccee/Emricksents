@@ -8,7 +8,7 @@ import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 
 // ✅ import the asset so Vite bundles/serves it
-import storeLocatorVideo from '../assets/videos/store-locator.mp4';
+const storeLocatorVideo = 'https://res.cloudinary.com/drtmoxle9/video/upload/v1761010055/store-locator_cqwekj.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 

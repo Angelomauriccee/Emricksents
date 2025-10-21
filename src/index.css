@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import './assets/loader-styles.css';
+/* === Popular Brand Wordmarks (font imports) === */
+/* Google Fonts: tasteful approximations of each brand’s wordmark */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;600&family=Inter:wght@400;600;700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -167,4 +171,161 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #BF9B30;
+}
+
+/* Rail spacing (tweaked via media queries below) */
+.brand-rail { --brand-gap: 28px; }
+
+/* Each Swiper slide uses auto width + our custom gap */
+.brand-slide {
+  width: auto !important;
+  margin-right: var(--brand-gap) !important;
+}
+.brand-slide:last-child { margin-right: 0 !important; }
+
+/* Section frame (subtle separators on dark bg) */
+.brand-section {
+  background: rgba(0,0,0,.9);
+  border-top: 1px solid rgba(255,255,255,.05);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+/* Card wrapper (no visible bg/border; allows hover effects to breathe) */
+.brand-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 10px 12px;
+  transition: transform .25s ease;
+  overflow: visible;
+  will-change: transform;
+}
+.brand-card:hover { transform: translateY(-1px); }
+
+/* Kill text selection / native drag on touch */
+.brand-card, .brand-card * {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Wordmark text with metallic sweep on hover */
+.brand-word {
+  color: #e5e5e5;
+  opacity: .92;
+  line-height: 1.1;
+  white-space: nowrap;  /* avoid wrapping (e.g., YSL) */
+  transition: letter-spacing .25s ease, opacity .25s ease, transform .25s ease;
+  will-change: transform, opacity;
+
+  /* Gradient clipped to text for the shine */
+  background-image: linear-gradient(
+    90deg,
+    #e5e5e5 0%,
+    #e5e5e5 35%,
+    #f5f5dc 50%,
+    #d4af37 60%,
+    #e5e5e5 80%,
+    #e5e5e5 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.brand-card:hover .brand-word {
+  background-position: 100% 50%;
+  opacity: 1;
+  transform: translateZ(0) scale(1.02);
+}
+
+/* Underline flourish (grows on hover) */
+.brand-underline {
+  height: 1px;
+  margin-top: 4px;
+  width: 0;
+  background-image: linear-gradient(90deg, transparent, #d4af37, transparent);
+  transition: width .5s ease;
+}
+.brand-card:hover .brand-underline { width: 100%; }
+
+/* ---------- Per-brand font tweaks ---------- */
+/* EmrickScents */
+.word-emrick {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: capitalize;
+}
+/* Dior */
+.word-dior {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+/* Gucci */
+.word-gucci {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+/* Louis Vuitton */
+.word-louisvuitton {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+/* Yves Saint Laurent */
+.word-ysl {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+/* Amouage */
+.word-amouage {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+/* Tom Ford */
+.word-tomford {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+/* Calvin Klein */
+.word-calvinklein {
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+/* Creed */
+.word-creed {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------- Responsive spacing & micro-tweaks ---------- */
+@media (max-width: 420px) {
+  .brand-rail { --brand-gap: 18px; }
+  .word-ysl { letter-spacing: 0.06em; } /* keep YSL on one line */
+}
+
+@media (min-width: 768px) {
+  .brand-rail { --brand-gap: 30px; }
+}
+
+@media (min-width: 1280px) {
+  .brand-rail { --brand-gap: 36px; }
 }

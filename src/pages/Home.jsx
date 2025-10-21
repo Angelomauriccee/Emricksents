@@ -9,12 +9,14 @@ import Button from '../components/ui/Button';
 import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
 import { FiRefreshCw, FiHeadphones, FiShield, FiMessageCircle } from 'react-icons/fi';
-
+// ✅ Import your promo grid
+import PromoGrid from '../components/promo/PromoGrid';
+import PopularBrandWordmarks from "../components/brands/PopularBrandWordmarks";
 
 // 👉 Import the video as a local asset (Vite will bundle & serve it)
-import heroVideo from '../assets/videos/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready.mp4';
+const heroVideo = "https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4";
 
-import visitVideo from '../assets/videos/WhatsApp Video 2025-10-03 at 12.17.56_9ff62370.mp4';
+const visitVideo = "https://res.cloudinary.com/drtmoxle9/video/upload/v1760993254/WhatsApp_Video_2025-10-03_at_12.17.56_9ff62370_my13ne.mp4";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -293,6 +295,9 @@ useEffect(() => {
         </div>
       </section>
 
+
+       <PromoGrid />
+       <PopularBrandWordmarks />
       {/* Featured Products Section */}
       <section ref={featuredRef} className="py-20 bg-dark">
         <div className="container-custom">
@@ -336,7 +341,7 @@ useEffect(() => {
       </div>
 
       <div className="text-center mt-12">
-        <Button to="/shop?sort=new" variant="outline">
+        <Button to="/shop?new=1&isNew=true" variant="outline">
           Browse All New Arrivals
         </Button>
       </div>
