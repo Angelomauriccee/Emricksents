@@ -10,7 +10,7 @@ import ProductCard from '../components/product/EnhancedProductCard';
 import products from '../data/products';
 import { FiRefreshCw, FiHeadphones, FiShield, FiMessageCircle } from 'react-icons/fi';
 // ✅ Import your promo grid
-import PromoGrid from '../components/promo/PromoGrid';
+import PromoGrid from '../components/promo/promoGrid';
 import PopularBrandWordmarks from "../components/brands/PopularBrandWordmarks";
 
 // 👉 Import the video as a local asset (Vite will bundle & serve it)
