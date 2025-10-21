@@ -42,32 +42,32 @@ const newProducts = products.filter(p => p.isNew).slice(0, 8);
     {
       id: 1,
       url: "https://www.instagram.com/reel/DO7xky6DF4i/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/images/instagram-thumbnails/reel1.jpg"
+      thumbnail: "https://res.cloudinary.com/drtmoxle9/image/upload/v1761048324/reel4_m0lbjl.jpg"
     },
     {
       id: 2,
       url: "https://www.instagram.com/reel/DOxhyh6jLkj/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/images/instagram-thumbnails/reel2.jpg"
+      thumbnail: "https://res.cloudinary.com/drtmoxle9/image/upload/v1761048319/reel1_l8jzu2.jpg"
     },
     {
       id: 3,
       url: "https://www.instagram.com/reel/DOs1GBdDFHQ/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/images/instagram-thumbnails/reel3.jpg"
+      thumbnail: "https://res.cloudinary.com/drtmoxle9/image/upload/v1761048315/reel2_znsxf4.jpg"
     },
     {
       id: 4,
       url: "https://www.instagram.com/reel/DOqacooDE6u/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/images/instagram-thumbnails/reel4.jpg"
+      thumbnail: "https://res.cloudinary.com/drtmoxle9/image/upload/v1761048317/reel3_hnkk7y.jpg"
     },
     {
       id: 5,
       url: "https://www.instagram.com/reel/DOn6jQEjKYN/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/images/instagram-thumbnails/reel5.jpg"
+      thumbnail: "https://res.cloudinary.com/drtmoxle9/image/upload/v1761048318/reel6_uwwlbd.jpg"
     },
     {
       id: 6,
       url: "https://www.instagram.com/reel/DOiOs7LDBiD/?igsh=YzljYTk1ODg3Zg==",
-      thumbnail: "/images/instagram-thumbnails/reel6.jpg"
+      thumbnail: "https://res.cloudinary.com/drtmoxle9/image/upload/v1761048314/reel5_sykiqt.jpg"
     }
   ];
 

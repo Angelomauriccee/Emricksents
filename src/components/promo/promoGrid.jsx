@@ -4,23 +4,23 @@ import PromoCard from "./promoCard";
 const PromoGrid = () => {
   // replace these Cloudinary URLs with yours
   const diorImgs = [
-    "/images/perfumes-ads/dior-min.png",
-    "/images/perfumes-ads/dior-2.png",
-    "/images/perfumes-ads/dior-4.png",
-    "/images/perfumes-ads/dior-test.png"
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008477/8_zakktb.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008487/9_rrdob7.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008477/7_ejo44i.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008471/5_zba3d9.png"
   ];
 
   const amouageImgs = [
-    "/images/perfumes-ads/interlude-1.png",
-    "/images/perfumes-ads/interlude.png",
-    "/images/perfumes-ads/interlude-2.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008490/1_eyevcq.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008484/11_uakqoy.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008485/13_dlxxr4.png",
   ];
 
   const lvImgs = [
-    "/images/perfumes-ads/yves-min.png",
-    "/images/perfumes-ads/yves-lst.png",
-    "/images/perfumes-ads/yves1.png",
-    "/images/perfumes-ads/yves.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008487/12_s8nsaa.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008479/10_si4ymw.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008692/Gemini_Generated_Image_d5w8gqd5w8gqd5w8_ghdgkd.png",
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008486/2_ew3dbi.png",
   ];
 
   return (
