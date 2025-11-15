@@ -34,7 +34,10 @@ const PromoCardSlideshow = ({
 
     const tick = () => {
       const [min, max] = intervalRange;
-      const nextDelay = Math.max(1000, Math.floor(Math.random() * (max - min + 1)) + min);
+      const nextDelay = Math.max(
+        1000,
+        Math.floor(Math.random() * (max - min + 1)) + min
+      );
       timerRef.current = setTimeout(() => {
         if (!pausedRef.current) {
           setActive((i) => (i + 1) % images.length);

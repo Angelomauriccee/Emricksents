@@ -7,7 +7,7 @@ const PromoGrid = () => {
     "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008477/8_zakktb.png",
     "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008487/9_rrdob7.png",
     "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008477/7_ejo44i.png",
-    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008471/5_zba3d9.png"
+    "https://res.cloudinary.com/drtmoxle9/image/upload/v1761008471/5_zba3d9.png",
   ];
 
   const amouageImgs = [
