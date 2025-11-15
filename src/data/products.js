@@ -3119,7 +3119,7 @@ const products = [
     type: "Parfum",
     price: 451000,
     originalPrice: null,
-    image: "/images/November/l'interdit-ivenchy-display.jpeg.jpeg",
+    image: "/images/November/l'interdit-ivenchy-display.jpeg",
     images: [
       "/images/November/l'interdit-ivenchy-display.jpeg",
       "/images/November/l'interdit-ivenchy-2.jpeg",
