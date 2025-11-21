@@ -3114,7 +3114,7 @@ const products = [
   },
   {
     id: 116,
-    name: "Parfums de Marly Carlisle EDP 125ml",
+    name: "Givenchy L’Interdit EDP Intense 80ml",
     category: "Men's Collection",
     type: "Parfum",
     price: 451000,
@@ -3124,6 +3124,34 @@ const products = [
       "/images/November/l'interdit-ivenchy-display.jpeg",
       "/images/November/l'interdit-ivenchy-2.jpeg",
       "/images/November/l'interdit-ivenchy-pack.jpeg",
+    ],
+    description:
+      "Givenchy L’Interdit Intense is a daring, deep interpretation of the iconic original. It combines radiant orange blossom with opulent tuberose and a dark, addictive base of vetiver, patchouli, and roasted sesame for a mysterious, modern scent.",
+    details: {
+      topNotes: ["Black Pepper"],
+      heartNotes: ["Orange Blossom", "Tuberose", "Sesame"],
+      baseNotes: ["Vetiver", "Patchouli", "Madagascar Vanilla"],
+    },
+    size: "80ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Citral, Cinnamal, Benzyl Alcohol, Green Apple, Nutmeg, Saffron, Rose, Tonka Bean, Osmanthus, Patchouli, Vanilla, Opoponax.",
+  },
+  {
+    id: 117,
+    name: "Parfums de Marly Carlisle EDP 125ml",
+    category: "Women's Collection",
+    type: "Parfum",
+    price: 250000,
+    originalPrice: null,
+    image: "/images/November/Parfums de Marly The Metallics-display.jpeg",
+    images: [
+      "/images/November/Parfums de Marly The Metallics-display.jpeg",
+      "/images/November/Parfums de Marly Pegasus Eau De Parfum.jpeg",
+      "/images/November/Parfums de Marly Castley Eau de Parfum 75ml-pack.jpeg",
     ],
     description:
       "Parfums de Marly Carlisle is a rich and sophisticated woody oriental fragrance. It opens with vibrant green apple and nutmeg, revealing a heart of rose and tonka bean, and settles into a warm base of patchouli and vanilla. an intoxicating balance of strength and elegance.",
@@ -3139,34 +3167,6 @@ const products = [
     featured: false,
     ingredients:
       "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Citral, Cinnamal, Benzyl Alcohol, Green Apple, Nutmeg, Saffron, Rose, Tonka Bean, Osmanthus, Patchouli, Vanilla, Opoponax.",
-  },
-  {
-    id: 117,
-    name: "Givenchy L’Interdit EDP Intense 80ml",
-    category: "Women's Collection",
-    type: "Parfum",
-    price: 250000,
-    originalPrice: null,
-    image: "/images/November/Parfums de Marly The Metallics-display.jpeg",
-    images: [
-      "/images/November/Parfums de Marly The Metallics-display.jpeg",
-      "/images/November/Parfums de Marly Pegasus Eau De Parfum.jpeg",
-      "/images/November/Parfums de Marly Castley Eau de Parfum 75ml-pack.jpeg",
-    ],
-    description:
-      "Givenchy L’Interdit Intense is a daring, deep interpretation of the iconic original. It combines radiant orange blossom with opulent tuberose and a dark, addictive base of vetiver, patchouli, and roasted sesame for a mysterious, modern scent.",
-    details: {
-      topNotes: ["Black Pepper"],
-      heartNotes: ["Orange Blossom", "Tuberose", "Sesame"],
-      baseNotes: ["Vetiver", "Patchouli", "Madagascar Vanilla"],
-    },
-    size: "80ml",
-    isNew: true,
-    discount: null,
-    inStock: true,
-    featured: false,
-    ingredients:
-      "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Black Pepper, Orange Blossom, Tuberose, Sesame, Vetiver, Patchouli, Vanilla, Linalool, Coumarin, Benzyl Salicylate, Citral, Limonene.",
   },
 ];
 
