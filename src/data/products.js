@@ -3117,7 +3117,7 @@ const products = [
     name: "Givenchy L’Interdit EDP Intense 80ml",
     category: "Men's Collection",
     type: "Parfum",
-    price: 451000,
+    price: 250000,
     originalPrice: null,
     image: "/images/November/l'interdit-ivenchy-display.jpeg",
     images: [
@@ -3145,7 +3145,7 @@ const products = [
     name: "Parfums de Marly Carlisle EDP 125ml",
     category: "Women's Collection",
     type: "Parfum",
-    price: 250000,
+    price: 451000,
     originalPrice: null,
     image: "/images/November/Parfums de Marly The Metallics-display.jpeg",
     images: [
