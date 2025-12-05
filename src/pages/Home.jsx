@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FiArrowRight, FiInstagram } from "react-icons/fi";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import TypingTitle from "../components/hero/TypingTitle";
 import SectionTitle from "../components/ui/SectionTitle";
 import Button from "../components/ui/Button";
 import ProductCard from "../components/product/EnhancedProductCard";
@@ -267,14 +267,35 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="container-custom relative z-20 text-center">
-          <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-light mb-6">
-            Discover Your <span className="text-secondary">Signature</span>{" "}
-            Scent
-          </h1>
-          <p className="hero-subtitle text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <div className="relative inline-block">
+            <div
+              className="absolute -inset-x-6 -inset-y-2 blur-2xl opacity-30 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(60% 60% at 50% 50%, rgba(212,175,55,.25), transparent 70%)",
+              }}
+            />
+            <h1 className="hero-title overflow-visible leading-[1.15] text-4xl md:text-6xl lg:text-7xl mb-6 relative">
+              <span className="hero-title-tilt xmas-hero-glow inline-block">
+                <TypingTitle
+                  texts={[
+                    "Happy Holidays from EmrickScents",
+                    "Shop Scents of the Season",
+                  ]}
+                  typeSpeed={70}
+                  deleteSpeed={40}
+                  pauseMs={1200}
+                  className="inline-block"
+                />
+              </span>
+            </h1>
+          </div>
+
+          <p className="holiday-subtitle holiday-subtitle-space text-xl md:text-1xl max-w-3xl mx-auto">
             Luxury fragrances crafted with passion and precision for the
             discerning individual
           </p>
+
           <div className="hero-button">
             <Button to="/shop" variant="primary" size="lg" className="mx-auto">
               <span>Explore Collection</span>

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import gsap from 'gsap';
-import logoImage from '../../assets/logo.png';
+import { useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
+import logoImage from "../../assets/logo.png";
 
 const MinimalistLoader = ({ isLoading, progress = 0 }) => {
   const containerRef = useRef(null);
@@ -18,25 +18,25 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
       duration: 1.5,
       repeat: -1,
       yoyo: true,
-      ease: 'sine.inOut',
+      ease: "sine.inOut",
     });
 
     // Minimal, circular particles
     const particleCount = 8;
     for (let i = 0; i < particleCount; i++) {
-      const p = document.createElement('div');
-      p.className = 'absolute rounded-full bg-secondary';
-      p.style.width = '4px';
-      p.style.height = '4px';
-      p.style.opacity = '0';
+      const p = document.createElement("div");
+      p.className = "absolute rounded-full bg-secondary";
+      p.style.width = "4px";
+      p.style.height = "4px";
+      p.style.opacity = "0";
 
       const angle = (Math.PI * 2 * i) / particleCount;
       const radius = 120;
       const x = Math.cos(angle) * radius;
       const y = Math.sin(angle) * radius;
 
-      p.style.left = '50%';
-      p.style.top = '50%';
+      p.style.left = "50%";
+      p.style.top = "50%";
       p.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
 
       containerRef.current.appendChild(p);
@@ -47,7 +47,7 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
         scale: 1.5,
         duration: 1,
         delay: i * 0.1,
-        ease: 'easeOut',
+        ease: "easeOut",
       });
 
       gsap.to(p, {
@@ -57,7 +57,7 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
         delay: 1 + i * 0.1,
         repeat: -1,
         yoyo: true,
-        ease: 'sine.inOut',
+        ease: "sine.inOut",
       });
     }
 
@@ -79,7 +79,8 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.45 }}
           style={{
-            background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)',
+            background:
+              "linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)",
           }}
         >
           {/* Logo */}
@@ -87,7 +88,7 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
             ref={logoRef}
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative z-10 mb-8"
           >
             <img
@@ -97,12 +98,43 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
             />
           </motion.div>
 
-          {/* Progress bar */}
-          <div className="w-48 h-0.5 bg-gray-800 rounded-full overflow-hidden relative">
+          {/* Progress bar — candy cane */}
+          <div
+            className="w-56 h-2 rounded-full overflow-hidden relative bg-gray-800/70 ring-1 ring-white/10"
+            role="progressbar"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={Math.max(0, Math.min(100, progress))}
+          >
             <motion.div
-              className="h-full bg-gradient-to-r from-secondary via-[#F5F5DC] to-secondary"
-              style={{ width: `${Math.max(0, Math.min(100, progress))}%` }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="h-full"
+              style={{
+                width: `${Math.max(0, Math.min(100, progress))}%`,
+                // diagonal red/white stripes
+                backgroundImage:
+                  "repeating-linear-gradient(45deg, #e11d48 0 12px, #ffffff 12px 24px)",
+                backgroundSize: "28px 28px",
+                // subtle gloss
+                boxShadow:
+                  "inset 0 0 6px rgba(255,255,255,.15), 0 0 10px rgba(212,175,55,.15)",
+                borderRadius: "9999px",
+              }}
+              // animate stripe movement; will pause if user prefers reduced motion
+              animate={{
+                backgroundPositionX: window.matchMedia?.(
+                  "(prefers-reduced-motion: reduce)"
+                )?.matches
+                  ? 0
+                  : ["0px", "28px"],
+              }}
+              transition={{
+                duration: 0.9,
+                ease: "linear",
+                repeat: window.matchMedia?.("(prefers-reduced-motion: reduce)")
+                  ?.matches
+                  ? 0
+                  : Infinity,
+              }}
             />
           </div>
 

@@ -1,49 +1,52 @@
 // src/App.jsx
-import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-import { CartProvider } from './context/CartContext';
-import { FilterProvider } from './context/FilterContext';
-import { SearchProvider } from './context/SearchContext';
+import { CartProvider } from "./context/CartContext";
+import { FilterProvider } from "./context/FilterContext";
+import { SearchProvider } from "./context/SearchContext";
 // main.jsx or App.jsx
-import './styles/viewport-fixes.css';
+import "./styles/viewport-fixes.css";
 
-
-import Navbar from './components/layout/SearchNavbar';
-import Footer from './components/layout/ReactiveFooter';
-import ScrollToTop from './components/ui/ScrollToTop';
-import MinimalistLoader from './components/ui/MinimalistLoader';
-import CookieConsent from './components/ui/CookieConsent';
+import Navbar from "./components/layout/SearchNavbar";
+import Footer from "./components/layout/ReactiveFooter";
+import ScrollToTop from "./components/ui/ScrollToTop";
+import MinimalistLoader from "./components/ui/MinimalistLoader";
+import CookieConsent from "./components/ui/CookieConsent";
 
 // Enhanced features
-import './components/enhanced-styles.css';
-import CustomCursor from './components/features/CustomCursor';
-import NoiseOverlay from './components/features/NoiseOverlay';
-import FloatingShapes from './components/features/FloatingShapes';
-import ParticleBackground from './components/features/ParticleBackground';
-import ScrollAnimations from './components/features/ScrollAnimations';
+import "./components/enhanced-styles.css";
+import CustomCursor from "./components/features/CustomCursor";
+import NoiseOverlay from "./components/features/NoiseOverlay";
+import FloatingShapes from "./components/features/FloatingShapes";
+import ParticleBackground from "./components/features/ParticleBackground";
+import ScrollAnimations from "./components/features/ScrollAnimations";
 
 // Pages
-import Home from './pages/Home';
-import Shop from './pages/ReactiveShop';
-import ProductDetails from './pages/EnhancedProductDetails';
-import Cart from './pages/EnhancedCart';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import StoreLocator from './pages/StoreLocator';
-import NotFound from './pages/NotFound';
+import Home from "./pages/Home";
+import Shop from "./pages/ReactiveShop";
+import ProductDetails from "./pages/EnhancedProductDetails";
+import Cart from "./pages/EnhancedCart";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import StoreLocator from "./pages/StoreLocator";
+import NotFound from "./pages/NotFound";
+
+// holiday themes
+import Snowfall from "./components/season/Snowfall";
 
 // Data (to collect product image URLs)
-import products from './data/products';
+import products from "./data/products";
 
 // Videos to preload (import your local assets here)
-const heroVideo = 'https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4';
+const heroVideo =
+  "https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4";
 // If you add more local videos, import them and push into VIDEO_ASSETS below
 // import storeLocatorVideo from './assets/video/store-locator.mp4';
 
 const CRITICAL_IMAGES = [
-  'https://res.cloudinary.com/drtmoxle9/video/upload/v1761010055/store-locator_cqwekj.mp4',
+  "https://res.cloudinary.com/drtmoxle9/video/upload/v1761010055/store-locator_cqwekj.mp4",
   // Add any other must-show images here
 ];
 
@@ -66,26 +69,26 @@ function preloadImage(url) {
 
 function preloadVideo(url) {
   return new Promise((resolve) => {
-    const v = document.createElement('video');
+    const v = document.createElement("video");
     // Safest signal that enough buffered to start quickly
     const onReady = () => cleanup(resolve({ ok: true }));
     const onError = () => cleanup(resolve({ ok: false }));
 
     const cleanup = (done) => {
-      v.removeEventListener('canplaythrough', onReady);
-      v.removeEventListener('loadeddata', onReady);
-      v.removeEventListener('error', onError);
+      v.removeEventListener("canplaythrough", onReady);
+      v.removeEventListener("loadeddata", onReady);
+      v.removeEventListener("error", onError);
       done;
     };
 
-    v.preload = 'auto';
+    v.preload = "auto";
     v.muted = true; // helps Safari/iOS behavior
     v.src = url;
 
     // whichever fires first
-    v.addEventListener('canplaythrough', onReady, { once: true });
-    v.addEventListener('loadeddata', onReady, { once: true });
-    v.addEventListener('error', onError, { once: true });
+    v.addEventListener("canplaythrough", onReady, { once: true });
+    v.addEventListener("loadeddata", onReady, { once: true });
+    v.addEventListener("error", onError, { once: true });
   });
 }
 
@@ -97,11 +100,11 @@ export default function App() {
 
   // One-time “visited” flag
   useEffect(() => {
-    const visited = localStorage.getItem('emrickscents_visited');
+    const visited = localStorage.getItem("emrickscents_visited");
     if (visited) {
       setHasVisited(true);
     } else {
-      localStorage.setItem('emrickscents_visited', 'true');
+      localStorage.setItem("emrickscents_visited", "true");
     }
   }, []);
 
@@ -110,13 +113,15 @@ export default function App() {
     let finished = false;
 
     // Feel free to tweak:
-    const MIN_MS = 2000;             // minimum time to show loader
-    const MAX_MS = 18000;            // hard cap so users are never stuck
+    const MIN_MS = 2000; // minimum time to show loader
+    const MAX_MS = 18000; // hard cap so users are never stuck
     const includeVideos = PRELOAD_VIDEO;
 
     // Collect product images (unique)
     const productImages = [
-      ...new Set((products ?? []).flatMap((p) => p?.images || []).filter(Boolean)),
+      ...new Set(
+        (products ?? []).flatMap((p) => p?.images || []).filter(Boolean)
+      ),
     ];
 
     const imagesToLoad = [...CRITICAL_IMAGES, ...productImages];
@@ -131,7 +136,8 @@ export default function App() {
       : [];
 
     // For progress tracking:
-    const totalCount = imagesToLoad.length + (includeVideos ? VIDEO_ASSETS.length : 0);
+    const totalCount =
+      imagesToLoad.length + (includeVideos ? VIDEO_ASSETS.length : 0);
     let loadedCount = 0;
     function tick() {
       loadedCount += 1;
@@ -149,10 +155,7 @@ export default function App() {
     const hardCap = new Promise((res) => setTimeout(res, MAX_MS));
 
     // Wait for: (assets AND minDelay) OR hardCap (whichever first)
-    Promise.race([
-      Promise.all([allAssets, minDelay]),
-      hardCap,
-    ]).then(() => {
+    Promise.race([Promise.all([allAssets, minDelay]), hardCap]).then(() => {
       if (!finished) {
         finished = true;
         setProgress(100);
@@ -170,8 +173,10 @@ export default function App() {
   useEffect(() => {
     if (!isLoading) return;
     const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prev; };
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
   }, [isLoading]);
 
   // Show the loader until gate flips
@@ -189,7 +194,7 @@ export default function App() {
             <FloatingShapes />
             <ParticleBackground />
             <ScrollAnimations />
-
+            <Snowfall enabled={true} density={0.2} zIndex={1} />
             <Navbar />
             <ScrollToTop />
             <main className="flex-grow">

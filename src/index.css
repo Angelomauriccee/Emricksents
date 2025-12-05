@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import './assets/loader-styles.css';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import "./assets/loader-styles.css";
 /* === Popular Brand Wordmarks (font imports) === */
 /* Google Fonts: tasteful approximations of each brand’s wordmark */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;600&family=Inter:wght@400;600;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;600&family=Montserrat:wght@300;400;600&family=Inter:wght@400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -13,12 +12,17 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply font-sans bg-primary text-light;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-serif;
   }
 }
@@ -29,47 +33,46 @@
   height: auto !important;
 }
 
-
 @layer components {
   .container-custom {
     @apply container mx-auto px-4 md:px-8;
   }
-  
+
   .btn-primary {
     @apply bg-secondary text-dark px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-gold;
   }
-  
+
   .btn-outline {
     @apply border border-secondary text-secondary px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-secondary hover:text-dark hover:shadow-gold;
   }
-  
+
   .section-title {
     @apply text-3xl md:text-4xl lg:text-5xl font-serif font-medium mb-6;
   }
-  
+
   .section-subtitle {
     @apply text-xl text-secondary mb-12 max-w-2xl;
   }
-  
+
   .glass-card {
     @apply bg-dark bg-opacity-70 backdrop-blur-lg border border-gray-800 rounded-xl shadow-luxury;
   }
-  
+
   /* Custom scrollbar for policy popup */
   .custom-scrollbar::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-track {
     background: rgba(18, 18, 18, 0.5);
     border-radius: 10px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(212, 175, 55, 0.7);
     border-radius: 10px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: rgba(212, 175, 55, 0.9);
   }
@@ -112,19 +115,28 @@
 }
 
 .shimmer-effect::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transform: translateX(-100%) skewX(-15deg);
   animation: shimmer 2s infinite;
 }
 
 .bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to));
+  background: radial-gradient(
+    circle,
+    var(--tw-gradient-from),
+    var(--tw-gradient-to)
+  );
 }
 
 /* Enhanced button hover effects */
@@ -139,13 +151,18 @@
 }
 
 .btn-hover-shimmer::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transform: translateX(-100%);
   transition: transform 0s;
 }
@@ -165,29 +182,33 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: #d4af37;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #BF9B30;
+  background: #bf9b30;
 }
 
 /* Rail spacing (tweaked via media queries below) */
-.brand-rail { --brand-gap: 28px; }
+.brand-rail {
+  --brand-gap: 28px;
+}
 
 /* Each Swiper slide uses auto width + our custom gap */
 .brand-slide {
   width: auto !important;
   margin-right: var(--brand-gap) !important;
 }
-.brand-slide:last-child { margin-right: 0 !important; }
+.brand-slide:last-child {
+  margin-right: 0 !important;
+}
 
 /* Section frame (subtle separators on dark bg) */
 .brand-section {
-  background: rgba(0,0,0,.9);
-  border-top: 1px solid rgba(255,255,255,.05);
-  border-bottom: 1px solid rgba(255,255,255,.05);
+  background: rgba(0, 0, 0, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Card wrapper (no visible bg/border; allows hover effects to breathe) */
@@ -196,14 +217,17 @@
   display: grid;
   place-items: center;
   padding: 10px 12px;
-  transition: transform .25s ease;
+  transition: transform 0.25s ease;
   overflow: visible;
   will-change: transform;
 }
-.brand-card:hover { transform: translateY(-1px); }
+.brand-card:hover {
+  transform: translateY(-1px);
+}
 
 /* Kill text selection / native drag on touch */
-.brand-card, .brand-card * {
+.brand-card,
+.brand-card * {
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -213,10 +237,11 @@
 /* Wordmark text with metallic sweep on hover */
 .brand-word {
   color: #e5e5e5;
-  opacity: .92;
+  opacity: 0.92;
   line-height: 1.1;
-  white-space: nowrap;  /* avoid wrapping (e.g., YSL) */
-  transition: letter-spacing .25s ease, opacity .25s ease, transform .25s ease;
+  white-space: nowrap; /* avoid wrapping (e.g., YSL) */
+  transition: letter-spacing 0.25s ease, opacity 0.25s ease,
+    transform 0.25s ease;
   will-change: transform, opacity;
 
   /* Gradient clipped to text for the shine */
@@ -247,9 +272,11 @@
   margin-top: 4px;
   width: 0;
   background-image: linear-gradient(90deg, transparent, #d4af37, transparent);
-  transition: width .5s ease;
+  transition: width 0.5s ease;
 }
-.brand-card:hover .brand-underline { width: 100%; }
+.brand-card:hover .brand-underline {
+  width: 100%;
+}
 
 /* ---------- Per-brand font tweaks ---------- */
 /* EmrickScents */
@@ -303,7 +330,8 @@
 }
 /* Calvin Klein */
 .word-calvinklein {
-  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
   font-weight: 300;
   letter-spacing: 0.04em;
   text-transform: lowercase;
@@ -315,17 +343,261 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
+/* --- Minimalize the holiday title: font only, no effects --- */
+.holiday-title-2 {
+  font-family: "Berkshire Swash", serif;
+}
+
+/* === Festive luxe title: deep red → gold foil sweep + gentle float === */
+.holiday-title-chroma {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    92deg,
+    #d11f3f 0%,
+    #d4af37 50%,
+    #f6e7b6 80%,
+    #d11f3f 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 22px rgba(212, 175, 55, 0.18);
+  animation: xmasFoilSlow 7s ease-in-out infinite;
+  will-change: background-position, filter;
+}
+
+@keyframes xmasFoilSlow {
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.03) saturate(1.06);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+}
+
+/* optional tiny twinkle dots above/below (super subtle) */
+.holiday-title-chroma::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -0.4em;
+  height: 6px;
+  pointer-events: none;
+  background: radial-gradient(
+      2px 2px at 12% 50%,
+      rgba(255, 255, 255, 0.75) 0,
+      transparent 60%
+    ),
+    radial-gradient(
+      2px 2px at 42% 50%,
+      rgba(255, 255, 255, 0.45) 0,
+      transparent 60%
+    ),
+    radial-gradient(
+      2.4px 2.4px at 72% 50%,
+      rgba(255, 255, 255, 0.7) 0,
+      transparent 64%
+    ),
+    radial-gradient(
+      1.8px 1.8px at 88% 50%,
+      rgba(212, 175, 55, 0.55) 0,
+      transparent 55%
+    );
+  opacity: 0;
+  animation: xmasTwinkleSoft 3.2s ease-in-out infinite 0.6s;
+}
+@keyframes xmasTwinkleSoft {
+  0% {
+    opacity: 0;
+    transform: translateX(-4%);
+  }
+  25% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(4%);
+  }
+}
+
+/* ---- Hanging sock options ---- */
+/* A) KEEP the sock (no change) — do nothing extra */
+
+/* B) REMOVE the sock completely (uncomment to use) */
+/*
+.holiday-title-2 .hang-letter::before,
+.holiday-title-2 .hang-letter .xmas-sock,
+.holiday-title-2 .hang-letter .xmas-sock::before {
+  display: none !important;
+}
+*/
+
+/* Candy-cane stripe underline (red/white) */
+.cane-underline {
+  position: relative;
+  display: inline-block;
+}
+.cane-underline::after {
+  content: "";
+  display: block;
+  height: 2px; /* thickness */
+  margin: 0.5rem auto 0;
+  width: clamp(120px, 30vw, 220px);
+  background: repeating-linear-gradient(
+    45deg,
+    #ffffff 0 10px,
+    #d11f3f 10px 20px
+  );
+  border-radius: 999px;
+  box-shadow: 0 0 10px rgba(209, 31, 63, 0.25);
+}
+
+/* --- Christmas luxe glow for hero title --- */
+.xmas-hero-glow {
+  /* gold/ivory fill with gentle foil drift */
+  background: linear-gradient(
+    92deg,
+    #d11f3f 0%,
+    #d4af37 45%,
+    #f6e7b6 70%,
+    #d11f3f 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.28),
+    0 0 48px rgba(212, 175, 55, 0.16);
+
+  animation: heroFoil 8s ease-in-out infinite;
+  will-change: background-position, filter;
+}
+
+/* subtle foil shift */
+@keyframes heroFoil {
+  0% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: brightness(1.04) saturate(1.06);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: brightness(1) saturate(1);
+  }
+}
+
+/* blinking caret */
+.typing-title {
+  position: relative;
+  /* prevent clipping of descenders with strokes/shadows */
+  line-height: 1.15;
+}
+.typing-caret {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.9em;
+  margin-left: 0.13em;
+  background: #f7f7f7;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  animation: caretBlink 1s step-start infinite;
+  transform: translateY(0.05em);
+}
+@keyframes caretBlink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.holiday-subtitle {
+  font-family: "Marcellus", serif;
+  color: #f3f0e6; /* warm ivory */
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.12); /* subtle Xmas glow */
+}
+
+/* extra spacing under subtitle so the button breathes */
+.holiday-subtitle-space {
+  margin-bottom: 2.75rem; /* ~mb-11 */
+}
+
+/* CRISP gold text: no blur, no stroke, no filter */
+.xmas-hero-glow--sharp {
+  background: linear-gradient(
+    92deg,
+    #f7f7f7 0%,
+    #f3e8c1 45%,
+    #d4af37 75%,
+    #f7f7f7 100%
+  );
+  background-size: 160% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* keep it razor sharp */
+  text-shadow: none;
+  -webkit-text-stroke: 0; /* no stroke halo */
+  filter: none; /* no extra filtering */
+  backface-visibility: hidden; /* fix subpixel shimmer */
+  transform: translateZ(0); /* force layer for sharpness */
+
+  animation: heroFoilSharp 8s ease-in-out infinite;
+}
+@keyframes heroFoilSharp {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Give the hero more breathing room so nothing looks clipped */
+.hero-title {
+  line-height: 1.15;
+  overflow: visible; /* avoids descender clipping */
+}
 
 /* ---------- Responsive spacing & micro-tweaks ---------- */
 @media (max-width: 420px) {
-  .brand-rail { --brand-gap: 18px; }
-  .word-ysl { letter-spacing: 0.06em; } /* keep YSL on one line */
+  .brand-rail {
+    --brand-gap: 18px;
+  }
+  .word-ysl {
+    letter-spacing: 0.06em;
+  } /* keep YSL on one line */
 }
 
 @media (min-width: 768px) {
-  .brand-rail { --brand-gap: 30px; }
+  .brand-rail {
+    --brand-gap: 30px;
+  }
 }
 
 @media (min-width: 1280px) {
-  .brand-rail { --brand-gap: 36px; }
+  .brand-rail {
+    --brand-gap: 36px;
+  }
 }
