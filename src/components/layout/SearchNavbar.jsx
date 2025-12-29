@@ -325,13 +325,28 @@ const SearchNavbar = () => {
                 >
                   Home
                 </Link>
-                <Link
-                  to="/shop"
-                  className="text-2xl text-light hover:text-secondary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  All Brands
-                </Link>
+                <div className="relative">
+                  <Link
+                    to="/shop"
+                    className="text-light hover:text-secondary transition-colors flex items-center"
+                    onMouseEnter={() => setIsMegaMenuOpen(true)}
+                    onClick={(e) => {
+                      e.preventDefault(); // prevent full page nav
+                      setIsMegaMenuOpen(false);
+                      navigate("/shop"); // SPA navigation
+                      window.scrollTo(0, 0);
+                    }}
+                    onTouchEnd={(e) => {
+                      // iOS sometimes ignores click
+                      e.preventDefault();
+                      setIsMegaMenuOpen(false);
+                      navigate("/shop");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    All Brands
+                  </Link>
+                </div>
                 <Link
                   to="/about"
                   className="text-2xl text-light hover:text-secondary transition-colors"
