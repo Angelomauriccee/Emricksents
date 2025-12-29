@@ -9,8 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SearchOverlay from "../search/SearchOverlay";
 import logoImage from "../../assets/logo.png";
 import HangingHoliday from "../season/HangingHoliday";
-import SmartLink from "../nav/SmartLink";
-
 gsap.registerPlugin(ScrollTrigger);
 
 const SearchNavbar = () => {
@@ -163,9 +161,13 @@ const SearchNavbar = () => {
               Home
             </Link>
             <div className="relative">
-              <SmartLink to="/shop" className="text-light hover:text-secondary">
+              <Link
+                to="/shop"
+                className="text-light hover:text-secondary transition-colors flex items-center"
+                onMouseEnter={() => setIsMegaMenuOpen(true)}
+              >
                 All Brands
-              </SmartLink>
+              </Link>
             </div>
             <Link
               to="/about"
