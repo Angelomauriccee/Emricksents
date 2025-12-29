@@ -9,6 +9,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SearchOverlay from "../search/SearchOverlay";
 import logoImage from "../../assets/logo.png";
 import HangingHoliday from "../season/HangingHoliday";
+import SmartLink from "../nav/SmartLink";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const SearchNavbar = () => {
@@ -161,13 +163,9 @@ const SearchNavbar = () => {
               Home
             </Link>
             <div className="relative">
-              <Link
-                to="/shop"
-                className="text-light hover:text-secondary transition-colors flex items-center"
-                onMouseEnter={() => setIsMegaMenuOpen(true)}
-              >
+              <SmartLink to="/shop" className="text-light hover:text-secondary">
                 All Brands
-              </Link>
+              </SmartLink>
             </div>
             <Link
               to="/about"
@@ -325,28 +323,14 @@ const SearchNavbar = () => {
                 >
                   Home
                 </Link>
-                <div className="relative">
-                  <Link
-                    to="/shop"
-                    className="text-light hover:text-secondary transition-colors flex items-center"
-                    onMouseEnter={() => setIsMegaMenuOpen(true)}
-                    onClick={(e) => {
-                      e.preventDefault(); // prevent full page nav
-                      setIsMegaMenuOpen(false);
-                      navigate("/shop"); // SPA navigation
-                      window.scrollTo(0, 0);
-                    }}
-                    onTouchEnd={(e) => {
-                      // iOS sometimes ignores click
-                      e.preventDefault();
-                      setIsMegaMenuOpen(false);
-                      navigate("/shop");
-                      window.scrollTo(0, 0);
-                    }}
-                  >
-                    All Brands
-                  </Link>
-                </div>
+                <Link
+                  to="/shop"
+                  className="text-2xl text-light hover:text-secondary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {" "}
+                  All Brands{" "}
+                </Link>
                 <Link
                   to="/about"
                   className="text-2xl text-light hover:text-secondary transition-colors"
