@@ -98,43 +98,17 @@ const MinimalistLoader = ({ isLoading, progress = 0 }) => {
             />
           </motion.div>
 
-          {/* Progress bar — candy cane */}
-          <div
-            className="w-56 h-2 rounded-full overflow-hidden relative bg-gray-800/70 ring-1 ring-white/10"
-            role="progressbar"
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.max(0, Math.min(100, progress))}
-          >
+          {/* Progress bar — gold, no candy stripes */}
+          <div className="w-48 h-0.5 bg-gray-800 rounded-full overflow-hidden relative">
             <motion.div
               className="h-full"
               style={{
                 width: `${Math.max(0, Math.min(100, progress))}%`,
-                // diagonal red/white stripes
-                backgroundImage:
-                  "repeating-linear-gradient(45deg, #e11d48 0 12px, #ffffff 12px 24px)",
-                backgroundSize: "28px 28px",
-                // subtle gloss
-                boxShadow:
-                  "inset 0 0 6px rgba(255,255,255,.15), 0 0 10px rgba(212,175,55,.15)",
-                borderRadius: "9999px",
+                // soft luxury gold sweep
+                background:
+                  "linear-gradient(90deg, rgba(212,175,55,0.35), rgba(212,175,55,0.95))",
               }}
-              // animate stripe movement; will pause if user prefers reduced motion
-              animate={{
-                backgroundPositionX: window.matchMedia?.(
-                  "(prefers-reduced-motion: reduce)"
-                )?.matches
-                  ? 0
-                  : ["0px", "28px"],
-              }}
-              transition={{
-                duration: 0.9,
-                ease: "linear",
-                repeat: window.matchMedia?.("(prefers-reduced-motion: reduce)")
-                  ?.matches
-                  ? 0
-                  : Infinity,
-              }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             />
           </div>
 

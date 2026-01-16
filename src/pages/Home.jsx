@@ -276,7 +276,7 @@ const Home = () => {
               }}
             />
             <h1 className="hero-title overflow-visible leading-[1.15] text-4xl md:text-6xl lg:text-7xl mb-6 relative">
-              <span className="hero-title-tilt xmas-hero-glow inline-block">
+              <span className="hero-title-tilt inline-block">
                 <TypingTitle
                   texts={[
                     "Happy Holidays from EmrickScents",
@@ -292,7 +292,7 @@ const Home = () => {
           </div>
 
           <p className="holiday-subtitle holiday-subtitle-space text-xl md:text-1xl max-w-3xl mx-auto">
-            Luxury fragrances crafted with passion and precision for the
+            Luxury fragrances crafted with passion and precision for the <br />
             discerning individual
           </p>
 

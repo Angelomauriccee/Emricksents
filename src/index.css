@@ -513,7 +513,6 @@
   height: 0.9em;
   margin-left: 0.13em;
   background: #f7f7f7;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   animation: caretBlink 1s step-start infinite;
   transform: translateY(0.05em);
 }
@@ -532,7 +531,6 @@
   font-family: "Marcellus", serif;
   color: #f3f0e6; /* warm ivory */
   letter-spacing: 0.02em;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.12); /* subtle Xmas glow */
 }
 
 /* extra spacing under subtitle so the button breathes */
@@ -540,28 +538,6 @@
   margin-bottom: 2.75rem; /* ~mb-11 */
 }
 
-/* CRISP gold text: no blur, no stroke, no filter */
-.xmas-hero-glow--sharp {
-  background: linear-gradient(
-    92deg,
-    #f7f7f7 0%,
-    #f3e8c1 45%,
-    #d4af37 75%,
-    #f7f7f7 100%
-  );
-  background-size: 160% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  /* keep it razor sharp */
-  text-shadow: none;
-  -webkit-text-stroke: 0; /* no stroke halo */
-  filter: none; /* no extra filtering */
-  backface-visibility: hidden; /* fix subpixel shimmer */
-  transform: translateZ(0); /* force layer for sharpness */
-
-  animation: heroFoilSharp 8s ease-in-out infinite;
-}
 @keyframes heroFoilSharp {
   0% {
     background-position: 0% 50%;

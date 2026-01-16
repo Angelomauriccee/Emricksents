@@ -19,7 +19,6 @@ import CookieConsent from "./components/ui/CookieConsent";
 import "./components/enhanced-styles.css";
 import CustomCursor from "./components/features/CustomCursor";
 import NoiseOverlay from "./components/features/NoiseOverlay";
-import FloatingShapes from "./components/features/FloatingShapes";
 import ParticleBackground from "./components/features/ParticleBackground";
 import ScrollAnimations from "./components/features/ScrollAnimations";
 
@@ -32,9 +31,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import StoreLocator from "./pages/StoreLocator";
 import NotFound from "./pages/NotFound";
-
-// holiday themes
-import Snowfall from "./components/season/Snowfall";
 
 // Data (to collect product image URLs)
 import products from "./data/products";
@@ -191,10 +187,8 @@ export default function App() {
           <div className="min-h-screen flex flex-col relative">
             <CustomCursor />
             <NoiseOverlay />
-            <FloatingShapes />
             <ParticleBackground />
             <ScrollAnimations />
-            <Snowfall enabled={true} density={0.2} zIndex={1} />
             <Navbar />
             <ScrollToTop />
             <main className="flex-grow">

@@ -8,7 +8,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SearchOverlay from "../search/SearchOverlay";
 import logoImage from "../../assets/logo.png";
-import HangingHoliday from "../season/HangingHoliday";
 gsap.registerPlugin(ScrollTrigger);
 
 const SearchNavbar = () => {
@@ -242,9 +241,6 @@ const SearchNavbar = () => {
             </button>
           </div>
         </div>
-
-        {/* 🎄 Holiday hangers */}
-        <HangingHoliday isScrolled={isScrolled} />
 
         {/* Enhanced Mega Menu */}
         <AnimatePresence>

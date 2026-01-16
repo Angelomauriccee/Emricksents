@@ -1943,8 +1943,8 @@ const products = [
     name: "Louis Vuitton ombre nomade eau de parfum 100ml",
     category: "",
     type: "Parfum",
-    price: 1380000,
-    originalPrice: null,
+    price: 1280000,
+    originalPrice: 1380000,
     image: "/images/louis-vuitton-ombre-nomade-display.jpeg",
     images: ["/images/louis-vuitton-ombre-nomade-display.jpeg"],
     description:
@@ -2877,14 +2877,14 @@ const products = [
     type: "Parfum",
     price: 215000,
     originalPrice: null,
-    image: "/images/Armani Acqua Di gio pour homme parfum-display.jpeg",
+    image: "/images/January/Armani-Acqua-Di-Gio-Parfum-display.jpg",
     images: [
-      "/images/Armani Acqua Di gio pour homme parfum-display.jpeg",
-      "/images/Armani Beauty Acqua di Giò Profondo Perfume for Men _ Luxury Fresh & Intense Fragrance.jpeg",
-      "/images/Armani Acqua Di gio pour homme parfum-3.jpeg",
+      "/images/January/Armani-Acqua-Di-Gio-Parfum-display.jpg",
+      "/images/January/Armani-Acqua-Di-Gio-Parfum-pack.jpg",
+      "/images/January/Armani-Acqua-Di-Gio-Parfum.jpg",
     ],
     description:
-      "Armani Acqua Di Gio Pour Homme Parfum is a sophisticated aquatic fragrance for men, blending fresh marine accords with aromatic herbs and woody base notes for a timeless, elegant scent.",
+      "Armani Acqua Di Gio Pour Homme Parfum is a refined aquatic fragrance that captures the essence of the sea with fresh marine notes, aromatic herbs, and a warm, woody base for a sophisticated scent.",
     details: {
       topNotes: ["Marine Notes", "Bergamot"],
       heartNotes: ["Rosemary", "Clary Sage", "Geranium"],
@@ -3042,7 +3042,7 @@ const products = [
     image: "/images/october/Intense - Issey Miyake.jpeg",
     images: [
       "/images/october/L'eau De Issey Intense Eau De Toilette Spray 4_2 Oz.jpeg",
-      "/public/images/october/Intense - Issey Miyake.jpeg",
+      "/images/october/Intense - Issey Miyake.jpeg",
     ],
     description:
       "L’Eau d’Issey Pour Homme Intense amplifies the fresh-spicy DNA with vivid citrus and spices over a resinous, incense-amber base.",
@@ -3133,7 +3133,7 @@ const products = [
       baseNotes: ["Vetiver", "Patchouli", "Madagascar Vanilla"],
     },
     size: "80ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3142,7 +3142,7 @@ const products = [
   },
   {
     id: 117,
-    name: "Parfums de Marly Carlisle EDP 125ml",
+    name: "Parfums de Marly Castley EDP 125ml",
     category: "Women's Collection",
     type: "Parfum",
     price: 451000,
@@ -3161,12 +3161,215 @@ const products = [
       baseNotes: ["Patchouli", "Vanilla", "Opoponax"],
     },
     size: "125ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
     ingredients:
       "Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Coumarin, Eugenol, Citral, Cinnamal, Benzyl Alcohol, Green Apple, Nutmeg, Saffron, Rose, Tonka Bean, Osmanthus, Patchouli, Vanilla, Opoponax.",
+  },
+  {
+    id: 118,
+    name: "Maison Crivelli Oud Maracuja 50ml",
+    type: "Woody Oriental",
+    price: 680000, // ₦680,000
+    originalPrice: null,
+    image: "/images/January/Oud-Maracujá-Maison-Crivelli-display.jpg",
+    images: [
+      "/images/January/Oud-Maracujá-Maison-Crivelli-display.jpg",
+      "/images/January/Oud-Maracujá-Maison-Crivelli-pack.jpg",
+      "/images/January/Oud-Maracujá-Maison-Crivelli.jpg",
+    ],
+    description:
+      "An exotic contrast of juicy passion fruit against deep, resinous oud. Zesty brightness melts into a rich, enveloping oud trail for a bold, modern signature.",
+    details: {
+      topNotes: ["Passion Fruit (Maracuja)", "Saffron", "Pink Pepper"],
+      heartNotes: ["Rose", "Osmanthus", "Incense"],
+      baseNotes: ["Oud", "Patchouli", "Vanilla", "Benzoin"],
+    },
+    size: "50ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Citronellol, Geraniol, Coumarin, Benzyl Benzoate, Benzyl Alcohol, Citral.",
+  },
+
+  // 2) Boadicea the Victorious – Blue Sapphire 100ml
+  {
+    id: 119,
+    name: "Boadicea The Victorious Blue Sapphire 100ml",
+    brand: "Boadicea The Victorious",
+    type: "Amber Woody",
+    price: 1300000, // ₦1,300,000
+    originalPrice: null,
+    image: "/images/January/bodacious-the-victorious-display.jpg",
+    images: [
+      "/images/January/bodacious-the-victorious-display.jpg",
+      "/images/January/bodacious-the-victorious-pack.jpg",
+      "/images/January/bodacious-the-victorious.jpg",
+    ],
+    description:
+      "A jewel of saffron, rose, and oud with radiant citrus facets. Opulent, long-lasting and unmistakably regal.",
+    details: {
+      topNotes: ["Lemon", "Chamomile", "Tagetes", "Saffron"],
+      heartNotes: ["Rose", "Jasmine", "Violet"],
+      baseNotes: ["Oud", "Amber", "Patchouli", "Musk"],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Citronellol, Geraniol, Coumarin, Benzyl Benzoate, Benzyl Alcohol, Citral.",
+  },
+
+  // 3) KAYALI – Vanilla Candy Rock Sugar | 42 100ml
+  {
+    id: 120,
+    name: "KAYALI Vanilla Candy Rock Sugar | 42 100ml",
+    brand: "KAYALI",
+    type: "Gourmand Vanilla",
+    price: 350000, // ₦350,000
+    originalPrice: null,
+    image: "/images/January/Kayali-Vanilla-Candy-display.jpg",
+    images: [
+      "/images/January/Kayali-Vanilla-Candy-display.jpg",
+      "/images/January/Kayali-Vanilla-Candy-pack.jpg",
+      "/images/January/Kayali-Vanilla-Candy.jpg",
+    ],
+    description:
+      "Playful, addictive vanilla wrapped in sparkling sugared accords. Fluffy, creamy, and crowd-pleasing with a candied twist.",
+    details: {
+      topNotes: ["Sugar Crystals", "Sparkling Citrus", "Vanilla Orchid"],
+      heartNotes: ["Whipped Cream", "Jasmine", "Praline"],
+      baseNotes: ["Vanilla Bean", "Tonka", "Musk", "Amber Woods"],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Coumarin, Benzyl Benzoate, Benzyl Alcohol, Citral, Vanillin.",
+  },
+
+  // 4) Louis Vuitton – Afternoon Swim 100ml
+  {
+    id: 121,
+    name: "Louis Vuitton Afternoon Swim 100ml",
+    brand: "Louis Vuitton",
+    type: "Citrus Aromatic",
+    price: 1050000, // ₦1,050,000 (you wrote 10,50,000 — I set 1,050,000)
+    originalPrice: null,
+    image: "/images/January/Afternoon-Swim-display.jpg",
+    images: [
+      "/images/January/Afternoon-Swim-display.jpg",
+      "/images/January/Afternoon-Swim-pack.jpg",
+      "/images/January/Afternoon-Swim.jpg",
+    ],
+    description:
+      "An exhilarating splash of sun-lit citrus. Bright orange and bergamot cascade over a clean, modern musk base.",
+    details: {
+      topNotes: ["Orange", "Bergamot", "Mandarin"],
+      heartNotes: ["Ginger", "Sea Breeze Accord"],
+      baseNotes: ["Ambergris Accord", "Musk", "Woody Notes"],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Citral, Geraniol, Citronellol, Benzyl Alcohol.",
+  },
+
+  // 5) Montale – Arabian Rose Leather 100ml
+  {
+    id: 122,
+    name: "Montale Arabian Rose Leather 100ml",
+    brand: "Montale",
+    type: "Leather Floral",
+    price: 1010000, // ₦1,010,000 (you wrote 10,10,000 — I set 1,010,000)
+    originalPrice: null,
+    image: "/images/January/Montale-Arabians-Rose-Leather-Eau-de-Parfum.jpg",
+    images: ["/images/January/Montale-Arabians-Rose-Leather-Eau-de-Parfum.jpg"],
+    description:
+      "Smoldering leather infused with plush rose and ambered woods. A dark, sultry signature with excellent projection.",
+    details: {
+      topNotes: ["Saffron", "Citrus Zest"],
+      heartNotes: ["Rose", "Violet", "Incense"],
+      baseNotes: ["Leather", "Amber", "Oud", "Sandalwood", "Musk"],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Citronellol, Geraniol, Cinnamal, Coumarin, Benzyl Alcohol.",
+  },
+
+  // 6) YSL – Libre Eau de Parfum 90ml
+  {
+    id: 123,
+    name: "YSL Libre Eau de Parfum 90ml",
+    brand: "Yves Saint Laurent",
+    type: "Floral Amber",
+    price: 205000, // ₦205,000
+    originalPrice: null,
+    image: "/images/January/Ysl-libre-eau-de-parfum-display.jpg",
+    images: [
+      "/images/January/Ysl-libre-eau-de-parfum-display.jpg",
+      "/images/January/Ysl-libre-eau-de-parfum-pack.jpg",
+      "/images/January/Ysl-libre-eau-de-parfum.jpg",
+    ],
+    description:
+      "A modern floral built around French lavender and Moroccan orange blossom, warmed with vanilla and amber notes.",
+    details: {
+      topNotes: ["Lavender", "Mandarin", "Petitgrain", "Blackcurrant"],
+      heartNotes: ["Moroccan Orange Blossom", "Jasmine"],
+      baseNotes: ["Vanilla", "Tonka Bean", "Cedar", "Amber"],
+    },
+    size: "90ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Coumarin, Benzyl Salicylate, Citronellol, Geraniol, Benzyl Alcohol.",
+  },
+
+  // 7) Armaf – Club de Nuit Intense Man Parfum Limited Edition Collector’s Pride 105ml
+  {
+    id: 124,
+    name: "Armaf Club de Nuit Intense Man Parfum Limited Edition Collector’s Pride 105ml",
+    brand: "Armaf",
+    type: "Woody Citrus",
+    price: 115000, // ₦115,000
+    originalPrice: null,
+    image:
+      "/images/January/Club-De-Nuit-Intense-limited Edition-Armaf-Men-Pure-Parfum-display.webp",
+    images: [
+      "/images/January/Club-De-Nuit-Intense-limited Edition-Armaf-Men-Pure-Parfum-display.webp",
+      "/images/January/Club-De-Nuit-Intense-limited Edition-Armaf-Men-Pure-Parfum-pack.jpg",
+    ],
+    description:
+      "A brighter, more intense take on the iconic CDNI DNA. Sparkling citrus over smoky woods and musks.",
+    details: {
+      topNotes: ["Lemon", "Pineapple", "Bergamot", "Blackcurrant", "Apple"],
+      heartNotes: ["Birch", "Jasmine", "Rose"],
+      baseNotes: ["Musk", "Ambergris Accord", "Patchouli", "Vanilla"],
+    },
+    size: "105ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients:
+      "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Citral, Coumarin, Benzyl Benzoate, Benzyl Alcohol.",
   },
 ];
 
