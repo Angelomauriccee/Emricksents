@@ -12,7 +12,7 @@ import "./styles/viewport-fixes.css";
 import Navbar from "./components/layout/SearchNavbar";
 import Footer from "./components/layout/ReactiveFooter";
 import ScrollToTop from "./components/ui/ScrollToTop";
-import MinimalistLoader from "./components/ui/MinimalistLoader";
+// import MinimalistLoader from "./components/ui/MinimalistLoader";
 import CookieConsent from "./components/ui/CookieConsent";
 
 // Enhanced features

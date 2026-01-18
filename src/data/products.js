@@ -3292,7 +3292,7 @@ const products = [
     name: "Montale Arabian Rose Leather 100ml",
     brand: "Montale",
     type: "Leather Floral",
-    price: 1010000, // ₦1,010,000 (you wrote 10,10,000 — I set 1,010,000)
+    price: 650000, // ₦650,000
     originalPrice: null,
     image: "/images/January/Montale-Arabians-Rose-Leather-Eau-de-Parfum.jpg",
     images: ["/images/January/Montale-Arabians-Rose-Leather-Eau-de-Parfum.jpg"],
