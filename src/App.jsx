@@ -1,17 +1,18 @@
 // src/App.jsx
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import { CartProvider } from "./context/CartContext";
 import { FilterProvider } from "./context/FilterContext";
 import { SearchProvider } from "./context/SearchContext";
+// main.jsx or App.jsx
 import "./styles/viewport-fixes.css";
 
 import Navbar from "./components/layout/SearchNavbar";
 import Footer from "./components/layout/ReactiveFooter";
 import ScrollToTop from "./components/ui/ScrollToTop";
-// import MinimalistLoader from "./components/ui/MinimalistLoader";
+import MinimalistLoader from "./components/ui/MinimalistLoader";
 import CookieConsent from "./components/ui/CookieConsent";
 
 // Enhanced features
@@ -37,12 +38,18 @@ import products from "./data/products";
 // Videos to preload (import your local assets here)
 const heroVideo =
   "https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4";
+// If you add more local videos, import them and push into VIDEO_ASSETS below
+// import storeLocatorVideo from './assets/video/store-locator.mp4';
 
 const CRITICAL_IMAGES = [
   "https://res.cloudinary.com/drtmoxle9/video/upload/v1761010055/store-locator_cqwekj.mp4",
+  // Add any other must-show images here
 ];
 
-const VIDEO_ASSETS = [heroVideo];
+const VIDEO_ASSETS = [
+  heroVideo,
+  // storeLocatorVideo,
+];
 
 const PRELOAD_VIDEO = true;
 
@@ -59,6 +66,7 @@ function preloadImage(url) {
 function preloadVideo(url) {
   return new Promise((resolve) => {
     const v = document.createElement("video");
+    // Safest signal that enough buffered to start quickly
     const onReady = () => cleanup(resolve({ ok: true }));
     const onError = () => cleanup(resolve({ ok: false }));
 
@@ -70,74 +78,21 @@ function preloadVideo(url) {
     };
 
     v.preload = "auto";
-    v.muted = true;
+    v.muted = true; // helps Safari/iOS behavior
     v.src = url;
 
+    // whichever fires first
     v.addEventListener("canplaythrough", onReady, { once: true });
     v.addEventListener("loadeddata", onReady, { once: true });
     v.addEventListener("error", onError, { once: true });
   });
 }
 
-// Layout component to handle per-route loading
-const AppLayout = ({ children }) => {
-  const location = useLocation();
-  const [isNavigating, setIsNavigating] = useState(false);
-
-  useEffect(() => {
-    // Trigger loading when route changes
-    setIsNavigating(true);
-    const timer = setTimeout(() => {
-      setIsNavigating(false);
-    }, 300); // Adjust duration as needed (match your loader animation)
-
-    return () => clearTimeout(timer);
-  }, [location.pathname]);
-
-  // Optional: lock scroll during navigation
-  useEffect(() => {
-    if (!isNavigating) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [isNavigating]);
-
-  return (
-    <>
-      {/* Navigation Loader */}
-      <AnimatePresence>
-        {isNavigating && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          ></motion.div>
-        )}
-      </AnimatePresence>
-
-      <div className="min-h-screen flex flex-col relative">
-        <CustomCursor />
-        <NoiseOverlay />
-        <ParticleBackground />
-        <ScrollAnimations />
-        <Navbar />
-        <ScrollToTop />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <CookieConsent />
-      </div>
-    </>
-  );
-};
-
 export default function App() {
-  const [setIsLoading] = useState(true);
+  const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
   const [hasVisited, setHasVisited] = useState(false);
-  const [setProgress] = useState(0);
+  const [progress, setProgress] = useState(0); // 0–100
 
   // One-time “visited” flag
   useEffect(() => {
@@ -149,14 +104,16 @@ export default function App() {
     }
   }, []);
 
-  // Initial app load preloader (only runs once)
+  // Loader gate: preload assets + min/max timing
   useEffect(() => {
     let finished = false;
 
-    const MIN_MS = 2000;
-    const MAX_MS = 18000;
+    // Feel free to tweak:
+    const MIN_MS = 2000; // minimum time to show loader
+    const MAX_MS = 18000; // hard cap so users are never stuck
     const includeVideos = PRELOAD_VIDEO;
 
+    // Collect product images (unique)
     const productImages = [
       ...new Set(
         (products ?? []).flatMap((p) => p?.images || []).filter(Boolean)
@@ -164,28 +121,36 @@ export default function App() {
     ];
 
     const imagesToLoad = [...CRITICAL_IMAGES, ...productImages];
+
+    // Build all preload promises
+    const imagePromises = imagesToLoad.map((url) =>
+      preloadImage(url).then(() => tick())
+    );
+
+    const videoPromises = includeVideos
+      ? VIDEO_ASSETS.map((url) => preloadVideo(url).then(() => tick()))
+      : [];
+
+    // For progress tracking:
     const totalCount =
       imagesToLoad.length + (includeVideos ? VIDEO_ASSETS.length : 0);
     let loadedCount = 0;
-
     function tick() {
       loadedCount += 1;
       const pct = Math.round((loadedCount / Math.max(totalCount, 1)) * 100);
       setProgress(Math.min(100, Math.max(0, pct)));
     }
 
+    // If there’s nothing to preload, still respect MIN_MS
     if (totalCount === 0) setProgress(100);
 
     const minDelay = new Promise((res) => setTimeout(res, MIN_MS));
-    const imagePromises = imagesToLoad.map((url) =>
-      preloadImage(url).then(() => tick())
-    );
-    const videoPromises = includeVideos
-      ? VIDEO_ASSETS.map((url) => preloadVideo(url).then(() => tick()))
-      : [];
     const allAssets = Promise.all([...imagePromises, ...videoPromises]);
+
+    // Hard timeout to never exceed MAX_MS
     const hardCap = new Promise((res) => setTimeout(res, MAX_MS));
 
+    // Wait for: (assets AND minDelay) OR hardCap (whichever first)
     Promise.race([Promise.all([allAssets, minDelay]), hardCap]).then(() => {
       if (!finished) {
         finished = true;
@@ -197,32 +162,53 @@ export default function App() {
     return () => {
       finished = true;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasVisited]);
 
-  // // Show the initial loader until gate flips
-  // if (isLoading) {
-  //   return <MinimalistLoader isLoading={isLoading} progress={progress} />;
-  // }
+  // Optional: lock scroll while loading
+  useEffect(() => {
+    if (!isLoading) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isLoading]);
+
+  // Show the loader until gate flips
+  if (isLoading) {
+    return <MinimalistLoader isLoading={isLoading} progress={progress} />;
+  }
 
   return (
     <CartProvider>
       <FilterProvider>
         <SearchProvider>
-          <AppLayout>
-            <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Home />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/product/:slug" element={<ProductDetails />} />
-                <Route path="/p/:slug" element={<ProductDetails />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/store-locator" element={<StoreLocator />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AnimatePresence>
-          </AppLayout>
+          <div className="min-h-screen flex flex-col relative">
+            <CustomCursor />
+            <NoiseOverlay />
+            <ParticleBackground />
+            <ScrollAnimations />
+            <Navbar />
+            <ScrollToTop />
+            <main className="flex-grow">
+              <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/shop" element={<Shop />} />
+                  <Route path="/product/:slug" element={<ProductDetails />} />
+                  <Route path="/p/:slug" element={<ProductDetails />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/store-locator" element={<StoreLocator />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </AnimatePresence>
+            </main>
+            <Footer />
+            <CookieConsent />
+          </div>
         </SearchProvider>
       </FilterProvider>
     </CartProvider>
