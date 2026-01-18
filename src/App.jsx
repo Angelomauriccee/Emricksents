@@ -11,7 +11,7 @@ import "./styles/viewport-fixes.css";
 import Navbar from "./components/layout/SearchNavbar";
 import Footer from "./components/layout/ReactiveFooter";
 import ScrollToTop from "./components/ui/ScrollToTop";
-import MinimalistLoader from "./components/ui/MinimalistLoader";
+// import MinimalistLoader from "./components/ui/MinimalistLoader";
 import CookieConsent from "./components/ui/CookieConsent";
 
 // Enhanced features
@@ -115,9 +115,7 @@ const AppLayout = ({ children }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-          >
-            <MinimalistLoader isLoading={true} progress={100} />
-          </motion.div>
+          ></motion.div>
         )}
       </AnimatePresence>
 
@@ -137,9 +135,9 @@ const AppLayout = ({ children }) => {
 };
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [setIsLoading] = useState(true);
   const [hasVisited, setHasVisited] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [setProgress] = useState(0);
 
   // One-time “visited” flag
   useEffect(() => {
@@ -201,10 +199,10 @@ export default function App() {
     };
   }, [hasVisited]);
 
-  // Show the initial loader until gate flips
-  if (isLoading) {
-    return <MinimalistLoader isLoading={isLoading} progress={progress} />;
-  }
+  // // Show the initial loader until gate flips
+  // if (isLoading) {
+  //   return <MinimalistLoader isLoading={isLoading} progress={progress} />;
+  // }
 
   return (
     <CartProvider>
