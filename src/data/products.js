@@ -3453,7 +3453,7 @@ const products = [
     type: "", // optional
     price: 75000,
     originalPrice: null,
-    image: "/images/January/Shanghaf-Vanilla-Toffee-display.jpg", // ⬅️ replace
+    image: "/images/January/Shaghaf-Vanilla-Toffee-display.jpg", // ⬅️ replace
     images: [
       "/images/January/Shaghaf-Vanilla-Toffee-display.jpg",
       "/images/January/Shaghaf-Vanilla-Toffee-pack.jpg",
