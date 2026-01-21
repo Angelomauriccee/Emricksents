@@ -3188,7 +3188,7 @@ const products = [
       baseNotes: ["Oud", "Patchouli", "Vanilla", "Benzoin"],
     },
     size: "50ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3218,7 +3218,7 @@ const products = [
       baseNotes: ["Oud", "Amber", "Patchouli", "Musk"],
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3248,7 +3248,7 @@ const products = [
       baseNotes: ["Vanilla Bean", "Tonka", "Musk", "Amber Woods"],
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3278,7 +3278,7 @@ const products = [
       baseNotes: ["Ambergris Accord", "Musk", "Woody Notes"],
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3304,7 +3304,7 @@ const products = [
       baseNotes: ["Leather", "Amber", "Oud", "Sandalwood", "Musk"],
     },
     size: "100ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3334,7 +3334,7 @@ const products = [
       baseNotes: ["Vanilla", "Tonka Bean", "Cedar", "Amber"],
     },
     size: "90ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
@@ -3364,12 +3364,139 @@ const products = [
       baseNotes: ["Musk", "Ambergris Accord", "Patchouli", "Vanilla"],
     },
     size: "105ml",
-    isNew: true,
+    isNew: false,
     discount: null,
     inStock: true,
     featured: false,
     ingredients:
       "Alcohol Denat., Parfum (Fragrance), Aqua/Water, Limonene, Linalool, Citral, Coumarin, Benzyl Benzoate, Benzyl Alcohol.",
+  },
+  {
+    id: 125,
+    name: "Lattafa Emeer EDP 100ml",
+    type: "Oriental, Woody", // optional: e.g., "Oriental", "Woody"
+    price: 75000,
+    originalPrice: null,
+    image: "/public/images/January/Perfume-Emmer-Lattafa-display.jpg", // ⬅️ replace
+    images: [
+      "/public/images/January/Perfume-Emmer-Lattafa-display.jpg",
+      "/public/images/January/Perfume-Emmer-Lattafa-pack.jpg",
+    ],
+    description:
+      "A bold, modern blend from Lattafa with a luxurious profile suitable for signature wear.",
+    details: {
+      topNotes: ["Sandalwood", "Cardamom", "Cinnamon"],
+      heartNotes: ["Rose", "Jasmine", "Orange Blossom"],
+      baseNotes: ["Oud", "Vanilla", "Musk"],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients: "",
+  },
+  {
+    id: 126,
+    name: "Swiss Arabian Opulence of Dubai Extrait de Parfum 100ml",
+    type: "", // optional
+    price: 75000,
+    originalPrice: null,
+    image: "/public/images/January/Opulence-Of-Dubai-display.jpg", // ⬅️ replace
+    images: [
+      "/public/images/January/Opulence-Of-Dubai-display.jpg",
+      "/public/images/January/Opulence-Of-Dubai-pack.jpg",
+      "/public/images/January/Opulence-Of-Dubai.jpg",
+    ],
+    description:
+      "An opulent Extrait de Parfum with rich Middle Eastern accents and long-lasting presence.",
+    details: {
+      topNotes: [],
+      heartNotes: [],
+      baseNotes: [],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients: "",
+  },
+  {
+    id: 127,
+    name: "Swiss Arabian Soul of Bali Extrait de Parfum",
+    type: "", // optional
+    price: 75000,
+    originalPrice: null,
+    image: "/public/images/January/Soul-Of-Bali-display.jpg", // ⬅️ replace
+    images: [
+      "/public/images/January/Soul-Of-Bali-display.jpg",
+      "/public/images/January/Soul-Of-Bali-pack.jpg",
+    ],
+    description:
+      "Exotic, airy, and luminous—an extrait inspired by tropical escapes and carefree elegance.",
+    details: {
+      topNotes: [],
+      heartNotes: [],
+      baseNotes: [],
+    },
+    size: "100ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients: "",
+  },
+  {
+    id: 128,
+    name: "Shanghaf Vanilla Toffee EDP 75ml",
+    type: "", // optional
+    price: 75000,
+    originalPrice: null,
+    image: "/public/images/January/Shanghaf-Vanilla-Toffee-display.jpg", // ⬅️ replace
+    images: [
+      "/public/images/January/Shaghaf-Vanilla-Toffee-display.jpg",
+      "/public/images/January/Shaghaf-Vanilla-Toffee-pack.jpg",
+      "/public/images/January/Shaghaf-Vanilla-Toffee.jpg",
+    ],
+    description:
+      "A delicious vanilla-toffee gourmand with a cozy, addictive trail.",
+    details: {
+      topNotes: [],
+      heartNotes: [],
+      baseNotes: [],
+    },
+    size: "75ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients: "",
+  },
+  {
+    id: 129,
+    name: "Ajmal Rhythm of Oud 75ml",
+    type: "Oud", // optional
+    price: 85000,
+    originalPrice: null,
+    image: "/public/images/January/Rhythm-Of-Oud-display.jpg", // ⬅️ replace
+    images: [
+      "/public/images/January/Rhythm-Of-Oud-display.jpg",
+      "/public/images/January/Rhythm-Of-Oudh-pack.jpg",
+    ],
+    description:
+      "Resinous oud with smooth warmth—elegant and confidently refined.",
+    details: {
+      topNotes: [],
+      heartNotes: [],
+      baseNotes: [],
+    },
+    size: "75ml",
+    isNew: true,
+    discount: null,
+    inStock: true,
+    featured: false,
+    ingredients: "",
   },
 ];
 
