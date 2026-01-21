@@ -3377,10 +3377,10 @@ const products = [
     type: "Oriental, Woody", // optional: e.g., "Oriental", "Woody"
     price: 75000,
     originalPrice: null,
-    image: "/public/images/January/Perfume-Emmer-Lattafa-display.jpg", // ⬅️ replace
+    image: "/images/January/Perfume-Emmer-Lattafa-display.jpg", // ⬅️ replace
     images: [
-      "/public/images/January/Perfume-Emmer-Lattafa-display.jpg",
-      "/public/images/January/Perfume-Emmer-Lattafa-pack.jpg",
+      "/images/January/Perfume-Emmer-Lattafa-display.jpg",
+      "/images/January/Perfume-Emmer-Lattafa-pack.jpg",
     ],
     description:
       "A bold, modern blend from Lattafa with a luxurious profile suitable for signature wear.",
@@ -3402,11 +3402,11 @@ const products = [
     type: "", // optional
     price: 75000,
     originalPrice: null,
-    image: "/public/images/January/Opulence-Of-Dubai-display.jpg", // ⬅️ replace
+    image: "/images/January/Opulence-Of-Dubai-display.jpg", // ⬅️ replace
     images: [
-      "/public/images/January/Opulence-Of-Dubai-display.jpg",
-      "/public/images/January/Opulence-Of-Dubai-pack.jpg",
-      "/public/images/January/Opulence-Of-Dubai.jpg",
+      "/images/January/Opulence-Of-Dubai-display.jpg",
+      "/images/January/Opulence-Of-Dubai-pack.jpg",
+      "/images/January/Opulence-Of-Dubai.jpg",
     ],
     description:
       "An opulent Extrait de Parfum with rich Middle Eastern accents and long-lasting presence.",
@@ -3428,10 +3428,10 @@ const products = [
     type: "", // optional
     price: 75000,
     originalPrice: null,
-    image: "/public/images/January/Soul-Of-Bali-display.jpg", // ⬅️ replace
+    image: "/images/January/Soul-Of-Bali-display.jpg", // ⬅️ replace
     images: [
-      "/public/images/January/Soul-Of-Bali-display.jpg",
-      "/public/images/January/Soul-Of-Bali-pack.jpg",
+      "/images/January/Soul-Of-Bali-display.jpg",
+      "/images/January/Soul-Of-Bali-pack.jpg",
     ],
     description:
       "Exotic, airy, and luminous—an extrait inspired by tropical escapes and carefree elegance.",
@@ -3453,11 +3453,11 @@ const products = [
     type: "", // optional
     price: 75000,
     originalPrice: null,
-    image: "/public/images/January/Shanghaf-Vanilla-Toffee-display.jpg", // ⬅️ replace
+    image: "/images/January/Shanghaf-Vanilla-Toffee-display.jpg", // ⬅️ replace
     images: [
-      "/public/images/January/Shaghaf-Vanilla-Toffee-display.jpg",
-      "/public/images/January/Shaghaf-Vanilla-Toffee-pack.jpg",
-      "/public/images/January/Shaghaf-Vanilla-Toffee.jpg",
+      "/images/January/Shaghaf-Vanilla-Toffee-display.jpg",
+      "/images/January/Shaghaf-Vanilla-Toffee-pack.jpg",
+      "/images/January/Shaghaf-Vanilla-Toffee.jpg",
     ],
     description:
       "A delicious vanilla-toffee gourmand with a cozy, addictive trail.",
@@ -3479,10 +3479,10 @@ const products = [
     type: "Oud", // optional
     price: 85000,
     originalPrice: null,
-    image: "/public/images/January/Rhythm-Of-Oud-display.jpg", // ⬅️ replace
+    image: "/images/January/Rhythm-Of-Oud-display.jpg", // ⬅️ replace
     images: [
-      "/public/images/January/Rhythm-Of-Oud-display.jpg",
-      "/public/images/January/Rhythm-Of-Oudh-pack.jpg",
+      "/images/January/Rhythm-Of-Oud-display.jpg",
+      "/images/January/Rhythm-Of-Oudh-pack.jpg",
     ],
     description:
       "Resinous oud with smooth warmth—elegant and confidently refined.",
