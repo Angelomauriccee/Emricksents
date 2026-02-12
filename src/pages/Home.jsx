@@ -1,9 +1,10 @@
+import BuildYourBox from "./box/BuildYourBox";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiInstagram } from "react-icons/fi";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import TypingTitle from "../components/hero/TypingTitle";
+// import TypingTitle from "../components/hero/TypingTitle";
 import SectionTitle from "../components/ui/SectionTitle";
 import Button from "../components/ui/Button";
 import ProductCard from "../components/product/EnhancedProductCard";
@@ -16,10 +17,29 @@ import {
 } from "react-icons/fi";
 // ✅ Import your promo grid
 import PopularBrandWordmarks from "../components/brands/PopularBrandWordmarks";
+import HeroCarousel from "../components/hero/HeroCarousel";
+import BuildYourBoxBanner from "../components/banners/BuildYourBoxBanner";
+const slides = [
+  {
+    id: "vday-box",
+    image: "/public/valentineprops/origin.PNG",
+    mobile: "/public/valentineprops/origin.PNG",
+  },
+  {
+    id: "new-arrivals",
+    image: "/public/valentineprops/valentine.png",
+    mobile: "/public/valentineprops/valentine.png",
+  },
+  {
+    id: "signature",
+    image: "/public/valentineprops/EMRICKSCENTS.png",
+    mobile: "/public/valentineprops/EMRICKSCENTS.png",
+  },
+];
 
 // 👉 Import the video as a local asset (Vite will bundle & serve it)
-const heroVideo =
-  "https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4";
+// const heroVideo =
+//   "https://res.cloudinary.com/drtmoxle9/video/upload/v1760953291/mixkit-spraying-a-perfume-sample-in-a-store-21980-hd-ready_ofse1v.mp4";
 
 const visitVideo =
   "https://res.cloudinary.com/drtmoxle9/video/upload/v1760993254/WhatsApp_Video_2025-10-03_at_12.17.56_9ff62370_my13ne.mp4";
@@ -90,19 +110,19 @@ const Home = () => {
       .fromTo(
         ".hero-title",
         { y: 50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.5 }
+        { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.5 },
       )
       .fromTo(
         ".hero-subtitle",
         { y: 30, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
-        "-=0.6"
+        "-=0.6",
       )
       .fromTo(
         ".hero-button",
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" },
-        "-=0.4"
+        "-=0.4",
       );
 
     // Featured products animation
@@ -120,7 +140,7 @@ const Home = () => {
           start: "top bottom-=100",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     // Scroll-triggered animations
@@ -137,7 +157,7 @@ const Home = () => {
           start: "top bottom-=100",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     gsap.fromTo(
@@ -153,7 +173,7 @@ const Home = () => {
           start: "top bottom-=100",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     gsap.fromTo(
@@ -169,7 +189,7 @@ const Home = () => {
           start: "top bottom-=100",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     // Instagram posts animation
@@ -187,7 +207,7 @@ const Home = () => {
           start: "top bottom-=100",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     // Parallax effect
@@ -234,74 +254,34 @@ const Home = () => {
       transition={{ duration: 0.5 }}
     >
       {/* Hero Section */}
+      {/* CRITICAL: Spacer matching navbar's INITIAL height */}
+      <div
+        className="h-[10rem]
+      md:h-[10rem]
+      lg:h-[9rem]
+      pointer-events-none
+      aria-hidden"
+        aria-hidden="true"
+      ></div>
       <section
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden"
       >
         {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          {/* The video itself */}
-          <video
-            ref={videoRef}
-            src={heroVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover"
-            onError={(e) => {
-              // eslint-disable-next-line no-console
-              console.error(
-                "Hero video failed to load/play",
-                e?.currentTarget?.error
-              );
-            }}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            Your browser does not support the video tag.
-          </video>
+            {/* HERO CAROUSEL */}
+            <HeroCarousel slides={slides} />
 
-          {/* Dark scrim on top of video */}
-          <div className="absolute inset-0 bg-black/50 z-10 pointer-events-none" />
-        </div>
-
-        {/* Hero Content */}
-        <div className="container-custom relative z-20 text-center">
-          <div className="relative inline-block">
-            <div
-              className="absolute -inset-x-6 -inset-y-2 blur-2xl opacity-30 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(60% 60% at 50% 50%, rgba(212,175,55,.25), transparent 70%)",
-              }}
-            />
-            <h1 className="hero-title overflow-visible leading-[1.15] text-4xl md:text-6xl lg:text-7xl mb-6 relative">
-              <span className="hero-title-tilt inline-block">
-                <TypingTitle
-                  texts={[
-                    "Happy Holidays from EmrickScents",
-                    "Shop Scents of the Season",
-                  ]}
-                  typeSpeed={70}
-                  deleteSpeed={40}
-                  pauseMs={1200}
-                  className="inline-block"
-                />
-              </span>
-            </h1>
-          </div>
-
-          <p className="holiday-subtitle holiday-subtitle-space text-xl md:text-1xl max-w-3xl mx-auto">
-            Luxury fragrances crafted with passion and precision for the <br />
-            discerning individual
-          </p>
-
-          <div className="hero-button">
-            <Button to="/shop" variant="primary" size="lg" className="mx-auto">
-              <span>Explore Collection</span>
-              <FiArrowRight className="ml-2" />
-            </Button>
-          </div>
+            {/* Optional: place the headline/CTA block inside the carousel slides (recommended).
+          If you want to keep your existing title/paragraph buttons below, render them here. */}
+            {/* ...rest of your page (PopularBrandWordmarks, Featured, etc.) */}
+          </motion.div>
         </div>
 
         {/* Scroll Indicator */}
@@ -314,7 +294,7 @@ const Home = () => {
         {/* --- SVG Wave Divider (sway) --- */}
         {/* Make sure this color matches the next section background.
             If 'text-dark' doesn't exist in your theme, replace it with your hex, e.g. text-[#0b0b0b]. */}
-        <div
+        {/* <div
           className="pointer-events-none absolute bottom-0 left-0 w-full leading-none z-30 text-dark"
           aria-hidden="true"
         >
@@ -328,9 +308,10 @@ const Home = () => {
               fill="currentColor"
             />
           </svg>
-        </div>
+        </div> */}
       </section>
 
+      <BuildYourBoxBanner />
       <PopularBrandWordmarks />
       {/* Featured Products Section */}
       <section ref={featuredRef} className="py-20 bg-dark">
@@ -503,7 +484,7 @@ const Home = () => {
             // eslint-disable-next-line no-console
             console.error(
               "Visit video failed to load/play",
-              e?.currentTarget?.error
+              e?.currentTarget?.error,
             );
           }}
         />

@@ -54,11 +54,11 @@ const SearchNavbar = () => {
         duration: 1,
         ease: "power3.out",
         delay: 0.5,
-      }
+      },
     );
   }, []);
 
-  const navbarClasses = `navbar fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+  const navbarClasses = `navbar fixed left-0 w-full z-50 transition-all duration-300 ${
     isScrolled
       ? "bg-dark bg-opacity-95 backdrop-blur-md shadow-lg py-3"
       : "bg-transparent py-6"
@@ -140,7 +140,10 @@ const SearchNavbar = () => {
 
   return (
     <>
-      <header className={navbarClasses}>
+      <header
+        className={navbarClasses}
+        style={{ top: "var(--announce-h, 0px)" }}
+      >
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="z-10">

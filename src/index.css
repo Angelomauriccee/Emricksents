@@ -240,7 +240,9 @@
   opacity: 0.92;
   line-height: 1.1;
   white-space: nowrap; /* avoid wrapping (e.g., YSL) */
-  transition: letter-spacing 0.25s ease, opacity 0.25s ease,
+  transition:
+    letter-spacing 0.25s ease,
+    opacity 0.25s ease,
     transform 0.25s ease;
   will-change: transform, opacity;
 
@@ -302,7 +304,13 @@
 }
 /* Louis Vuitton */
 .word-louisvuitton {
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -323,14 +331,25 @@
 }
 /* Tom Ford */
 .word-tomford {
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 /* Calvin Klein */
 .word-calvinklein {
-  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto,
+  font-family:
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
     sans-serif;
   font-weight: 300;
   letter-spacing: 0.04em;
@@ -392,7 +411,8 @@
   bottom: -0.4em;
   height: 6px;
   pointer-events: none;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       2px 2px at 12% 50%,
       rgba(255, 255, 255, 0.75) 0,
       transparent 60%
@@ -478,7 +498,8 @@
   -webkit-background-clip: text;
   background-clip: text;
 
-  text-shadow: 0 0 24px rgba(212, 175, 55, 0.28),
+  text-shadow:
+    0 0 24px rgba(212, 175, 55, 0.28),
     0 0 48px rgba(212, 175, 55, 0.16);
 
   animation: heroFoil 8s ease-in-out infinite;
@@ -576,4 +597,17 @@
   .brand-rail {
     --brand-gap: 36px;
   }
+}
+
+@keyframes subtleSway {
+  0%,
+  100% {
+    transform: rotate(-0.7deg);
+  }
+  50% {
+    transform: rotate(0.7deg);
+  }
+}
+.ribbon-sway {
+  animation: subtleSway 6s ease-in-out infinite;
 }

@@ -14,14 +14,16 @@ import Footer from "./components/layout/ReactiveFooter";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import MinimalistLoader from "./components/ui/MinimalistLoader";
 import CookieConsent from "./components/ui/CookieConsent";
-
+import AnnounceBar from "./components/valentine/announcementBar";
 // Enhanced features
 import "./components/enhanced-styles.css";
 import CustomCursor from "./components/features/CustomCursor";
 import NoiseOverlay from "./components/features/NoiseOverlay";
 import ParticleBackground from "./components/features/ParticleBackground";
 import ScrollAnimations from "./components/features/ScrollAnimations";
-
+import CornerRibbon from "./components/valentine/cornerRibbon";
+import BottomLeftAccent from "./components/valentine/BottomLeftAccent";
+import FloatingHearts from "./components/valentine/FloatingHearts";
 // Pages
 import Home from "./pages/Home";
 import Shop from "./pages/ReactiveShop";
@@ -31,6 +33,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import StoreLocator from "./pages/StoreLocator";
 import NotFound from "./pages/NotFound";
+import BuildYourBox from "./pages/box/BuildYourBox";
 
 // Data (to collect product image URLs)
 import products from "./data/products";
@@ -116,7 +119,7 @@ export default function App() {
     // Collect product images (unique)
     const productImages = [
       ...new Set(
-        (products ?? []).flatMap((p) => p?.images || []).filter(Boolean)
+        (products ?? []).flatMap((p) => p?.images || []).filter(Boolean),
       ),
     ];
 
@@ -124,7 +127,7 @@ export default function App() {
 
     // Build all preload promises
     const imagePromises = imagesToLoad.map((url) =>
-      preloadImage(url).then(() => tick())
+      preloadImage(url).then(() => tick()),
     );
 
     const videoPromises = includeVideos
@@ -188,7 +191,19 @@ export default function App() {
             <CustomCursor />
             <NoiseOverlay />
             <ParticleBackground />
+            <FloatingHearts />
             <ScrollAnimations />
+            {/* particles behind navbar/ribbon; tune count for perf */}
+
+            <CornerRibbon />
+            {/* Bottom-left accent (mobile + desktop) */}
+            <BottomLeftAccent
+              width={100}
+              // mobile shows; if you want different sizes per breakpoint:
+              // className="md:scale-[1.15]"
+            />
+
+            <AnnounceBar />
             <Navbar />
             <ScrollToTop />
             <main className="flex-grow">
@@ -202,6 +217,7 @@ export default function App() {
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/store-locator" element={<StoreLocator />} />
+                  <Route path="/build-your-box" element={<BuildYourBox />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </AnimatePresence>

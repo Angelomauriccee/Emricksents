@@ -1,16 +1,27 @@
-import { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { FiTrash2, FiMinus, FiPlus, FiArrowLeft, FiShoppingBag } from 'react-icons/fi';
-import gsap from 'gsap';
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  FiTrash2,
+  FiMinus,
+  FiPlus,
+  FiArrowLeft,
+  FiShoppingBag,
+} from "react-icons/fi";
+import gsap from "gsap";
 
-import Button from '../components/ui/Button';
-import { useCart } from '../context/CartContext';
-import { slugify } from '../utils/slugify';
+import Button from "../components/ui/Button";
+import { useCart } from "../context/CartContext";
+import { slugify } from "../utils/slugify";
 
 const Cart = () => {
-  const { cart: cartItems, updateQuantity: updateCartQuantity, removeFromCart, getTotalPrice } = useCart();
-  
+  const {
+    cart: cartItems,
+    updateQuantity: updateCartQuantity,
+    removeFromCart,
+    getTotalPrice,
+  } = useCart();
+
   const cartRef = useRef(null);
   const summaryRef = useRef(null);
 
@@ -32,38 +43,43 @@ const Cart = () => {
   // Handle WhatsApp checkout
   const handleWhatsAppCheckout = () => {
     if (cartItems.length === 0) return;
-    
-    const itemsList = cartItems.map(item => 
-      `- ${item.product.name} (${item.quantity} x $${item.product.price.toFixed(2)})`
-    ).join('\n');
-    
+
+    const itemsList = cartItems
+      .map(
+        (item) =>
+          `- ${item.product.name} (${item.quantity} x $${item.product.price.toFixed(2)})`,
+      )
+      .join("\n");
+
     const message = encodeURIComponent(
       `Hello, I would like to place an order:\n\n` +
-      `${itemsList}\n\n` +
-      `Subtotal: $${subtotal.toFixed(2)}\n` +
-      `Shipping: $${shipping.toFixed(2)}\n` +
-      `Total: $${total.toFixed(2)}\n\n` +
-      `Please provide me with payment details.`
+        `${itemsList}\n\n` +
+        `Subtotal: $${subtotal.toFixed(2)}\n` +
+        `Shipping: $${shipping.toFixed(2)}\n` +
+        `Total: $${total.toFixed(2)}\n\n` +
+        `Please provide me with payment details.`,
     );
-    
-    window.open(`https://wa.me/1234567890?text=${message}`, '_blank');
+
+    window.open(`https://wa.me/1234567890?text=${message}`, "_blank");
   };
 
   // GSAP animations
   useEffect(() => {
     if (cartRef.current && summaryRef.current) {
       const timeline = gsap.timeline();
-      
-      timeline.fromTo(
-        cartRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
-      ).fromTo(
-        summaryRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-        '-=0.6'
-      );
+
+      timeline
+        .fromTo(
+          cartRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+        )
+        .fromTo(
+          summaryRef.current,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+          "-=0.6",
+        );
     }
   }, []);
 
@@ -76,7 +92,9 @@ const Cart = () => {
       className="min-h-screen bg-primary py-32"
     >
       <div className="container-custom">
-        <h1 className="text-3xl md:text-4xl font-serif text-light mb-8">Your Shopping Cart</h1>
+        <h1 className="text-3xl md:text-4xl font-serif text-light mb-8">
+          Your Shopping Cart
+        </h1>
 
         {cartItems.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -91,55 +109,119 @@ const Cart = () => {
                 </div>
 
                 {cartItems.map((item) => (
-                  <div 
+                  <div
                     key={item.id}
                     className="grid grid-cols-1 md:grid-cols-12 gap-4 p-6 border-b border-gray-800 items-center"
                   >
-                    {/* Product */}
+                    {/* Product  */}
                     <div className="col-span-1 md:col-span-6">
-                      <div className="flex items-center space-x-4">
-                        <Link to={`/product/${slugify(item.name)}`} className="block w-20 h-20 bg-gray-900 rounded-md overflow-hidden">
-                          <img 
-                            src={item.image} 
-                            alt={item.name} 
+                      <div className="flex items-start space-x-4">
+                        {" "}
+                        {/* Changed to items-start for description alignment */}
+                        <Link
+                          to={
+                            item.isBundle
+                              ? "/build-your-box"
+                              : `/product/${slugify(item.name)}`
+                          }
+                          className="block w-20 h-20 bg-gray-900 rounded-md overflow-hidden flex-shrink-0"
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.name}
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.target.src = "/images/placeholder-box.jpg";
+                            }} // Fallback image
                           />
                         </Link>
-                        <div>
-                          <Link to={`/product/${slugify(item.name)}`} className="text-light hover:text-secondary transition-colors">
-                            {item.name}
-                          </Link>
-                          <p className="text-gray-400 text-sm mt-1">{item.size}</p>
+                        <div className="flex-1 min-w-0">
+                          {item.isBundle ? (
+                            <div>
+                              {/* BUNDLE NAME AS CLICKABLE LINK */}
+                              <Link
+                                to="/build-your-box"
+                                className="text-light hover:text-amber-300 transition-colors font-bold flex items-center group"
+                              >
+                                {item.name}
+                                <svg
+                                  className="ml-2 w-4 h-4 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                                  />
+                                </svg>
+                              </Link>
+
+                              {/* BUNDLE DETAILS - EXACT FORMAT YOU SPECIFIED */}
+                              <div className="mt-2 text-xs text-gray-300 whitespace-pre-line bg-gray-900/40 border-l-2 border-amber-500/30 pl-3 py-2 rounded-r font-mono leading-relaxed">
+                                {item.description}
+                              </div>
+                            </div>
+                          ) : (
+                            <div>
+                              <Link
+                                to={`/product/${slugify(item.name)}`}
+                                className="text-light hover:text-secondary transition-colors block"
+                              >
+                                {item.name}
+                              </Link>
+                              {item.size && (
+                                <p className="text-gray-400 text-sm mt-1">
+                                  {item.size}
+                                </p>
+                              )}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
-
                     {/* Price */}
                     <div className="col-span-1 md:col-span-2 flex md:block items-center justify-between">
                       <span className="md:hidden text-gray-400">Price:</span>
-                      <span className="text-light">${item.price.toFixed(2)}</span>
+                      <span className="text-light">
+                        ${item.price.toFixed(2)}
+                      </span>
                     </div>
 
-                    {/* Quantity */}
+                    {/* Quantity - DISABLED FOR BUNDLES */}
                     <div className="col-span-1 md:col-span-2 flex md:justify-center items-center justify-between">
                       <span className="md:hidden text-gray-400">Quantity:</span>
-                      <div className="flex items-center border border-gray-700 rounded-md">
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="px-2 py-1 text-gray-400 hover:text-secondary transition-colors"
-                          disabled={item.quantity <= 1}
-                        >
-                          <FiMinus size={14} />
-                        </button>
-                        <span className="px-3 py-1 text-light">{item.quantity}</span>
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="px-2 py-1 text-gray-400 hover:text-secondary transition-colors"
-                          disabled={item.quantity >= 10}
-                        >
-                          <FiPlus size={14} />
-                        </button>
-                      </div>
+                      {item.isBundle ? (
+                        <span className="px-4 py-2 text-amber-300 font-medium bg-gray-900/50 rounded-md border border-amber-500/20">
+                          Bundle
+                        </span>
+                      ) : (
+                        <div className="flex items-center border border-gray-700 rounded-md">
+                          <button
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity - 1)
+                            }
+                            className="px-2 py-1 text-gray-400 hover:text-secondary transition-colors"
+                            disabled={item.quantity <= 1}
+                          >
+                            <FiMinus size={14} />
+                          </button>
+                          <span className="px-3 py-1 text-light">
+                            {item.quantity}
+                          </span>
+                          <button
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity + 1)
+                            }
+                            className="px-2 py-1 text-gray-400 hover:text-secondary transition-colors"
+                            disabled={item.quantity >= 10}
+                          >
+                            <FiPlus size={14} />
+                          </button>
+                        </div>
+                      )}
                     </div>
 
                     {/* Total */}
@@ -148,7 +230,7 @@ const Cart = () => {
                       <span className="text-secondary font-medium">
                         ${(item.price * item.quantity).toFixed(2)}
                       </span>
-                      <button 
+                      <button
                         onClick={() => removeItem(item.id)}
                         className="text-gray-400 hover:text-red-500 transition-colors"
                         aria-label="Remove item"
@@ -161,8 +243,8 @@ const Cart = () => {
               </div>
 
               <div className="mt-8">
-                <Link 
-                  to="/shop" 
+                <Link
+                  to="/shop"
                   className="inline-flex items-center text-gray-400 hover:text-secondary transition-colors"
                 >
                   <FiArrowLeft className="mr-2" />
@@ -174,8 +256,10 @@ const Cart = () => {
             {/* Order Summary */}
             <div ref={summaryRef} className="lg:col-span-1">
               <div className="bg-dark rounded-lg p-6 sticky top-32">
-                <h2 className="text-xl font-serif text-light mb-6">Order Summary</h2>
-                
+                <h2 className="text-xl font-serif text-light mb-6">
+                  Order Summary
+                </h2>
+
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Subtotal</span>
@@ -187,13 +271,15 @@ const Cart = () => {
                   </div>
                   <div className="border-t border-gray-800 pt-4 flex justify-between">
                     <span className="text-light font-medium">Total</span>
-                    <span className="text-secondary font-medium">${total.toFixed(2)}</span>
+                    <span className="text-secondary font-medium">
+                      ${total.toFixed(2)}
+                    </span>
                   </div>
                 </div>
-                
-                <Button 
-                  variant="primary" 
-                  size="lg" 
+
+                <Button
+                  variant="primary"
+                  size="lg"
                   className="w-full flex items-center justify-center"
                   onClick={handleWhatsAppCheckout}
                   disabled={cartItems.length === 0}
@@ -201,7 +287,7 @@ const Cart = () => {
                   <FiShoppingBag className="mr-2" />
                   <span>Checkout with WhatsApp</span>
                 </Button>
-                
+
                 <p className="text-gray-400 text-sm mt-4 text-center">
                   Secure checkout powered by WhatsApp
                 </p>
@@ -213,7 +299,9 @@ const Cart = () => {
             <div className="w-20 h-20 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-6">
               <FiShoppingBag size={32} className="text-gray-400" />
             </div>
-            <h2 className="text-2xl font-serif text-light mb-4">Your cart is empty</h2>
+            <h2 className="text-2xl font-serif text-light mb-4">
+              Your cart is empty
+            </h2>
             <p className="text-gray-400 mb-8">
               Looks like you haven't added any perfumes to your cart yet.
             </p>
