@@ -22,18 +22,18 @@ import BuildYourBoxBanner from "../components/banners/BuildYourBoxBanner";
 const slides = [
   {
     id: "vday-box",
-    image: "/public/valentineprops/origin.PNG",
-    mobile: "/public/valentineprops/origin.PNG",
+    image: "/valentineprops/origin.PNG",
+    mobile: "/valentineprops/origin.PNG",
   },
   {
     id: "new-arrivals",
-    image: "/public/valentineprops/valentine.png",
-    mobile: "/public/valentineprops/valentine.png",
+    image: "/valentineprops/valentine.png",
+    mobile: "/valentineprops/valentine.png",
   },
   {
     id: "signature",
-    image: "/public/valentineprops/EMRICKSCENTS.png",
-    mobile: "/public/valentineprops/EMRICKSCENTS.png",
+    image: "/valentineprops/EMRICKSCENTS.png",
+    mobile: "/valentineprops/EMRICKSCENTS.png",
   },
 ];
 

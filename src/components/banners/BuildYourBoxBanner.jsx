@@ -98,7 +98,7 @@ const BuildYourBoxBanner = () => {
             className="relative"
           >
             <img
-              src="/public/valentineprops/origin-2.PNG"
+              src="/valentineprops/origin-2.PNG"
               alt="Valentine's Build Your Box"
               className="w-full h-auto object-contain p-4 md:p-8"
               loading="lazy"

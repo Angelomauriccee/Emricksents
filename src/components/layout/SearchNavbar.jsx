@@ -310,11 +310,7 @@ const SearchNavbar = () => {
           >
             <div className="flex flex-col h-full pt-24 px-6 pb-8">
               <div className="flex justify-center mb-8">
-                <img
-                  src={logoImage}
-                  alt="EmerickScents Logo"
-                  className="h-16"
-                />
+                <img className="h-16" />
               </div>
               <nav className="flex flex-col space-y-6 text-center">
                 <Link
