@@ -101,7 +101,16 @@ const EnhancedCart = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-primary py-32"
     >
-      <div className="container-custom">
+      <div className="container-custom mt-14">
+        <div className="mb-5">
+          <Link
+            to="/shop"
+            className="inline-flex items-center text-gray-400 hover:text-secondary transition-colors"
+          >
+            <FiArrowLeft className="mr-2" />
+            <span>Continue Shopping</span>
+          </Link>
+        </div>
         <h1 className="text-3xl md:text-4xl font-serif text-light mb-8">
           Your Shopping Cart
         </h1>
@@ -250,16 +259,6 @@ const EnhancedCart = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div className="mt-8">
-                <Link
-                  to="/shop"
-                  className="inline-flex items-center text-gray-400 hover:text-secondary transition-colors"
-                >
-                  <FiArrowLeft className="mr-2" />
-                  <span>Continue Shopping</span>
-                </Link>
               </div>
             </div>
 

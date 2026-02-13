@@ -106,6 +106,23 @@ const BuildYourBox = () => {
 
   useEffect(() => setIsMounted(true), []);
 
+  // Prevent background scroll when ANY modal is open
+  useEffect(() => {
+    if (isModalOpen || isSpecialModalOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none"; // Prevents iOS rubber-band scrolling
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.touchAction = "auto";
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.touchAction = "auto";
+    };
+  }, [isModalOpen, isSpecialModalOpen]);
+
   // Handlers
   const openProductModal = (slotIndex) => {
     setSelectedSlotIndex(slotIndex);
@@ -213,8 +230,8 @@ const BuildYourBox = () => {
       quantity: 1,
       image:
         activeBox === "red"
-          ? "/images/red-valentine-box.jpg"
-          : "/images/black-valentine-box.jpg",
+          ? "/valentineprops/val-box-female.png"
+          : "/valentineprops/val-box-male.png",
       category: "Valentine Bundle",
       isBundle: true,
       bundleItems: Object.values(productMap),
@@ -242,7 +259,7 @@ const BuildYourBox = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 sm:p-4 backdrop-blur-sm"
             onClick={closeProductModal}
           >
             {/* Star particles in modal background */}
@@ -266,7 +283,7 @@ const BuildYourBox = () => {
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="bg-[#0a0a0a] rounded-3xl w-full max-w-6xl max-h-[90vh] overflow-hidden shadow-2xl border border-amber-500/10 relative"
+              className="bg-[#0a0a0a] rounded-3xl w-full max-w-6xl max-h-[90vh] overflow-y-auto shadow-2xl border border-amber-500/10 relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header - Website Theme */}
@@ -294,7 +311,7 @@ const BuildYourBox = () => {
               </div>
 
               {/* Product Grid - Minimalist Luxury Cards */}
-              <div className="p-6 max-h-[70vh] overflow-y-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredProducts.map((product) => (
                   <motion.div
                     key={product.id}
@@ -609,7 +626,7 @@ const BuildYourBox = () => {
                   whileHover={{ x: -5 }} // ✅ REMOVED backgroundColor
                   whileTap={{ scale: 0.95 }}
                   onClick={() => navigate(-1)}
-                  className="absolute left-0 top-4 flex items-center text-gray-300 hover:text-amber-300 transition-colors"
+                  className="absolute left-5 top-4 flex items-center text-gray-300 hover:text-amber-300 transition-colors"
                 >
                   <svg
                     className="h-5 w-5 mr-2 flex-shrink-0"
