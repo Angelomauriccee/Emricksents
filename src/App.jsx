@@ -21,7 +21,7 @@ import CustomCursor from "./components/features/CustomCursor";
 import NoiseOverlay from "./components/features/NoiseOverlay";
 import ParticleBackground from "./components/features/ParticleBackground";
 import ScrollAnimations from "./components/features/ScrollAnimations";
-import CornerRibbon from "./components/valentine/cornerRibbon";
+// import CornerRibbon from "./components/valentine/cornerRibbon";
 import BottomLeftAccent from "./components/valentine/BottomLeftAccent";
 import FloatingHearts from "./components/valentine/FloatingHearts";
 // Pages
@@ -195,7 +195,6 @@ export default function App() {
             <ScrollAnimations />
             {/* particles behind navbar/ribbon; tune count for perf */}
 
-            <CornerRibbon />
             {/* Bottom-left accent (mobile + desktop) */}
             <BottomLeftAccent
               width={100}
