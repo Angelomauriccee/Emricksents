@@ -88,14 +88,12 @@ export default function HeroCarousel({ slides = [] }) {
                 src={active.image}
                 alt={active.alt}
                 fetchpriority="high"
-                className="
-              w-full 
-              h-full 
-              object-cover 
-              object-center
-              md:object-[center_35%]
-              lg:object-center
-            "
+                className="hero-carousel-image w-full h-full object-contain object-center min-w-full max-w-full"
+                style={{
+                  minHeight: "60vh",
+                  maxHeight: "800px",
+                  width: "100%",
+                }}
                 loading="eager"
               />
             </picture>

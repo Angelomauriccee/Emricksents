@@ -106,22 +106,7 @@ const BuildYourBox = () => {
 
   useEffect(() => setIsMounted(true), []);
 
-  // Prevent background scroll when ANY modal is open
-  useEffect(() => {
-    if (isModalOpen || isSpecialModalOpen) {
-      document.body.style.overflow = "hidden";
-      document.body.style.touchAction = "none"; // Prevents iOS rubber-band scrolling
-    } else {
-      document.body.style.overflow = "auto";
-      document.body.style.touchAction = "auto";
-    }
-
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = "auto";
-      document.body.style.touchAction = "auto";
-    };
-  }, [isModalOpen, isSpecialModalOpen]);
+  // Prevent background scroll when modal is open
 
   // Handlers
   const openProductModal = (slotIndex) => {
@@ -259,12 +244,12 @@ const BuildYourBox = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 sm:p-4 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/90 z-[100] flex items-start md:items-center justify-center p-0 backdrop-blur-sm"
             onClick={closeProductModal}
           >
-            {/* Star particles in modal background */}
+            {/* Particles (reduced for mobile performance) */}
             <div className="fixed inset-0 pointer-events-none">
-              {[...Array(50)].map((_, i) => (
+              {[...Array(30)].map((_, i) => (
                 <div
                   key={i}
                   className="absolute bg-white rounded-full"
@@ -279,91 +264,89 @@ const BuildYourBox = () => {
               ))}
             </div>
 
+            {/* MODAL CONTAINER - SEARCH OVERLAY STYLE */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              className="bg-[#0a0a0a] rounded-3xl w-full max-w-6xl max-h-[90vh] overflow-y-auto shadow-2xl border border-amber-500/10 relative"
+              className="bg-[#0a0a0a] rounded-3xl w-full h-full md:max-w-6xl md:h-auto md:max-h-[90vh] overflow-y-auto flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal Header - Website Theme */}
-              <div className="p-6 border-b border-gray-800 bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a]">
-                <div className="flex justify-between items-center">
+              {/* Header */}
+              <div className="p-4 sm:p-6 border-b border-gray-800 bg-gradient-to-r from-[#0a0a0a] to-[#1a1a1a] sticky top-0 z-10">
+                <div className="flex items-start justify-between">
                   <div>
-                    <h2 className="text-3xl font-serif font-bold text-white">
+                    <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white">
                       Select {activeBox === "red" ? "Her" : "His"} Fragrance
                     </h2>
-                    <p className="text-white mt-1 text-lg">
-                      Curated luxury collection{" "}
-                      <span className="text-amber-300/80">
-                        • {filteredProducts.length} items
-                      </span>
+                    <p className="text-amber-300 mt-1 text-sm sm:text-base">
+                      Curated luxury collection • {filteredProducts.length}{" "}
+                      items
                     </p>
                   </div>
                   <button
                     onClick={closeProductModal}
-                    className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white flex items-center justify-center hover:from-red-600 hover:to-rose-700 transition-all shadow-lg hover:shadow-red-500/40 border-2 border-red-400/30"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-red-500 to-rose-600 text-white flex items-center justify-center hover:from-red-600 hover:to-rose-700 transition-all shadow-lg border-2 border-red-400/30 flex-shrink-0"
                     title="Close"
                   >
-                    <span className="text-2xl font-bold">&times;</span>
+                    <span className="text-xl sm:text-2xl font-bold">
+                      &times;
+                    </span>
                   </button>
                 </div>
               </div>
 
-              {/* Product Grid - Minimalist Luxury Cards */}
-              <div className="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {filteredProducts.map((product) => (
-                  <motion.div
-                    key={product.id}
-                    whileHover={{ y: -8 }}
-                    whileTap={{ scale: 0.99 }}
-                    onClick={() => handleProductSelect(product)}
-                    className="group cursor-pointer"
-                  >
-                    {/* Card Container */}
-                    <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-800 overflow-hidden transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/10">
-                      {/* Product Image - Full Container */}
-                      <div className="relative h-56 bg-[#0a0a0a] overflow-hidden">
+              {/* Scrollable Content */}
+              <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6">
+                {/* Responsive Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                  {filteredProducts.map((product) => (
+                    <motion.div
+                      key={product.id}
+                      whileHover={{ y: -4 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => handleProductSelect(product)}
+                      className="group cursor-pointer bg-gray-900/50 rounded-xl border border-gray-800 overflow-hidden transition-all hover:border-amber-500/40"
+                    >
+                      <div className="relative h-48 sm:h-56 bg-[#0a0a0a] overflow-hidden">
                         <img
                           src={product.image}
                           alt={product.name}
-                          className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+                          className="w-full h-full object-contain p-2 sm:p-4 transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
-
-                      {/* Product Details - Clean & Minimalist */}
-                      <div className="p-5">
-                        <div className="flex justify-between items-start mb-3">
-                          <h3 className="font-serif font-bold text-xl text-white leading-tight">
+                      <div className="p-3 sm:p-4">
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="font-serif font-bold text-base sm:text-lg text-white line-clamp-1">
                             {product.name}
                           </h3>
-                          <span className="px-3 py-1 bg-gradient-to-r from-amber-500/10 to-rose-500/10 text-amber-300 text-xs font-medium rounded-full border border-amber-500/20">
+                          <span className="px-2 py-1 bg-gradient-to-r from-amber-500/10 to-rose-500/10 text-amber-300 text-[10px] sm:text-xs font-medium rounded-full border border-amber-500/20 whitespace-nowrap">
                             {product.category.split(" ")[0]}
                           </span>
                         </div>
-
-                        <div className="space-y-3 mt-4 pt-4 border-t border-gray-800/50">
+                        <div className="space-y-2 mt-3 pt-2 border-t border-gray-800/50">
                           <div className="flex justify-between items-center">
-                            <span className="text-gray-400 text-sm">Price</span>
-                            <span className="font-bold text-amber-300 text-xl">
+                            <span className="text-[10px] sm:text-xs text-gray-400">
+                              Price
+                            </span>
+                            <span className="font-bold text-amber-300 text-sm sm:text-base">
                               ₦{product.price.toLocaleString()}
                             </span>
                           </div>
-
-                          <div className="flex items-center justify-between pt-2">
-                            <div className="flex items-center space-x-2">
-                              <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-                              <span className="text-xs text-gray-400">
+                          <div className="flex items-center justify-between pt-1">
+                            <div className="flex items-center space-x-1.5">
+                              <div className="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                              <span className="text-[10px] sm:text-xs text-gray-400">
                                 Just for {activeBox === "red" ? "Her" : "Him"}
                               </span>
                             </div>
-                            <div className="flex items-center space-x-2 bg-gradient-to-r from-rose-500/10 to-amber-500/10 px-4 py-2 rounded-full border border-amber-500/20">
-                              <span className="text-amber-300 font-medium text-sm">
+                            <div className="flex items-center space-x-1.5 bg-gradient-to-r from-rose-500/10 to-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+                              <span className="text-amber-300 font-medium text-[10px] sm:text-xs">
                                 Select
                               </span>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-4 w-4 text-amber-300"
+                                className="h-3 w-3 sm:h-4 sm:w-4 text-amber-300"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -379,36 +362,38 @@ const BuildYourBox = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Empty State - Luxury Design */}
-              {filteredProducts.length === 0 && (
-                <div className="p-20 text-center">
-                  <div className="text-7xl mb-6 animate-pulse">✨</div>
-                  <h3 className="text-3xl font-serif font-bold text-white mb-4">
-                    Collection Unavailable
-                  </h3>
-                  <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                    Our curated {activeBox === "red" ? "women's" : "men's"}{" "}
-                    luxury collection is being prepared with care. Check back
-                    soon for an exquisite selection of fragrances.
-                  </p>
-                  <div className="mt-8 flex justify-center space-x-4">
-                    <button
-                      onClick={closeProductModal}
-                      className="px-8 py-4 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-medium hover:bg-gray-700 transition-colors border border-gray-700"
-                    >
-                      Return to Builder
-                    </button>
-                    <button className="px-8 py-4 bg-gradient-to-r from-rose-500 to-amber-500 text-white rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg">
-                      Notify Me When Available
-                    </button>
-                  </div>
+                    </motion.div>
+                  ))}
                 </div>
-              )}
+
+                {/* Empty State */}
+                {filteredProducts.length === 0 && (
+                  <div className="text-center py-12 sm:py-20">
+                    <div className="text-5xl sm:text-7xl mb-4 sm:mb-6 animate-pulse">
+                      ✨
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white mb-3">
+                      Collection Unavailable
+                    </h3>
+                    <p className="text-base sm:text-lg text-gray-300 max-w-xl mx-auto px-2">
+                      Our curated {activeBox === "red" ? "women's" : "men's"}{" "}
+                      luxury collection is being prepared with care. Check back
+                      soon for an exquisite selection.
+                    </p>
+                    <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-center gap-3 px-2">
+                      <button
+                        onClick={closeProductModal}
+                        className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl font-medium hover:bg-gray-700 transition-colors border border-gray-700"
+                      >
+                        Return to Builder
+                      </button>
+                      <button className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-rose-500 to-amber-500 text-white rounded-xl font-medium hover:opacity-90 transition-opacity shadow-lg">
+                        Notify Me When Available
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </motion.div>
           </motion.div>
         )}
@@ -475,16 +460,18 @@ const BuildYourBox = () => {
                 </div>
               </div>
 
-              <div className="p-6 max-h-[70vh] overflow-y-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {filteredProducts.map((product) => (
                   <motion.div
                     key={product.id}
                     whileHover={{ y: -8 }}
                     whileTap={{ scale: 0.99 }}
-                    onClick={() => handleSpecialItemSelect(product)}
+                    onClick={() => handleSpecialItemSelect(product)} // ✅ CORRECT HANDLER
                     className="group cursor-pointer"
                   >
-                    <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-800 overflow-hidden transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl">
+                    {/* Card Container */}
+                    <div className="bg-gradient-to-br from-gray-900/50 to-black rounded-2xl border border-gray-800 overflow-hidden transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/10">
+                      {/* Product Image - Full Container */}
                       <div className="relative h-56 bg-[#0a0a0a] overflow-hidden">
                         <img
                           src={product.image}
@@ -492,13 +479,14 @@ const BuildYourBox = () => {
                           className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
+                      {/* Product Details - Clean & Minimalist */}
                       <div className="p-5">
                         <div className="flex justify-between items-start mb-3">
                           <h3 className="font-serif font-bold text-xl text-white leading-tight">
                             {product.name}
                           </h3>
                           <span className="px-3 py-1 bg-gradient-to-r from-amber-500/10 to-rose-500/10 text-amber-300 text-xs font-medium rounded-full border border-amber-500/20">
-                            Special
+                            {product.category.split(" ")[0]}
                           </span>
                         </div>
                         <div className="space-y-3 mt-4 pt-4 border-t border-gray-800/50">
@@ -512,7 +500,7 @@ const BuildYourBox = () => {
                             <div className="flex items-center space-x-2">
                               <div className="w-2 h-2 rounded-full bg-amber-400"></div>
                               <span className="text-xs text-gray-400">
-                                Limited Edition
+                                Just for {activeBox === "red" ? "Her" : "Him"}
                               </span>
                             </div>
                             <div className="flex items-center space-x-2 bg-gradient-to-r from-rose-500/10 to-amber-500/10 px-4 py-2 rounded-full border border-amber-500/20">
@@ -927,17 +915,9 @@ const BuildYourBox = () => {
                                     </div>
                                   </div>
                                 ) : (
-                                  <div className="w-full h-full flex flex-col items-center justify-center space-y-2">
-                                    <div className="text-4xl text-amber-300 animate-pulse">
-                                      ✨
-                                    </div>
-                                    <div className="space-y-1 text-center px-2">
-                                      <p className="text-sm font-medium text-amber-300">
-                                        Add Fragrance
-                                      </p>
-                                      <p className="text-xs text-amber-400/70">
-                                        Click to select
-                                      </p>
+                                  <div className="w-full h-full flex items-center justify-center">
+                                    <div className="w-8 h-8 rounded-full border-2 border-dashed border-amber-400/50 flex items-center justify-center text-amber-300 text-2xl font-bold">
+                                      +
                                     </div>
                                   </div>
                                 )}
@@ -1039,17 +1019,9 @@ const BuildYourBox = () => {
                           </div>
                         </div>
                       ) : (
-                        <div className="text-center space-y-2">
-                          <div className="text-4xl text-amber-300 animate-pulse">
-                            ✨
-                          </div>
-                          <div className="space-y-1">
-                            <p className="text-sm font-medium text-amber-300">
-                              Add Special Item
-                            </p>
-                            <p className="text-xs text-amber-400/70">
-                              Click to select
-                            </p>
+                        <div className="w-full h-full flex items-center justify-center">
+                          <div className="w-8 h-8 rounded-full border-2 border-dashed border-amber-400/50 flex items-center justify-center text-amber-300 text-2xl font-bold">
+                            +
                           </div>
                         </div>
                       )}
