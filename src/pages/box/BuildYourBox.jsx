@@ -645,7 +645,7 @@ const BuildYourBox = () => {
                 <span
                   className={`ml-2 bg-clip-text text-transparent ${colors.red.gradient}`}
                 >
-                  Valentine's Box
+                  Box
                 </span>
               </motion.h1>
 

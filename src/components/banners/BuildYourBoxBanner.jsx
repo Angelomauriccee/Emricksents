@@ -31,7 +31,7 @@ const BuildYourBoxBanner = () => {
           >
             Craft Your{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-400 to-amber-400">
-              Valentine's Box
+              Box
             </span>
           </motion.h2>
 

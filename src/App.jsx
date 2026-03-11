@@ -14,16 +14,13 @@ import Footer from "./components/layout/ReactiveFooter";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import MinimalistLoader from "./components/ui/MinimalistLoader";
 import CookieConsent from "./components/ui/CookieConsent";
-import AnnounceBar from "./components/valentine/announcementBar";
 // Enhanced features
 import "./components/enhanced-styles.css";
 import CustomCursor from "./components/features/CustomCursor";
 import NoiseOverlay from "./components/features/NoiseOverlay";
 import ParticleBackground from "./components/features/ParticleBackground";
 import ScrollAnimations from "./components/features/ScrollAnimations";
-// import CornerRibbon from "./components/valentine/cornerRibbon";
-import BottomLeftAccent from "./components/valentine/BottomLeftAccent";
-import FloatingHearts from "./components/valentine/FloatingHearts";
+
 // Pages
 import Home from "./pages/Home";
 import Shop from "./pages/ReactiveShop";
@@ -191,18 +188,11 @@ export default function App() {
             <CustomCursor />
             <NoiseOverlay />
             <ParticleBackground />
-            <FloatingHearts />
             <ScrollAnimations />
             {/* particles behind navbar/ribbon; tune count for perf */}
 
             {/* Bottom-left accent (mobile + desktop) */}
-            <BottomLeftAccent
-              width={100}
-              // mobile shows; if you want different sizes per breakpoint:
-              // className="md:scale-[1.15]"
-            />
 
-            <AnnounceBar />
             <Navbar />
             <ScrollToTop />
             <main className="flex-grow">

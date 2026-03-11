@@ -22,18 +22,13 @@ import BuildYourBoxBanner from "../components/banners/BuildYourBoxBanner";
 const slides = [
   {
     id: "vday-box",
-    image: "/valentineprops/origin.PNG",
-    mobile: "/valentineprops/origin.PNG",
+    image: "/valentineprops/origin.png",
+    mobile: "/valentineprops/origin.png",
   },
   {
     id: "new-arrivals",
     image: "/valentineprops/valentine.png",
     mobile: "/valentineprops/valentine.png",
-  },
-  {
-    id: "signature",
-    image: "/valentineprops/EMRICKSCENTS.png",
-    mobile: "/valentineprops/EMRICKSCENTS.png",
   },
 ];
 
@@ -256,8 +251,8 @@ const Home = () => {
       {/* Hero Section */}
       {/* CRITICAL: Spacer matching navbar's INITIAL height */}
       <div
-        className="h-[10rem]
-      md:h-[10rem]
+        className="h-[5rem]
+      md:h-[6rem]
       lg:h-[9rem]
       pointer-events-none
       aria-hidden"

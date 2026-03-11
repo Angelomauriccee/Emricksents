@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { FiArrowUp } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { FiArrowUp } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,15 +22,15 @@ const ScrollToTop = () => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   // Scroll to top function
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 

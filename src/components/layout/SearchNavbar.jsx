@@ -140,17 +140,14 @@ const SearchNavbar = () => {
 
   return (
     <>
-      <header
-        className={navbarClasses}
-        style={{ top: "var(--announce-h, 0px)" }}
-      >
+      <header className={navbarClasses}>
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="z-10">
             <img
               src={logoImage}
               alt="EmerickScents Logo"
-              className="h-12 md:h-14"
+              className="h-12 md:h-12"
             />
           </Link>
 
