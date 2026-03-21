@@ -11,9 +11,12 @@ import ProductCard from "../components/product/EnhancedProductCard";
 import Button from "../components/ui/Button";
 import products from "../data/products";
 
+const ITEMS_PER_PAGE = 24;
+
 const ReactiveShop = () => {
   const [searchParams] = useSearchParams();
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const {
     activeFilters,
@@ -39,7 +42,8 @@ const ReactiveShop = () => {
   const priceRanges = [
     { label: "All Prices", value: "" },
     { label: "Under ₦100,000", value: "0-100000" },
-    { label: "₦300,000 - ₦500,000", value: "300000-500000" },
+    { label: "₦100,000 – ₦300,000", value: "100000-300000" },
+    { label: "₦300,000 – ₦500,000", value: "300000-500000" },
     { label: "Above ₦500,000", value: "500000-10000000" },
   ];
 
@@ -148,6 +152,7 @@ const ReactiveShop = () => {
 
     const filteredResults = filterAndSortProducts();
     setFilteredProducts(filteredResults);
+    setVisibleCount(ITEMS_PER_PAGE); // Reset pagination on filter change
   }, [activeFilters, searchParams, filterAndSortProducts]);
 
   // Get dynamic title
@@ -421,7 +426,7 @@ const ReactiveShop = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProducts.length > 0 ? (
-                filteredProducts.map((product) => (
+                filteredProducts.slice(0, visibleCount).map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))
               ) : (
@@ -435,6 +440,18 @@ const ReactiveShop = () => {
                 </div>
               )}
             </div>
+
+            {/* Load More */}
+            {visibleCount < filteredProducts.length && (
+              <div className="flex justify-center mt-10">
+                <Button
+                  variant="outline"
+                  onClick={() => setVisibleCount((n) => n + ITEMS_PER_PAGE)}
+                >
+                  Load More ({filteredProducts.length - visibleCount} remaining)
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

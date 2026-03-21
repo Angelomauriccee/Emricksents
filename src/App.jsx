@@ -32,8 +32,6 @@ import StoreLocator from "./pages/StoreLocator";
 import NotFound from "./pages/NotFound";
 import BuildYourBox from "./pages/box/BuildYourBox";
 
-// Data (to collect product image URLs)
-import products from "./data/products";
 
 // Videos to preload (import your local assets here)
 const heroVideo =
@@ -74,7 +72,7 @@ function preloadVideo(url) {
       v.removeEventListener("canplaythrough", onReady);
       v.removeEventListener("loadeddata", onReady);
       v.removeEventListener("error", onError);
-      done;
+      done?.();
     };
 
     v.preload = "auto";
@@ -113,14 +111,8 @@ export default function App() {
     const MAX_MS = 18000; // hard cap so users are never stuck
     const includeVideos = PRELOAD_VIDEO;
 
-    // Collect product images (unique)
-    const productImages = [
-      ...new Set(
-        (products ?? []).flatMap((p) => p?.images || []).filter(Boolean),
-      ),
-    ];
-
-    const imagesToLoad = [...CRITICAL_IMAGES, ...productImages];
+    // Only preload critical hero assets — product images (~400-600) load lazily
+    const imagesToLoad = [...CRITICAL_IMAGES];
 
     // Build all preload promises
     const imagePromises = imagesToLoad.map((url) =>
@@ -162,7 +154,6 @@ export default function App() {
     return () => {
       finished = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasVisited]);
 
   // Optional: lock scroll while loading

@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Environment variables (keep secrets out of version control)
+.env
+.env.local
+.env.*.local
+
+# Backup files
+*.bak
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

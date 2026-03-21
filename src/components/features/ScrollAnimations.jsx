@@ -2,10 +2,13 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+// Note: gsap.registerPlugin(ScrollTrigger) is called once globally in main.jsx
 
 const ScrollAnimations = () => {
   useEffect(() => {
+    // Track all triggers created in THIS effect so cleanup is scoped
+    const localTriggers = [];
+
     // Hero entrance animation
     const heroTimeline = gsap.timeline();
     
@@ -43,139 +46,75 @@ const ScrollAnimations = () => {
       const xPercent = (clientX / innerWidth - 0.5) * 2;
       const yPercent = (clientY / innerHeight - 0.5) * 2;
 
-      // Apply subtle parallax to hero elements
       gsap.to('.hero-title', {
         x: xPercent * 10,
         y: yPercent * 10,
         duration: 1,
-        ease: 'easeOut'
+        ease: 'power2.out'
       });
 
       gsap.to('.hero-subtitle', {
         x: xPercent * 5,
         y: yPercent * 5,
         duration: 1,
-        ease: 'easeOut'
+        ease: 'power2.out'
       });
 
-      // Parallax for cards and elements
       gsap.to('.parallax-card', {
         x: xPercent * 5,
         y: yPercent * 5,
         duration: 1,
-        ease: 'easeOut'
+        ease: 'power2.out'
       });
     };
 
     document.addEventListener('mousemove', handleMouseMove);
 
-    // Scroll-triggered animations
+    // Scroll-triggered animations — track each trigger
     gsap.utils.toArray('.fade-in-section').forEach(section => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
+      const st = ScrollTrigger.create({
+        trigger: section,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse',
+        onEnter: () => gsap.fromTo(section, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
       });
-    });
-
-    // Stagger animations for product cards
-    gsap.utils.toArray('.product-card').forEach((card, index) => {
-      gsap.from(card, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: index * 0.1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 85%',
-          end: 'bottom 15%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
-
-    // Hover effects for buttons and cards
-    gsap.utils.toArray('.hover-target').forEach(element => {
-      element.addEventListener('mouseenter', () => {
-        gsap.to(element, {
-          scale: 1.05,
-          duration: 0.3,
-          ease: 'easeOut'
-        });
-      });
-
-      element.addEventListener('mouseleave', () => {
-        gsap.to(element, {
-          scale: 1,
-          duration: 0.3,
-          ease: 'easeOut'
-        });
-      });
-    });
-
-    // Social icons hover effects
-    gsap.utils.toArray('.social-icon').forEach(icon => {
-      icon.addEventListener('mouseenter', () => {
-        gsap.to(icon, {
-          y: -5,
-          duration: 0.3,
-          ease: 'easeOut'
-        });
-      });
-
-      icon.addEventListener('mouseleave', () => {
-        gsap.to(icon, {
-          y: 0,
-          duration: 0.3,
-          ease: 'easeOut'
-        });
-      });
+      localTriggers.push(st);
     });
 
     // Text reveal animations
     gsap.utils.toArray('.text-reveal').forEach(text => {
-      gsap.from(text, {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: text,
-          start: 'top 85%',
-          end: 'bottom 15%',
-          toggleActions: 'play none none reverse'
-        }
+      const st = ScrollTrigger.create({
+        trigger: text,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleActions: 'play none none reverse',
+        onEnter: () => gsap.fromTo(text, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' })
       });
+      localTriggers.push(st);
     });
 
     // Counter animations
     gsap.utils.toArray('.counter-animation').forEach(counter => {
-      const finalValue = parseInt(counter.textContent);
-      gsap.from(counter, {
-        textContent: 0,
-        duration: 2,
-        ease: 'power3.out',
-        snap: { textContent: 1 },
-        scrollTrigger: {
-          trigger: counter,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse'
-        }
+      const st = ScrollTrigger.create({
+        trigger: counter,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        toggleActions: 'play none none reverse',
+        onEnter: () => gsap.from(counter, {
+          textContent: 0,
+          duration: 2,
+          ease: 'power3.out',
+          snap: { textContent: 1 }
+        })
       });
+      localTriggers.push(st);
     });
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      // Only kill triggers we created — not every trigger in the app
+      localTriggers.forEach(trigger => trigger.kill());
     };
   }, []);
 

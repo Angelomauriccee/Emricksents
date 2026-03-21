@@ -1,4 +1,3 @@
-import BuildYourBox from "./box/BuildYourBox";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiInstagram } from "react-icons/fi";
@@ -24,11 +23,13 @@ const slides = [
     id: "vday-box",
     image: "/valentineprops/origin.png",
     mobile: "/valentineprops/origin.png",
+    alt: "EmrickScents luxury perfume collection",
   },
   {
     id: "new-arrivals",
     image: "/valentineprops/valentine.png",
     mobile: "/valentineprops/valentine.png",
+    alt: "New arrivals — exclusive fragrances for the season",
   },
 ];
 
@@ -38,8 +39,6 @@ const slides = [
 
 const visitVideo =
   "https://res.cloudinary.com/drtmoxle9/video/upload/v1760993254/WhatsApp_Video_2025-10-03_at_12.17.56_9ff62370_my13ne.mp4";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const heroRef = useRef(null);

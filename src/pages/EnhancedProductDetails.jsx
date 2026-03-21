@@ -20,7 +20,7 @@ import products from '../data/products';
 import { slugify, findProductBySlug } from '../utils/slugify';
 
 const EnhancedProductDetails = () => {
-  const { id, slug } = useParams();
+  const { slug } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
@@ -35,21 +35,20 @@ const EnhancedProductDetails = () => {
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
-  // Resolve product (slug preferred, fallback to numeric id)
+  // Resolve product from slug
   useEffect(() => {
-    let foundProduct;
-    const paramSlug = slug || id;
+    if (!slug) {
+      navigate('/shop');
+      return;
+    }
 
-    if (paramSlug) {
-      foundProduct = findProductBySlug(products, paramSlug);
+    let foundProduct = findProductBySlug(products, slug);
 
-      if (!foundProduct && !isNaN(parseInt(paramSlug))) {
-        foundProduct = products.find((p) => p.id === parseInt(paramSlug));
-        if (foundProduct) {
-          const productSlug = slugify(foundProduct.name);
-          navigate(`/product/${productSlug}`, { replace: true });
-          return;
-        }
+    if (!foundProduct && !isNaN(parseInt(slug))) {
+      foundProduct = products.find((p) => p.id === parseInt(slug));
+      if (foundProduct) {
+        navigate(`/product/${slugify(foundProduct.name)}`, { replace: true });
+        return;
       }
     }
 
@@ -72,7 +71,7 @@ const EnhancedProductDetails = () => {
     setQuantity(1);
     setActiveTab('description');
     window.scrollTo(0, 0);
-  }, [id, slug, navigate]);
+  }, [slug, navigate]);
 
   // GSAP entrance
   useEffect(() => {

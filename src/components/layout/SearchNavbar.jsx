@@ -8,7 +8,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SearchOverlay from "../search/SearchOverlay";
 import logoImage from "../../assets/logo.png";
-gsap.registerPlugin(ScrollTrigger);
 
 const SearchNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -246,7 +245,7 @@ const SearchNavbar = () => {
         <AnimatePresence>
           {isMegaMenuOpen && (
             <motion.div
-              className="absolute top-full left-0 w-full bg-dark bg-opacity-95 backdrop-blur-md shadow-lg py-8 hidden lg:block"
+              className="absolute top-full left-0 w-full bg-dark bg-opacity-95 backdrop-blur-md shadow-lg py-8"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -307,7 +306,11 @@ const SearchNavbar = () => {
           >
             <div className="flex flex-col h-full pt-24 px-6 pb-8">
               <div className="flex justify-center mb-8">
-                <img className="h-16" />
+                <img
+                src={logoImage}
+                alt="EmrickScents Logo"
+                className="h-16"
+              />
               </div>
               <nav className="flex flex-col space-y-6 text-center">
                 <Link

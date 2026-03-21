@@ -35,15 +35,7 @@ const EnhancedCart = () => {
     return `₦${price.toLocaleString()}`;
   };
 
-  // Update quantity
-  const updateQuantity = (productId, amount) => {
-    updateCartQuantity(productId, amount);
-  };
-
-  // Remove item
-  const removeItem = (productId) => {
-    removeFromCart(productId);
-  };
+  // Update quantity and remove — call context functions directly
 
   // Handle WhatsApp checkout
   const handleWhatsAppCheckout = () => {
@@ -220,7 +212,7 @@ const EnhancedCart = () => {
                         <div className="flex items-center border border-gray-700 rounded-md">
                           <button
                             onClick={() =>
-                              updateQuantity(item.id, item.quantity - 1)
+                              updateCartQuantity(item.id, item.quantity - 1)
                             }
                             className="px-2 py-1 text-gray-400 hover:text-secondary transition-colors"
                             disabled={item.quantity <= 1}
@@ -232,7 +224,7 @@ const EnhancedCart = () => {
                           </span>
                           <button
                             onClick={() =>
-                              updateQuantity(item.id, item.quantity + 1)
+                              updateCartQuantity(item.id, item.quantity + 1)
                             }
                             className="px-2 py-1 text-gray-400 hover:text-secondary transition-colors"
                             disabled={item.quantity >= 10}
@@ -250,7 +242,7 @@ const EnhancedCart = () => {
                         {formatPrice(item.price * item.quantity)}
                       </span>
                       <button
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => removeFromCart(item.id)}
                         className="text-gray-400 hover:text-red-500 transition-colors"
                         aria-label="Remove item"
                       >
@@ -334,31 +326,7 @@ const EnhancedCart = () => {
                     </div>
                   </div>
 
-                  {/* Original subtotal and totals */}
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Subtotal</span>
-                    <span className="text-light">
-                      ₦{subtotal.toFixed(2)}
-                    </span>{" "}
-                    {/* Changed $ to ₦ */}
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Shipping</span>
-                    <span className="text-light">
-                      ₦{shipping.toFixed(2)}
-                    </span>{" "}
-                    {/* Changed $ to ₦ */}
-                  </div>
-                  <div className="border-t border-gray-800 pt-4 flex justify-between">
-                    <span className="text-light font-medium">Total</span>
-                    <span className="text-secondary font-medium">
-                      ₦{total.toFixed(2)}
-                    </span>{" "}
-                    {/* Changed $ to ₦ */}
-                  </div>
-                </div>
-
-                <div className="space-y-4 mb-6">
+                  {/* Order totals */}
                   <div className="flex justify-between">
                     <span className="text-gray-400">Subtotal</span>
                     <span className="text-light">{formatPrice(subtotal)}</span>

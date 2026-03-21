@@ -1,21 +1,19 @@
-// src/firebase/firebase.js
+// src/Firebase/Firebase.js
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
-// 🔥 Replace with your own Firebase config
+// All values must be set in .env (see .env.example)
 const firebaseConfig = {
-  apiKey: "AIzaSyDj9mGqXqY7Z8Z7X8Y8Z9Y9Z9Y9Z9Y9Z9Y",
-  authDomain: "emrickscents-store.firebaseapp.com",
-  projectId: "emrickscents-store",
-  storageBucket: "emrickscents-store.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abc123def456"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firestore
 const db = getFirestore(app);
 
 export { db };
+export default app;

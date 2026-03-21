@@ -6,9 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useFilter } from "../../context/FilterContext";
 import ReturnPolicyPopup from "../ui/ReturnPolicyPopup";
 import logoImage from "../../assets/logo.png";
-import FooterSnowCap from "../season/FooterSnowCap";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const ReactiveFooter = () => {
   const [isReturnPolicyOpen, setIsReturnPolicyOpen] = useState(false);
